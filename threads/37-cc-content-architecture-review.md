@@ -9,7 +9,9 @@
 
 ## 0. TL;DR
 
-Concuerdo con WC en lo estratégico (Welcome Guide unificado, build propio sobre apps/web). Difiero en orden de ejecución: **Fase 0.5 primero (fix /guia-llegada 404 latente)** + esperar respuestas Alex Q1-Q18 antes de tocar templates. **Tarea 2 BLOCKED** (sin Chrome MCP browser, requiere Alex login interactivo). ETA total ajustado: **80-100h CC en 5-6 semanas** (vs WC 60-80h en 4 semanas). Recomendación final: **proceder, en mi orden** (sección 8).
+Concuerdo con WC en lo estratégico (Welcome Guide unificado, build propio sobre apps/web). Difiero en orden de ejecución: **Fase 0.5 primero (fix /guia-llegada 404 latente)** + esperar respuestas Alex Q1-Q18 antes de tocar templates. ETA total ajustado: **80-100h CC en 5-6 semanas** (vs WC 60-80h en 4 semanas). Recomendación final: **proceder, en mi orden** (sección 8).
+
+**UPDATE 2026-05-13 post-Chrome MCP**: Tarea 2 **DESBLOQUEADA** (Alex activó Chrome MCP). 4 listings AirBnB scrapeados, 815-line knowledge file. Hallazgo importante: AirBnB consolidó UI — solo 3 URLs funcionan por listing (vs 10 que WC esperaba). Resoluciones críticas: servicio Morenas = OPCIONAL $1,000/$1,500 confirmed; equipo RdM = 1 chef + 1 cocinera + 1 mozo confirmed; paquete bodas $1,400 ya en AirBnB Directions (templates Wedding $1,000 outdated). Detalles §2 abajo.
 
 ---
 
@@ -87,28 +89,90 @@ Mostly yes, pero falta Fase 0.5 + reordenar dependencias. Detalle en §6.
 
 ---
 
-## 2. Estado actual campos AirBnB (Tarea 2)
+## 2. Estado actual campos AirBnB (Tarea 2) — ✅ COMPLETO
 
-🚨 **BLOCKED** — Chrome MCP no tiene browser conectado:
+Output: **`knowledge/airbnb-listing-fields-current-2026-05-13.md`** (815 líneas, ~25K chars extraídos via Chrome MCP)
 
-```
-mcp__Claude_in_Chrome__list_connected_browsers → []
-```
+### 2.1 Scope revisado vs WC expectations
 
-Para Tarea 2 necesito Alex's browser session activa con Claude in Chrome extension instalado. Sin eso, NO puedo navegar `airbnb.mx/hosting/listings/editor/{listingId}/{section}` para los 4 listings × 10 campos = 40 fields.
+🟢 **AirBnB consolidó UI desde la última vez que WC checó**. Solo 3 URLs funcionan por listing (vs 10 que WC esperaba):
 
-**Alternativas en orden de preferencia**:
+| URL | Status | Cubre |
+|---|---|---|
+| `/details/title` | ✅ | Title ES + EN |
+| `/details/description` | ✅ | Description + Tu propiedad + Acceso huéspedes + Interacción + Otros detalles (5 sub-fields consolidados) |
+| `/arrival/directions` | ✅ | Cómo llegar + Método llegada + WiFi + Manual + Reglas + Instrucciones salida (6 sub-fields) |
+| `/details/the-space` | ❌ 404 (legacy) | (movido a `/details/description`) |
+| `/details/guest-access` | ❌ 404 (legacy) | (movido) |
+| `/details/other` | ❌ 404 (legacy) | (movido) |
+| `/house-rules` | ❌ 404 (legacy) | (sidebar overview only) |
+| `/amenities` | ❌ 404 (legacy) | (sidebar overview only) |
+| `/arrival/house-manual` | (not tested, likely 404) | (en `/arrival/directions`) |
+| `/arrival/check-in-method` | (not tested, likely 404) | (en `/arrival/directions`) |
 
-1. **(A) Alex Ctrl+S por field** (~2-3h work Alex, 0h CC): Alex abre cada uno de los 40 URLs en su browser logged in, hace `Ctrl+S` → "Página web completa", sube los 40 HTML files a un directorio compartido (Google Drive o tmp folder). Yo parseo con regex.
-2. **(B) Setup Chrome MCP extension en Alex's browser** (~30 min Alex, después CC automatiza). Una vez setup, scraping toma ~1h CC con `mcp__Claude_in_Chrome__navigate` + `read_page` por field.
-3. **(C) AirBnB Listings API** (~4-6h CC research + setup): Alex genera OAuth token AirBnB, CC lee fields via API. Pro: programmable, replicable. Con: AirBnB API permissions complicado, posible que algunos fields (Description, House Manual) no estén en API.
+**40 fields → 12 fetches reales**. Mucho más rápido que estimación inicial.
 
-**Mi vote**: (B) — CC trabajo posterior es muy escalable (puede re-bajar fields cualquier momento future). (A) es más rápido one-shot pero one-shot = problema cuando vuelva a cambiar.
+### 2.2 Resoluciones de inconsistencias detectadas en thread/36
 
-**Output cuando se desbloquee**: `knowledge/airbnb-listing-fields-current-2026-05-13.md` con:
-- 4 propiedades × 10 campos = 40 secciones
-- Comparación side-by-side ES/EN cuando aplique
-- Highlights de qué duplica vs templates / kits
+Tarea 2 resolvió las dudas críticas del §1.2 (Reviews WC):
+
+| Inconsistencia (thread/36 §3) | Verdad operacional confirmada (AirBnB field current) |
+|---|---|
+| Servicio Morenas (incluido vs opcional) | **OPCIONAL** $1,000/noche ≤16 / $1,500/noche >16 (literal del field Directions) |
+| Equipo cocina RdM (1 vs 2 vs 3 cooks) | **1 chef + 1 cocinera + 1 mozo** (RdM Tu propiedad + Directions actuales). Templates EN + Combinada inquiry tienen NÚMEROS WRONG |
+| Reseñas count en templates | AirBnB Descriptions UP-TO-DATE: RdM=168, Morenas=128, Combinada=180+, Huerta=(no menciona). Templates inquiry stale 150-300 |
+| Paquete bodas $1,000 vs $1,400 | **$1,400 confirmed** en AirBnB Directions field. Templates `Paquete Bodas` ES + `Wedding packages English` (que dicen $1,000) deben updatearse |
+| Tienda local "El Güero" / "El Guero" / "La Azucena" | RdM/Morenas/Combinada usan **"El Güero"** (400m). Huerta usa **"La Azucena"** (100m). Son tiendas DISTINTAS por geografía |
+| Clave caja universal "6720" | Confirmed universal todas 4 propiedades. Huerta sí lo declara en Directions field nativo. RdM/Morenas/Combinada solo en templates archivados T-1 |
+
+### 2.3 Hallazgos nuevos (que WC no detectó)
+
+🔴 **Combinada (Dos Villas) está under-developed**:
+- Manual de la casa: **EMPTY**
+- Instrucciones para la salida: **EMPTY**
+- Tu propiedad: contradicción interna ("incluye servicio cocina" + "Opcionalmente, nuestro chef") en mismo párrafo
+- NO existe EN title ni description
+
+🔴 **3/4 propiedades Instrucciones para la salida = EMPTY** (solo Huerta tiene 3 líneas)
+
+🔴 **WiFi networks no documentados completamente para Combinada**:
+- RdM = `rincondelmar` / `rincondelmar`
+- Morenas = `Rincondelmar1` / `Rincondelmar1` (DIFFERENT)
+- Combinada = solo declara `rincondelmar` (RdM's), guests en lado Morenas se quedan sin red
+- Huerta = `rincondelmar` / `rincondelmar`
+
+🟢 **Huerta Manual de la casa** (6 secciones detalladas con proyector, boiler, gas tanks, animales) = **modelo a replicar** a RdM/Morenas/Combinada que están vacíos o brief.
+
+🟡 **Llegada Huerta: 3-8 PM** (ventana cerrada vs otros "3 PM" sin upper bound). Templates T-1 Huerta menciona "hasta las 6 PM" — desync con field (3-8).
+
+🟡 **Cancelación policies asimétricas** entre propiedades:
+- RdM / Combinada: Superestricta de 30 días
+- Morenas: Estricta
+- Huerta: Firme
+
+🟡 **Karina co-host** solo presente en RdM + Morenas + Combinada — NO en Huerta.
+
+🟡 **EN versions parciales**: RdM EN Title (47/50) y Morenas EN Title (29/50) existen. Combinada + Huerta NO tienen EN versions.
+
+### 2.4 Direcciones físicas
+
+- RdM (Marques 17): AirBnB field dice "Marques 17", template T-1 dice "Huatulco 10 (esquina Marques 17)" — probablemente 2 accesos. Decision needed.
+- Morenas: C. Puerto Manzanillo 15
+- Combinada: Nuevo Puerto Márquez 17, Llano Largo (diferente colonia)
+- Huerta: Fuerza Aerea Mexicana 404
+
+### 2.5 Acciones derivadas de Tarea 2
+
+Para Fase 1 cleanup templates AirBnB (post Alex Q&A):
+
+1. Fix templates `3 - Morenas` + `3a Morenas english` + `3b Morenas más 16` clarificando servicio OPCIONAL $1,000/$1,500
+2. Update reseñas count en templates inquiry (sync con D1 actual)
+3. Update paquete bodas $1,000 → $1,400 en `Paquete Bodas` ES + `Wedding packages English`
+4. Llenar Combinada Manual de la casa + Instrucciones para la salida
+5. Documentar 2 WiFi networks en Combinada Manual
+6. Replicar Huerta-style detailed Manual a RdM/Morenas/Combinada
+
+Ver knowledge file §5 "Next steps" para lista completa.
 
 ---
 
@@ -473,10 +537,10 @@ vs WC original 60-80h CC + ~8-10h Alex en 4 sem. Mi estimate es +30% en time + 1
 |---|---|---|
 | Q-A1 | ¿Verdad operacional servicio Morenas: incluido o opcional $1,000? (cf Q4 thread/36 sec 10) | Refactor Morenas templates + Welcome Guide #servicios |
 | Q-A2 | ¿Precio bodas $1,400 final + update AirBnB templates inmediato? (cf Q5) | Refactor wedding templates + /eventos page |
-| Q-A3 | ¿Tarea 2 approach: Ctrl+S manual, Chrome MCP setup, o AirBnB OAuth API? | Bajar 40 fields actuales |
+| ~~Q-A3~~ | ~~Tarea 2 approach~~ | ✅ RESUELTO: Chrome MCP setup elegido + ejecutado. Output `knowledge/airbnb-listing-fields-current-2026-05-13.md` |
 | Q-A4 | ¿Welcome Guide auth split público/privado per mi propuesta §5.5, o todo público? | Architecture /welcome vs /mi-estancia/welcome |
 | Q-A5 | ¿Datos terceros (Celene, Michel, etc.) consentimientos firmados o NO publicar tels en Welcome Guide? | Decidir si publicamos contactos vs single point Karina |
-| Q-A6 | ¿Equipo cocina RdM real: 1 cocinera o 2 cooks o 3 cocineros? (inconsistencia 3.12) | Update templates + Welcome Guide content |
+| ~~Q-A6~~ | ~~Equipo cocina RdM~~ | ✅ RESUELTO via Tarea 2: **1 chef + 1 cocinera + 1 mozo** (RdM "Tu propiedad" + Directions). Templates EN + Combinada inquiry tienen números WRONG, fixar en Fase 1 |
 | Q-A7 | Footer interno `--> rincondelasmorenas / --> rincondelmar` ¿se manda al guest o se borra antes? (Q1 thread/36) | Refactor templates |
 | Q-A8 | Clave caja "6720" ¿rotamos per booking en Phase 2 o seguimos universal por simplicidad? | Diseño /mi-estancia/welcome auth-gated section |
 
@@ -540,6 +604,6 @@ Si confirmas, arranco Fase 0.5 immediate (30 min) en cuanto digas "go". Y mando 
 - `knowledge/whatsapp-kits-current-2026-05-13.md` — 3 kits
 - `knowledge/apps-web-inventory-2026-05-13.md` — CC inventory (sibling de este thread)
 - `cc-instructions/2026-05-13-review-content-architecture-proposal.md` — task instrucciones
-- (pending) `knowledge/airbnb-listing-fields-current-2026-05-13.md` — Tarea 2 BLOCKED
+- `knowledge/airbnb-listing-fields-current-2026-05-13.md` — ✅ Tarea 2 completa (815 líneas, via Chrome MCP)
 
 — Claude Code (CLI), 2026-05-13
