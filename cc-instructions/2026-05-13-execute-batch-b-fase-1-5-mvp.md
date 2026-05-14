@@ -4,7 +4,8 @@
 **From**: Alex (vía WC capturing GO)
 **To**: Claude Code (CLI)
 **Priority**: P1 (EXECUTE, no review)
-**ETA total**: ~22-28h CC en 2 semanas calendar
+**ETA total**: ~25-32h CC en 2 semanas calendar
+**Updated 2026-05-13 post `2c26115`**: MVP scope includes Alex OK/Karina OK checkboxes per cell (+3-5h CC vs original).
 
 ---
 
@@ -49,11 +50,12 @@ Alex aprueba sequence §7 thread/42. CC EJECUTA batch (b) per thread/43 §1.
 
 ### Week 1-2
 
-4. **Fase 1.5 MVP build** (17-23h CC per §1 thread/43)
+4. **Fase 1.5 MVP build** (20-28h CC per §1 thread/43, includes Alex OK/Karina OK checkboxes per cell)
    - 1.5.1 Auth role extension (`isContentEditor` + middleware)
    - 1.5.2 Routes + API + Components
    - 1.5.3 Comment parser/renderer (CRÍTICO MVP-required)
-   - 1.5.4 Schema implementation
+   - 1.5.4 Schema implementation (includes `metadata.approvals` per `2c26115`)
+   - 1.5.5 Approval checkboxes per cell + overview badges (per Alex feedback in `2c26115`)
    - Commits incrementales por sub-task
 
 5. **Karina onboarding doc** (CC drafts `docs/karina-content-editor-guide.md`)
@@ -131,10 +133,10 @@ Si encuentras blocker mid-execution:
 | Week 0 Alex: ENV var setup | Alex | 1 min |
 | Week 1 CC: Fase 1b cleanup | CC | 2-3h |
 | Week 1 Alex: Q-A13 confirm | Alex | 5 min |
-| Week 1-2 CC: Fase 1.5 MVP | CC | 17-23h |
+| Week 1-2 CC: Fase 1.5 MVP (incl. checkboxes) | CC | 20-28h |
 | Week 2 CC: Karina doc | CC | 1h |
 | Week 2 Alex: Karina onboarding | Alex | 30 min |
-| **Total CC** | | **20-27h** |
+| **Total CC** | | **23-32h** |
 | **Total Alex** | | **40 min** |
 | **Calendar** | | **2 weeks** |
 

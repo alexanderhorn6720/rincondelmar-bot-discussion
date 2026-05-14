@@ -48,7 +48,18 @@ Después del MVP del editor live + Alex+Karina drafting started, joint review pa
 
 **NO eliminar**: clave caja "6720" universal (Alex Q-A8 confirma mantener).
 
-### Week 1-2 — Fase 1.5 Content editor MVP (CC 17-23h)
+### Week 1-2 — Fase 1.5 Content editor MVP (CC 20-28h, includes approval checkboxes per cell)
+
+**Updated post thread/42 commit `2c26115`**: Alex propuso (mientras WC redactaba thread/43) checkboxes "Alex OK" + "Karina OK" per cell. CC ya capturó en thread/42 §3.1.1. MVP scope incluye day-1:
+- Per cell: 2 checkboxes + timestamps near Save button
+- Auto-uncheck on content edit (approvals reset cuando content cambia)
+- Permission: solo email dueño puede toggle el suyo
+- Persist immediate (toggle = R2 PUT, no save separado)
+- Overview grid badges 🟢 ✓✓ / 🟡 ✓· / 🔴 ·· / ⚠️ EMPTY
+- Deploy gate: requires `alex_ok=true` (karina_ok informational)
+- Schema: `metadata.approvals: { alex_ok, alex_ok_at, karina_ok, karina_ok_at }`
+
+ETA additional checkboxes: +3-5h CC dentro del MVP (no defer polish).
 
 **Task 1.5.1**: Auth role extension (0.5-1h CC)
 - Extend `apps/web/src/lib/admin.ts`:
