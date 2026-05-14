@@ -203,11 +203,80 @@ WC mention SMS si email Karina no confiable. Per Q-A12 confirmado email funciona
 
 ### 3.1 🟡 Concurrent edits Alex + Karina
 
-Scenario: Alex edita `tu-propiedad` RdM ES en su laptop a las 14:00:00. Karina edita SAME field a las 14:00:30 desde su tablet. Both save before they see each other's changes.
+Dos riesgos distintos, dos soluciones complementarias:
 
-Sin locking: last-write-wins. Karina's save sobreescribe Alex's. Alex no se da cuenta hasta refresh.
+#### 3.1.1 Approval workflow per-cell (Alex propuesta — MVP)
 
-**Mitigation propuesta**: optimistic concurrency via R2 ETag.
+Alex's idea (post-thread/42 v1): **checkboxes "Alex OK" + "Karina OK" al lado de Save button** per cell. Visual signal de quién revisó qué versión.
+
+UI mockup:
+
+```
+┌────────────────────────────────────────────────────────┐
+│ Tu propiedad — Rincón del Mar (ES)         2,156/2500 │
+├────────────────────────────────────────────────────────┤
+│ Villa completa con acceso directo a la playa,         │
+│ diseñada por un arquitecto mexicano de renombre...    │
+│ [...]                                                  │
+│                                                        │
+├────────────────────────────────────────────────────────┤
+│ ☑ Alex OK    ☐ Karina OK    [Save]    [Diff vs live] │
+│   2 min ago      pending                              │
+└────────────────────────────────────────────────────────┘
+```
+
+Behavior:
+- **Permission per checkbox**: solo Alex puede toggle "Alex OK", solo Karina puede toggle "Karina OK". UI grays out the other (button disabled).
+- **Auto-uncheck on edit**: si content cambia (textarea modified), AMBOS checkboxes automatic uncheck (since prior approvals son stale para new content). Visual flash: "Approvals reset, requiere re-review".
+- **Persist immediate**: toggle checkbox = R2 PUT immediate (no separate save needed for checkboxes).
+- **Timestamp**: cada toggle records `approved_at` ISO timestamp + `approved_by_email`.
+
+Schema addition:
+
+```typescript
+// metadata extension
+metadata: {
+  approvals: {
+    alex_ok: boolean;
+    alex_ok_at: string | null;       // ISO 8601
+    karina_ok: boolean;
+    karina_ok_at: string | null;
+  };
+  // ... otros existing fields
+}
+```
+
+Display en overview `/admin/airbnb-content`:
+
+```
+┌─────────────────────────────────────────────┐
+│  Tu propiedad                                │
+├──────────┬──────────┬──────────┬────────────┤
+│ RdM      │ Morenas  │ Combinada│ Huerta     │
+│ 🟢 ✓✓   │ 🟡 ✓·   │ 🔴 ··    │ 🟢 ✓✓     │
+│ 1.5K/2K │ 1.8K/2K │ EMPTY    │ 2.1K/2K    │
+└──────────┴──────────┴──────────┴────────────┘
+```
+
+- 🟢 ✓✓ = both approved (ready for CC write-back)
+- 🟡 ✓· = solo uno approved (waiting otro)
+- 🟡 ·✓ = same idea, otro orden
+- 🔴 ·· = neither approved
+- ⚠️ EMPTY = field sin contenido todavía
+
+**Deploy gate**: CC write-back via Chrome MCP requires `alex_ok = true`. `karina_ok` is INFORMATIONAL ONLY (Alex es final authority). Karina checkbox helps coordinar workflow ("Karina vio + ok mi turno") sin ser blocker técnico.
+
+**ETA**: ~2-3h CC adicional al MVP (incluye schema, UI checkboxes, permission logic, auto-uncheck, overview badges).
+
+#### 3.1.2 Optimistic concurrency ETag (defensiva, polish)
+
+Scenario complementario: Alex edita `tu-propiedad` RdM ES 14:00:00 en laptop. Karina edita SAME field 14:00:30 en tablet. Both save before seeing each other's changes (race < 30s).
+
+Sin ETag: last-write-wins. Karina's save sobreescribe Alex's. Alex no se da cuenta hasta refresh.
+
+Approval checkboxes §3.1.1 NO previenen este race: Alex's content perdido aunque su checkbox esté OK.
+
+**Mitigation defensiva**: optimistic concurrency via R2 ETag.
 
 ```typescript
 // On editor load:
@@ -227,7 +296,16 @@ if (result.status === 412) {
 }
 ```
 
-ETA: 1-2h CC (Cloudflare R2 supports `If-Match` natively). Recomendado para Fase 1.5 polish (no MVP day-1 si presión time).
+ETA: 1-2h CC adicional. **Recomendado para Fase 1.5 polish** (post-MVP) porque race window < 30s improbable en práctica con 2 personas + checkboxes signaling.
+
+#### 3.1.3 Combined approach
+
+| Capa | Solución | Cuando | ETA |
+|---|---|---|---|
+| Workflow async ("¿lo viste?") | Checkboxes Alex OK / Karina OK | **MVP day 1** | 2-3h |
+| Workflow sync (race < 30s) | ETag optimistic concurrency | Polish post-MVP | 1-2h |
+
+Together: **3-5h CC** total para concurrency robustness completo.
 
 ### 3.2 🟡 Comment convention parser + auto-strip
 
@@ -309,24 +387,28 @@ ETA: 3-4h CC. **Defer Fase 2.5b** (no bloquea Fase 2 MVP que usa photos placehol
 
 | Component | MVP | + Polish |
 |---|---|---|
-| Auth role extension | 0.5-1h | — |
+| Auth role extension (`isContentEditor`) | 0.5-1h | — |
 | Routes `/admin/airbnb-content/*` | 6-8h | — |
 | ContentCell + ContentField components | 4-5h | — |
 | API endpoints CRUD R2 | 3-4h | — |
-| Storage helper | 1-2h | — |
-| Comment convention parser/render | 2-3h | — |
+| Storage helper (`welcome-storage.ts` sibling) | 1-2h | — |
+| Comment convention parser/render (`[para Alex]` + `{open:}`) | 2-3h | — |
+| **Approval checkboxes Alex OK / Karina OK** (§3.1.1) | **2-3h** | — |
+| Overview badges grid (32 cells status) | 1-2h | — |
 | Diff view (current AirBnB vs draft) | — | +3-4h |
-| Optimistic concurrency (ETag) | — | +1-2h |
+| Optimistic concurrency (ETag, §3.1.2) | — | +1-2h |
 | Audit log | — | +2h |
 | Drift detection cron | — | +2-3h |
-| **Subtotal** | **17-23h** | **+8-11h** |
-| **Total Fase 1.5 completo** | | **25-34h** |
+| **Subtotal** | **20-28h** | **+8-11h** |
+| **Total Fase 1.5 completo** | | **28-39h** |
 
-WC's 15-20h is **optimistic, MVP only without comment parser**.
+WC's 15-20h is **optimistic, MVP only without comment parser y sin checkboxes**.
 
-CC realistic:
-- **MVP**: 17-23h ← required to unblock Karina
+CC realistic with Alex's checkbox addition:
+- **MVP**: 20-28h ← required to unblock Karina
 - **+Polish**: +8-11h (Week 5-6 después de drafting comenzado)
+
+Trade-off accepted: +3-5h MVP por checkboxes pero gana approval workflow visual desde day 1 (vs WC plan que NO tenía approval mechanism — solo `status: approved_alex` flag implícito sin UI clara).
 
 ---
 
@@ -488,12 +570,14 @@ Week 1
 └── CC start Fase 1.5 build
 
 Week 1-2
-└── Fase 1.5 Content editor MVP (CC 17-23h)
+└── Fase 1.5 Content editor MVP (CC 20-28h)
     ├── /admin/airbnb-content/* routes
     ├── Schema §5 thread/39 + ajustes §6 above
     ├── R2 storage prefix airbnb-content/
     ├── Auth Better Auth + isContentEditor helper (Karina email-only)
     ├── Comment convention parser/render
+    ├── **Approval checkboxes Alex OK / Karina OK per cell** (§3.1.1)
+    ├── Overview badges grid (32 cells status display)
     └── Save → R2 + git commit (defer git si complica)
 
 Week 2-3
@@ -538,16 +622,16 @@ Week 8-9
 |---|---|---|
 | Fase 0.5 | 0.5h | 0.5h |
 | Fase 1b cleanup | 2-3h | 2-3h |
-| Fase 1.5 MVP | — | 17-23h |
+| Fase 1.5 MVP (con checkboxes Alex/Karina) | — | 20-28h |
 | Fase 1.5 polish | — | 8-11h |
 | CC write-back AirBnB | — | 2-3h |
 | Fase 2 Welcome Guide | 40-57h | 30-40h |
 | Fase 3 refactor | 14-21h | 14-21h |
 | Phase B.1 welcome | 18-22h | 18-22h |
 | Fase 2.5b Photos (opcional) | — | 3-4h |
-| **Total** | **74-103h** | **94-127h** |
+| **Total** | **74-103h** | **97-131h** |
 
-Net: **+20-24h CC vs plan original** (75-100h → 95-130h). Trade-off por:
+Net: **+23-28h CC vs plan original** (75-100h → 97-131h). Trade-off por:
 - Karina paraleliza drafting (saves Alex bottleneck weeks 2-3)
 - AirBnB cleanup acelerado week 3 vs week 5 (biz value 2 sem antes)
 - Schema validated early (avoid retrabajo Fase 2)
