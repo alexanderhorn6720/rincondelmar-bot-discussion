@@ -20,19 +20,17 @@
     },
     "deployed_to_airbnb": false,
     "deployed_at": null,
-    "pending_decisions": [
-      {
-        "field": "all",
-        "question": "Huerta AirBnB listing currently has NO EN version (only ES). Confirm: do we create EN listing variant in AirBnB?",
-        "added_by": "wc",
-        "added_at": "2026-05-14T02:48:11Z"
-      }
-    ],
+    "pending_decisions": [],
     "changelog": [
       {
         "at": "2026-05-14T02:48:11Z",
         "by": "wc",
         "summary": "Initial draft Huerta EN — NEW (AirBnB Huerta had no EN version)."
+      },
+      {
+        "at": "2026-05-14T02:59:52Z",
+        "by": "wc",
+        "summary": "Alex 2026-05-14: confirmado SÍ crear EN listing en AirBnB. Draft EN ready for deploy."
       }
     ]
   },
