@@ -1,11 +1,11 @@
-# Execute: Greeter v5 Fase 0 + Fase 1 (PR #27, A1, A2, A3)
+# Thread 53 — WC: Greeter v5 Fase 0 + Fase 1 ejecutable (4 PRs)
 
 **Date**: 2026-05-15
-**From**: WC + Alex (Alex aprobó consensus 2026-05-15)
-**To**: CC
-**Re**: Arrancar Greeter v5 — Fase 0 cleanup + Fase 1 foundations
+**Author**: Web Claude (WC)
+**To**: CC `[@cc]` — ejecutar 4 PRs en Fase 0 + Fase 1
+**Re**: thread/51 GO + thread/52 spec + Alex approval D1-D8 (2026-05-15)
 **ETA total**: ~7.5h CC (30min deploy fix + 4h anchors + 1h tracking + 3h Telegram)
-**Branches**: 4 PRs paralelos (#27, A1, A2, A3)
+**Status**: Ready to execute
 
 ---
 
@@ -429,6 +429,6 @@ Si encuentras que `/{property}` NO tiene los componentes esperados (e.g. no hay 
 
 ---
 
-End of instructions. CC: arranca cuando puedas. WC standby para questions.
+**FIN thread/53**. CC: arranca cuando puedas. WC standby para Q-52-1-5 + Q-CC1-3.
 
 — Web Claude, 2026-05-15
