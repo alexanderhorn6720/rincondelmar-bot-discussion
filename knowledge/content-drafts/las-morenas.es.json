@@ -31,6 +31,11 @@
         "at": "2026-05-14T02:59:52Z",
         "by": "wc",
         "summary": "Alex 2026-05-14: agregada URL ubicación Morenas en como_llegar §1: https://maps.app.goo.gl/eFfzFhHaRgGfSUMA7"
+      },
+      {
+        "at": "2026-05-15T14:47:19.054941+00:00",
+        "by": "wc",
+        "summary": "Pet policy update per Alex Q-56-1 decision 2026-05-15: $300 MXN/noche, max 2 mascotas. Updated fields: tu_propiedad, otros_detalles"
       }
     ]
   },
@@ -52,9 +57,9 @@
     "tu_propiedad": {
       "max_chars": 2500,
       "format": "limited_markdown",
-      "content": "Da un paso y el mar ya está ahí. Imagínalo: abres la puerta de Villa Rincón de las Morenas y al fondo del pasillo, entre palmeras, el agua turquesa de la alberca te da la bienvenida — con el océano Pacífico apenas 50 metros más allá. Esa imagen lo dice todo.\n\nEsta villa fue diseñada por un arquitecto mexicano de renombre para grupos que quieren disfrutar juntos sin sacrificar comodidad. Todo el espacio fluye: la alberca de 11×5 m, la terraza palapa-bar, el amplio comedor y la sala se conectan en un solo ambiente abierto donde la brisa del mar corre libre todo el día.\n\n¿Para quién es esta villa?\nPerfecta para reuniones familiares grandes, grupos de amigos, retiros corporativos, cumpleaños o bodas íntimas en la playa. Con 6 habitaciones y capacidad para hasta 30 personas, es uno de los pocos lugares en Acapulco donde todos pueden quedarse bajo el mismo techo.\n\nLo que incluye:\n🏖️ Acceso directo a la playa a 50 m\n🏊 Alberca privada 11×5 m + chapoteadero 4×3 m\n🛏️ 6 habitaciones con A/C, ventilador, WiFi, clóset y baño\n🌊 Vista al mar desde la habitación principal\n🏄 Apoyo en renta de yates, camionetas, excursiones, buceo\n🐾 Se aceptan mascotas\n\n🍳 Servicio de chef OPCIONAL — el toque que lo cambia todo:\n— $1,000/noche para ≤16 huéspedes (2 cocineras preparan los 3 alimentos, hacen compras antes de tu llegada y mantienen limpia la villa)\n— $1,500/noche para 17-30 huéspedes (3 personas + mozo)\nEl día de salida no se cobra. Reserva con anticipación.\n\n🛒 Compras de víveres: cargo por transporte y servicio 5%, mín $450 MXN.\n\nHabitaciones:\n🛏️ Hab. 1 — 3 personas · king + individual · 🌊 vista al mar\n🛏️ Hab. 2 — 7 personas · 3 matrimoniales + 2 individuales · 🌊 vista al mar\n🛏️ Hab. 3 — 4 personas · 2 matrimoniales\n🛏️ Hab. 4 — 4 personas · 3 matrimoniales + 1 individual\n🛏️ Hab. 5 — 4 personas · 2 matrimoniales\n🛏️ Hab. 6 — 8 personas · 2 matrimoniales\n\n¿Necesitan más de 30 personas? Villa Rincón del Mar a unos pasos, directamente sobre la playa, con 6 habitaciones adicionales. Coordinamos todo.\n\nMás de 128 reseñas y ⭐ 4.8: Villa Rincón de las Morenas, punto de encuentro favorito de familias y grupos en la costa del Pacífico.",
-      "char_count": 2141,
-      "wc_notes": "Q-A1 servicio chef OPCIONAL declarado con precios concretos ($1,000/$1,500), 'día salida no se cobra'. Agregué cargo víveres 5%/$450 (transparencia). Mantuve cross-sell RdM para grupos >30."
+      "content": "Da un paso y el mar ya está ahí. Imagínalo: abres la puerta de Villa Rincón de las Morenas y al fondo del pasillo, entre palmeras, el agua turquesa de la alberca te da la bienvenida — con el océano Pacífico apenas 50 metros más allá. Esa imagen lo dice todo.\n\nEsta villa fue diseñada por un arquitecto mexicano de renombre para grupos que quieren disfrutar juntos sin sacrificar comodidad. Todo el espacio fluye: la alberca de 11×5 m, la terraza palapa-bar, el amplio comedor y la sala se conectan en un solo ambiente abierto donde la brisa del mar corre libre todo el día.\n\n¿Para quién es esta villa?\nPerfecta para reuniones familiares grandes, grupos de amigos, retiros corporativos, cumpleaños o bodas íntimas en la playa. Con 6 habitaciones y capacidad para hasta 30 personas, es uno de los pocos lugares en Acapulco donde todos pueden quedarse bajo el mismo techo.\n\nLo que incluye:\n🏖️ Acceso directo a la playa a 50 m\n🏊 Alberca privada 11×5 m + chapoteadero 4×3 m\n🛏️ 6 habitaciones con A/C, ventilador, WiFi, clóset y baño\n🌊 Vista al mar desde la habitación principal\n🏄 Apoyo en renta de yates, camionetas, excursiones, buceo\n🐾 Mascotas bienvenidas ($300 MXN/noche, máx. 2)\n\n🍳 Servicio de chef OPCIONAL — el toque que lo cambia todo:\n— $1,000/noche para ≤16 huéspedes (2 cocineras preparan los 3 alimentos, hacen compras antes de tu llegada y mantienen limpia la villa)\n— $1,500/noche para 17-30 huéspedes (3 personas + mozo)\nEl día de salida no se cobra. Reserva con anticipación.\n\n🛒 Compras de víveres: cargo por transporte y servicio 5%, mín $450 MXN.\n\nHabitaciones:\n🛏️ Hab. 1 — 3 personas · king + individual · 🌊 vista al mar\n🛏️ Hab. 2 — 7 personas · 3 matrimoniales + 2 individuales · 🌊 vista al mar\n🛏️ Hab. 3 — 4 personas · 2 matrimoniales\n🛏️ Hab. 4 — 4 personas · 3 matrimoniales + 1 individual\n🛏️ Hab. 5 — 4 personas · 2 matrimoniales\n🛏️ Hab. 6 — 8 personas · 2 matrimoniales\n\n¿Necesitan más de 30 personas? Villa Rincón del Mar a unos pasos, directamente sobre la playa, con 6 habitaciones adicionales. Coordinamos todo.\n\nMás de 128 reseñas y ⭐ 4.8: Villa Rincón de las Morenas, punto de encuentro favorito de familias y grupos en la costa del Pacífico.",
+      "char_count": 2167,
+      "wc_notes": "Q-A1 servicio chef OPCIONAL declarado con precios concretos ($1,000/$1,500), 'día salida no se cobra'. Agregué cargo víveres 5%/$450 (transparencia). Mantuve cross-sell RdM para grupos >30. | Updated 2026-05-15: pet policy → $300/noche max 2 per Alex Q-56-1 decision."
     },
     "acceso_huespedes": {
       "max_chars": 1000,
@@ -73,9 +78,9 @@
     "otros_detalles": {
       "max_chars": 1000,
       "format": "plain_text",
-      "content": "Villa en zona tranquila a 35 min del aeropuerto de Acapulco, alejada del bullicio. Playa Barra de Coyuca a 50 metros, alberca privada con chapoteadero. Aceptamos grupos familiares, parejas y eventos privados con previa coordinación. Mascotas bienvenidas (avisar al reservar). Estancia mínima 2 noches; fines de semana pueden requerir 3.",
-      "char_count": 336,
-      "wc_notes": "Field EMPTY actual — drafté nuevo."
+      "content": "Villa en zona tranquila a 35 min del aeropuerto de Acapulco, alejada del bullicio. Playa Barra de Coyuca a 50 metros, alberca privada con chapoteadero. Aceptamos grupos familiares, parejas y eventos privados con previa coordinación. Mascotas bienvenidas: $300 MXN/noche, máximo 2 (avisar al reservar). Estancia mínima 2 noches; fines de semana pueden requerir 3.",
+      "char_count": 362,
+      "wc_notes": "Field EMPTY actual — drafté nuevo. | Updated 2026-05-15: pet policy → $300/noche max 2 per Alex Q-56-1 decision."
     },
     "como_llegar": {
       "max_chars": 5000,

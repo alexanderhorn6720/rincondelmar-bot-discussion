@@ -34,6 +34,11 @@
         "at": "2026-05-14T03:00:00Z",
         "by": "wc",
         "summary": "Alex 2026-05-14 IMPORTANT correction: restauré TODOS los contactos de terceros en como_llegar (9 transportes CDMX + masajes Michel + AcaScuba + yates + Daribel + tortugas + Memo temazcal + restaurantes + Sandra ceremonias + DJ + 3 mariachis + 3 pasteleros + Danilo + Brian + Belushama + 2 padres). NO violan policy AirBnB porque son recomendaciones a terceros (no promoción propio canal). Aplicado pulido menor: tildes, formato, 'Su' → 'tu' consistencia. tu_propiedad: cargo víveres se queda."
+      },
+      {
+        "at": "2026-05-15T14:47:19.054941+00:00",
+        "by": "wc",
+        "summary": "Pet policy update per Alex Q-56-1 decision 2026-05-15: $300 MXN/noche, max 2 mascotas. Updated fields: otros_detalles"
       }
     ]
   },
@@ -78,9 +83,9 @@
     "otros_detalles": {
       "max_chars": 1000,
       "format": "plain_text",
-      "content": "Villa ubicada en zona tranquila a 35 min del aeropuerto de Acapulco, alejada del bullicio de la bahía. Acceso directo a la playa, alberca infinita frente al océano. Aceptamos grupos familiares, parejas y eventos privados con previa coordinación. Mascotas bienvenidas (avisar al reservar). Estancia mínima 2 noches; fines de semana pueden requerir 3.",
-      "char_count": 348,
-      "wc_notes": "Field EMPTY en actual. Drafté contenido con: (1) ubicación contexto + tiempo aeropuerto; (2) 'alejada del bullicio' (NO 'inseguridad' per thread/36); (3) tipos de grupos aceptados; (4) mascotas y min stay. {open: ¿confirmas mascotas en RdM? Memoria proyecto dice 'todas las propiedades aceptan' pero pet fee inconsistente ($250 flat RdM vs $300/pet Huerta). ¿Estancia mínima 2 noches correcto?}"
+      "content": "Villa ubicada en zona tranquila a 35 min del aeropuerto de Acapulco, alejada del bullicio de la bahía. Acceso directo a la playa, alberca infinita frente al océano. Aceptamos grupos familiares, parejas y eventos privados con previa coordinación. Mascotas bienvenidas: $300 MXN/noche, máximo 2 (avisar al reservar). Estancia mínima 2 noches; fines de semana pueden requerir 3.",
+      "char_count": 375,
+      "wc_notes": "Field EMPTY en actual. Drafté contenido con: (1) ubicación contexto + tiempo aeropuerto; (2) 'alejada del bullicio' (NO 'inseguridad' per thread/36); (3) tipos de grupos aceptados; (4) mascotas y min stay. {open: ¿confirmas mascotas en RdM? Memoria proyecto dice 'todas las propiedades aceptan' pero pet fee inconsistente ($250 flat RdM vs $300/pet Huerta). ¿Estancia mínima 2 noches correcto?} | Updated 2026-05-15: pet policy → $300/noche max 2 per Alex Q-56-1 decision."
     },
     "como_llegar": {
       "max_chars": 5000,

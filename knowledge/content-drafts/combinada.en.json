@@ -31,6 +31,11 @@
         "at": "2026-05-14T02:59:52Z",
         "by": "wc",
         "summary": "Alex 2026-05-14: confirmado SÍ crear EN listing en AirBnB. Draft EN ready for deploy."
+      },
+      {
+        "at": "2026-05-15T14:47:19.054941+00:00",
+        "by": "wc",
+        "summary": "Pet policy update per Alex Q-56-1 decision 2026-05-15: $300 MXN/noche, max 2 mascotas. Updated fields: otros_detalles"
       }
     ]
   },
@@ -73,9 +78,9 @@
     "otros_detalles": {
       "max_chars": 1000,
       "format": "plain_text",
-      "content": "Two beachfront villas 70 meters apart, ideal for groups of 30-58 people. For larger groups message us for personalized proposal. 35 min from airport, away from the bustle. Pets welcome. 2-night minimum; weekends may require 3.",
-      "char_count": 226,
-      "wc_notes": "EN translation."
+      "content": "Two beachfront villas 70 meters apart, ideal for groups of 30-58 people. For larger groups message us for personalized proposal. 35 min from airport, away from the bustle. Pets welcome ($300 MXN/night, max 2). 2-night minimum; weekends may require 3.",
+      "char_count": 250,
+      "wc_notes": "EN translation. | Updated 2026-05-15: pet policy → $300/noche max 2 per Alex Q-56-1 decision."
     },
     "como_llegar": {
       "max_chars": 5000,

@@ -26,6 +26,11 @@
         "at": "2026-05-14T02:48:11Z",
         "by": "wc",
         "summary": "Initial draft RdM EN — direct translation from ES committed in b43b6b8."
+      },
+      {
+        "at": "2026-05-15T14:47:19.054941+00:00",
+        "by": "wc",
+        "summary": "Pet policy update per Alex Q-56-1 decision 2026-05-15: $300 MXN/noche, max 2 mascotas. Updated fields: none (no pet mentions)"
       }
     ]
   },
@@ -68,9 +73,9 @@
     "otros_detalles": {
       "max_chars": 1000,
       "format": "plain_text",
-      "content": "Villa in a quiet area 35 min from Acapulco airport, away from the bay bustle. Direct beach access, infinity pool facing the ocean. We accept family groups, couples and private events with prior coordination. Pets welcome (notify when booking). 2-night minimum; weekends may require 3.",
-      "char_count": 284,
-      "wc_notes": "EN translation."
+      "content": "Villa in a quiet area 35 min from Acapulco airport, away from the bay bustle. Direct beach access, infinity pool facing the ocean. We accept family groups, couples and private events with prior coordination. Pets welcome: $300 MXN/night, max 2 (notify when booking). 2-night minimum; weekends may require 3.",
+      "char_count": 307,
+      "wc_notes": "EN translation. | Updated 2026-05-15: pet policy → $300/noche max 2 per Alex Q-56-1."
     },
     "como_llegar": {
       "max_chars": 5000,

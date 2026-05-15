@@ -26,6 +26,11 @@
         "at": "2026-05-14T02:44:55Z",
         "by": "wc",
         "summary": "Initial draft Huerta ES — único listing con Manual y Otros detalles existentes (los usé como base). Estructura como_llegar más corta vs otros (huerta es independiente). 2 habitaciones (no 4) per listing actual."
+      },
+      {
+        "at": "2026-05-15T14:47:19.054941+00:00",
+        "by": "wc",
+        "summary": "Pet policy update per Alex Q-56-1 decision 2026-05-15: $300 MXN/noche, max 2 mascotas. Updated fields: none (no pet mentions)"
       }
     ]
   },
@@ -68,9 +73,9 @@
     "otros_detalles": {
       "max_chars": 1000,
       "format": "plain_text",
-      "content": "La huerta está situada sobre la Barra de Coyuca, una franja arenosa entre el mar y la laguna de Coyuca. La zona es un paraíso natural — flora y fauna de los manglares, enramadas con platillos de mariscos y mucho lugar para bañarse. Hay tours en lancha para descubrir la laguna y la misteriosa 'Isla de las Siete Mujeres', donde te espera hasta un cocodrilo. Si te gustan los deportes acuáticos, puedes practicar esquí acuático o un partido de vóley o futbol en la playa.",
-      "char_count": 470,
-      "wc_notes": "Pulí ortografía vs original ('flora y fauna de SUS manglares' → 'de los manglares')."
+      "content": "La huerta está situada sobre la Barra de Coyuca, una franja arenosa entre el mar y la laguna de Coyuca. La zona es un paraíso natural — flora y fauna de los manglares, enramadas con platillos de mariscos y mucho lugar para bañarse. Hay tours en lancha para descubrir la laguna y la misteriosa 'Isla de las Siete Mujeres', donde te espera hasta un cocodrilo. Si te gustan los deportes acuáticos, puedes practicar esquí acuático o un partido de vóley o futbol en la playa.\n\nMascotas bienvenidas: $300 MXN/noche, máximo 2 (avisar al reservar). En la huerta tenemos chivos, borregos y a \"La Prieta\" — perra adoptada muy mansa. Si tu mascota no se lleva bien con otros animales, te pedimos mantenerla en correa o dentro de la casa.",
+      "char_count": 726,
+      "wc_notes": "Pulí ortografía vs original ('flora y fauna de SUS manglares' → 'de los manglares'). | Pet policy line added 2026-05-15 (Q-56-1)."
     },
     "como_llegar": {
       "max_chars": 5000,

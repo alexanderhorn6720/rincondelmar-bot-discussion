@@ -31,6 +31,11 @@
         "at": "2026-05-14T02:59:52Z",
         "by": "wc",
         "summary": "Alex 2026-05-14: added Morenas location URL: https://maps.app.goo.gl/eFfzFhHaRgGfSUMA7"
+      },
+      {
+        "at": "2026-05-15T14:47:19.054941+00:00",
+        "by": "wc",
+        "summary": "Pet policy update per Alex Q-56-1 decision 2026-05-15: $300 MXN/noche, max 2 mascotas. Updated fields: tu_propiedad"
       }
     ]
   },
@@ -52,9 +57,9 @@
     "tu_propiedad": {
       "max_chars": 2500,
       "format": "limited_markdown",
-      "content": "Take a step and the sea is already there. Picture it: you open the door of Villa Rincón de las Morenas and at the end of the hallway, between palm trees, the turquoise pool water welcomes you — with the Pacific Ocean just 50 meters beyond. That image says it all.\n\nThis villa was designed by a renowned Mexican architect for groups who want to enjoy together without sacrificing comfort. The whole space flows: the 11×5 m pool, the palapa-bar terrace, the spacious dining room and living room connect in a single open environment where the sea breeze runs free all day.\n\nWho is this villa for?\nPerfect for large family gatherings, groups of friends, corporate retreats, birthdays or intimate beach weddings. With 6 bedrooms and capacity for up to 30 people, it's one of the few places in Acapulco where everyone can stay under the same roof.\n\nWhat it includes:\n🏖️ Direct beach access at 50 m\n🏊 Private 11×5 m pool + kids' pool 4×3 m\n🛏️ 6 bedrooms with A/C, fan, WiFi, closet and bath\n🌊 Sea view from the master bedroom\n🏄 Support renting yachts, vans, excursions, diving\n🐾 Pets welcome\n\n🍳 OPTIONAL chef service — the touch that changes everything:\n— $1,000/night for ≤16 guests (2 cooks prepare 3 meals, do shopping before arrival, keep the villa clean)\n— $1,500/night for 17-30 guests (3 people + houseman)\nThe day of departure is not charged. Book in advance.\n\n🛒 Grocery shopping: transport and service charge 5%, min $450 MXN.\n\nBedrooms:\n🛏️ Room 1 — 3 people · king + single · 🌊 sea view\n🛏️ Room 2 — 7 people · 3 doubles + 2 singles · 🌊 sea view\n🛏️ Room 3 — 4 people · 2 doubles\n🛏️ Room 4 — 4 people · 3 doubles + 1 single\n🛏️ Room 5 — 4 people · 2 doubles\n🛏️ Room 6 — 8 people · 2 doubles\n\nNeed space for more than 30 people? Villa Rincón del Mar is steps away, directly on the beach, with 6 additional bedrooms. We coordinate everything.\n\nMore than 128 reviews and ⭐ 4.8: Villa Rincón de las Morenas, favorite meeting point for families and groups visiting the Pacific coast.",
-      "char_count": 1978,
-      "wc_notes": "EN translation with chef OPTIONAL pricing per Q-A1."
+      "content": "Take a step and the sea is already there. Picture it: you open the door of Villa Rincón de las Morenas and at the end of the hallway, between palm trees, the turquoise pool water welcomes you — with the Pacific Ocean just 50 meters beyond. That image says it all.\n\nThis villa was designed by a renowned Mexican architect for groups who want to enjoy together without sacrificing comfort. The whole space flows: the 11×5 m pool, the palapa-bar terrace, the spacious dining room and living room connect in a single open environment where the sea breeze runs free all day.\n\nWho is this villa for?\nPerfect for large family gatherings, groups of friends, corporate retreats, birthdays or intimate beach weddings. With 6 bedrooms and capacity for up to 30 people, it's one of the few places in Acapulco where everyone can stay under the same roof.\n\nWhat it includes:\n🏖️ Direct beach access at 50 m\n🏊 Private 11×5 m pool + kids' pool 4×3 m\n🛏️ 6 bedrooms with A/C, fan, WiFi, closet and bath\n🌊 Sea view from the master bedroom\n🏄 Support renting yachts, vans, excursions, diving\n🐾 Pets welcome ($300 MXN/night, max 2) ($300 MXN/night, max 2)\n\n🍳 OPTIONAL chef service — the touch that changes everything:\n— $1,000/night for ≤16 guests (2 cooks prepare 3 meals, do shopping before arrival, keep the villa clean)\n— $1,500/night for 17-30 guests (3 people + houseman)\nThe day of departure is not charged. Book in advance.\n\n🛒 Grocery shopping: transport and service charge 5%, min $450 MXN.\n\nBedrooms:\n🛏️ Room 1 — 3 people · king + single · 🌊 sea view\n🛏️ Room 2 — 7 people · 3 doubles + 2 singles · 🌊 sea view\n🛏️ Room 3 — 4 people · 2 doubles\n🛏️ Room 4 — 4 people · 3 doubles + 1 single\n🛏️ Room 5 — 4 people · 2 doubles\n🛏️ Room 6 — 8 people · 2 doubles\n\nNeed space for more than 30 people? Villa Rincón del Mar is steps away, directly on the beach, with 6 additional bedrooms. We coordinate everything.\n\nMore than 128 reviews and ⭐ 4.8: Villa Rincón de las Morenas, favorite meeting point for families and groups visiting the Pacific coast.",
+      "char_count": 2026,
+      "wc_notes": "EN translation with chef OPTIONAL pricing per Q-A1. | Updated 2026-05-15: pet policy → $300/noche max 2 per Alex Q-56-1 decision."
     },
     "acceso_huespedes": {
       "max_chars": 1000,
@@ -73,9 +78,9 @@
     "otros_detalles": {
       "max_chars": 1000,
       "format": "plain_text",
-      "content": "Villa in a quiet area 35 min from Acapulco airport, away from the bustle. Barra de Coyuca beach at 50 meters, private pool with kids' pool. We accept family groups, couples and private events with prior coordination. Pets welcome (notify when booking). 2-night minimum; weekends may require 3.",
-      "char_count": 293,
-      "wc_notes": "EN translation."
+      "content": "Villa in a quiet area 35 min from Acapulco airport, away from the bustle. Barra de Coyuca beach at 50 meters, private pool with kids' pool. We accept family groups, couples and private events with prior coordination. Pets welcome: $300 MXN/night, max 2 (notify when booking). 2-night minimum; weekends may require 3.",
+      "char_count": 316,
+      "wc_notes": "EN translation. | Updated 2026-05-15: pet policy → $300/noche max 2 per Alex Q-56-1."
     },
     "como_llegar": {
       "max_chars": 5000,

@@ -31,6 +31,11 @@
         "at": "2026-05-14T02:59:52Z",
         "by": "wc",
         "summary": "Alex 2026-05-14: confirmado SÍ crear EN listing en AirBnB. Draft EN ready for deploy."
+      },
+      {
+        "at": "2026-05-15T14:47:19.054941+00:00",
+        "by": "wc",
+        "summary": "Pet policy update per Alex Q-56-1 decision 2026-05-15: $300 MXN/noche, max 2 mascotas. Updated fields: none (no pet mentions)"
       }
     ]
   },
@@ -73,9 +78,9 @@
     "otros_detalles": {
       "max_chars": 1000,
       "format": "plain_text",
-      "content": "The grove is located on the Barra de Coyuca, a sandy strip between the sea and the Coyuca lagoon. The area is a natural paradise — mangrove flora and fauna, palm-thatched eateries with seafood dishes and plenty of swimming spots. There are boat tours to discover the lagoon and the mysterious 'Isla de las Siete Mujeres', where a crocodile awaits you. If you like water sports, you can practice water skiing or a beach volleyball or soccer game.",
-      "char_count": 445,
-      "wc_notes": "EN translation."
+      "content": "The grove is located on the Barra de Coyuca, a sandy strip between the sea and the Coyuca lagoon. The area is a natural paradise — mangrove flora and fauna, palm-thatched eateries with seafood dishes and plenty of swimming spots. There are boat tours to discover the lagoon and the mysterious 'Isla de las Siete Mujeres', where a crocodile awaits you. If you like water sports, you can practice water skiing or a beach volleyball or soccer game.\n\nPets welcome: $300 MXN/night, max 2 (notify at booking). At the orchard we have goats, sheep, and \"La Prieta\" — a gentle adopted dog. If your pet doesn't get along with other animals, please keep it leashed or indoors.",
+      "char_count": 665,
+      "wc_notes": "EN translation. | Pet policy line added 2026-05-15 (Q-56-1)."
     },
     "como_llegar": {
       "max_chars": 5000,

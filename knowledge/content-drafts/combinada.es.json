@@ -26,6 +26,11 @@
         "at": "2026-05-14T02:44:55Z",
         "by": "wc",
         "summary": "Initial draft Combinada ES — resolví inconsistencia chef incluido vs opcional (combinada chef INCLUIDO confirmed memoria proyecto). Manual+Salida nuevos."
+      },
+      {
+        "at": "2026-05-15T14:47:19.054941+00:00",
+        "by": "wc",
+        "summary": "Pet policy update per Alex Q-56-1 decision 2026-05-15: $300 MXN/noche, max 2 mascotas. Updated fields: otros_detalles"
       }
     ]
   },
@@ -68,9 +73,9 @@
     "otros_detalles": {
       "max_chars": 1000,
       "format": "plain_text",
-      "content": "Dos villas pie de playa a 70 metros una de la otra, ideales para grupos de 30-58 personas. Para grupos mayores escríbenos para propuesta personalizada. A 35 min del aeropuerto, alejado del bullicio. Mascotas bienvenidas. Estancia mínima 2 noches; fines de semana pueden requerir 3.",
-      "char_count": 281,
-      "wc_notes": "Field EMPTY actual — drafté nuevo."
+      "content": "Dos villas pie de playa a 70 metros una de la otra, ideales para grupos de 30-58 personas. Para grupos mayores escríbenos para propuesta personalizada. A 35 min del aeropuerto, alejado del bullicio. Mascotas bienvenidas ($300 MXN/noche, máximo 2). Estancia mínima 2 noches; fines de semana pueden requerir 3.",
+      "char_count": 308,
+      "wc_notes": "Field EMPTY actual — drafté nuevo. | Updated 2026-05-15: pet policy → $300/noche max 2 per Alex Q-56-1 decision."
     },
     "como_llegar": {
       "max_chars": 5000,
