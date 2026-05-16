@@ -1,0 +1,63 @@
+# Working Modes
+
+This repo follows the Working Modes convention. Available commands:
+
+- **brain** / **brain mode**: think mode. Analyze, propose options with tradeoffs, ask before assuming user vote. No code execution or destructive actions. Output: spec doc when applicable. Default mode if none specified.
+  - **brain quick**: 5 min, fast decision, no formal spec
+  - **brain deep**: 1h+, extensive analysis, full spec doc
+
+- **DoIt** / **do it mode**: autonomous execution. No permission requests per step. Take minor technical decisions alone. Stay in scope (out-of-scope findings → open issue, do NOT fix here). Tests pass = done, do not over-polish. If stuck >30 min, stop and report. Each PR = 1 spec section. Semantic commits (feat/fix/test/docs/chore). Self-review before merge.
+
+- **verify** / **verify mode**: validation against real system. User executes commands, agent guides with exact copy-paste commands. Minimum viable end-to-end (1-3 actions max). Failure = immediate rollback. Evidence required (log, screenshot, query result).
+
+Typical flow: brain → spec doc → DoIt → verify.
+
+Style: concise, technical, no flattery. Tables and lists over long prose. Ask before assuming user vote on product decisions.
+
+## Spec doc template
+
+Required 7 sections for any spec doc produced in brain mode:
+1. Context (why, problem solved)
+2. Explicit scope (what YES, what NO)
+3. Closed decisions (already voted, do not re-litigate)
+4. Implementation (files, schemas, contracts)
+5. Tests (what to validate)
+6. Definition of done (checkable list)
+7. Risks and mitigations
+
+Path convention: `cc-instructions-{workstream}/YYYY-MM-DD-{name}.md`
+
+## Operational rules
+
+- **Pre-flight check before long DoIt**: spec complete, tests passing on main, dependencies/credentials in place, rollback path documented.
+- **Handoffs**: any session closing without completing task MUST push handoff doc with state, next steps, blockers, exact commands to resume.
+- **Cost budgets**: declare expected LLM budget before tasks >$10. Report actual at close. Exceed 1.5x = stop and re-evaluate.
+- **Multi-agent**: parallel sessions OK if scope isolated. Lockless coordination via `git pull --rebase` before push. Each agent respects its territory.
+- **Blocks**: identify within 5 min, document, switch to non-dependent task. Do not fight the tool.
+- **Validation**: canary 0% → smoke test (1 real action) → 10% → 24h observation → 25% → 50% → 100%. Failure = rollback, not in-prod debug.
+- **When NOT to use AI**: catastrophic-cost errors, business decisions requiring human judgment, actions without backup/rollback.
+- **Operating without the system**: in contexts where the system does not apply (offline, conversations with humans, rest periods, emergencies), operate without spec docs, without parallelization, without obsessive documentation.
+
+## Workstream conventions for this repo
+
+- **CC-Bot territory**: `apps/worker-bot/`, `packages/agents/`, Greeter, Booker, canary, bot infrastructure
+- **CC-Data territory**: `data/`, data mining scripts, D1 INSERT to guests/leads/guest_events, R2 operator_playbook.md
+- **WC territory**: `threads/`, `cc-instructions-{bot,data}/`, strategy, PR reviews
+- **Alex territory**: deploys, smoke tests, canary scaling, merges, business decisions
+
+## Thread + PR numbering
+
+- Threads: `threads/XX-{author}-{topic}.md`, sequential numbering across all workstreams
+- PRs CC-Bot: prefix `A` (A4, A6, A7, A7.5, A7.6, A7.7, A8...)
+- PRs CC-Data: prefix `D` (D1, D2, D3...)
+- Branches CC-Bot: `feat/greeter-v5-*`, `feat/canary-*`, etc
+- Branches CC-Data: `feat/data-*`, etc
+
+## Anti-patterns (do NOT do)
+
+- Casa Chamán in Greeter system prompt until renovation complete
+- Beds24 sync mode "Everything" (overwrites Airbnb content — ALWAYS use Prices&Availability)
+- Commits with secrets in plaintext
+- ALTER TABLE during multi-agent execution
+- Deploy to production Fridays after 5pm
+- Trust "tests pass" without self-review of the diff
