@@ -125,6 +125,8 @@ Flujo típico: `brain → spec → DoIt → verify`.
 | thread/115 guests.name resync from Beds24 + mojibake auto-fix + debug stats (PRs #98-100, migration 0034) | LIVE |
 | Vectorize index `rdm-conversations-v2` — 16,969 vectors live, bge-m3 1024d cosine (Data Mining v2 closure 2026-05-18) | LIVE (no bot consumption yet — wire futuro PR) |
 | Pre-stay foundation A1 + A1.5 — migrations 0035 + 0036, 32 templates (4 props × 2 langs × 4 touchpoints incl T-14), pre-stay.ts skeleton, 33 invariants tests (PRs #102 + #103) | LIVE — Alex approved tone shift round 2 (warmer host persona) |
+| Pre-stay A2 — scanForWelcome implementation, bypassed welcome-auto-send.ts, admin scan endpoint (PR #104) | LIVE behind `MESSENGER_OUTBOUND_ENABLED` flag (default OFF) |
+| Pre-stay A3 — scanForT14 + scanForT7 + scanForT1 + cron heartbeats + 4 GH Actions workflows (welcome 30min, T-14/T-7/T-1 daily) (PR #105) | LIVE behind same flag |
 
 ### Pipeline CC (shipped + queued)
 
@@ -139,15 +141,18 @@ Flujo típico: `brain → spec → DoIt → verify`.
 | v5 pet policy + orphan delete from thread/118 (PR #97) | — | ✅ Shipped |
 | thread/115 guests.name resync from Beds24 (PR #98 + mojibake fix #99 + debug stats #100 + chunked invocations #101) | 2-3h CC | ✅ Shipped — migration 0034 applied |
 | **Pre-stay A1 + A1.5** (PRs #102 + #103) — migrations 0035 + 0036, 32 templates, skeleton, 33 tests, Alex approved tone | 8-12h CC + iteration | ✅ Shipped 2026-05-18 |
-| **Pre-stay A2** — `scanForWelcome` + wire welcome sender + `cron-pre-stay-welcome.yml` | 8-12h CC | 🟡 Queued — next in CC autonomous |
-| **Pre-stay A3** — `scanForT14` + `scanForT7` + `scanForT1` + crons + GHA workflows | 8-12h CC | 🟡 Queued |
-| **Pre-stay A4** — Admin endpoints + drawer + `/admin/pre-stay` page + catch-up (4 touchpoints) | 10-14h CC | 🟡 Queued |
+| **Pre-stay A2** (PR #104) — scanForWelcome + bypass welcome-auto-send + admin scan endpoint + 426 lines tests | 8-12h CC | ✅ Shipped 2026-05-18 |
+| **Pre-stay A3** (PR #105) — scanForT14 + T7 + T1 + cron heartbeats + 4 GH workflows + scan-touchpoints tests | 8-12h CC | ✅ Shipped 2026-05-18 |
+| **Pre-stay A4** — sendPreStay manual fire + runCatchUp `[now, now+14]` + admin endpoints + drawer 4-buttons + `/admin/pre-stay` page + catch-up UI | 10-14h CC | 🟡 In-flight (started 2026-05-18 night) |
+| **Pre-stay A5** — Bulk approve 7 unapproved AirBnB content drafts + Chrome MCP write-back to 8 live listings (Alex approved bulk-flip 2026-05-18 night) | 6-10h CC | 🟡 Queued post-A4 |
 
-Total CC autónomo pipeline pendiente: **~26-38h** (A2 + A3 + A4).
+Total CC autónomo pipeline pendiente: **~16-24h** (A4 in-flight + A5 queued).
 
 Pending de Alex (post-A4 canary):
-- Pre-stay A2-A4 reviews when CC ships
+- Pre-stay A4 review when CC ships
+- Chrome MCP auth verify pre-A5 (1-time setup if needed)
 - Catch-up trigger post-A4 (Karina supervising)
+- Spot-check A5 deployed listings vs R2 drafts
 
 ### Datos clave del stack
 
@@ -453,6 +458,7 @@ Este doc es **fuente única de verdad** para el backlog completo. Si en una sesi
 | 2026-05-18 late evening | WC (DoIt cleanup #2 — CC feedback) | thread/115 shipped (PRs #98-100), migration 0034 ya aplicada en prod; spec pre-stay re-numerado migration 0034 → 0035; §4 actualizado con guests resync LIVE + mojibake fix + debug stats; §7 sequencing thread/115 removido (done), P2.10+P2.11 dedupe agregado como follow-up |
 | 2026-05-18 night | WC (Vectorize closure) | CC-Data confirmó index `rdm-conversations-v2` live con 16,969 vectors / 99.99% coverage. Tail cerrado, gap de 2 vectors acceptable. §4 LIVE add Vectorize index. P2.20 marked done. §7 sequencing renumerado (Vectorize row removed) + agregada "Vectorize wire to Greeter v7+" como future-PR item. Spec pre-stay Appendix A actualizado. |
 | 2026-05-18 night #2 | WC (Pre-stay A1+A1.5 shipped) | CC-Bot shipped PRs #102 (A1 baseline) + #103 (A1.5 iteration after Alex review). Migrations 0035 + 0036 applied. Scope grew 3 → 4 touchpoints (added T-14 chef handoff + extra-guests confirmation). 32 templates total, warmer host tone "anfitrión 9 años". Per-property facts locked: Combinada cap 60 (was 30 wrong in spec), Karina = universal encargada all properties, chef phones only in T-14. §4 LIVE updated, latest migration → 0036, §6.2 Pre-stay full component table rewritten. A2-A4 remaining ~26-38h. |
+| 2026-05-18 night #3 | WC (A2+A3 shipped, A5 new) | CC-Bot shipped PR #104 (A2 scanForWelcome bypassing welcome-auto-send) + #105 (A3 scanForT14+T7+T1 + crons). Two scope deviations from spec — both right per WC review thread/121. A4 in-flight. New A5 task added: bulk approve 7 unapproved AirBnB content drafts + Chrome MCP write-back to 8 live listings (Alex approved bulk-flip ciego 2026-05-18 night). Pipeline pendiente ~16-24h (A4 + A5). |
 
 **Próximo paso sugerido**: ahora que pipeline CC actual está en queue (thread/115 + Pre-stay A1-A4), foco es **Pre-stay execution + Karina onboarding en paralelo**. Vectorize tail puede correr en background cuando Alex tenga 5 min para token creation.
 
