@@ -1,7 +1,9 @@
 # RdM Bot · Backlog Completo
 
-**Fecha**: 2026-05-18
-**Autor**: WC (brain mode)
+**Fecha original**: 2026-05-18 morning (brain mode)
+**Última revisión**: 2026-05-18 evening — cleanup post-Sprint C+E+D+P2 canary + PRs #88-97 shipped + Pre-stay MVP spec ready
+**Próxima revisión sugerida**: cada 14 días o post-sprint mayor (lo que ocurra primero)
+**Autor**: WC
 **Alcance**: Bot conversacional + admin tools + features estratégicos
 **Propósito**: Inventario único, exhaustivo, no perderlo en hand-offs futuros
 
@@ -95,28 +97,51 @@ Flujo típico: `brain → spec → DoIt → verify`.
 | Booker | LIVE |
 | Multi-canal AirBnB Connect API | Post-cutover 2026-05-12 |
 | Beds24 integration | `/v2/inventory/rooms/calendar` source of truth |
+| Beds24 booking webhook (Phase C) | LIVE — migration 0011 + backfill PR #84 |
+| Beds24 messages outbound (Part E) | LIVE PR #90 + body shape fix PR #94 — **canary validated 2026-05-18, Beds24 msg ID 148091343** |
+| `messenger_outbound` audit table (migration 0032) | LIVE |
+| `MESSENGER_OUTBOUND_ENABLED` flag | LIVE, flipped back OFF post-canary (default OFF, manual flip per release) |
+| `extra_guests_captures` (migration 0033) + cron daily scan | LIVE PR #90 (detection-only v1, manual fire via drawer) |
 | ManyChat WhatsApp | LIVE |
 | Anti-loop guards | LIVE |
 | Telegram alerts | LIVE |
 | `/admin/conv` | LIVE |
-| `/admin/bookings` | LIVE (PR #82 merged, post-feedback fixes shipped) |
-| `/admin/inbox` | LIVE (PR #85 thread/105-106) |
-| `/admin/airbnb-content` | LIVE (Karina pendiente onboarding) |
+| `/admin/bookings` | LIVE PR #82 + guest name + 360d window PR #93 |
+| `/admin/inbox` | LIVE PR #85 + ReplyPanel via Part E |
+| `/admin/extra-guests` | LIVE PR #93 (Karina row-per-row send-outreach) |
+| `/admin/airbnb-content` | LIVE (Karina onboarding 95% — magic-link verify pending) |
 | `/admin/health` | LIVE |
-| `/proxReservas` | LIVE post hotfix thread/113 |
-| Beds24 backfill | LIVE 62 pre-webhook bookings recovered |
-| Greeter V6 small items wave #1 | F+C+A+B shipped PR #87 thread/108 |
+| `/proxReservas` | LIVE post hotfix PR #91 (guest name source from guests table) |
+| ChannelBadge SVG logos for OTA | LIVE PR #92 |
+| Spanish UX sweep across /admin pages + layout nav | LIVE PR #96 |
+| Greeter v5 pet policy `/noche → /estancia` + orphan prompt file delete | LIVE PR #97 (from thread/118 §4+§5) |
+| Beds24 backfill 62 pre-webhook bookings | LIVE |
+| Greeter V6 small items wave #1 (F+C+A+B) PR #87 | LIVE |
+| Greeter V6 small items wave #2 (G+H+I+J) PR #88 | LIVE |
+| Greeter V6 small items hotfix /guia-llegada redirect PR #89 | LIVE |
+| Data Mining v2 D1 seed (Phase B tables) | LIVE — **7,423 guests + 5,874 leads + 51,414 guest_events** |
+| Reviews ingestion (migration 0012 + `reviews-sync.ts` + ReviewsCarousel) | LIVE |
+| `pre_arrival_sent_at` cron on `bookings` direct table | LIVE (worker-pago, but only direct 5-row scope, NOT beds24_bookings) |
 
-### Pipeline CC (queued ahora)
+### Pipeline CC (shipped + queued)
 
-| Orden | Item | Effort | Status |
-|---|---|---|---|
-| 1 | thread/113 hotfix `/proxReservas` guest name | 30min | ✅ Pushed |
-| 2 | thread/115 guests resync from Beds24 | 2-3h | ✅ Pushed |
-| 3 | C+E+D+P2 sprint (thread/111 blessings) | 15-19h | ✅ Spec'd |
-| 4 | thread/109 wave-2 G+H+I+J | varies | ✅ Spec'd |
+| Item | Effort | Status |
+|---|---|---|
+| thread/113 hotfix `/proxReservas` guest name (PR #91) | — | ✅ Shipped |
+| thread/109 wave-2 G+H+I+J (PR #88) + redirect hotfix (PR #89) | — | ✅ Shipped |
+| C+E+D+P2 sprint (PR #90 + body-shape PR #94) | 15-19h CC | ✅ Shipped + canary validated |
+| Admin guest name + 360d window (PR #93) | — | ✅ Shipped |
+| ChannelBadge OTA UI (PR #92) | — | ✅ Shipped |
+| Spanish UX admin sweep (PR #96) | — | ✅ Shipped |
+| v5 pet policy + orphan delete from thread/118 (PR #97) | — | ✅ Shipped |
+| **thread/115 guests.name resync from Beds24** | 2-3h CC | 🟡 Queued — awaits CC-Bot capacity |
+| **Pre-stay MVP A1-A4** (spec `cc-instructions-bot/2026-05-18-pre-stay-notifications-mvp.md`) | 35-50h CC across 4 atomic PRs | 🟡 Queued — spec deep ready 2026-05-18 |
 
-Total CC autónomo pipeline: **~20-25h**.
+Total CC autónomo pipeline pendiente: **~38-53h** (thread/115 + Pre-stay A1-A4).
+
+Pending de Alex (post-sprint canary):
+- thread/115 + Pre-stay A1-A4 reviews when CC ships
+- Catch-up trigger post-A4 (Karina supervising, 6 candidates ready in window)
 
 ### Datos clave del stack
 
@@ -130,7 +155,7 @@ Total CC autónomo pipeline: **~20-25h**.
 | Rooms | 78695 RdM · 374482 Morenas · 74316 Combinada · 637063 Huerta · 679176 Casa Chamán (hidden Q3) |
 | Repos GitHub | `rdm-platform`, `rdm-bot`, `rdm-discussion` bajo `alexanderhorn6720` |
 | Path local Windows | `C:\Users\Alexa\rdm\dev\{platform,bot,discussion}\` |
-| Latest D1 migration | 0031 (post-thread/108), próximas 0032+ |
+| Latest D1 migration | 0033 (extra_guests_captures, post-PR #90). Next pre-stay = 0034 |
 
 ---
 
@@ -138,29 +163,36 @@ Total CC autónomo pipeline: **~20-25h**.
 
 Sprints cortos, 1-8h cada uno. Pueden tomarse uno a la vez sin spec brain mode.
 
+**Items cerrados en revisión 2026-05-18 evening** (removidos de la tabla activa):
+- ~~P2.1 Welcome auto-send "bug"~~ → No era bug. Pipeline detection funciona; outbound wire era deferred. **Resolución**: incorporado a Pre-stay MVP spec §Y1 (PR A2 drena 10 rows pending_welcomes). Ver `cc-instructions-bot/2026-05-18-pre-stay-notifications-mvp.md`
+- ~~P2.2 Cron threshold per-cadence~~ → Shipped PR #90 Part C
+- ~~P2.3 Conversation rule tuning `lead_cold_7d` → 5d~~ → Shipped en small items wave (PR #87/88)
+- ~~P2.4 Pet fee uniformización AirBnB listings~~ → Implementación en código + web LIVE; Alex 2026-05-18 cerró el tema
+- ~~P2.5 Gantt range default 180d → 365d~~ → Shipped PR #93
+- ~~P2.9 Strip " (AirBnB)" suffix retroactivo~~ → Cubierto en thread/115 spec edge 4 (queued)
+- ~~P2.12 Beds24 webhook Phase C~~ → Shipped PR #84 + Phase C webhook live
+- ~~P2.13 Worker `rincon-bot` manual deploy~~ → Routine post-PR (no es task discreto)
+- ~~P2.14 PR #32 review~~ → Ancient (cursor en PR #97)
+- ~~P2.15 Greeter v5 PR A1.5 sub-components~~ → Replaced en v6 prompt (canary 100%)
+- ~~P2.17 Pet policy /noche → /estancia content-drafts~~ → Shipped PR #97 from thread/118
+- ~~P2.19 Data Mining v2 Day 1 start~~ → Done (threads 72-77). Seed: 7,423 guests + 5,874 leads + 51,414 guest_events en prod D1
+
+**Items activos (post-cleanup)**:
+
 | # | Item | Effort | Trigger / contexto |
 |---|---|---|---|
-| P2.1 | **Welcome auto-send bug** — `pending_welcomes` no se crea pese a fix v2 | 2-4h | Mismo patrón "downstream pipeline never wired" que PR #80 |
-| P2.2 | **Cron threshold ajuste per-cadence** | 30min | Thread/108 reveló false positive 15min para crones 5/15/30min/24h cadences |
-| P2.3 | **Conversation rule tuning** `lead_cold_7d` → 5d | 15min | Thread/108: 5 closed `pause_expired`, 0 `lead_cold_7d` firing |
-| P2.4 | **Pet fee uniformización** $300/estancia max 2 across 4 AirBnB listings | 1-2h Karina + tu approval | Memoria backlog desde mayo |
-| P2.5 | **Gantt range default** 180d → 365d | 5min | Mencionado durante review |
 | P2.6 | **Real logos swap** en `apps/web/public/logos/` | 5min tú + 30min CC | Pendiente desde Day 1 |
-| P2.7 | **Rotar PAT expuesto** (ver memoria thread/56) + `ADMIN_REFRESH_SECRET` | 15min | Exposed en thread/56 |
+| P2.7 | **Rotar PAT expuesto** (thread/56) + `ADMIN_REFRESH_SECRET` | 15min | Alex 2026-05-18: "no urge" — security hygiene cuando convenga |
 | P2.8 | **Old paths cleanup** `C:\rincondelmar-*\` | 10min tú | Post-rename to `rdm-*` |
-| P2.9 | **Strip " (AirBnB)" suffix retroactivo** ~30 guest names | Cubierto thread/115 edge 4 | Old rows stay; only new writes stripped |
 | P2.10 | **Re-link 3 promo bookings** 86496769/86497786/86685323 → recipients reales | 1h investigación + manual | Separate dedupe post-thread/115 |
 | P2.11 | **Re-dedupe Alex 2 guest records** (g_01KRSZ + g_XRP4Y5, phones distintos) | 1h | Separate dedupe post-thread/115 |
-| P2.12 | **Beds24 webhook Phase C** — apply migration 0011 + secret + deploy + Beds24 panel config | 30min tú | Branch `feat/beds24-booking-webhook` ready commit aa23eaa |
-| P2.13 | **Worker `rincon-bot` manual deploy** | 5min | Pendiente desde Greeter v5 Fase 1 |
-| P2.14 | **PR #32 review** (BookingCard URL params) | 20min tú | Pendiente review |
-| P2.15 | **Greeter v5 PR A1.5 sub-components spec** (`#chef`, `#mascotas`, `#capacidad`) | 1-2h brain mode | Pending spec from thread/58 |
-| P2.16 | **AirBnB content sync** — CC R2 import drafts + Karina onboarding `content_editor` | 2-3h | Drafts 96/96 textboxes DELIVERED, sync pending |
-| P2.17 | **Pet policy /noche→/estancia content-drafts retroactive** | 30min Karina | Transcription error thread/59 |
-| P2.18 | **weekend_price RdM erróneo** + cache expiry post-Jun 2027 → Default fallback | 1h | Beds24 integration backlog |
-| P2.19 | **Data Mining v2 Day 1 start** | CC autonomous | Q-54: awaiting mascotas policy (ya resuelta, puede arrancar) |
+| P2.16 | **Karina onboarding final** — magic-link verify + walkthrough `/admin/{inbox,bookings,airbnb-content,extra-guests}` | 30-45min Alex + Karina | Unblocks objetivo handoff |
+| P2.18 | **weekend_price RdM erróneo** + cache expiry post-Jun 2027 → Default fallback | 1h | Beds24 pricing backlog |
+| P2.20 | **Vectorize tail unblock** — completar Data Mining v2 (17k embeddings → index `rdm-conversations-v2`) | 5min Alex scoped CF token + 2-3h CC-Data background, ~$0.19 | Handoff doc: `cc-instructions-data/2026-05-16-vectorize-handoff.md`. Bot NO consume aún (greeter v6 no wired); unlock futuro |
+| P2.21 | **Operator playbook v6 → bot KB integration verify** | 1h WC | Confirmar que Greeter v6 consume `data/artifacts/operator_playbook-v6-trimmed.md` correctamente |
+| P2.22 | **AirBnB published listings verify pet policy** | 30min Karina manual | Web + greeter ya correctos (`$300/estancia, máx 2`); pendiente verificar listings publicados en airbnb.com no digan `/noche` |
 
-**Total P2 estimado**: ~25-35h trabajo (CC + Alex + Karina combinado).
+**Total P2 estimado restante**: ~6-8h CC + ~3-4h Alex/Karina manual + ~3h CC-Data.
 
 ---
 
@@ -173,38 +205,52 @@ Requieren brain mode + spec doc antes de DoIt.
 **Objetivo**: Saber quién es el huésped antes de saludarlo. Cross-property history, repeat detection, VIP segmentation, lifetime value.
 
 **Scope total**: ~80h CC, ~2 meses calendario.
-**Status memoria**: D1 Phase B tables built (`guests`, `leads`, `guest_events`, `beds24_bookings` — 0 rows ready for seed). Architecture approved.
+**Status memoria 2026-05-18 evening**: D1 Phase B tables built **y poblados via Data Mining v2** — `guests` (7,423), `leads` (5,874), `guest_events` (51,414), `beds24_bookings` (poblado via webhook + backfill). Architecture approved. **Lo que falta es la lens UI** (B.7) para que humanos consuman los datos.
 
-| Phase | Scope |
-|---|---|
-| B.1 | Guest profile unified view across channels |
-| B.2 | Repeat guest detection via phone match |
-| B.3 | VIP tier segmentation — Bronce (1 stay), Plata (2-3), Oro (4+) per I8 |
-| B.4 | Cross-property guest history |
-| B.5 | Lifetime value calculation per guest |
-| B.6 | Guest events timeline (bookings + messages + reviews) |
-| B.7 | `/admin/leads` UI unificado |
-| B.8 | Booking.com integration (deferred from initial scope) |
+| Phase | Scope | Status |
+|---|---|---|
+| B.1 | Guest profile unified view across channels | ✅ Data Mining v2 seedeó |
+| B.2 | Repeat guest detection via phone match | ✅ guests dedup vía phone_e164 PK |
+| B.3 | VIP tier segmentation — Bronce (1 stay), Plata (2-3), Oro (4+) per I8 | ⚪ Schema soporta, sin compute aún |
+| B.4 | Cross-property guest history | ✅ guest_events timeline poblado |
+| B.5 | Lifetime value calculation per guest | ⚪ Schema soporta, sin compute aún |
+| B.6 | Guest events timeline (bookings + messages + reviews) | ✅ events table 51k rows |
+| **B.7** | **`/admin/leads` UI unificado** — bloqueador real ahora | 🟡 No iniciado. Sin esto, 13k+ rows seedados están ciegos |
+| B.8 | Booking.com integration (deferred from initial scope) | ⚪ Out of immediate scope |
 
-**Drivers downstream**: alimenta I1 pre-stay, I3 in-stay, I8 VIP, I9 drip, M4 staff scheduling.
+**Drivers downstream**: alimenta I1 pre-stay (en spec), I3 in-stay, I8 VIP, I9 drip, M4 staff scheduling.
+
+**WC recomendación**: promover **B.7 a P2** — es lo que desbloquea Guest 360 entero. Resto es procesamiento sobre data que ya existe.
 
 ---
 
 ### 6.2 · P3-B · Pre-stay notifications (I1 Pre-arrival concierge)
 
-**Objetivo**: Bot proactivo escribe T-7d / T-3d / T-1d antes check-in con tono adaptado y upsells contextuales.
+**Objetivo**: Bot proactivo escribe welcome + T-7 + T-1 antes check-in con canales multi-source (Beds24 messages OTA + ManyChat direct).
 
-**Effort**: ~12-16h CC + brain mode spec.
+**Status 2026-05-18 evening**: ✅ **Brain deep spec ready** at `cc-instructions-bot/2026-05-18-pre-stay-notifications-mvp.md`. Awaiting CC-Bot capacity.
 
-| Component | Stack |
-|---|---|
-| Cron pre-arrival T-7d/T-3d/T-1d | Worker cron + Sonnet |
-| Tone adaptation | LLM con context `beds24_bookings` + `guests` — familiar / corporate / honeymoon |
-| Upsells contextuales | Tours, restaurantes, paseo laguna, fogata, masajes, paseo a caballo |
-| Intents generación | `upsell:tour`, `upsell:fogata`, `upsell:masaje`, `upsell:transport` |
-| Channel routing | WhatsApp primary (template HSM ACCOUNT_UPDATE fuera 24h), email fallback |
+**Effort revisado**: ~35-50h CC across 4 atomic PRs (A1-A4). Effort original 12-16h estaba subestimado para scope MVP completo.
 
-**Anti-patrón**: nunca enviar pre-stay si el huésped escribió en últimas 48h (sería ruido).
+| Component | Stack | Status |
+|---|---|---|
+| Wire welcome cron → `sendMessageRouted` (Part E) | Migration 0034 + drains 10 pending_welcomes rows | 🟡 PR A2 spec'd |
+| Cron pre-arrival T-7d + T-1d (drop T-3d v1) | Worker cron + GitHub Actions | 🟡 PR A3 spec'd |
+| Template render per property × lang × touchpoint (24 templates) | Hardcoded TS module v1, source = wc-seed-drafts content | 🟡 PR A1 spec'd |
+| Channel routing | Re-use `resolveRoute()` from messenger-send.ts | ✅ Infra ready |
+| Idempotency | 4 new columns en beds24_bookings (migration 0034) | 🟡 PR A1 spec'd |
+| Catch-up one-shot for próximas 4 sem objetivo | Rate-limited admin endpoint, Karina supervisa | 🟡 PR A4 spec'd |
+| Admin override drawer en /admin/bookings | Per-row buttons: Send Welcome / T-7 / T-1 / Skip | 🟡 PR A4 spec'd |
+| Feature flag gate | `MESSENGER_OUTBOUND_ENABLED` (re-use Part E, no nuevo) | ✅ Validated 2026-05-18 |
+| Audit | `messenger_outbound` table (re-use Part E) | ✅ Live |
+
+**Universe**: 19 bookings activos en próximas 4 semanas (T-1: 1, T-2-7: 5, T-8-14: 4, T-15-28: 8 + uno mañana). Tractable. Single canary batch safe.
+
+**Out of scope v1** (deferred): T-3 chef menu, T-0 day-of, in-stay touchpoints (Client Bot Phase A), reply handling (/admin/inbox handles), email channel (Alex: no), LLM personalization (v2), Casa Chamán (Q3).
+
+**Drives**: objetivos Alex 2026-05-18 — ↓ workload personal + handoff Karina + huéspedes próximas 4 sem cubiertos al 100%.
+
+**Anti-patrón**: nunca enviar pre-stay si el huésped escribió en últimas 48h (sería ruido). Spec captura en R10.
 
 ---
 
@@ -303,19 +349,26 @@ Requieren brain mode + spec doc antes de DoIt.
 
 ## 7 · Voto WC · sequencing post-pipeline-actual
 
-Después que CC termine pipeline actual (thread/113 + 115 + C+E+D+P2 sprint + wave-2):
+**Revisado 2026-05-18 evening** alineado con objetivos Alex (chat de sesión):
+1. ↓ workload personal WhatsApp + Airbnb
+2. Handoff operativo a Karina
+3. Próximas 4 semanas todos los huéspedes reciben pre-arrival info
 
-| Orden | Block | Razón |
-|---|---|---|
-| 1 | **P2.1 Welcome bug** | Único bug operacional crítico afectando users hoy |
-| 2 | **P2.7 Rotar PAT** | Security hygiene, 15min |
-| 3 | **P2.16 AirBnB content sync + Karina onboarding** | Unblocks Karina workflow |
-| 4 | **P3-H FAQs curation 50-80** | Manual work, unblocks Greeter KB v2 |
-| 5 | **P3-A Guest 360 Phase B.1-B.3** | Foundation para repeat detection + VIP tiers |
-| 6 | **P3-B Pre-stay notifications I1** | High user value, leverages Guest 360 |
-| 7 | **P3-F V7 lifecycle decisión + spec** | Necesario antes de scaling bot a in-stay/post-stay |
-| 8 | **P3-G Beds24 Reviews API** | Reviews enrichment para bot KB + site display |
-| 9 | **P3-C ideas restantes** en orden valor/effort | I6 Upsell → I9 Drip → I7 Lost-booking → I8 VIP completion → I5 Review automation → I2 QR check-in → I10 Dynamic packaging → I15 Unit economics → I16 Cancellation → I17 Weather → I18 UGC → I19 Casa Chamán |
+Después que CC termine pipeline actual (thread/115 + Pre-stay A1-A4):
+
+| Orden | Block | Driver objetivo | Razón |
+|---|---|---|---|
+| 1 | **Pre-stay MVP A1-A4** (`cc-instructions-bot/2026-05-18-pre-stay-notifications-mvp.md`) | Obj 1 + 3 | Cubre objetivo 4-semanas; reusa Part E infra validada; spec ready |
+| 2 | **P2.16 Karina onboarding final** — magic-link + walkthrough completo /admin/{inbox,bookings,extra-guests,airbnb-content} + drawer pre-stay post A4 | Obj 2 | 30-45min Alex+Karina; desbloquea handoff diario |
+| 3 | **P2.20 Vectorize tail unblock** (CC-Data scope, paralelo) | Indirect (calidad bot) | 5min Alex + 2-3h CC-Data background; cierra Data Mining v2 |
+| 4 | **P3-H FAQs curation 50-80** | Obj 1 (medio plazo) | Manual Alex+Karina ~4-6h; alimenta Greeter KB v2; bot responde más, Alex menos |
+| 5 | **P3-A B.7 `/admin/leads` UI** (promovido a P2 conceptual) | Obj 2 | Sin esto, 13k+ rows seedados están ciegos. Karina expansion post-pre-stay |
+| 6 | **thread/115 guests resync from Beds24** | Datapoint quality | 2-3h CC; mejora consistencia nombres en /proxReservas + Guest 360 |
+| 7 | **P2.7 Rotar PAT + ADMIN_REFRESH_SECRET** | Security hygiene | 15min; "no urge" per Alex pero hacer cuando convenga |
+| 8 | **P2.18 weekend_price RdM + cache expiry** | Revenue protect | 1h; Beds24 pricing inconsistencies |
+| 9 | **P3-F V7 lifecycle decisión + spec** | Pre-req escalabilidad | Necesario antes de scaling bot a in-stay/post-stay |
+| 10 | **P3-G Beds24 Reviews API** | Bot KB enrichment | Reviews enrichment para bot KB + site display |
+| 11 | **P3-C ideas restantes** en orden valor/effort | Long-term value | I6 Upsell → I9 Drip → I7 Lost-booking → I8 VIP completion → I5 Review automation → I2 QR check-in → I10 Dynamic packaging → I15 Unit economics → I16 Cancellation → I17 Weather → I18 UGC → I19 Casa Chamán launch |
 
 ---
 
@@ -367,10 +420,17 @@ Después que CC termine pipeline actual (thread/113 + 115 + C+E+D+P2 sprint + wa
 
 Este doc es **fuente única de verdad** para el backlog completo. Si en una sesión futura no aparece un item aquí, lo perdimos.
 
-**Próximo paso sugerido**: Tu pick de cuál bucket abordamos en próxima sesión (P2 fixes vs P3-A Guest 360 vs P3-B Pre-stay vs descansar).
+**Cadence de revisión**: cada 14 días o post-sprint mayor (lo que ocurra primero). Si un item se completa, marcar tachado + commit; si se descubre nuevo, agregar al P2 o P3 correspondiente con effort + driver.
 
-**Save location recomendada**: `rdm-discussion/BACKLOG.md` (push como commit aparte para versionado).
+**Changelog**:
+
+| Fecha | Editor | Cambios |
+|---|---|---|
+| 2026-05-18 morning | WC | Doc inicial creado |
+| 2026-05-18 evening | WC (DoIt cleanup) | Sprint C+E+D+P2 canary validado movió 12 items a LIVE; removidos 11 P2 ya cerrados; agregados P2.20-P2.22; Guest 360 actualizado con row counts reales (13k+ seedados); Pre-stay effort revisado 12-16h → 35-50h con link a spec deep; sequencing §7 realineado a objetivos Alex (workload + Karina + 4 sem) |
+
+**Próximo paso sugerido**: ahora que pipeline CC actual está en queue (thread/115 + Pre-stay A1-A4), foco es **Pre-stay execution + Karina onboarding en paralelo**. Vectorize tail puede correr en background cuando Alex tenga 5 min para token creation.
 
 ---
 
-— WC, 2026-05-18 fin-de-sesión
+— WC, last edit 2026-05-18 evening
