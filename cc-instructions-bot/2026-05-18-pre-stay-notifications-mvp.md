@@ -80,7 +80,7 @@ Manejable. Single canary batch safe. Volumen mensual estimado 30-50 bookings (Al
 | Y3 | New cron `preStayT1` daily 17:00 MX (23:00 UTC): detecta arrival = today+1, envía check-in instructions |
 | Y4 | One-shot catch-up endpoint `POST /admin/pre-stay/catch-up`: para todos los bookings en window [now, now+7] al deploy, envía variante condensed pre-arrival; rate-limited 10 sends/min |
 | Y5 | Templates per touchpoint × per property × per lang (3 × 4 × 2 = 24 templates), hardcoded en TS module por ahora (no KV/R2 indirection v1) |
-| Y6 | Idempotency via nuevas columns en `beds24_bookings`: `welcome_sent_at`, `pre_arrival_t7_sent_at`, `check_in_t1_sent_at`, `pre_stay_skip` (migration 0034) |
+| Y6 | Idempotency via nuevas columns en `beds24_bookings`: `welcome_sent_at`, `pre_arrival_t7_sent_at`, `check_in_t1_sent_at`, `pre_stay_skip` (migration 0035) |
 | Y7 | Admin endpoints worker: `POST /admin/pre-stay/scan`, `POST /admin/pre-stay/:beds24_booking_id/:touchpoint/send`, `POST /admin/pre-stay/:beds24_booking_id/skip` |
 | Y8 | Admin UI: drawer en `/admin/bookings` row → buttons "Send Welcome / Send T-7 / Send T-1 / Skip pre-stay" + visual indicators which sent |
 | Y9 | Audit log: cada send escribe row en `messenger_outbound` (re-use Part E table) con `conversation_source` + `routed_to` correctos |
@@ -132,7 +132,7 @@ Voted, no re-litigate:
 | C11 | NO LLM personalization v1 | Determinism + cost + Alex no quiere overhead |
 | C12 | Karina puede skip per booking sin escalate Alex | Objetivo handoff |
 | C13 | Feature flag OFF → audit row only, NO mark sent (allow retry post flip) | Recovery path |
-| C14 | Single migration 0034 for all 4 columns + minor indexes | Avoid multi-migration race |
+| C14 | Single migration 0035 for all 4 columns + minor indexes | Avoid multi-migration race |
 | C15 | Per-property template lookup via slug + lang, fail loud if missing (not silent generic) | Quality gate |
 | C16 | Language inference: explicit guest.lang > booking_source domain > default 'es' | Predictable |
 
@@ -140,10 +140,10 @@ Voted, no re-litigate:
 
 ## §4 · Implementation
 
-### 4.1 · Migration 0034
+### 4.1 · Migration 0035
 
 ```sql
--- Migration 0034: pre_stay_columns
+-- Migration 0035: pre_stay_columns
 --
 -- Add idempotency + skip flag columns to beds24_bookings for pre-stay
 -- automation. Mirror pattern from bookings.pre_arrival_sent_at but for the
@@ -459,7 +459,7 @@ Recovery: feature_off NEVER marks `*_sent_at`. Failed real sends DO reset for re
 | Create | `apps/worker-bot/src/pre-stay-templates.ts` |
 | Create | `apps/worker-bot/tests/pre-stay.test.ts` |
 | Create | `apps/worker-bot/tests/pre-stay-templates.test.ts` |
-| Create | `migrations/0034_pre_stay_columns.sql` |
+| Create | `migrations/0035_pre_stay_columns.sql` |
 | Create | `apps/web/src/pages/api/admin/pre-stay/[bookingId]/[action].ts` |
 | Create | `apps/web/src/pages/api/admin/pre-stay/catch-up.ts` |
 | Create | `apps/web/src/pages/admin/pre-stay.astro` |
@@ -478,7 +478,7 @@ Suggest CC-Bot ship as **4 PRs** (atomic, reviewable):
 
 | PR | Scope | Effort |
 |---|---|---|
-| **A1** | Migration 0034 + `pre-stay.ts` skeleton + `renderTemplate` + 24 templates + unit tests templates only | 8-12h |
+| **A1** | Migration 0035 + `pre-stay.ts` skeleton + `renderTemplate` + 24 templates + unit tests templates only | 8-12h |
 | **A2** | `scanForWelcome` + wire `welcome-auto-send.ts` to `sendMessageRouted` + integration tests + drain backlog of 10 pending_welcomes rows | 8-12h |
 | **A3** | `scanForT7` + `scanForT1` + cron dispatchers + wrangler.toml + GitHub Actions workflows + tests | 8-12h |
 | **A4** | Admin endpoints (4) + web proxy + drawer UI + `/admin/pre-stay` page + catch-up button + tests | 10-14h |
@@ -544,7 +544,7 @@ Target: **30+ tests passing**, mirror density of messenger-send (11) + extra-gue
 
 CC-Bot ships A1-A4 PRs. After PR A4 merge + Alex deploy:
 
-- [ ] Migration 0034 applied to prod D1 (verify columns exist)
+- [ ] Migration 0035 applied to prod D1 (verify columns exist)
 - [ ] Worker deployed with 3 new crons in wrangler.toml
 - [ ] GitHub Actions cron workflows present + scheduled
 - [ ] All unit tests pass (30+ new tests)
