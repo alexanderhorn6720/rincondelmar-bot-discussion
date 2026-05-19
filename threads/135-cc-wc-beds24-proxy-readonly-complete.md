@@ -217,3 +217,108 @@ when ready.
 CC out.
 
 🚀 Phase 1 done in 1h. Ready for Alex to wire secrets + DNS and ship.
+
+---
+
+## Append 2026-05-19 22:45 UTC · Phase F smoke complete · proxy LIVE
+
+PR #127 merged + worker deployed. `beds24.rincondelmar.club` custom domain
+was added directly to `apps/worker-bot/wrangler.toml` routes (commit `340a40e`,
+appended to PR before merge) so wrangler auto-created the DNS + zone routing
+on deploy — skipped the manual CF Dashboard step from the original checklist.
+
+Live: worker version `c5603ac4-23a8-4632-bcc8-6fc7f3944d88`.
+
+### Smoke results
+
+| # | Test | Expected | Got | Status |
+|---|---|---|---|---|
+| 1 | `GET /health` on beds24 domain | 200 | 200 (`rincon-bot` v0.6.1-phase0-tweaks) | ✅ |
+| 2 | Unauthed `/proxy/beds24/calendar` | 401 `unauthorized` | 401 `{"ok":false,"error":"unauthorized"}` | ✅ |
+| 3 | Authed cold (`roomId=78695`, 2026-12-20..25) | 200 + `X-Cache-Hit: false` + data | 200 + header + RdM `{12-20 $16k min_stay 3, 12-23 unavailable $32k min_stay 4}` | ✅ |
+| 4 | Authed warm (same params) | `X-Cache-Hit: true` | 200 + `X-Cache-Hit: true` + `X-Cache-Age: 0` | ✅ |
+| 5 | `roomId=99999` | 400 `invalid_room_id` | 400 | ✅ |
+| 6 | `roomId=679176` (Casa Chamán) | 400 `invalid_room_id` | 400 | ✅ |
+| 7 | `audit_log` rows | ≥1 with `kind='beds24_proxy_read'` | 1 row, `endpoint=calendar`, `rooms=[78695]`, `beds24_status=200`, `at_utc=2026-05-19 22:45:28` | ✅ |
+
+### Observations from live traffic
+
+- **Beds24 returns only entries with overrides.** Cold call for the 6-day RdM
+  window returned 2 entries (12-20 with explicit price + min_stay; 12-23
+  marked unavailable). The other 4 dates aren't in the response — likely
+  Beds24 omits days that are at default availability/price. Spec's clean
+  schema preserves that as-is: callers get back what Beds24 says, without
+  invented defaults. If callers need fill-in-the-blanks for unreturned dates,
+  that's a Phase 2 enhancement (`cron.ts refreshCalendar` already does range
+  expansion for internal use; could be lifted into the proxy if asked).
+- **`rate_limit_remaining: null` from upstream.** Beds24 isn't sending
+  `X-RateLimit-Remaining` on this endpoint. The proxy faithfully reports null;
+  meta field stays present so future-Beds24-changes don't require client work.
+- **Audit log only on successful upstream fetch.** Cache hits and 4xx params
+  responses short-circuit before the INSERT — so 4 authed curls produced 1
+  audit row, which is the intended behavior. Quota/usage analytics need to
+  remember this when reading `audit_log` (it's "billable upstream calls" not
+  "all requests"). Phase 4 dashboard work should account for it.
+- **Custom domain via wrangler.toml route worked first-try.** No manual
+  Dashboard step needed. Pattern reusable for future endpoints/domains.
+
+### Phase summary table (final)
+
+| Phase | Result |
+|---|---|
+| Pre-flight | ✅ done |
+| A · Ground truth | ✅ done |
+| B · Handler | ✅ shipped |
+| C · Route + CORS | ✅ shipped |
+| D · Tests | ✅ 32 vitest + 739 full suite |
+| E · PR + merge | ✅ PR #127 squash-merged to main as commit `0ebde33` |
+| F · Smoke | ✅ all 7 assertions green (table above) |
+| G · Docs + thread/135 | ✅ this file |
+
+### Project knowledge snippet (reminder)
+
+Updated for the live URL — paste into each Claude project:
+
+```markdown
+## Beds24 Proxy Access
+
+Base URL: https://beds24.rincondelmar.club/proxy/beds24/
+Auth: bearer token (`BEDS24_PROXY_TOKEN`) — ask Alex for current value.
+
+Phase 1 endpoint:
+- GET /calendar?roomId={id|all}&startDate=YYYY-MM-DD&endDate=YYYY-MM-DD
+  - roomId: 78695 (RdM), 374482 (Morenas direct), 74322 (Morenas Airbnb),
+            637063 (Huerta), 74316 (Combinada), or 'all'.
+  - Optional: &fresh=true (bypass 30-min KV cache), &raw=true (Beds24 passthrough).
+  - Date range max 365 days; endDate >= startDate; format strict YYYY-MM-DD.
+
+Returns: { ok, cached, cache_age_seconds, rooms: [{ room_id, room_name,
+  dates: [{ date, available, price_mxn, min_stay }] }], meta }.
+
+Beds24 only returns days with non-default overrides. Days absent from
+response = default availability/price (no special pricing, default min stay).
+
+Cache: 30 min per (roomIds, startDate, endDate). Headers: X-Cache-Hit,
+X-Cache-Age, Retry-After (on 429).
+
+Read-only. No write endpoints will ever be added.
+```
+
+### What's left
+
+Nothing in Phase 1. Optional follow-ups:
+
+1. **Token rotation cadence.** Current token (rotated during smoke test at
+   ~22:45 UTC) is the live value. No rotation policy enforced; recommend
+   quarterly + on suspected leak. `wrangler secret put BEDS24_PROXY_TOKEN`
+   rotates without redeploy.
+2. **Phase 2 backlog.** Bookings endpoint recommended next (WC's most-asked
+   query). Spec thread/136 when ready.
+3. **Range-expansion in calendar transform.** If callers complain about
+   "missing dates" in responses, lift the per-day expansion from
+   `cron.ts refreshCalendar` into `cleanCalendarResponse`. Spec'd as Phase 2.
+
+Time total: ~1.5h CC + ~5 min Alex (migration apply + 2× secret put + merge
+click + manual deploy). Well under the 4-6h budget.
+
+🟢 Proxy live and serving cleanly. Standing down.
