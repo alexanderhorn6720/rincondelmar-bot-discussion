@@ -17,7 +17,8 @@
 - D1: `rincon` (id `d81622d7-32e2-40a3-9609-80813c0e8a96`, compartido por los 3 workers + web)
 - R2 buckets: `rdm-knowledge` (templates + KB, preview `rdm-knowledge-preview`), `assetsrdm` (imágenes)
 - KV: `KV_KNOWLEDGE` (`033ee15acf3744c096e83342d2e81dd4`) prompts cacheados 2h
-- Last deploy dates (verify con `wrangler whoami` / dashboard): commit más reciente en `main` = 2026-05-19 (7625c55)
+- Last deploy dates (verify con `wrangler whoami` / dashboard): commit más reciente en `main` = 2026-05-19 (`0fc4720`, test admin-roles align with #129 priority)
+- **Analytics / tracking (apps/web)**: 🔴 **NONE active in prod**. `<CFAnalytics />` + `<GA4 />` componentes existen en `BaseLayout.astro` pero ambos guarded por env var checks; `PUBLIC_CF_ANALYTICS_TOKEN` y `PUBLIC_GA4_ID` NO declarados en `wrangler.toml`. Live HTML confirmed via curl: 0 trackers emitiendo. CF HTTP-proxy logs sí pasivos. Ver thread/149.
 
 ## B. PRs OPEN (live `gh pr list`)
 
@@ -28,7 +29,7 @@
 
 ## C. BRANCHES ACTIVAS LOCAL (no mergeadas a main)
 
-- `feat/admin-nav-phase-2-4` — 2026-05-19 — admin nav siguiente fase, probable continuación post-#129
+- `feat/admin-nav-phase-2-4` — 2026-05-19 — shipped via #131 (admin nav Phase 2+4 + landing dashboard). Branch sin podar.
 - `feat/beds24-proxy-calendar` — 2026-05-19 — current branch, shipped via #127 (proxy thread/134), tail commits 340a40e + 29e5a52
 - `feat/a6-reglas-adicionales-deploy` — 2026-05-19 — PR #130 abierto
 - `feat/role-based-nav-visibility` — 2026-05-19 — shipped #129, branch sin podar
@@ -38,6 +39,8 @@
 - `claude/zen-payne-ac1349` — 2026-05-18 — CC sandbox worktree, candidato a poda
 - `feat/journey-templates-editor` — 2026-05-18 — PR #114 abierto
 - `feat/in-stay-post-stay-touchpoints`, `feat/manychat-subscriber-sync`, `fix/manychat-account-update-tag`, `fix/manychat-subscriber-id-routing`, `fix/resolve-route-disjoint`, `feat/beds24-dump-endpoint`, `feat/pre-stay-a4-admin-ui`, `feat/pre-stay-a3-scan-t14-t7-t1`, `feat/pre-stay-a2-scan-welcome`, `feat/pre-stay-a1.5-t14-touchpoint`, `feat/pre-stay-a1`, `fix/resync-chunked`, `debug/resync-error-samples`, `hotfix/mojibake-guest-names`, `feat/guests-resync-beds24` — todas 2026-05-18, shipped & sin podar (≥15 branches mergeadas con misma fecha)
+- `chore/remove-reglas-pdf` — 2026-05-19 — WC created (empty), NEVER pushed code per WC role boundary. Candidato a poda by CC.
+- `fix/reglas-pdf-emoji-sanitize` — 2026-05-19 — shipped via PR #132 + #133 (both merged, neither resolved bug). Branch sin podar.
 
 ## D. POST-MERGE PENDING
 
@@ -50,6 +53,7 @@
   - `0 */6 * * *` — auth cleanup
   - `0 21 * * *` — auto check-in / complete 15:00 MX
 - worker-bot, worker-tours, web: SIN crons activos (Workers Free plan, GH Actions externa llama `/admin/refresh-now` cada 2h).
+- **PDF endpoint** `/reglas/{slug}/pdf` returns 500 in prod despite 2 sanitizer fix attempts (PR #132 + #133, both merged on 2026-05-19). Root cause deeper than emoji sanitization (likely pdf-lib + CF Workers runtime). Alex decision 2026-05-19: **remove PDF entirely**, defer hosted PDF to next spec. Browser native print (Ctrl+P) covers the use case. Pending: spec for CC to remove `/reglas/{slug}/pdf.ts` + 📄 PDF button + i18n keys.
 
 ## E. ANTI-PATTERNS ENFORCED
 
@@ -67,9 +71,14 @@
 - Pre-stay = 4 touchpoints (welcome + T-14 + T-7 + T-1), NO 3 (memory: project_pre_stay_4_touchpoints).
 - Morenas chef = strictly opt-in T-14 deadline (memory: feedback_morenas_chef_opt_in).
 - Prod ops manual: `wrangler deploy` / `d1 execute --remote` / `secret put` NUNCA ejecutar autónomo (memory: feedback_prod_deploy_always_manual).
+- **WC NO implementa código en `rdm-bot` ni `rdm-platform`** (2026-05-19 Alex correction). WC = specs + threads + reviews + brain mode. CC reta + implementa. WC sí commits a `rdm-discussion` (threads, specs, ADRs, reviews).
 
-## F. ÚLTIMA SEMANA SHIPPED (top 15 main, últimos 7d)
+## F. ÚLTIMA SEMANA SHIPPED (top 20 main, últimos 7d)
 
+- `0fc4720` test(admin-roles): align with PR #129 priority order (#134)
+- `bbb018f` fix(reglas-pdf): sanitize variation selectors + emoji ranges (#133) — duplicate of #132, did NOT resolve prod 500
+- `a2716c0` fix(reglas-pdf): sanitize variation selectors + emoji ranges (#132) — did NOT resolve prod 500
+- PR #131 admin nav Phase 2+4 + landing dashboard (thread/144) — merged 2026-05-19, +1825/-225, 12 files, 77/77 PR tests
 - `7625c55` feat: thread 141 house rules paper trail (#128)
 - `391af4d` feat(admin-nav): role-based visibility + 7 roles + M1-M5 placeholders (#129)
 - `c2d752f` fix(mcp): use --browser-url explicit for chrome-devtools-mcp attach
@@ -88,7 +97,7 @@
 - `2772d9d` feat(manychat): auto-create subscribers for direct-booking guests (#112)
 - `2f94331` fix(messenger): sendManychatContent via setCustomField+sendFlow (#111)
 
-Tema dominante: **pre-stay journey** (#112, #113, #117, varias branches `feat/pre-stay-*`), **karina-training admin** (#120-#125), **admin-nav role-based** (#129), **mobile inbox rescue** (#126), **thread/141 paper trail** (#128). Beds24 proxy (thread/134) shipped via #127.
+Tema dominante: **pre-stay journey** (#112, #113, #117, varias branches `feat/pre-stay-*`), **karina-training admin** (#120-#125), **admin-nav role-based + Phase 2+4** (#129 + #131), **mobile inbox rescue** (#126), **thread/141 paper trail** (#128). Beds24 proxy (thread/134) shipped via #127. Reglas PDF (thread/141 §C) intentaron arreglarse 2x sin éxito (#132, #133); decisión Alex 2026-05-19: remove PDF endpoint entirely.
 
 ## G. OUTSTANDING DECISIONS (Alex pending)
 
@@ -98,11 +107,14 @@ Derivado de threads con type=question/spec sin result thread en últimas 2 seman
 - A6 reglas_adicionales deploy — PR #130 esperando review.
 - Journey templates editor (PR #114) — review pendiente desde 2026-05-18.
 - Casa Chamán renovation timeline → cuándo unhide del Greeter (Q3 2026 placeholder).
+- **PDF endpoint removal spec for CC** — Alex decided 2026-05-19 to remove `/reglas/{slug}/pdf` entirely after 2 failed fix attempts (#132, #133). Spec needed: delete `apps/web/src/pages/reglas/[slug]/pdf.ts` + remove 📄 button + i18n keys + sanitizer tests. WC drafts → CC executes. Out: scope creep, additional tests for removed code, biome --write.
+- **F1/F2/F3 foundations + ADR-002** — thread/147 (WC-Impl review) posted 2026-05-19 with 1 🔴 blocker (cron host) + 3 🟡 concerns. Alex thread/148 vote pending on 7 items. See thread/145 + thread/147.
+- **Analytics activation (thread/149)** — landing page has `<CFAnalytics />` + `<GA4 />` components shipped but NO env vars set in `wrangler.toml`. Live HTML confirmed 0 trackers emitting. Decision needed: activate (cookieless CF only / CF + GA4 / CF + GA4 + GSC) or leave dormant. Custom GA4 events already wired in code (`tour_loaded`, `booking_quote_view`, etc) — activation unlocks them with zero CC effort. A/B variant attributes (`data-ab-variant`, `data-ab-cta`) in live HTML have no readout without analytics. Search Console verification status unverifiable from outside (DNS TXT) — Alex confirm. Alex decision tomorrow.
 
 ## H. LAST UPDATED + UPDATE PROTOCOL
 
-- Fecha generación: 2026-05-19
-- Por: CC vía DoIt thread/143 (branch `chore/state-system-and-audit` en rdm-discussion)
+- Fecha generación: 2026-05-19 (revised 2026-05-19 late evening by WC-Impl to add: analytics finding to §A + §G, PDF removal pending to §D + §G, WC boundary anti-pattern to §E, PR #131 + PR #132/#133/#134 to §F, chore/remove-reglas-pdf + fix/reglas-pdf-emoji-sanitize branches to §C, last commit SHA updated to `0fc4720`)
+- Por: CC vía DoIt thread/143 (branch `chore/state-system-and-audit` en rdm-discussion); 2026-05-19 PM revisions by WC-Impl direct-to-main per role boundary (rdm-discussion = WC territory).
 - Próxima refresh: manual cuando cambien items en §B/§C/§D
 - **Update protocol:** tu PR toca este archivo si afecta lo que afirma (worker deploy, branch nueva activa, cron added, migration applied, anti-pattern nuevo).
 - Promote-to-root: Alex copia este archivo → `rdm-bot/STATE.md` post-PR aprobación.
