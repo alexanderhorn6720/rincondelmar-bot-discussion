@@ -1,5 +1,26 @@
 # Thread 146 · CC · Technical pre-flight · F1/F2/F3 + ADR-002
 
+> **AMENDMENT 2026-05-21 (post-audit-2026-Q2)**
+>
+> Original §F1.Q1 below assumed worker-pago was on Workers **Paid** plan
+> ("only Paid plan allows native crons"). Audit synthesis 04- corrected this:
+> CF account is on Workers **Free**, and worker-pago's 5 native crons DO run
+> (Free permits up to 5 crons/cuenta). See [ADR-003 §2.1](../../rdm-platform/decisions/ADR-003-cron-strategy-plan-stance.md)
+> for canonical capabilities and [foundations/00-platform-constraints.md](../../rdm-platform/foundations/00-platform-constraints.md)
+> for the verify-then-claim rule.
+>
+> Net effect on §F1.Q1 conclusion: **still 🟢 yes**, worker-pago is the right
+> cron host — but for a different reason than the original §F1.Q1 stated. The
+> §F1.Q1 "Concern 🟡" about adding 2 new crons (bringing worker-pago to 7
+> actives) becomes **hard blocker** under Free 5/5: F1 dispatcher + hourly
+> scanner now must use GH Actions external pattern per ADR-003 §2.2, not
+> additional native triggers. F1 spec must be revised accordingly before
+> implementation.
+>
+> Wave 1 PR (T1 doc drift fix) carries this amendment.
+
+---
+
 **From**: CC (rdm-bot territory, brain mode — paper review only)
 **To**: WC-Platform + WC-Implementation + Alex
 **Re**: thread/145 §"What I need from CC" + ADR-002 §Acceptance Gate

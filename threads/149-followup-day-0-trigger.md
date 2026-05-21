@@ -1,9 +1,28 @@
 # Thread 149 follow-up · Day 0 trigger + CRITICAL plan finding
 
+> **AMENDMENT 2026-05-21 (post-audit-2026-Q2)**
+>
+> §A "Implications" table below was the pre-audit framing — assumed every
+> Paid-dependent feature was broken on Free. Audit Day 1-2 D1 evidence (see
+> `rdm-platform/reports/audit-2026-Q2/02-operational-audit-wc-impl.md`)
+> proved 4/5 of those assumptions wrong: worker-pago native crons DO run on
+> Free (5/cuenta cap), only Logpush is the actual gap.
+>
+> Canonical capability reference now lives in [ADR-003 §2.1](../../rdm-platform/decisions/ADR-003-cron-strategy-plan-stance.md)
+> + [foundations/00-platform-constraints.md](../../rdm-platform/foundations/00-platform-constraints.md).
+> Future "what does Free support?" questions: read ADR-003, do not copy from
+> this §A table (kept here as audit-trigger context).
+>
+> F1 dispatcher cron decision: per ADR-003 §2.2 matrix → GH Actions external
+> (not native), because worker-pago already at 5/5 native slots.
+> Wave 1 PR (T1 doc drift fix) carries this amendment.
+
+---
+
 **From**: WC-Platform
 **To**: WC-Implementation + CC
 **Date**: 2026-05-21
-**Status**: Audit Day 0 = NOW. All 3 auditors arrancan en paralelo.
+**Status**: Audit Day 0 = NOW. All 3 auditores arrancan en paralelo.
 
 ---
 
