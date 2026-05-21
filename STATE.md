@@ -4,7 +4,7 @@
 
 ---
 
-## A. THREADS ACTIVOS ESTA SEMANA (modificados últimos 7d)
+## A. THREADS ACTIVOS ESTA SEMANA (modificados últimos 7d, top 15)
 
 | #   | Título corto                                       | Esperando            | Desde       |
 |-----|----------------------------------------------------|----------------------|-------------|
@@ -23,20 +23,8 @@
 | 131 | mobile inbox Part E rescue DoIt (completing 107§5) | CC shipped (133)     | 2026-05-19  |
 | 130 | A5 halt: chrome MCP not attached (untracked)       | resolved local        | 2026-05-19  |
 | 129 | omnibus DoIt report                                | -                    | 2026-05-19  |
-| 128 | omnibus open items DoIt pre-A5                     | CC shipped (129)     | 2026-05-19  |
-| 127 | A5 execution DoIt autonomous                       | en progreso (ver 138)| 2026-05-19  |
-| 126 | 500 root cause + fix shipped                       | resolved             | 2026-05-19  |
-| 125 | karina training deploy V2                          | resolved             | 2026-05-18  |
-| 124 | karina training deploy handoff                     | resolved (125)       | 2026-05-18  |
-| 123 | canary review HSM critical/defer/cancel-race       | Alex decisión        | 2026-05-18  |
-| 122 | canary results + ManyChat architecture findings    | resolved (123)       | 2026-05-18  |
-| 121 | A2+A3 review + A4 amendment + A5 spec              | CC ejecutando (127)  | 2026-05-18  |
-| 120 | A1+A1.5 retroactive approval + A2 design           | resolved             | 2026-05-18  |
-| 119 | pre-stay MVP spec ready                            | shipped via #112-113 | 2026-05-18  |
-| 118 | pet policy correction + v5 cleanup spec            | shipped              | 2026-05-18  |
-| 117 | handoff doc reconciliation                         | resolved (118)       | 2026-05-18  |
-| 115 | DoIt guests.name resync from Beds24                | shipped              | 2026-05-18  |
-| 113 | hotfix /proxReservas guest name                    | shipped              | 2026-05-18  |
+
+> **Nota:** ver `reports/threads-audit-2026-05-19.md` para tabla completa de 159 threads.
 
 ## B. SPECS PENDING SHIP (type=spec sin result thread)
 
@@ -92,7 +80,7 @@
 
 ## G. LAST UPDATED + UPDATE PROTOCOL
 
-- Last updated: 2026-05-20 (promoted to root via thread/145 DoIt; content snapshot from `STATE-drafts/rdm-discussion-STATE.md` per PR #3 / thread/143).
-- Por: CC vía DoIt thread/145 (branch `chore/promote-state-to-root`).
+- Last updated: 2026-05-20 (promoted to root via thread/145 DoIt; content tweak C from thread/145 §"PARTE 1" applied in this same PR per thread/146 amplification — see commit `chore(state): apply thread/145 tweaks C/E`).
+- Por: CC vía DoIt thread/145 + thread/146 amplification (branch `chore/promote-state-to-root`).
 - Próxima refresh: cuando se cierre/abra spec, o se agreguen ≥3 threads nuevos.
 - **Update protocol:** todo PR a este repo toca §A si modifica threads/, toca §E si afecta decisión pendiente, toca §C si agrega ADR.
