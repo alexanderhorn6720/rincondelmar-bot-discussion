@@ -99,6 +99,47 @@ CC standing by for synthesis-pass clarifications. Independence period over from 
 
 ---
 
-**Signed**: Claude Code, rdm-bot session, branch `chore/process-improvements-thread-146`, ~3h effort actual vs ~3h estimated.
+## §G · UPDATE 2026-05-21 late evening · Live validation pass added (§F addendum to §08)
+
+After the initial commit, Alex launched Chrome with `--remote-debugging-port=9222` and logged into prod `/admin`. CC re-validated all 13 routes live at 1280/720/320 viewports against real prod D1 data. Committed as §F appendix to `08-cc-tech-validation.md` (platform `main`, commit `9e12279`).
+
+### G.1 · Material correction — one of my net-new 🔴 was wrong
+
+**§B.9 karina-training 900px breakpoint finding was based on misreading the CSS.** `@media (max-width: 900px) { .kt-doc-wrap { grid-template-columns: 1fr } }` DOES fire at 720px (since 720 < 900) — the TOC collapses to a top strip exactly as designed. Live screenshot at 720×900 confirms the breakpoint works. WC-Impl's original 🟢 prelim for B.9 stands; my §D adjustment of "degrade 🟢→🟡" was wrong.
+
+**Updated tally**: net-new 🔴 across entire validation = **0** (not 1 as the original ack claimed).
+
+### G.2 · New live-only findings (couldn't see these via static analysis)
+
+| ID | Severity | Description |
+|---|---|---|
+| F.2 | 🟡 | karina-training **page-level horizontal overflow at 320px** — wide SVG diagram or `<pre>` element doesn't shrink. Real mobile UX issue. ~30 min fix. |
+| F.4 | 🟢 | Every authenticated admin page emits 1-2 preload warnings for `page.BT_9kWGp.js` (`crossorigin` attribute mismatch). Upstream Astro config fix. |
+| F.5 | 🟡 | `/admin/inbox` searchbox + `/admin/bookings` filters (3 fields) lack `name`/`id` — Chrome flags as a11y `[issue]`. ~10 min. |
+| F.7 | 🟡 | `/admin/inbox` Beds24-only rows: clicking the booking ID navigates to `/admin` (home). Source: `InboxView.tsx:79-82` — `convPathForRow` returns `'/admin'` as fallback. Soft 404 UX trap. ~15 min to wire to `/admin/bookings?id=...`. |
+
+### G.3 · Prod data state deltas vs WC-Impl snapshot
+
+- `/admin/inbox`: **275 rows / 260 need attention** (was 100 unread / 4 critical in WC-Impl). State breakdown: 3 Critical / 77 Escalated / 123 Stalled / 57 Unread (Beds24) / 15 Resolved. Ops gap deepening.
+- `/admin/templates`: **prod R2 bucket is EMPTY** ("No hay templates todavía"). The `prompt()` + `alert()` anti-pattern UX has never been exercised by Karina because no templates exist. Worth a synthesis discussion — is `/admin/templates` dormant?
+- `/admin/bot-metrics`: Greeter v5 canary at **100%** (last config update by `alex-stage1` 4d ago); 59 clicks last 24h, top intents `casas` 32% / `disponibilidad` 19% / `cotizar` 12%. WORKER HEARTBEAT 6min ago (`cron-client-bot-poll`).
+- `/admin` dashboard: 5,874 total leads, 91 bot turnos 24h, 2.6s latencia.
+
+### G.4 · WC-Impl prelim accuracy revised
+
+- **B.2 `/admin/inbox`** — prelim said "Phase 1 read-only"; **prod is Phase 2**: Reply button + Resolve + Escalate + Beds24 deep-link all live per InboxView.tsx:466-522 and confirmed visually. Framing update recommended in `01-tool-cards.md`.
+- **B.9 `/admin/karina-training`** — keep WC-Impl's 🟢 prelim (my downgrade was based on the wrong F.1 finding).
+- **B.8 `/admin/templates`** — prelim still accurate at code level, but add live note: "prod R2 bucket empty 2026-05-21; anti-pattern UX never exercised."
+- The other 10 cards: prelim spot-on.
+
+### G.5 · Updated effort tally
+
+- Original static §08: ~3h
+- Live §F addendum: ~30 min (browser-driven smoke pass + addendum write-up)
+- **Cumulative**: ~3.5h actual vs 3h estimated — over by 30 min, but the live pass closed the biggest gap from the original §E disclosure.
+
+---
+
+**Signed**: Claude Code, rdm-bot session, branch `chore/process-improvements-thread-146`, ~3.5h cumulative effort. Chrome MCP attached for §F live pass; gap #1 of original §E ("no live browser") closed within the same audit window.
 
 Per spec §6 hard rule: did NOT read `07-wc-platform-review.md` (does not yet exist in repo) nor `09-synthesis-bigbang.md` (does not yet exist) prior to my commit. Did read `00-foundation.md`, `01-tool-cards.md`, README, and my own prior `audit-2026-Q2/03-technical-audit-cc.md` for cross-reference.
