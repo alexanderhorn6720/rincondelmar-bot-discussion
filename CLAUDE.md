@@ -80,6 +80,53 @@ failed after 5 attempts.
 Tests live in `scripts/tests/test_new_thread.sh` and run on every PR
 that touches `scripts/**` (see `.github/workflows/scripts-tests.yml`).
 
+## Thread frontmatter schema enforcement
+
+Every `threads/*.md` carries a YAML frontmatter block (between two
+`---` lines). Required fields and allowed values are defined in
+[`schemas/thread.schema.json`](schemas/thread.schema.json):
+
+| Field | Type | Constraint |
+|---|---|---|
+| `thread` | integer | >= 1, set by `scripts/new-thread.sh` |
+| `author` | enum | WC / WC-Platform / WC-Impl / CC / CC-Bot / CC-Data / CC-Pago / CC-Web / Alex |
+| `date` | string | `YYYY-MM-DD` (UTC) |
+| `topic` | string | min 5 chars |
+| `mode` | enum | brain · brain quick · brain deep · brain ultra · DoIt · verify · challenge response · synthesis |
+| `status` | enum | draft · open · response · halt · closed · abandoned · open-for-alex-vote · ready-for-cc-execution · open-for-challenge |
+
+`additionalProperties: true` — extra fields (`related`, `deliverable`,
+`inputs`, `target_session`, etc.) are allowed.
+
+### CI lint
+
+`.github/workflows/thread-schema-lint.yml` runs
+`node scripts/validate-threads.mjs` on every PR that touches
+`threads/`. Two modes:
+
+- **SOFT** (default for 7 days post thread/175 merge): violations are
+  printed to stderr and the JSON report is uploaded as a CI artifact,
+  but the job never fails.
+- **HARD** (planned cutover 2026-05-29): violations on threads
+  `>= GRANDFATHER_THRESHOLD` (default 175) fail the build.
+
+Threads with number below the grandfather threshold are reported as
+advisories — they reflect historical inconsistency (many older
+threads have no frontmatter at all) that we don't retroactively fix.
+
+Run locally:
+
+```bash
+node scripts/validate-threads.mjs            # soft, no failures
+SCHEMA_MODE=hard node scripts/validate-threads.mjs  # fail on blocking
+```
+
+Self-tests for the validator:
+
+```bash
+node --test scripts/tests/test_validate_threads.mjs
+```
+
 ## Anti-patterns (do NOT do)
 
 - Casa Chamán in Greeter system prompt until renovation complete

@@ -1,0 +1,45 @@
+name: thread-schema-lint
+
+on:
+  pull_request:
+    paths:
+      - 'threads/**'
+      - 'scripts/validate-threads.mjs'
+      - 'schemas/thread.schema.json'
+      - '.github/workflows/thread-schema-lint.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'threads/**'
+
+env:
+  # SOFT for 7 days post-merge (advisory only); flip to 'hard' after
+  # 2026-05-29 per thread/175 §4 T3 plan.
+  SCHEMA_MODE: soft
+  GRANDFATHER_THRESHOLD: '175'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run validator
+        run: node scripts/validate-threads.mjs
+
+      - name: Run validator self-tests
+        run: node --test scripts/tests/test_validate_threads.mjs
+
+      - name: Upload JSON report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thread-schema-report
+          path: .thread-schema-report.json
+          if-no-files-found: warn
+          retention-days: 14

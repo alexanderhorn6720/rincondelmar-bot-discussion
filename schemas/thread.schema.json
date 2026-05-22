@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/alexanderhorn6720/rdm-discussion/schemas/thread.schema.json",
+  "title": "rdm-discussion thread frontmatter",
+  "description": "Frontmatter shape enforced by scripts/validate-threads.mjs. Applies to threads >= 175 (grandfathering). Older threads are reported as advisories only.",
+  "type": "object",
+  "required": ["thread", "author", "date", "topic", "mode", "status"],
+  "properties": {
+    "thread": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Sequential number claimed via scripts/new-thread.sh."
+    },
+    "author": {
+      "type": "string",
+      "enum": [
+        "WC",
+        "WC-Platform",
+        "WC-Impl",
+        "CC",
+        "CC-Bot",
+        "CC-Data",
+        "CC-Pago",
+        "CC-Web",
+        "Alex"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "YYYY-MM-DD (UTC)."
+    },
+    "topic": {
+      "type": "string",
+      "minLength": 5
+    },
+    "mode": {
+      "type": "string",
+      "enum": [
+        "brain",
+        "brain quick",
+        "brain deep",
+        "brain ultra",
+        "DoIt",
+        "verify",
+        "challenge response",
+        "synthesis"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "open",
+        "response",
+        "halt",
+        "closed",
+        "abandoned",
+        "open-for-alex-vote",
+        "ready-for-cc-execution",
+        "open-for-challenge"
+      ]
+    },
+    "related": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "deliverable": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}
