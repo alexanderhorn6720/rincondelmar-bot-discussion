@@ -60,5 +60,7 @@
       "Bash(git push origin :main)",
       "Bash(git push origin --delete main)"
     ]
-  }
+  },
+  "model": "sonnet"
 }
+
