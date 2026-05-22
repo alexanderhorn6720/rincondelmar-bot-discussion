@@ -7,7 +7,7 @@ mode: DoIt
 status: closed
 related:
   - thread/176 (spec)
-  - PR rdm-discussion#TBD (all reports + this thread)
+  - PR rdm-discussion#12 (all reports + this thread)
 deliverable: completion report del DoIt thread/176 META archaeology
 ---
 
@@ -17,7 +17,7 @@ Session paralela a thread/175 T1-T5 (otra sesión CC). Read-only audit. PR únic
 
 ## §1 PR
 
-PR rdm-discussion#TBD (branch `feat/meta-archaeology-audit-2026-05-22`). Merge directo recomendado: read-only, no controvertido, todos los reports en `reports/` + este thread.
+PR rdm-discussion#12 (branch `feat/meta-archaeology-audit-2026-05-22`). Merge directo recomendado: read-only, no controvertido, todos los reports en `reports/` + este thread.
 
 ## §2 Files generated
 
