@@ -1,0 +1,881 @@
+{
+  "generated_at": "2026-05-22",
+  "repos": [
+    "rdm-bot",
+    "rdm-discussion",
+    "rdm-platform"
+  ],
+  "branches_per_repo": {
+    "rdm-bot": [
+      {
+        "name": "chore/monorepo-turborepo",
+        "last_sha": "9125cc73fe52",
+        "last_commit_date": "2026-05-11T18:33:45Z",
+        "age_days": 10,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(bot): WC thread/10 fixes \u2014 /admin/refresh-now + KB_FILES + GitHub Actions cron",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "chore/remove-reglas-pdf",
+        "last_sha": "0fc4720337c3",
+        "last_commit_date": "2026-05-19T23:38:24Z",
+        "age_days": 2,
+        "author": "ah6720",
+        "message_first_line": "test(admin-roles): align with PR #129 priority order (#134)",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "chore/trigger-pages-redeploy",
+        "last_sha": "26cf9d923eb3",
+        "last_commit_date": "2026-05-16T19:50:23Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "chore(pages): trigger redeploy to pick up ADMIN_REFRESH_SECRET binding",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          75
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "chore/vectorize-smoke-script",
+        "last_sha": "2752008fc8a7",
+        "last_commit_date": "2026-05-16T19:05:32Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "chore(data): vectorize smoke query script + post-execute report update",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          70
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "claude/dreamy-swanson-4b3bf2",
+        "last_sha": "05823d0ec4e1",
+        "last_commit_date": "2026-05-12T23:51:58Z",
+        "age_days": 9,
+        "author": "rincondelmar-bot",
+        "message_first_line": "chore(web): remove orphan PropertyReviews.astro (replaced by ReviewsCarousel in Track C)",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "docs/karina-training-v2",
+        "last_sha": "ec56021d357e",
+        "last_commit_date": "2026-05-21T00:44:06Z",
+        "age_days": 1,
+        "author": "rincondelmar-bot",
+        "message_first_line": "docs(karina-training): bump v1 \u2192 v2 (SVG mockups, nav, foundations)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          135
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "docs/v6-prompt-wc-review",
+        "last_sha": "481b0428c7a3",
+        "last_commit_date": "2026-05-16T20:09:51Z",
+        "age_days": 5,
+        "author": "WC (via Claude)",
+        "message_first_line": "docs(v6-prompt): WC sign-off \u2014 Option B approved + integrate vibe/format spec",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": true,
+        "pr_numbers": [
+          76
+        ],
+        "category": "active"
+      },
+      {
+        "name": "docs/vectorize-handoff-and-deploy-runbook",
+        "last_sha": "9a900a9acb15",
+        "last_commit_date": "2026-05-16T19:16:29Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "docs(runbook): fix pnpm deploy gotcha \u2014 must use 'pnpm run deploy'",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          71
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/a6-reglas-adicionales-deploy",
+        "last_sha": "abd418322805",
+        "last_commit_date": "2026-05-19T21:36:35Z",
+        "age_days": 2,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(content): reglas_adicionales \u00b7 swap WhatsApp brand mention for AirBnB anti-off-platform",
+        "has_merged_pr": false,
+        "has_open_pr": true,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          130
+        ],
+        "category": "active"
+      },
+      {
+        "name": "feat/admin-airbnb-content-editor-fase15",
+        "last_sha": "54806c24c513",
+        "last_commit_date": "2026-05-14T00:50:58Z",
+        "age_days": 8,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(admin): Fase 1.5 \u2014 API endpoints + UI + ContentCell React island (MVP complete)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          10
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/admin-bookings-gantt",
+        "last_sha": "79d12b981968",
+        "last_commit_date": "2026-05-17T00:18:15Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(beds24): normalize beds24_events \u2192 beds24_bookings (data foundation for /admin/bookings)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          80
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/admin-health-page",
+        "last_sha": "0f4d78bf069f",
+        "last_commit_date": "2026-05-13T18:52:16Z",
+        "age_days": 8,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(admin): Health page con D1 stats + cron status + recent alerts",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          8
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/admin-nav-phase-2-4",
+        "last_sha": "0567f99e9027",
+        "last_commit_date": "2026-05-19T22:44:46Z",
+        "age_days": 2,
+        "author": "rincondelmar-bot",
+        "message_first_line": "test(admin-nav): coverage for dropdown render + dashboard data",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          131
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/admin-placeholders-reviews-host",
+        "last_sha": "d47dcab2bd4c",
+        "last_commit_date": "2026-05-13T18:38:07Z",
+        "age_days": 8,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(admin): add {reviewsUrl} + {hostName} placeholders",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          7
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/beds24-booking-webhook",
+        "last_sha": "100c8f2e4bfa",
+        "last_commit_date": "2026-05-12T16:52:58Z",
+        "age_days": 10,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(bot): Beds24 webhook V2 nested shape (extract booking from body.booking)",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "feat/beds24-proxy-calendar",
+        "last_sha": "340a40e40bed",
+        "last_commit_date": "2026-05-19T22:32:40Z",
+        "age_days": 2,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(worker-bot): register beds24.rincondelmar.club custom domain (thread/134)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          127
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/bot-short-links-pr3",
+        "last_sha": "682ad0af8b31",
+        "last_commit_date": "2026-05-21T08:47:30Z",
+        "age_days": 1,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(admin/inbox): WhatsApp-style history in right-side reply drawer",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "feat/d1-migrations-0014-0018-guest360",
+        "last_sha": "64305127c661",
+        "last_commit_date": "2026-05-13T16:53:38Z",
+        "age_days": 9,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(d1): rename Phase B bookings \u2192 beds24_bookings (collision con 0004)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          4
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-deterministic-ids",
+        "last_sha": "e15b36ad59e6",
+        "last_commit_date": "2026-05-16T04:15:15Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(data): deterministic guest/lead/event IDs for idempotent D1 re-runs",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          59
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-faq-and-content-extraction",
+        "last_sha": "ea7936c295a6",
+        "last_commit_date": "2026-05-17T01:13:21Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "data(extraction): +174 FAQ candidates and +102 content enrichment ideas",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          81
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-stage0-business-filter",
+        "last_sha": "fce002e93495",
+        "last_commit_date": "2026-05-15T23:50:20Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(data): pipeline scaffold + Stage 0 (business filter) + Stage A (reconstruction)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          48
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-stage-b-funnel-e-temporal",
+        "last_sha": "f1619d293a06",
+        "last_commit_date": "2026-05-15T23:59:19Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(data): Stage B (funnel detection) + Stage E (temporal insights)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          49
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-stage-c-operator-playbook",
+        "last_sha": "21f9f4c1cddf",
+        "last_commit_date": "2026-05-16T00:05:38Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(data): Stage C \u2014 operator playbook pipeline (ready-to-run, dry-run validated)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          51
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-stage-c-rerun-12k-and-trim",
+        "last_sha": "0c6575b02c30",
+        "last_commit_date": "2026-05-16T19:29:11Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(data): Stage C v2 (12K) + trim helper + PII audit (sprint final pass)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          73
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-stage-deploy-d1-r2-vectorize",
+        "last_sha": "aaf82bd11116",
+        "last_commit_date": "2026-05-16T00:12:08Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(data): Stage Deploy \u2014 D1 seed + R2 upload + Vectorize pipeline",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          52
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-stage-deploy-dedup-emails-phones",
+        "last_sha": "505512fe3055",
+        "last_commit_date": "2026-05-16T04:01:17Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(data): dedupe email_lower + phone_e164 in stage_deploy_d1 (D1 OR IGNORE not honored)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          58
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/data-stage-deploy-or-ignore-fix",
+        "last_sha": "3c1ee2ae142a",
+        "last_commit_date": "2026-05-16T03:53:20Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(data): switch D1 seed to INSERT OR IGNORE + populate operator_playbook",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          57
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/greeter-v6-combined",
+        "last_sha": "26247c787e8a",
+        "last_commit_date": "2026-05-16T20:28:07Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(greeter): PR A6.1 \u2014 V6 prompt (v2-playbook patterns + WC vibe rules + pet fee fix)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          77
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/journey-templates-editor",
+        "last_sha": "f8a19248d489",
+        "last_commit_date": "2026-05-18T21:48:28Z",
+        "age_days": 3,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(journey): D1-override editor for journey templates",
+        "has_merged_pr": false,
+        "has_open_pr": true,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          114
+        ],
+        "category": "active"
+      },
+      {
+        "name": "feat/karina-tg-distribution",
+        "last_sha": "1e07aaa3f5d4",
+        "last_commit_date": "2026-05-21T03:02:50Z",
+        "age_days": 1,
+        "author": "ah6720",
+        "message_first_line": "test(notify-human): thread/152 Karina cron_alert filter + reminder Alex-only",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          136
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/mp-webhook-beds24-capture",
+        "last_sha": "5125fe5e2ca0",
+        "last_commit_date": "2026-05-22T16:25:34Z",
+        "age_days": 0,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(worker-pago): 503 on retryable MP API failures + drop KV idempotency on retry",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          158
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/phase0-reviews-client-bot-a",
+        "last_sha": "f754d67e0dca",
+        "last_commit_date": "2026-05-12T18:29:51Z",
+        "age_days": 9,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(bot): Phase 0 \u2014 WC thread/30 \u00a73 pre-deploy tweaks",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          1
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/role-based-nav-visibility",
+        "last_sha": "061b7a44ec28",
+        "last_commit_date": "2026-05-19T21:27:34Z",
+        "age_days": 2,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(admin-bookings): read-only 30-day window for non-admin roles",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          129
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/telegram-pago-notify",
+        "last_sha": "b9548207785e",
+        "last_commit_date": "2026-05-22T16:32:23Z",
+        "age_days": 0,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(worker-pago): Telegram pago-recibido + reembolso notifications",
+        "has_merged_pr": false,
+        "has_open_pr": true,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          159
+        ],
+        "category": "active"
+      },
+      {
+        "name": "feat/thread-141-house-rules-paper-trail",
+        "last_sha": "845ecbd23eaa",
+        "last_commit_date": "2026-05-19T20:46:39Z",
+        "age_days": 2,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(rules): house rules paper trail Phase 1 (thread/141)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          128
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "feat/web-reviews-carousel-uncurated-copy",
+        "last_sha": "9ef1943b4a88",
+        "last_commit_date": "2026-05-13T00:32:30Z",
+        "age_days": 9,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(web): ReviewsCarousel \u2014 uncurated copy con variantes per-property",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "fix/admin-readonly-test-priority",
+        "last_sha": "7a156dcfd1e3",
+        "last_commit_date": "2026-05-19T23:03:10Z",
+        "age_days": 2,
+        "author": "rincondelmar-bot",
+        "message_first_line": "test(admin-roles): align with PR #129 priority order",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          134
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "fix/bot-las-morenas-74322-guard",
+        "last_sha": "485eb5bade18",
+        "last_commit_date": "2026-05-12T05:37:34Z",
+        "age_days": 10,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(bot): actually redirect roomId 374482 \u2192 74322 in createBookingAndPaymentLink",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "fix/ci-lint-blockers",
+        "last_sha": "6e420351b3ab",
+        "last_commit_date": "2026-05-16T19:20:38Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(lint): two pre-existing biome errors in packages/shared",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          72
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "fix/data-r2-remove-remote-flag",
+        "last_sha": "35c99da765e4",
+        "last_commit_date": "2026-05-16T04:22:42Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(data): drop --remote from wrangler r2 object put (not a valid flag)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          60
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "fix/pages-build-prerender-admin-conv",
+        "last_sha": "bc0b6ef274dc",
+        "last_commit_date": "2026-05-16T19:35:58Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(pages-build): add prerender=false to /api/admin/conv* SSR routes",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          74
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "fix/pet-fee-web-content",
+        "last_sha": "2cc5d2104d52",
+        "last_commit_date": "2026-05-16T23:40:05Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(content): pet fee everywhere on web is \\$300 MXN/estancia (NOT /noche, NOT free)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          78
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "fix/reglas-pdf-emoji-sanitize",
+        "last_sha": "948d064b21d0",
+        "last_commit_date": "2026-05-19T22:51:28Z",
+        "age_days": 2,
+        "author": "WC (Web Claude)",
+        "message_first_line": "fix(reglas-pdf): sanitize variation selectors + broader emoji ranges",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          133,
+          132
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "fix/v6-followups-bundled",
+        "last_sha": "bc1cc300deb8",
+        "last_commit_date": "2026-05-16T23:45:18Z",
+        "age_days": 5,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(v6-followups): validator URL false-positive + booking header + admin nav silencer",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          79
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "fix/web-las-morenas-roomid-cutover",
+        "last_sha": "4ac31c329f5e",
+        "last_commit_date": "2026-05-13T00:02:43Z",
+        "age_days": 9,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(web): Las Morenas roomId 374482 \u2192 74322 (post-Beds24 cutover)",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          3
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "fix/welcome-status-filter",
+        "last_sha": "4cbc795851e0",
+        "last_commit_date": "2026-05-16T17:57:59Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "fix(welcome-auto-send): filter status='confirmed' + action_taken audit",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          69
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "kb/greeter-v5-booker-hotfix-c",
+        "last_sha": "87bfc8bf1cc7",
+        "last_commit_date": "2026-05-11T07:11:38Z",
+        "age_days": 11,
+        "author": "Web Claude",
+        "message_first_line": "kb pack: Greeter v5 + Booker hot-fix C \u2014 port assets for apps/worker-bot",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "main",
+        "last_sha": "6a6d3d9becef",
+        "last_commit_date": "2026-05-22T16:05:11Z",
+        "age_days": 0,
+        "author": "ah6720",
+        "message_first_line": "feat(worker-pago): MP webhook -> Beds24 invoiceItem capture (thread/167) (#158)",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": true,
+        "pr_numbers": [
+          45
+        ],
+        "category": "active"
+      },
+      {
+        "name": "pr3-en-blog-extras",
+        "last_sha": "bc6b4b9227e7",
+        "last_commit_date": "2026-05-14T20:53:19Z",
+        "age_days": 7,
+        "author": "rincondelmar-bot",
+        "message_first_line": "merge: main \u2192 pr3 to trigger CF Pages production deploy (production_branch=pr3-en-blog-extras still active)",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "pr3-track-c-reviews-carousel",
+        "last_sha": "d2f7a5d2f701",
+        "last_commit_date": "2026-05-12T23:43:16Z",
+        "age_days": 9,
+        "author": "rincondelmar-bot",
+        "message_first_line": "feat(web): Track C \u2014 ReviewsCarousel + /api/reviews/[roomId] live D1",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          2
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "pr-a61-prompt-v6-prep-DRAFT",
+        "last_sha": "3dd27b8d3f50",
+        "last_commit_date": "2026-05-16T14:05:16Z",
+        "age_days": 6,
+        "author": "rincondelmar-bot",
+        "message_first_line": "draft(prompt): PR A6.1 prep \u2014 Greeter v6 prompt incorporando operator_playbook",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": true,
+        "pr_numbers": [
+          65
+        ],
+        "category": "active"
+      }
+    ],
+    "rdm-discussion": [
+      {
+        "name": "chore/notify-cc-claude-md",
+        "last_sha": "08135d60da7e",
+        "last_commit_date": "2026-05-16T11:26:03Z",
+        "age_days": 6,
+        "author": "Claude",
+        "message_first_line": "thread/78: notify CC-Bot and CC-Data about CLAUDE.md",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          2
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "chore/process-improvements-thread-146",
+        "last_sha": "d42995219683",
+        "last_commit_date": "2026-05-21T06:12:39Z",
+        "age_days": 1,
+        "author": "Claude Code",
+        "message_first_line": "thread/158 \u00a7G: live validation pass added (Chrome MCP attached)",
+        "has_merged_pr": true,
+        "has_open_pr": true,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          8,
+          6
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "chore/state-system-and-audit",
+        "last_sha": "e7dd4aa76657",
+        "last_commit_date": "2026-05-21T02:31:18Z",
+        "age_days": 1,
+        "author": "ah6720",
+        "message_first_line": "docs(state): rdm-platform STATE refresh \u2014 Audit 2026-Q2 \u00a7F.4",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          3
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "chore/working-modes-docs",
+        "last_sha": "1b7f71a837df",
+        "last_commit_date": "2026-05-16T11:23:17Z",
+        "age_days": 6,
+        "author": "Claude",
+        "message_first_line": "chore: add CLAUDE.md with Working Modes conventions",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          1
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "claude/respond-thread-145-Qcon1",
+        "last_sha": "ddd0d6ac0c20",
+        "last_commit_date": "2026-05-20T04:54:33Z",
+        "age_days": 2,
+        "author": "Claude",
+        "message_first_line": "thread/146: revise with verified spec citations \u00b7 F1/F2/F3 + ADR-002",
+        "has_merged_pr": true,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          4
+        ],
+        "category": "merged"
+      },
+      {
+        "name": "main",
+        "last_sha": "ec820eb80aa3",
+        "last_commit_date": "2026-05-22T17:41:33Z",
+        "age_days": 0,
+        "author": "ah6720",
+        "message_first_line": "thread/176: DoIt CC \u2014 META archaeology pipeline audit (read-only)",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      },
+      {
+        "name": "thread/158-final-report",
+        "last_sha": "86b1bfdc310a",
+        "last_commit_date": "2026-05-21T23:32:21Z",
+        "age_days": 0,
+        "author": "Claude Code",
+        "message_first_line": "docs(thread/163): thread/158 DoIt final report \u2014 5 PRs merged, /ir/* overhaul complete",
+        "has_merged_pr": false,
+        "has_open_pr": true,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [
+          10
+        ],
+        "category": "active"
+      }
+    ],
+    "rdm-platform": [
+      {
+        "name": "main",
+        "last_sha": "e7208dc8026c",
+        "last_commit_date": "2026-05-21T08:01:16Z",
+        "age_days": 1,
+        "author": "ah6720",
+        "message_first_line": "decisions/README: index ADR-002 + ADR-003 + ADR-004 + future candidates",
+        "has_merged_pr": false,
+        "has_open_pr": false,
+        "has_closed_no_merge_pr": false,
+        "pr_numbers": [],
+        "category": "active"
+      }
+    ]
+  }
+}

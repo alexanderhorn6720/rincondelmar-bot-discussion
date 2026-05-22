@@ -1,0 +1,3050 @@
+{
+  "generated_at": "2026-05-22",
+  "thread_to_prs": {
+    "169": [
+      {
+        "repo": "rdm-bot",
+        "number": 159,
+        "title": "feat(worker-pago): Telegram pago-recibido notifications (thread/169)",
+        "state": "OPEN",
+        "mergedAt": null
+      }
+    ],
+    "167": [
+      {
+        "repo": "rdm-bot",
+        "number": 158,
+        "title": "feat(worker-pago): MP webhook -> Beds24 invoiceItem capture (thread/167)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-22T16:05:12Z"
+      }
+    ],
+    "158": [
+      {
+        "repo": "rdm-bot",
+        "number": 157,
+        "title": "feat(booking-detail): quick & dirty 3-tab page + readiness + MP link + outreach (spec 2026-05-22)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-22T03:39:38Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 155,
+        "title": "feat(worker-feedback): /admin/issues GitHub Operations Cockpit backend (thread/161)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-22T00:24:13Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 154,
+        "title": "feat(worker-bot): bot_short_links cleanup cron + smoke (PR5/5 thread/158)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T23:29:18Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 153,
+        "title": "feat(worker-bot): wrapClickTracking \u2192 Patr\u00f3n B short-links + rincondelmar.club/ir/* route (PR4/5 thread/158)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T23:10:39Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 151,
+        "title": "feat(worker-bot): bot_short_links table + Patr\u00f3n B handler (PR3/5 thread/158)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T17:04:28Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 149,
+        "title": "test(greeter): \u00a712 + today-injection coverage in v5/v6 prompts (thread/158 PR2 followup)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T08:50:26Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 147,
+        "title": "feat(greeter): dispatcher guards + today injection + future-date rule (PR2/5 thread/158)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T08:38:14Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 145,
+        "title": "feat(greeter): intent catalog single source + propiedad intent + fallback param propagation (thread/158 PR1)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T08:17:15Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 10,
+        "title": "docs(thread/163): thread/158 DoIt final report \u2014 /ir/* overhaul complete",
+        "state": "OPEN",
+        "mergedAt": null
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 8,
+        "title": "thread/158: CC admin-audit-2026-Q2-v2 \u00a708 tech validation + \u00a7G live pass",
+        "state": "OPEN",
+        "mergedAt": null
+      }
+    ],
+    "146": [
+      {
+        "repo": "rdm-bot",
+        "number": 156,
+        "title": "chore: multi-CC safety (settings v2, CLAUDE.md v2, atomic scripts)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-22T02:21:48Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 138,
+        "title": "chore: process improvements (smoke test + template + auto-delete)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:51:37Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 6,
+        "title": "chore: process improvements (PR template)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:52:17Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 4,
+        "title": "thread/146: CC technical pre-flight \u00b7 F1/F2/F3 + ADR-002",
+        "state": "MERGED",
+        "mergedAt": "2026-05-20T04:55:19Z"
+      }
+    ],
+    "141": [
+      {
+        "repo": "rdm-bot",
+        "number": 155,
+        "title": "feat(worker-feedback): /admin/issues GitHub Operations Cockpit backend (thread/161)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-22T00:24:13Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 133,
+        "title": "fix(reglas-pdf): sanitize variation selectors + emoji ranges",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T23:35:55Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 128,
+        "title": "Feat/thread 141 house rules paper trail",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T21:51:43Z"
+      }
+    ],
+    "161": [
+      {
+        "repo": "rdm-bot",
+        "number": 155,
+        "title": "feat(worker-feedback): /admin/issues GitHub Operations Cockpit backend (thread/161)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-22T00:24:13Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 154,
+        "title": "feat(worker-bot): bot_short_links cleanup cron + smoke (PR5/5 thread/158)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T23:29:18Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 10,
+        "title": "docs(thread/163): thread/158 DoIt final report \u2014 /ir/* overhaul complete",
+        "state": "OPEN",
+        "mergedAt": null
+      }
+    ],
+    "162": [
+      {
+        "repo": "rdm-bot",
+        "number": 155,
+        "title": "feat(worker-feedback): /admin/issues GitHub Operations Cockpit backend (thread/161)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-22T00:24:13Z"
+      }
+    ],
+    "164": [
+      {
+        "repo": "rdm-bot",
+        "number": 155,
+        "title": "feat(worker-feedback): /admin/issues GitHub Operations Cockpit backend (thread/161)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-22T00:24:13Z"
+      }
+    ],
+    "159": [
+      {
+        "repo": "rdm-bot",
+        "number": 154,
+        "title": "feat(worker-bot): bot_short_links cleanup cron + smoke (PR5/5 thread/158)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T23:29:18Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 9,
+        "title": "docs(wave-1): T8 STATE drafts + T10 thread/159 (Wave 1 close)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T07:08:43Z"
+      }
+    ],
+    "155": [
+      {
+        "repo": "rdm-bot",
+        "number": 144,
+        "title": "test(wave-1): T6 backfill tests for packages/auth + packages/mp",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T06:36:08Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 143,
+        "title": "chore(wave-1): T5 Make.com sunset in worker-pago expireHolds",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T06:23:05Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 142,
+        "title": "feat(wave-1): T4 Telegram inline [\u2705 Respond\u00ed] button + callback endpoint",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T06:17:05Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 139,
+        "title": "chore(wave-1): T1 doc drift fix on Free plan capabilities (bot)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:50:03Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 9,
+        "title": "docs(wave-1): T8 STATE drafts + T10 thread/159 (Wave 1 close)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T07:08:43Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 7,
+        "title": "docs(wave-1): T1 doc drift fix on Free plan capabilities (discussion)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:50:17Z"
+      },
+      {
+        "repo": "rdm-platform",
+        "number": 2,
+        "title": "docs(wave-1): T7 amend ADR-001 with 8 anti-patterns from audit-2026-Q2",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T06:45:07Z"
+      },
+      {
+        "repo": "rdm-platform",
+        "number": 1,
+        "title": "chore(wave-1): T1 doc drift fix on Free plan capabilities (platform)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:50:10Z"
+      }
+    ],
+    "143": [
+      {
+        "repo": "rdm-bot",
+        "number": 138,
+        "title": "chore: process improvements (smoke test + template + auto-delete)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:51:37Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 137,
+        "title": "chore(state): promote STATE.md to root",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:51:47Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 134,
+        "title": "test(admin-roles): align admin-readonly priority test with PR #129",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T23:38:24Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 131,
+        "title": "feat(admin-nav): Phase 2 dropdowns + Phase 4 landing dashboard",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T23:00:16Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 129,
+        "title": "feat(admin-nav): role-based visibility + 7 roles + M1-M5 placeholders",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T21:43:40Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 6,
+        "title": "chore: process improvements (PR template)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:52:17Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 5,
+        "title": "chore(state): promote STATE.md to root",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:52:03Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 3,
+        "title": "chore: state system + threads audit + gap analysis (thread/143)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T22:58:11Z"
+      }
+    ],
+    "145": [
+      {
+        "repo": "rdm-bot",
+        "number": 138,
+        "title": "chore: process improvements (smoke test + template + auto-delete)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:51:37Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 137,
+        "title": "chore(state): promote STATE.md to root",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:51:47Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 6,
+        "title": "chore: process improvements (PR template)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:52:17Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 5,
+        "title": "chore(state): promote STATE.md to root",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T05:52:03Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 4,
+        "title": "thread/146: CC technical pre-flight \u00b7 F1/F2/F3 + ADR-002",
+        "state": "MERGED",
+        "mergedAt": "2026-05-20T04:55:19Z"
+      }
+    ],
+    "53": [
+      {
+        "repo": "rdm-bot",
+        "number": 136,
+        "title": "feat(worker-bot): add Karina to TG distribution + filter cron_alert:* (thread/152)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T03:48:59Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 33,
+        "title": "feat(bot): lang detection ES/EN heur\u00edstica (PR A5)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:27:40Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 31,
+        "title": "feat(web): property page anchors para deflection del bot (PR A1.0)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:20:12Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 30,
+        "title": "feat(bot): Telegram notify-human endpoint + reminders cron (PR A3)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:13:21Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 29,
+        "title": "feat(bot): click tracking endpoint /r/bot/[slug] + intent resolver (PR A2)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:05:55Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 10,
+        "title": "docs(thread/163): thread/158 DoIt final report \u2014 /ir/* overhaul complete",
+        "state": "OPEN",
+        "mergedAt": null
+      }
+    ],
+    "152": [
+      {
+        "repo": "rdm-bot",
+        "number": 136,
+        "title": "feat(worker-bot): add Karina to TG distribution + filter cron_alert:* (thread/152)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T03:48:59Z"
+      }
+    ],
+    "147": [
+      {
+        "repo": "rdm-bot",
+        "number": 135,
+        "title": "docs(karina-training): bump v1 \u2192 v2 (SVG mockups, nav, foundations)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T01:04:02Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 4,
+        "title": "thread/146: CC technical pre-flight \u00b7 F1/F2/F3 + ADR-002",
+        "state": "MERGED",
+        "mergedAt": "2026-05-20T04:55:19Z"
+      }
+    ],
+    "151": [
+      {
+        "repo": "rdm-bot",
+        "number": 135,
+        "title": "docs(karina-training): bump v1 \u2192 v2 (SVG mockups, nav, foundations)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-21T01:04:02Z"
+      }
+    ],
+    "144": [
+      {
+        "repo": "rdm-bot",
+        "number": 131,
+        "title": "feat(admin-nav): Phase 2 dropdowns + Phase 4 landing dashboard",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T23:00:16Z"
+      }
+    ],
+    "134": [
+      {
+        "repo": "rdm-bot",
+        "number": 127,
+        "title": "feat(worker-bot): Beds24 read-only proxy /calendar (thread/134)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T22:40:45Z"
+      }
+    ],
+    "107": [
+      {
+        "repo": "rdm-bot",
+        "number": 126,
+        "title": "feat(inbox): mobile WhatsApp-style UX (thread/131 \u2014 Part E rescue)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T15:08:27Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 90,
+        "title": "feat(wave): C + E + D + P2 \u2014 messenger flag + extra-guests + cron threshold + P2 findings",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T07:24:19Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 88,
+        "title": "feat(wave-2): G + H + I + J \u2014 small items bundle from thread/109",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T05:04:40Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 87,
+        "title": "feat(wave): small items bundle \u2014 F + C + A + B (4 of 6 parts from thread/107)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T04:31:21Z"
+      }
+    ],
+    "131": [
+      {
+        "repo": "rdm-bot",
+        "number": 126,
+        "title": "feat(inbox): mobile WhatsApp-style UX (thread/131 \u2014 Part E rescue)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T15:08:27Z"
+      }
+    ],
+    "115": [
+      {
+        "repo": "rdm-bot",
+        "number": 123,
+        "title": "feat(beds24-webhook): inline normalize + welcome (no more 1.5h cron lag)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T14:17:15Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 98,
+        "title": "feat(guests): name resync from Beds24 source of truth (thread/115)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T15:11:37Z"
+      }
+    ],
+    "121": [
+      {
+        "repo": "rdm-bot",
+        "number": 116,
+        "title": "feat(airbnb-content): bulk-approve endpoint (A5 \u00a71)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T14:29:04Z"
+      }
+    ],
+    "122": [
+      {
+        "repo": "rdm-bot",
+        "number": 112,
+        "title": "feat(manychat): auto-create subscribers for direct-booking guests",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T20:37:08Z"
+      }
+    ],
+    "103": [
+      {
+        "repo": "rdm-bot",
+        "number": 104,
+        "title": "feat(pre-stay): A2 \u2014 scanForWelcome + admin scan endpoint + 14 tests",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T17:39:04Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 91,
+        "title": "fix(staff/prox-reservas): guest name source (thread/113)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T13:46:02Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 84,
+        "title": "feat(beds24): backfill endpoint for pre-webhook bookings",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T00:42:52Z"
+      }
+    ],
+    "118": [
+      {
+        "repo": "rdm-bot",
+        "number": 102,
+        "title": "feat(pre-stay): A1 \u2014 migration 0035 + 24 templates + skeleton",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T15:51:40Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 97,
+        "title": "fix(greeter-v5): pet policy /noche -> /estancia + delete orphan prompt",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T15:00:19Z"
+      }
+    ],
+    "59": [
+      {
+        "repo": "rdm-bot",
+        "number": 97,
+        "title": "fix(greeter-v5): pet policy /noche -> /estancia + delete orphan prompt",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T15:00:19Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 35,
+        "title": "feat(web): property anchors sub-components \u2014 chef, pets, capacidad (PR A1.5)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T16:52:50Z"
+      }
+    ],
+    "109": [
+      {
+        "repo": "rdm-bot",
+        "number": 91,
+        "title": "fix(staff/prox-reservas): guest name source (thread/113)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T13:46:02Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 88,
+        "title": "feat(wave-2): G + H + I + J \u2014 small items bundle from thread/109",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T05:04:40Z"
+      }
+    ],
+    "113": [
+      {
+        "repo": "rdm-bot",
+        "number": 91,
+        "title": "fix(staff/prox-reservas): guest name source (thread/113)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T13:46:02Z"
+      }
+    ],
+    "110": [
+      {
+        "repo": "rdm-bot",
+        "number": 90,
+        "title": "feat(wave): C + E + D + P2 \u2014 messenger flag + extra-guests + cron threshold + P2 findings",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T07:24:19Z"
+      }
+    ],
+    "111": [
+      {
+        "repo": "rdm-bot",
+        "number": 90,
+        "title": "feat(wave): C + E + D + P2 \u2014 messenger flag + extra-guests + cron threshold + P2 findings",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T07:24:19Z"
+      }
+    ],
+    "112": [
+      {
+        "repo": "rdm-bot",
+        "number": 90,
+        "title": "feat(wave): C + E + D + P2 \u2014 messenger flag + extra-guests + cron threshold + P2 findings",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T07:24:19Z"
+      }
+    ],
+    "106": [
+      {
+        "repo": "rdm-bot",
+        "number": 88,
+        "title": "feat(wave-2): G + H + I + J \u2014 small items bundle from thread/109",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T05:04:40Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 87,
+        "title": "feat(wave): small items bundle \u2014 F + C + A + B (4 of 6 parts from thread/107)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T04:31:21Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 85,
+        "title": "feat(admin/inbox): unified queue MVP + handoff subscriber_name fix",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T02:45:25Z"
+      }
+    ],
+    "108": [
+      {
+        "repo": "rdm-bot",
+        "number": 87,
+        "title": "feat(wave): small items bundle \u2014 F + C + A + B (4 of 6 parts from thread/107)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T04:31:21Z"
+      }
+    ],
+    "85": [
+      {
+        "repo": "rdm-bot",
+        "number": 85,
+        "title": "feat(admin/inbox): unified queue MVP + handoff subscriber_name fix",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T02:45:25Z"
+      }
+    ],
+    "86": [
+      {
+        "repo": "rdm-bot",
+        "number": 85,
+        "title": "feat(admin/inbox): unified queue MVP + handoff subscriber_name fix",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T02:45:25Z"
+      }
+    ],
+    "105": [
+      {
+        "repo": "rdm-bot",
+        "number": 85,
+        "title": "feat(admin/inbox): unified queue MVP + handoff subscriber_name fix",
+        "state": "MERGED",
+        "mergedAt": "2026-05-18T02:45:25Z"
+      }
+    ],
+    "100": [
+      {
+        "repo": "rdm-bot",
+        "number": 83,
+        "title": "fix(admin/bookings): 3 issues from Alex feedback (Beds24 link, today default, channel breakdown)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-17T23:35:54Z"
+      }
+    ],
+    "101": [
+      {
+        "repo": "rdm-bot",
+        "number": 83,
+        "title": "fix(admin/bookings): 3 issues from Alex feedback (Beds24 link, today default, channel breakdown)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-17T23:35:54Z"
+      }
+    ],
+    "83": [
+      {
+        "repo": "rdm-bot",
+        "number": 81,
+        "title": "data(extraction): +174 FAQ candidates + +102 content enrichment ideas",
+        "state": "MERGED",
+        "mergedAt": "2026-05-17T01:14:04Z"
+      }
+    ],
+    "84": [
+      {
+        "repo": "rdm-bot",
+        "number": 81,
+        "title": "data(extraction): +174 FAQ candidates + +102 content enrichment ideas",
+        "state": "MERGED",
+        "mergedAt": "2026-05-17T01:14:04Z"
+      }
+    ],
+    "87": [
+      {
+        "repo": "rdm-bot",
+        "number": 80,
+        "title": "feat(beds24): normalize beds24_events \u2192 beds24_bookings (data foundation)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-17T03:04:18Z"
+      }
+    ],
+    "82": [
+      {
+        "repo": "rdm-bot",
+        "number": 77,
+        "title": "feat(greeter): PR A6.1 \u2014 V6 prompt (v2-playbook patterns + WC vibe rules + pet fee fix)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T22:45:36Z"
+      }
+    ],
+    "70": [
+      {
+        "repo": "rdm-bot",
+        "number": 73,
+        "title": "feat(data): Stage C v2 (12K tokens) + trim helper + PII audit",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T19:30:00Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 57,
+        "title": "fix(data): D1 seed INSERT OR IGNORE + populated operator_playbook (Stage C output)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T03:54:04Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 52,
+        "title": "feat(data): Stage Deploy \u2014 D1 seed + R2 upload + Vectorize pipeline (Day 4)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T00:12:42Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 44,
+        "title": "feat(bot): PR A7.7 \u2014 Cron Telegram alerts (proactive bot health)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T22:40:21Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 43,
+        "title": "feat(admin): PR A7.6 \u2014 Dashboard /admin/bot-metrics (Aggressive autonomous)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T22:32:22Z"
+      }
+    ],
+    "81": [
+      {
+        "repo": "rdm-bot",
+        "number": 73,
+        "title": "feat(data): Stage C v2 (12K tokens) + trim helper + PII audit",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T19:30:00Z"
+      }
+    ],
+    "57": [
+      {
+        "repo": "rdm-bot",
+        "number": 52,
+        "title": "feat(data): Stage Deploy \u2014 D1 seed + R2 upload + Vectorize pipeline (Day 4)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T00:12:42Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 48,
+        "title": "feat(data): pipeline scaffold + Stage 0 + Stage A (Day 1)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T23:53:00Z"
+      }
+    ],
+    "72": [
+      {
+        "repo": "rdm-bot",
+        "number": 52,
+        "title": "feat(data): Stage Deploy \u2014 D1 seed + R2 upload + Vectorize pipeline (Day 4)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T00:12:42Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 49,
+        "title": "feat(data): Stage B (funnel) + Stage E (temporal) \u2014 Day 2",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T00:00:20Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 48,
+        "title": "feat(data): pipeline scaffold + Stage 0 + Stage A (Day 1)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T23:53:00Z"
+      }
+    ],
+    "73": [
+      {
+        "repo": "rdm-bot",
+        "number": 52,
+        "title": "feat(data): Stage Deploy \u2014 D1 seed + R2 upload + Vectorize pipeline (Day 4)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T00:12:42Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 49,
+        "title": "feat(data): Stage B (funnel) + Stage E (temporal) \u2014 Day 2",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T00:00:20Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 48,
+        "title": "feat(data): pipeline scaffold + Stage 0 + Stage A (Day 1)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T23:53:00Z"
+      }
+    ],
+    "74": [
+      {
+        "repo": "rdm-bot",
+        "number": 52,
+        "title": "feat(data): Stage Deploy \u2014 D1 seed + R2 upload + Vectorize pipeline (Day 4)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T00:12:42Z"
+      }
+    ],
+    "76": [
+      {
+        "repo": "rdm-bot",
+        "number": 52,
+        "title": "feat(data): Stage Deploy \u2014 D1 seed + R2 upload + Vectorize pipeline (Day 4)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T00:12:42Z"
+      }
+    ],
+    "69": [
+      {
+        "repo": "rdm-bot",
+        "number": 46,
+        "title": "test(greeter-v5): PR A7.8 \u2014 anti-loop tests + biome safe-fix",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T22:47:17Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 45,
+        "title": "test(greeter-v5): PR A7.8 \u2014 anti-loop tests + biome safe-fix",
+        "state": "CLOSED",
+        "mergedAt": null
+      }
+    ],
+    "66": [
+      {
+        "repo": "rdm-bot",
+        "number": 44,
+        "title": "feat(bot): PR A7.7 \u2014 Cron Telegram alerts (proactive bot health)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T22:40:21Z"
+      }
+    ],
+    "67": [
+      {
+        "repo": "rdm-bot",
+        "number": 42,
+        "title": "PR A7.5: runGreeter v5 integration (wiring complete) \u2014 WC review requested",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T22:21:30Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 10,
+        "title": "docs(thread/163): thread/158 DoIt final report \u2014 /ir/* overhaul complete",
+        "state": "OPEN",
+        "mergedAt": null
+      }
+    ],
+    "52": [
+      {
+        "repo": "rdm-bot",
+        "number": 35,
+        "title": "feat(web): property anchors sub-components \u2014 chef, pets, capacidad (PR A1.5)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T16:52:50Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 33,
+        "title": "feat(bot): lang detection ES/EN heur\u00edstica (PR A5)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:27:40Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 32,
+        "title": "feat(web): BookingCard URL params pre-fill (PR A1.1) \u2014 DRAFT",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T17:53:26Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 31,
+        "title": "feat(web): property page anchors para deflection del bot (PR A1.0)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:20:12Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 29,
+        "title": "feat(bot): click tracking endpoint /r/bot/[slug] + intent resolver (PR A2)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:05:55Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 10,
+        "title": "docs(thread/163): thread/158 DoIt final report \u2014 /ir/* overhaul complete",
+        "state": "OPEN",
+        "mergedAt": null
+      }
+    ],
+    "58": [
+      {
+        "repo": "rdm-bot",
+        "number": 35,
+        "title": "feat(web): property anchors sub-components \u2014 chef, pets, capacidad (PR A1.5)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T16:52:50Z"
+      }
+    ],
+    "60": [
+      {
+        "repo": "rdm-bot",
+        "number": 34,
+        "title": "fix(images): hardcode CF Images hash fallback \u2014 P0 bug, sitio sin fotos",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T16:28:38Z"
+      }
+    ],
+    "50": [
+      {
+        "repo": "rdm-bot",
+        "number": 33,
+        "title": "feat(bot): lang detection ES/EN heur\u00edstica (PR A5)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:27:40Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 30,
+        "title": "feat(bot): Telegram notify-human endpoint + reminders cron (PR A3)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-15T07:13:21Z"
+      }
+    ],
+    "49": [
+      {
+        "repo": "rdm-bot",
+        "number": 21,
+        "title": "feat(schema): +13th field reglas_adicionales (House rules) \u2014 Alex faltante",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T19:48:27Z"
+      }
+    ],
+    "47": [
+      {
+        "repo": "rdm-bot",
+        "number": 16,
+        "title": "feat(admin): drift detection diff view en ContentCell",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T04:57:08Z"
+      }
+    ],
+    "45": [
+      {
+        "repo": "rdm-bot",
+        "number": 13,
+        "title": "feat(content): WC seed import flow + schema expansion (12 fields) + Karina onboarding",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T03:39:14Z"
+      }
+    ],
+    "46": [
+      {
+        "repo": "rdm-bot",
+        "number": 13,
+        "title": "feat(content): WC seed import flow + schema expansion (12 fields) + Karina onboarding",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T03:39:14Z"
+      }
+    ],
+    "33": [
+      {
+        "repo": "rdm-bot",
+        "number": 11,
+        "title": "feat(worker-bot): Phase B.1 welcome auto-send scaffold",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T03:46:12Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 5,
+        "title": "feat(admin): Phase B.0.5 \u2014 templates editor UI",
+        "state": "MERGED",
+        "mergedAt": "2026-05-13T17:16:30Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 4,
+        "title": "feat(d1): Phase B.3a \u2014 migrations 0014-0018 Guest 360 + helpers + tests",
+        "state": "MERGED",
+        "mergedAt": "2026-05-13T16:59:23Z"
+      }
+    ],
+    "34": [
+      {
+        "repo": "rdm-bot",
+        "number": 11,
+        "title": "feat(worker-bot): Phase B.1 welcome auto-send scaffold",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T03:46:12Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 5,
+        "title": "feat(admin): Phase B.0.5 \u2014 templates editor UI",
+        "state": "MERGED",
+        "mergedAt": "2026-05-13T17:16:30Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 4,
+        "title": "feat(d1): Phase B.3a \u2014 migrations 0014-0018 Guest 360 + helpers + tests",
+        "state": "MERGED",
+        "mergedAt": "2026-05-13T16:59:23Z"
+      }
+    ],
+    "40": [
+      {
+        "repo": "rdm-bot",
+        "number": 10,
+        "title": "feat(admin): Fase 1.5 \u2014 content editor MVP [WIP, draft]",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T00:56:53Z"
+      },
+      {
+        "repo": "rdm-discussion",
+        "number": 3,
+        "title": "chore: state system + threads audit + gap analysis (thread/143)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T22:58:11Z"
+      }
+    ],
+    "41": [
+      {
+        "repo": "rdm-bot",
+        "number": 10,
+        "title": "feat(admin): Fase 1.5 \u2014 content editor MVP [WIP, draft]",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T00:56:53Z"
+      }
+    ],
+    "42": [
+      {
+        "repo": "rdm-bot",
+        "number": 10,
+        "title": "feat(admin): Fase 1.5 \u2014 content editor MVP [WIP, draft]",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T00:56:53Z"
+      }
+    ],
+    "37": [
+      {
+        "repo": "rdm-bot",
+        "number": 9,
+        "title": "fix(web): Fase 0.5 \u2014 /guia-llegada placeholder (was 404)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-14T00:15:49Z"
+      }
+    ],
+    "13": [
+      {
+        "repo": "rdm-bot",
+        "number": 3,
+        "title": "fix(web): Las Morenas roomId 374482 \u2192 74322 (post-Beds24 cutover)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-13T00:04:09Z"
+      }
+    ],
+    "30": [
+      {
+        "repo": "rdm-bot",
+        "number": 3,
+        "title": "fix(web): Las Morenas roomId 374482 \u2192 74322 (post-Beds24 cutover)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-13T00:04:09Z"
+      },
+      {
+        "repo": "rdm-bot",
+        "number": 2,
+        "title": "feat(web): Track C \u2014 ReviewsCarousel + /api/reviews/[roomId] live D1",
+        "state": "MERGED",
+        "mergedAt": "2026-05-12T23:50:32Z"
+      }
+    ],
+    "65": [
+      {
+        "repo": "rdm-discussion",
+        "number": 10,
+        "title": "docs(thread/163): thread/158 DoIt final report \u2014 /ir/* overhaul complete",
+        "state": "OPEN",
+        "mergedAt": null
+      }
+    ],
+    "163": [
+      {
+        "repo": "rdm-discussion",
+        "number": 10,
+        "title": "docs(thread/163): thread/158 DoIt final report \u2014 /ir/* overhaul complete",
+        "state": "OPEN",
+        "mergedAt": null
+      }
+    ],
+    "148": [
+      {
+        "repo": "rdm-discussion",
+        "number": 4,
+        "title": "thread/146: CC technical pre-flight \u00b7 F1/F2/F3 + ADR-002",
+        "state": "MERGED",
+        "mergedAt": "2026-05-20T04:55:19Z"
+      }
+    ],
+    "20": [
+      {
+        "repo": "rdm-discussion",
+        "number": 3,
+        "title": "chore: state system + threads audit + gap analysis (thread/143)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T22:58:11Z"
+      }
+    ],
+    "138": [
+      {
+        "repo": "rdm-discussion",
+        "number": 3,
+        "title": "chore: state system + threads audit + gap analysis (thread/143)",
+        "state": "MERGED",
+        "mergedAt": "2026-05-19T22:58:11Z"
+      }
+    ],
+    "78": [
+      {
+        "repo": "rdm-discussion",
+        "number": 2,
+        "title": "thread/78: notify CC-Bot and CC-Data about CLAUDE.md",
+        "state": "MERGED",
+        "mergedAt": "2026-05-16T11:26:16Z"
+      }
+    ]
+  },
+  "pr_to_threads": {
+    "rdm-bot#159": [
+      169
+    ],
+    "rdm-bot#158": [
+      167
+    ],
+    "rdm-bot#157": [
+      158
+    ],
+    "rdm-bot#156": [
+      146
+    ],
+    "rdm-bot#155": [
+      141,
+      158,
+      161,
+      162,
+      164
+    ],
+    "rdm-bot#154": [
+      158,
+      159,
+      161
+    ],
+    "rdm-bot#153": [
+      158
+    ],
+    "rdm-bot#152": [],
+    "rdm-bot#151": [
+      158
+    ],
+    "rdm-bot#150": [],
+    "rdm-bot#149": [
+      158
+    ],
+    "rdm-bot#148": [],
+    "rdm-bot#147": [
+      158
+    ],
+    "rdm-bot#146": [],
+    "rdm-bot#145": [
+      158
+    ],
+    "rdm-bot#144": [
+      155
+    ],
+    "rdm-bot#143": [
+      155
+    ],
+    "rdm-bot#142": [
+      155
+    ],
+    "rdm-bot#141": [],
+    "rdm-bot#140": [],
+    "rdm-bot#139": [
+      155
+    ],
+    "rdm-bot#138": [
+      143,
+      145,
+      146
+    ],
+    "rdm-bot#137": [
+      143,
+      145
+    ],
+    "rdm-bot#136": [
+      53,
+      152
+    ],
+    "rdm-bot#135": [
+      147,
+      151
+    ],
+    "rdm-bot#134": [
+      143
+    ],
+    "rdm-bot#133": [
+      141
+    ],
+    "rdm-bot#132": [],
+    "rdm-bot#131": [
+      143,
+      144
+    ],
+    "rdm-bot#130": [],
+    "rdm-bot#129": [
+      143
+    ],
+    "rdm-bot#128": [
+      141
+    ],
+    "rdm-bot#127": [
+      134
+    ],
+    "rdm-bot#126": [
+      107,
+      131
+    ],
+    "rdm-bot#125": [],
+    "rdm-bot#124": [],
+    "rdm-bot#123": [
+      115
+    ],
+    "rdm-bot#122": [],
+    "rdm-bot#121": [],
+    "rdm-bot#120": [],
+    "rdm-bot#119": [],
+    "rdm-bot#118": [],
+    "rdm-bot#117": [],
+    "rdm-bot#116": [
+      121
+    ],
+    "rdm-bot#115": [],
+    "rdm-bot#114": [],
+    "rdm-bot#113": [],
+    "rdm-bot#112": [
+      122
+    ],
+    "rdm-bot#111": [],
+    "rdm-bot#110": [],
+    "rdm-bot#109": [],
+    "rdm-bot#108": [],
+    "rdm-bot#107": [],
+    "rdm-bot#106": [],
+    "rdm-bot#105": [],
+    "rdm-bot#104": [
+      103
+    ],
+    "rdm-bot#103": [],
+    "rdm-bot#102": [
+      118
+    ],
+    "rdm-bot#101": [],
+    "rdm-bot#100": [],
+    "rdm-bot#99": [],
+    "rdm-bot#98": [
+      115
+    ],
+    "rdm-bot#97": [
+      59,
+      118
+    ],
+    "rdm-bot#96": [],
+    "rdm-bot#95": [],
+    "rdm-bot#94": [],
+    "rdm-bot#93": [],
+    "rdm-bot#92": [],
+    "rdm-bot#91": [
+      103,
+      109,
+      113
+    ],
+    "rdm-bot#90": [
+      107,
+      110,
+      111,
+      112
+    ],
+    "rdm-bot#89": [],
+    "rdm-bot#88": [
+      106,
+      107,
+      109
+    ],
+    "rdm-bot#87": [
+      106,
+      107,
+      108
+    ],
+    "rdm-bot#86": [],
+    "rdm-bot#85": [
+      85,
+      86,
+      105,
+      106
+    ],
+    "rdm-bot#84": [
+      103
+    ],
+    "rdm-bot#83": [
+      100,
+      101
+    ],
+    "rdm-bot#82": [],
+    "rdm-bot#81": [
+      83,
+      84
+    ],
+    "rdm-bot#80": [
+      87
+    ],
+    "rdm-bot#79": [],
+    "rdm-bot#78": [],
+    "rdm-bot#77": [
+      82
+    ],
+    "rdm-bot#76": [],
+    "rdm-bot#75": [],
+    "rdm-bot#74": [],
+    "rdm-bot#73": [
+      70,
+      81
+    ],
+    "rdm-bot#72": [],
+    "rdm-bot#71": [],
+    "rdm-bot#70": [],
+    "rdm-bot#69": [],
+    "rdm-bot#68": [],
+    "rdm-bot#67": [],
+    "rdm-bot#66": [],
+    "rdm-bot#65": [],
+    "rdm-bot#64": [],
+    "rdm-bot#63": [],
+    "rdm-bot#62": [],
+    "rdm-bot#61": [],
+    "rdm-bot#60": [],
+    "rdm-bot#59": [],
+    "rdm-bot#58": [],
+    "rdm-bot#57": [
+      70
+    ],
+    "rdm-bot#56": [],
+    "rdm-bot#55": [],
+    "rdm-bot#54": [],
+    "rdm-bot#53": [],
+    "rdm-bot#52": [
+      57,
+      70,
+      72,
+      73,
+      74,
+      76
+    ],
+    "rdm-bot#51": [],
+    "rdm-bot#50": [],
+    "rdm-bot#49": [
+      72,
+      73
+    ],
+    "rdm-bot#48": [
+      57,
+      72,
+      73
+    ],
+    "rdm-bot#47": [],
+    "rdm-bot#46": [
+      69
+    ],
+    "rdm-bot#45": [
+      69
+    ],
+    "rdm-bot#44": [
+      66,
+      70
+    ],
+    "rdm-bot#43": [
+      70
+    ],
+    "rdm-bot#42": [
+      67
+    ],
+    "rdm-bot#41": [],
+    "rdm-bot#40": [],
+    "rdm-bot#39": [],
+    "rdm-bot#38": [],
+    "rdm-bot#37": [],
+    "rdm-bot#36": [],
+    "rdm-bot#35": [
+      52,
+      58,
+      59
+    ],
+    "rdm-bot#34": [
+      60
+    ],
+    "rdm-bot#33": [
+      50,
+      52,
+      53
+    ],
+    "rdm-bot#32": [
+      52
+    ],
+    "rdm-bot#31": [
+      52,
+      53
+    ],
+    "rdm-bot#30": [
+      50,
+      53
+    ],
+    "rdm-bot#29": [
+      52,
+      53
+    ],
+    "rdm-bot#28": [],
+    "rdm-bot#27": [],
+    "rdm-bot#26": [],
+    "rdm-bot#25": [],
+    "rdm-bot#24": [],
+    "rdm-bot#23": [],
+    "rdm-bot#22": [],
+    "rdm-bot#21": [
+      49
+    ],
+    "rdm-bot#20": [],
+    "rdm-bot#19": [],
+    "rdm-bot#18": [],
+    "rdm-bot#17": [],
+    "rdm-bot#16": [
+      47
+    ],
+    "rdm-bot#15": [],
+    "rdm-bot#14": [],
+    "rdm-bot#13": [
+      45,
+      46
+    ],
+    "rdm-bot#12": [],
+    "rdm-bot#11": [
+      33,
+      34
+    ],
+    "rdm-bot#10": [
+      40,
+      41,
+      42
+    ],
+    "rdm-bot#9": [
+      37
+    ],
+    "rdm-bot#8": [],
+    "rdm-bot#7": [],
+    "rdm-bot#6": [],
+    "rdm-bot#5": [
+      33,
+      34
+    ],
+    "rdm-bot#4": [
+      33,
+      34
+    ],
+    "rdm-bot#3": [
+      13,
+      30
+    ],
+    "rdm-bot#2": [
+      30
+    ],
+    "rdm-bot#1": [],
+    "rdm-discussion#10": [
+      52,
+      53,
+      65,
+      67,
+      158,
+      161,
+      163
+    ],
+    "rdm-discussion#9": [
+      155,
+      159
+    ],
+    "rdm-discussion#8": [
+      158
+    ],
+    "rdm-discussion#7": [
+      155
+    ],
+    "rdm-discussion#6": [
+      143,
+      145,
+      146
+    ],
+    "rdm-discussion#5": [
+      143,
+      145
+    ],
+    "rdm-discussion#4": [
+      145,
+      146,
+      147,
+      148
+    ],
+    "rdm-discussion#3": [
+      20,
+      40,
+      138,
+      143
+    ],
+    "rdm-discussion#2": [
+      78
+    ],
+    "rdm-discussion#1": [],
+    "rdm-platform#2": [
+      155
+    ],
+    "rdm-platform#1": [
+      155
+    ]
+  },
+  "orphan_threads_count": 110,
+  "orphan_threads": [
+    {
+      "number": 0,
+      "filename": "00-claude-code-first-response.md",
+      "topic": "first-response",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 1,
+      "filename": "01-alexander-votes.md",
+      "topic": "votes",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 2,
+      "filename": "02-web-claude-investigation.md",
+      "topic": "investigation",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 3,
+      "filename": "03-claude-code-second-response.md",
+      "topic": "second-response",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 4,
+      "filename": "04-web-claude-cc-response.md",
+      "topic": "cc-response",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 5,
+      "filename": "05-claude-code-implementation-progress.md",
+      "topic": "implementation-progress",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 6,
+      "filename": "06-checkpoint-monorepo-ready.md",
+      "topic": "ready",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 7,
+      "filename": "07-wc-port-audit-bug-responses.md",
+      "topic": "audit-bug-responses",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 8,
+      "filename": "08-cc-bug-fix-and-day4-done.md",
+      "topic": "fix-and-day4-done",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 9,
+      "filename": "09-cc-sprint1-day5-done.md",
+      "topic": "sprint1-day5-done",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 10,
+      "filename": "10-wc-code-review-3-decisions.md",
+      "topic": "review-3-decisions",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 102,
+      "filename": "102-cc-bot-admin-bookings-feedback-fixed.md",
+      "topic": "admin-bookings-feedback-fixed",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 104,
+      "filename": "104-cc-bot-beds24-backfill-complete.md",
+      "topic": "beds24-backfill-complete",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 11,
+      "filename": "11-cc-wc-thread10-implemented.md",
+      "topic": "thread10-implemented",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 11,
+      "filename": "11-wc-beds24-migration-task-for-cc.md",
+      "topic": "beds24-migration-task-for-cc",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 117,
+      "filename": "117-wc-handoff-doc-reconciliation.md",
+      "topic": "doc-reconciliation",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 119,
+      "filename": "119-wc-pre-stay-mvp-spec-ready.md",
+      "topic": "stay-mvp-spec-ready",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 12,
+      "filename": "12-cc-beds24-migration-stop.md",
+      "topic": "beds24-migration-stop",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 120,
+      "filename": "120-wc-a1-review-and-a2-design.md",
+      "topic": "a1-review-and-a2-design",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 123,
+      "filename": "123-wc-canary-review-hsm-critical-defer-during-post.md",
+      "topic": "review-hsm-critical-defer-during-post",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 124,
+      "filename": "124-wc-karina-training-deploy-handoff.md",
+      "topic": "training-deploy-handoff",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 125,
+      "filename": "125-wc-karina-training-deploy-v2.md",
+      "topic": "training-deploy-v2",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 126,
+      "filename": "126-wc-500-root-cause-and-fix.md",
+      "topic": "500-root-cause-and-fix",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 127,
+      "filename": "127-wc-cc-a5-execution-doit.md",
+      "topic": "a5-execution-doit",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 128,
+      "filename": "128-wc-cc-open-items-omnibus-doit.md",
+      "topic": "open-items-omnibus-doit",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 129,
+      "filename": "129-cc-bot-omnibus-doit-report.md",
+      "topic": "omnibus-doit-report",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 130,
+      "filename": "130-cc-bot-a5-halt-chrome-mcp-not-attached.md",
+      "topic": "a5-halt-chrome-mcp-not-attached",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 132,
+      "filename": "132-wc-browserbase-airbnb-kpi-backlog.md",
+      "topic": "airbnb-kpi-backlog",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 133,
+      "filename": "133-cc-bot-mobile-inbox-rescue-complete.md",
+      "topic": "mobile-inbox-rescue-complete",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 135,
+      "filename": "135-cc-wc-beds24-proxy-readonly-complete.md",
+      "topic": "beds24-proxy-readonly-complete",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 136,
+      "filename": "136-cc-bot-a5-halt-stale-mcp-process.md",
+      "topic": "a5-halt-stale-mcp-process",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 137,
+      "filename": "137-cc-bot-a5-halt-rincondelmar-session-missing.md",
+      "topic": "a5-halt-rincondelmar-session-missing",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 139,
+      "filename": "139-wc-cc-a6-reglas-adicionales-deploy.md",
+      "topic": "a6-reglas-adicionales-deploy",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 14,
+      "filename": "14-cc-beds24-current-state-investigation.md",
+      "topic": "beds24-current-state-investigation",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 140,
+      "filename": "140-cc-wc-a6-reglas-adicionales-complete.md",
+      "topic": "a6-reglas-adicionales-complete",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 142,
+      "filename": "142-cc-wc-house-rules-paper-trail-phase1-done.md",
+      "topic": "house-rules-paper-trail-phase1-done",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 149,
+      "filename": "149-followup-day-0-trigger.md",
+      "topic": "0-trigger",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 149,
+      "filename": "149-wc-impl-analytics-audit.md",
+      "topic": "analytics-audit",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 149,
+      "filename": "149-wc-platform-audit-kickoff.md",
+      "topic": "audit-kickoff",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 15,
+      "filename": "15-wc-cutover-analysis-proposal.md",
+      "topic": "analysis-proposal",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 153,
+      "filename": "153-cc-bot-audit-2026-Q2-technical-findings.md",
+      "topic": "audit-2026-q2-technical-findings",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 153,
+      "filename": "153-wc-cc-numbering-and-0039-doit.md",
+      "topic": "numbering-and-0039-doit",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 154,
+      "filename": "154-wc-platform-audit-synthesis.md",
+      "topic": "audit-synthesis",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 156,
+      "filename": "156-wc-impl-admin-audit-kickoff.md",
+      "topic": "admin-audit-kickoff",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 157,
+      "filename": "157-wc-impl-p0-welcome-autosend-broken.md",
+      "topic": "p0-welcome-autosend-broken",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 157,
+      "filename": "157-wc-platform-admin-audit-review.md",
+      "topic": "admin-audit-review",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 16,
+      "filename": "16-cc-cutover-execution-log.md",
+      "topic": "execution-log",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 160,
+      "filename": "160-karina-ping-prompt-pre-wave-1.md",
+      "topic": "prompt-pre-wave-1",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 160,
+      "filename": "160-wc-cc-numbering-and-branch-protection-doit.md",
+      "topic": "numbering-and-branch-protection-doit",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 165,
+      "filename": "165-wc-platform-pr155-post-merge-triage.md",
+      "topic": "pr155-post-merge-triage",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 166,
+      "filename": "166-cc-bot-booking-detail-quick-dirty-pr157.md",
+      "topic": "booking-detail-quick-dirty-pr157",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 168,
+      "filename": "168-cc-bot-mp-webhook-beds24-capture-pr158.md",
+      "topic": "mp-webhook-beds24-capture-pr158",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 17,
+      "filename": "17-cc-calendar-pricing-query.md",
+      "topic": "pricing-query",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 170,
+      "filename": "170-cc-bot-telegram-pago-notify-pr159.md",
+      "topic": "telegram-pago-notify-pr159",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 170,
+      "filename": "170-wc-bot-factuality-conceptual.md",
+      "topic": "bot-factuality-prompt-engineering-conceptual",
+      "status": "open-for-challenge",
+      "mode": "brain (conceptual, NO spec)"
+    },
+    {
+      "number": 171,
+      "filename": "171-wc-multi-wc-multi-cc-setup-brain-ultra.md",
+      "topic": "multi-wc-multi-cc-setup-brain-ultra",
+      "status": "open-for-challenge",
+      "mode": "brain ultra (conceptual, NO spec)"
+    },
+    {
+      "number": 172,
+      "filename": "172-cc-bot-challenge-thread-171-from-bot-technical-reality.md",
+      "topic": "challenge-thread-171-from-bot-technical-reality",
+      "status": "response",
+      "mode": "brain (challenge response)"
+    },
+    {
+      "number": 173,
+      "filename": "173-wc-platform-challenge-to-thread-171.md",
+      "topic": "challenge a thread/171 multi-wc/multi-cc setup",
+      "status": "open-for-alex-vote",
+      "mode": "brain (default \u2014 an\u00e1lisis + tradeoffs, NO spec, NO c\u00f3digo)"
+    },
+    {
+      "number": 174,
+      "filename": "174-wc-synthesis-of-cc-and-platform-challenges.md",
+      "topic": "synthesis-of-cc-and-platform-challenges-position-adjusted",
+      "status": "open-for-alex-vote",
+      "mode": "brain (synthesis)"
+    },
+    {
+      "number": 175,
+      "filename": "175-wc-cc-doit-p1-p2-quickwins-strategic.md",
+      "topic": "cc-doit-p1-p2-quickwins-strategic-execution",
+      "status": "ready-for-cc-execution",
+      "mode": "DoIt"
+    },
+    {
+      "number": 176,
+      "filename": "176-wc-cc-doit-meta-archaeology-pipeline-audit.md",
+      "topic": "doit-meta-archaeology-pipeline-audit",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 19,
+      "filename": "19-pricing-comparison-findings.md",
+      "topic": "findings",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 21,
+      "filename": "21-greeter-v5-site-routing-bot-onsite.md",
+      "topic": "v5-site-routing-bot-onsite",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 22,
+      "filename": "22-cc-greeter-v5-challenge.md",
+      "topic": "v5-challenge",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 23,
+      "filename": "23-beds24-messages-reviews-api-unlocked.md",
+      "topic": "messages-reviews-api-unlocked",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 24,
+      "filename": "24-cc-beds24-messaging-discovery-validated.md",
+      "topic": "beds24-messaging-discovery-validated",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 25,
+      "filename": "25-cc-q15-webhook-implemented-reviews-cap-confirmed.md",
+      "topic": "q15-webhook-implemented-reviews-cap-confirmed",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 26,
+      "filename": "26-cc-phase0-closure-status.md",
+      "topic": "phase0-closure-status",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 27,
+      "filename": "27-alex-decisions-cc-implementation-greenlight.md",
+      "topic": "cc-implementation-greenlight",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 28,
+      "filename": "28-cc-phase0-implementation-log.md",
+      "topic": "phase0-implementation-log",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 29,
+      "filename": "29-wc-review-cc-phase0-implementation.md",
+      "topic": "cc-phase0-implementation",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 31,
+      "filename": "31-cc-track-b-deploy-log.md",
+      "topic": "b-deploy-log",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 32,
+      "filename": "32-cc-track-c-reviews-carousel.md",
+      "topic": "c-reviews-carousel",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 35,
+      "filename": "35-cc-templates-system-for-wc.md",
+      "topic": "system-for-wc",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 36,
+      "filename": "36-wc-templates-content-architecture-analysis.md",
+      "topic": "content-architecture-analysis",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 38,
+      "filename": "38-cc-airbnb-write-back-plan.md",
+      "topic": "write-back-plan",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 39,
+      "filename": "39-wc-response-cc-thread37-38.md",
+      "topic": "cc-thread37-38",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 43,
+      "filename": "43-cc-fase2-merge-guide.md",
+      "topic": "fase2-merge-guide",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 43,
+      "filename": "43-wc-alex-go-execute-batch-b.md",
+      "topic": "go-execute-batch-b",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 44,
+      "filename": "44-cc-pr12-final-state.md",
+      "topic": "pr12-final-state",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 44,
+      "filename": "44-wc-footer-policy-research-morenas-concern.md",
+      "topic": "policy-research-morenas-concern",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 48,
+      "filename": "48-cc-day1-final-stack-live.md",
+      "topic": "day1-final-stack-live",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 51,
+      "filename": "51-cc-blockers-resolved-greeter-v5-go.md",
+      "topic": "resolved-greeter-v5-go",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 54,
+      "filename": "54-cc-fase-1-progress.md",
+      "topic": "1-progress",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 54,
+      "filename": "54-wc-data-mining-v2-strategy.md",
+      "topic": "mining-v2-strategy",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 55,
+      "filename": "55-wc-data-mining-v2-go-plan.md",
+      "topic": "mining-v2-go-plan",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 56,
+      "filename": "56-wc-data-v2-prep-complete-and-critical-findings.md",
+      "topic": "v2-prep-complete-and-critical-findings",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 61,
+      "filename": "61-cc-image-bug-resolved.md",
+      "topic": "bug-resolved",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 62,
+      "filename": "62-cc-pr-a15-subcomponents-live.md",
+      "topic": "a15-subcomponents-live",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 63,
+      "filename": "63-wc-ack-fase-1-closed-q-fase-2-timing.md",
+      "topic": "fase-1-closed-q-fase-2-timing",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 64,
+      "filename": "64-cc-alex-voted-option-a-handoff-spec-fase-2.md",
+      "topic": "voted-option-a-handoff-spec-fase-2",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 68,
+      "filename": "68-cc-pr-a75-ready-for-wc-review.md",
+      "topic": "a75-ready-for-wc-review",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 71,
+      "filename": "71-cc-12h-autonomous-summary.md",
+      "topic": "12h-autonomous-summary",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 77,
+      "filename": "77-cc-bot-prs-a761-a763-merged.md",
+      "topic": "prs-a761-a763-merged",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 77,
+      "filename": "77-cc-data-prod-deploy-95-pct-done-vectorize-handoff.md",
+      "topic": "prod-deploy-95-pct-done-vectorize-handoff",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 79,
+      "filename": "79-cc-bot-chain-a-e-merged-vectorize-stuck.md",
+      "topic": "chain-a-e-merged-vectorize-stuck",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 80,
+      "filename": "80-cc-bot-v5-real-data-analysis-pet-bug-pr66.md",
+      "topic": "v5-real-data-analysis-pet-bug-pr66",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 88,
+      "filename": "88-wc-ack-cc-data-faq-content-extraction-delivered.md",
+      "topic": "cc-data-faq-content-extraction-delivered",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 89,
+      "filename": "89-wc-platform-wishlist-and-tasks-module.md",
+      "topic": "wishlist-and-tasks-module",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 91,
+      "filename": "91-wc-platform-vision-and-spirit-for-rdmbot-session.md",
+      "topic": "vision-and-spirit-for-rdmbot-session",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 92,
+      "filename": "92-wc-cc-rename-and-platform-coexistence.md",
+      "topic": "rename-and-platform-coexistence",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 93,
+      "filename": "93-cc-bot-status-bookings-build-complete-inbox-paused.md",
+      "topic": "status-bookings-build-complete-inbox-paused",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 93,
+      "filename": "93-wc-ack-cc-feedback-doit-template-v2.md",
+      "topic": "cc-feedback-doit-template-v2",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 94,
+      "filename": "94-wc-ack-clone-paths-doit-template-v3.md",
+      "topic": "clone-paths-doit-template-v3",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 95,
+      "filename": "95-wc-briefing-new-cc-implementation-session.md",
+      "topic": "new-cc-implementation-session",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 96,
+      "filename": "96-cc-bot-pre-flight-clean-ready-for-next-task.md",
+      "topic": "pre-flight-clean-ready-for-next-task",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 97,
+      "filename": "97-wc-doit-pr82-review-merge-deploy.md",
+      "topic": "pr82-review-merge-deploy",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 98,
+      "filename": "98-cc-bot-pr82-halted-typecheck-errors.md",
+      "topic": "pr82-halted-typecheck-errors",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 98,
+      "filename": "98-wc-cc-autonomy-config-and-workspace.md",
+      "topic": "autonomy-config-and-workspace",
+      "status": null,
+      "mode": null
+    },
+    {
+      "number": 99,
+      "filename": "99-wc-doit-fix-kv-binding-resume-pr82.md",
+      "topic": "fix-kv-binding-resume-pr82",
+      "status": null,
+      "mode": null
+    }
+  ],
+  "orphan_prs_count": 90,
+  "orphan_prs": [
+    {
+      "repo": "rdm-bot",
+      "number": 152,
+      "title": "feat(admin/inbox): Replied button on Beds24 rows",
+      "state": "MERGED",
+      "headRef": "feat/inbox-beds24-replied-button"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 150,
+      "title": "feat(admin/inbox): WhatsApp-style bubble history in reply drawer",
+      "state": "MERGED",
+      "headRef": "feat/inbox-bubble-history"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 148,
+      "title": "fix(admin/inbox): drop confirm() prompts on action buttons",
+      "state": "MERGED",
+      "headRef": "fix/inbox-no-confirm"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 146,
+      "title": "fix(admin/inbox): optimistic row removal + visible action feedback",
+      "state": "MERGED",
+      "headRef": "fix/inbox-action-buttons-feedback"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 141,
+      "title": "docs(wave-1): T3 total_mxn canonical unit = pesos per ADR-003 \u00a72.6",
+      "state": "MERGED",
+      "headRef": "chore/wave-1-T3-total-mxn-pesos"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 140,
+      "title": "chore(wave-1): T2 renumber duplicate migration 0039 -> 0040",
+      "state": "MERGED",
+      "headRef": "chore/wave-1-T2-migration-renumber-0039"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 132,
+      "title": "fix(reglas-pdf): sanitize variation selectors + emoji ranges",
+      "state": "MERGED",
+      "headRef": "fix/reglas-pdf-emoji-sanitize"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 130,
+      "title": "Feat/a6 reglas adicionales deploy",
+      "state": "OPEN",
+      "headRef": "feat/a6-reglas-adicionales-deploy"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 125,
+      "title": "fix(karina-training): escape literal {placeholders} as HTML entities \u2014 REAL fix for 500",
+      "state": "MERGED",
+      "headRef": "fix/karina-training-escape-jsx-braces"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 124,
+      "title": "fix(karina-training): self-close void elements (<input>, <br>) \u2014 fixe\u2026",
+      "state": "MERGED",
+      "headRef": "fix/karina-training-input-self-close"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 122,
+      "title": "fix(karina-training): remove allowContentEditor prop (karina is admin now)",
+      "state": "MERGED",
+      "headRef": "hotfix/karina-training-restore-original"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 121,
+      "title": "fix(admin): add karina@ to ADMIN_EMAILS",
+      "state": "MERGED",
+      "headRef": "hotfix/karina-as-admin"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 120,
+      "title": "fix(admin): allow karina@ (content_editor) into /admin/karina-training",
+      "state": "MERGED",
+      "headRef": "hotfix/karina-content-editor-access"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 119,
+      "title": "revert(cf-pages): remove root wrangler.toml \u2014 caused prod auth 500",
+      "state": "MERGED",
+      "headRef": "hotfix/revert-root-wrangler-toml"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 118,
+      "title": "chore(biome): ignore vendor CSS + utility scripts blocking CI",
+      "state": "MERGED",
+      "headRef": "chore/biome-cleanup-ci"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 117,
+      "title": "fix(beds24-normalize): preserve journey columns on upsert (dup-send incident)",
+      "state": "MERGED",
+      "headRef": "fix/beds24-normalize-preserve-journey-cols"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 115,
+      "title": "feat(admin): Karina training doc at /admin/karina-training",
+      "state": "MERGED",
+      "headRef": "feat/karina-training-doc"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 114,
+      "title": "feat(journey): D1-override editor for journey templates",
+      "state": "OPEN",
+      "headRef": "feat/journey-templates-editor"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 113,
+      "title": "feat(pre-stay): in-stay (T+1) + post-stay (checkout-1 / checkout+1) touchpoints",
+      "state": "MERGED",
+      "headRef": "feat/in-stay-post-stay-touchpoints"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 111,
+      "title": "fix(messenger): sendManychatContent via setCustomField+sendFlow + beds24-dump status passthrough",
+      "state": "MERGED",
+      "headRef": "fix/manychat-account-update-tag"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 110,
+      "title": "fix(messenger): ACCOUNT_UPDATE message_tag bypasses 24h window",
+      "state": "MERGED",
+      "headRef": "fix/manychat-account-update-tag"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 109,
+      "title": "fix(messenger): manychat_subscriber_id routing + explicit route override",
+      "state": "MERGED",
+      "headRef": "fix/manychat-subscriber-id-routing"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 108,
+      "title": "fix(messenger-send): resolveRoute boundaries disjoint",
+      "state": "MERGED",
+      "headRef": "fix/resolve-route-disjoint"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 107,
+      "title": "feat(admin): beds24-dump paginated proxy",
+      "state": "MERGED",
+      "headRef": "feat/beds24-dump-endpoint"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 106,
+      "title": "feat(pre-stay): A4 \u2014 admin endpoints + web proxy + /admin/pre-stay page",
+      "state": "MERGED",
+      "headRef": "feat/pre-stay-a4-admin-ui"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 105,
+      "title": "feat(pre-stay): A3 \u2014 T-14 + T-7 + T-1 scans + 4 cron workflows + heartbeats",
+      "state": "MERGED",
+      "headRef": "feat/pre-stay-a3-scan-t14-t7-t1"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 103,
+      "title": "feat(pre-stay): A1.5 \u2014 T-14 touchpoint + warmer welcomes + chef phones",
+      "state": "MERGED",
+      "headRef": "feat/pre-stay-a1.5-t14-touchpoint"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 101,
+      "title": "fix(resync): chunked invocations (CF Workers 50-subrequest cap)",
+      "state": "MERGED",
+      "headRef": "fix/resync-chunked"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 100,
+      "title": "debug(resync): expose api_error samples in stats",
+      "state": "MERGED",
+      "headRef": "debug/resync-error-samples"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 99,
+      "title": "fix(guests): auto-fix mojibake in Beds24 names (canary catch)",
+      "state": "MERGED",
+      "headRef": "hotfix/mojibake-guest-names"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 96,
+      "title": "feat(admin): ES sweep across admin pages + nav",
+      "state": "MERGED",
+      "headRef": "feat/admin-es-sweep"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 95,
+      "title": "chore(scripts): add load-env.ps1 \u2014 auto-load .env.local into PS shell",
+      "state": "MERGED",
+      "headRef": "chore/local-env-loader"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 94,
+      "title": "fix(messenger-send): Beds24 v2 messages wants raw array body",
+      "state": "MERGED",
+      "headRef": "hotfix/beds24-messages-array-body"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 93,
+      "title": "feat(admin): guest name + Beds24 link in extra-guests + 360d bookings",
+      "state": "MERGED",
+      "headRef": "feat/extra-guests-name-bookings-360d"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 92,
+      "title": "feat(ui): ChannelBadge \u2014 SVG logos for OTA channels",
+      "state": "MERGED",
+      "headRef": "feat/channel-logos"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 89,
+      "title": "fix(redirects): remove stale /guia-llegada \u2192 /como-llegar 301 (hotfix for PR #88)",
+      "state": "MERGED",
+      "headRef": "fix/guia-llegada-redirect-block"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 86,
+      "title": "chore(deps): wrangler 3.91 \u2192 4.14 + workers-types bump + fix deploy:* scripts",
+      "state": "MERGED",
+      "headRef": "chore/wrangler-4-and-deploy-scripts"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 82,
+      "title": "feat(admin): /admin/bookings MVP \u2014 list view of unified Beds24 bookings",
+      "state": "MERGED",
+      "headRef": "feat/admin-bookings-ui"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 79,
+      "title": "fix(v6-followups): validator URL false-pos + booking header + nav silencer",
+      "state": "MERGED",
+      "headRef": "fix/v6-followups-bundled"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 78,
+      "title": "fix(content): pet fee $300/estancia (NOT /noche, NOT free) \u2014 5 web locations",
+      "state": "MERGED",
+      "headRef": "fix/pet-fee-web-content"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 76,
+      "title": "docs(v6-prompt): WC review request \u2014 Option B recommended",
+      "state": "CLOSED",
+      "headRef": "docs/v6-prompt-wc-review"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 75,
+      "title": "chore(pages): trigger redeploy (pick up ADMIN_REFRESH_SECRET binding)",
+      "state": "MERGED",
+      "headRef": "chore/trigger-pages-redeploy"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 74,
+      "title": "fix(pages-build): prerender=false on admin/conv* SSR routes",
+      "state": "MERGED",
+      "headRef": "fix/pages-build-prerender-admin-conv"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 72,
+      "title": "fix(lint): two pre-existing biome errors in packages/shared",
+      "state": "MERGED",
+      "headRef": "fix/ci-lint-blockers"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 71,
+      "title": "docs: vectorize handoff (CC-Data) + deploy runbook (Alex)",
+      "state": "MERGED",
+      "headRef": "docs/vectorize-handoff-and-deploy-runbook"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 70,
+      "title": "chore(data): vectorize smoke script + post-execute report",
+      "state": "MERGED",
+      "headRef": "chore/vectorize-smoke-script"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 69,
+      "title": "fix(welcome-auto-send): filter status='confirmed' + action_taken audit",
+      "state": "MERGED",
+      "headRef": "fix/welcome-status-filter"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 68,
+      "title": "feat(monitoring): PR A7.7.7 \u2014 alert dedup window (anti-spam Telegram)",
+      "state": "MERGED",
+      "headRef": "pr-a777-alerts-dedupe"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 67,
+      "title": "feat(admin): PR A7.7.6 \u2014 /admin/conv enhancements (search by phone + history view)",
+      "state": "MERGED",
+      "headRef": "pr-a776-admin-conv-enhancements"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 66,
+      "title": "feat(admin): PR A7.7.4 \u2014 admin readonly role (Karina)",
+      "state": "MERGED",
+      "headRef": "pr-a774-karina-readonly"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 65,
+      "title": "DRAFT: PR A6.1 prep \u2014 Greeter v6 prompt with operator_playbook (NO merge)",
+      "state": "CLOSED",
+      "headRef": "pr-a61-prompt-v6-prep-DRAFT"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 64,
+      "title": "feat(admin): PR A7.7.3 \u2014 operational panels en bot-metrics dashboard",
+      "state": "MERGED",
+      "headRef": "pr-a773-admin-health-improvements"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 63,
+      "title": "feat(admin): PR A7.7.2E \u2014 admin UI /admin/conv para ops endpoints",
+      "state": "MERGED",
+      "headRef": "pr-a772e-admin-conv-ui"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 62,
+      "title": "feat(admin): PR A7.7.2 \u2014 conversation operational endpoints",
+      "state": "MERGED",
+      "headRef": "pr-a772-admin-conv-endpoints"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 61,
+      "title": "feat(monitoring): PR A7.7.1 \u2014 bot-alerts con greeter_turns metrics",
+      "state": "MERGED",
+      "headRef": "pr-a771-greeter-turns-alerts"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 60,
+      "title": "fix(data): drop --remote flag from wrangler r2 object put",
+      "state": "MERGED",
+      "headRef": "fix/data-r2-remove-remote-flag"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 59,
+      "title": "fix(data): deterministic guest/lead/event IDs for idempotent D1 re-runs",
+      "state": "MERGED",
+      "headRef": "feat/data-deterministic-ids"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 58,
+      "title": "fix(data): dedupe at Python layer (D1 doesn't honor INSERT OR IGNORE)",
+      "state": "MERGED",
+      "headRef": "feat/data-stage-deploy-dedup-emails-phones"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 56,
+      "title": "feat(alerts): PR A7.6.3 \u2014 Airbnb booking link en Telegram (channel=airbnb)",
+      "state": "MERGED",
+      "headRef": "pr-a763-airbnb-booking-link"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 55,
+      "title": "feat(notify-human): PR A7.6.2 \u2014 WhatsApp hybrid handoff routing",
+      "state": "MERGED",
+      "headRef": "pr-a762-whatsapp-handoff"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 54,
+      "title": "feat(observability): PR A7.6.1 \u2014 greeter_turns table + dashboard metrics",
+      "state": "MERGED",
+      "headRef": "pr-a761-greeter-turns"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 53,
+      "title": "fix(intent-resolver): PR A7.5.3 \u2014 add missing intents (casas, home, reviews)",
+      "state": "MERGED",
+      "headRef": "pr-a753-missing-intents"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 51,
+      "title": "feat(data): Stage C \u2014 operator playbook pipeline (ready-to-run)",
+      "state": "MERGED",
+      "headRef": "feat/data-stage-c-operator-playbook"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 50,
+      "title": "fix(greeter-v5): PR A7.5.2 \u2014 URL domain bug (/ir/ apunta al WORKER, no al sitio)",
+      "state": "MERGED",
+      "headRef": "pr-a752-fix-url-domain"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 47,
+      "title": "fix(greeter-v5): PR A7.5.1 hotfix \u2014 anti-loop + anti-escalate + URL + Telegram",
+      "state": "MERGED",
+      "headRef": "pr-a751-hotfix-v5"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 41,
+      "title": "fix(health): cron heartbeat \u2014 separate firing vs new-data signals",
+      "state": "MERGED",
+      "headRef": "cron-heartbeat-pr-a8"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 40,
+      "title": "feat(canary): Greeter v5 deterministic canary + admin endpoints (PR A7)",
+      "state": "MERGED",
+      "headRef": "feat/greeter-v5-canary"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 39,
+      "title": "feat(greeter-v5): system prompt v5 + few-shot examples (PR A6)",
+      "state": "MERGED",
+      "headRef": "feat/greeter-v5-system-prompt"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 38,
+      "title": "feat(greeter-v5): tool-use enforcement building blocks (PR A4)",
+      "state": "MERGED",
+      "headRef": "feat/greeter-v5-core"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 37,
+      "title": "chore(format): biome auto-fix 71 files (288\u2192201 errors)",
+      "state": "MERGED",
+      "headRef": "chore/biome-cleanup-3"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 36,
+      "title": "fix(BookingCard): navigate calendar to check-in month on URL pre-fill",
+      "state": "MERGED",
+      "headRef": "fix/booking-card-month-navigate"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 28,
+      "title": "feat(admin): add ADMIN_EMAILS to enable /admin access",
+      "state": "MERGED",
+      "headRef": "fix/admin-emails-wrangler-vars"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 27,
+      "title": "fix(deploy): SITE_URL \u2192 rincondelmar.club + workflow pnpm filter wrangler",
+      "state": "MERGED",
+      "headRef": "fix/site-url-and-deploy-workflow"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 26,
+      "title": "fix(login): hide WA OTP tab (impl incompleta) \u2014 solo magic link",
+      "state": "MERGED",
+      "headRef": "fix/login-hide-wa-otp"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 25,
+      "title": "fix(bot): filter critical-keywords to guest msgs + skip past-arrival welcomes",
+      "state": "MERGED",
+      "headRef": "fix/bot-filters-guest-and-skip-past-arrivals"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 24,
+      "title": "fix(bot): use ManyChat internal subscriber_id + save turn before send",
+      "state": "MERGED",
+      "headRef": "fix/manychat-subscriber-id-and-save-order"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 23,
+      "title": "chore(format): biome auto-fix (CRLF\u2192LF + format)",
+      "state": "MERGED",
+      "headRef": "chore/biome-format-fixes"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 22,
+      "title": "chore(scripts): reglas_adicionales R2 patchers (one-shot, already run)",
+      "state": "MERGED",
+      "headRef": "chore/reglas-deploy-scripts"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 20,
+      "title": "chore(scripts): one-shot R2 patcher RdM ES post-Chrome MCP write-back",
+      "state": "MERGED",
+      "headRef": "chore/rdm-es-deploy-script"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 19,
+      "title": "feat(admin): /admin/audit-logs page + admin home updates",
+      "state": "MERGED",
+      "headRef": "feat/admin-audit-logs"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 18,
+      "title": "feat(admin): deploy-queue + deploy-confirmed endpoint",
+      "state": "MERGED",
+      "headRef": "feat/admin-deploy-queue"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 17,
+      "title": "feat(greeter): wire welcome KB into stage2 system prompt",
+      "state": "MERGED",
+      "headRef": "feat/greeter-wire-welcome-kb"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 15,
+      "title": "feat(admin): /admin/airbnb-content preview-bot-kb debug tool",
+      "state": "MERGED",
+      "headRef": "feat/admin-welcome-kb-preview"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 14,
+      "title": "feat(welcome): follow-up \u2014 map 12 fields en welcome-guide + bot KB",
+      "state": "MERGED",
+      "headRef": "feat/welcome-guide-12-fields-followup"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 12,
+      "title": "feat(welcome): Fase 2.1 architecture \u2014 /welcome/{property} guides",
+      "state": "MERGED",
+      "headRef": "feat/welcome-guide-fase2-architecture"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 8,
+      "title": "feat(admin): /admin/health \u2014 D1 stats + cron status + recent alerts",
+      "state": "MERGED",
+      "headRef": "feat/admin-health-page"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 7,
+      "title": "feat(admin): add {reviewsUrl} + {hostName} placeholders",
+      "state": "MERGED",
+      "headRef": "feat/admin-placeholders-reviews-host"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 6,
+      "title": "fix(admin): commits perdidos del PR #5 (docs ADMIN_EMAILS + footer contextual)",
+      "state": "MERGED",
+      "headRef": "fix/admin-docs-footer-followup"
+    },
+    {
+      "repo": "rdm-bot",
+      "number": 1,
+      "title": "Phase 0 + Client Bot A: cron activation in default branch",
+      "state": "MERGED",
+      "headRef": "feat/phase0-reviews-client-bot-a"
+    },
+    {
+      "repo": "rdm-discussion",
+      "number": 1,
+      "title": "chore: add CLAUDE.md with Working Modes conventions",
+      "state": "MERGED",
+      "headRef": "chore/working-modes-docs"
+    }
+  ],
+  "thread_to_branches": {
+    "141": [
+      {
+        "repo": "rdm-bot",
+        "branch": "feat/thread-141-house-rules-paper-trail",
+        "category": "merged"
+      }
+    ],
+    "146": [
+      {
+        "repo": "rdm-discussion",
+        "branch": "chore/process-improvements-thread-146",
+        "category": "merged"
+      }
+    ],
+    "145": [
+      {
+        "repo": "rdm-discussion",
+        "branch": "claude/respond-thread-145-Qcon1",
+        "category": "merged"
+      }
+    ],
+    "158": [
+      {
+        "repo": "rdm-discussion",
+        "branch": "thread/158-final-report",
+        "category": "active"
+      }
+    ]
+  },
+  "branches_with_thread_in_name": {
+    "rdm-bot:feat/thread-141-house-rules-paper-trail": [
+      141
+    ],
+    "rdm-discussion:chore/process-improvements-thread-146": [
+      146
+    ],
+    "rdm-discussion:claude/respond-thread-145-Qcon1": [
+      145
+    ],
+    "rdm-discussion:thread/158-final-report": [
+      158
+    ]
+  },
+  "migration_to_prs": {}
+}

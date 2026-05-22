@@ -1,0 +1,576 @@
+{
+  "generated_at": "2026-05-22",
+  "repo": "rdm-bot",
+  "path": "migrations/",
+  "total": 45,
+  "highest_number": 45,
+  "missing_numbers_in_sequence": [],
+  "active_collisions_count": 0,
+  "active_collisions": {},
+  "renumber_or_rename_history": [
+    {
+      "filename": "0015_leads.sql",
+      "subject": "6430512 fix(d1): rename Phase B bookings \u2192 beds24_bookings (collision con 0004)"
+    },
+    {
+      "filename": "0016_bookings.sql",
+      "subject": "6430512 fix(d1): rename Phase B bookings \u2192 beds24_bookings (collision con 0004)"
+    },
+    {
+      "filename": "0017_guest_events.sql",
+      "subject": "6430512 fix(d1): rename Phase B bookings \u2192 beds24_bookings (collision con 0004)"
+    },
+    {
+      "filename": "0040_rules_link_clicks.sql",
+      "subject": "dade0d3 chore(audit-wave-1): T2 renumber duplicate migration 0039_rules_link_clicks (#140)"
+    }
+  ],
+  "entries": [
+    {
+      "number": 1,
+      "filename": "0001_users_sessions.sql",
+      "topic": "users_sessions",
+      "size_bytes": 3686,
+      "sha1_12": "f46e3949a6c0",
+      "git_first_commit": "2026-05-08 20:22:48 -0600",
+      "git_last_commit": "2026-05-08 20:22:48 -0600",
+      "git_log_subjects": [
+        "7ea5e2c feat(db): migrations PR2 + drizzle schema + race-safe bookings helpers"
+      ]
+    },
+    {
+      "number": 2,
+      "filename": "0002_magic_links.sql",
+      "topic": "magic_links",
+      "size_bytes": 943,
+      "sha1_12": "6067967ffa6a",
+      "git_first_commit": "2026-05-08 20:22:48 -0600",
+      "git_last_commit": "2026-05-08 20:22:48 -0600",
+      "git_log_subjects": [
+        "7ea5e2c feat(db): migrations PR2 + drizzle schema + race-safe bookings helpers"
+      ]
+    },
+    {
+      "number": 3,
+      "filename": "0003_waitlist.sql",
+      "topic": "waitlist",
+      "size_bytes": 612,
+      "sha1_12": "b44a7a222eff",
+      "git_first_commit": "2026-05-08 19:04:24 -0600",
+      "git_last_commit": "2026-05-08 19:04:24 -0600",
+      "git_log_subjects": [
+        "737fff1 feat(content): properties, landings, FAQs + lib/ + migrations"
+      ]
+    },
+    {
+      "number": 4,
+      "filename": "0004_bookings.sql",
+      "topic": "bookings",
+      "size_bytes": 2419,
+      "sha1_12": "a24d158c4686",
+      "git_first_commit": "2026-05-08 20:22:48 -0600",
+      "git_last_commit": "2026-05-08 20:22:48 -0600",
+      "git_log_subjects": [
+        "7ea5e2c feat(db): migrations PR2 + drizzle schema + race-safe bookings helpers"
+      ]
+    },
+    {
+      "number": 5,
+      "filename": "0005_quote_requests.sql",
+      "topic": "quote_requests",
+      "size_bytes": 964,
+      "sha1_12": "1da368b96248",
+      "git_first_commit": "2026-05-08 19:04:24 -0600",
+      "git_last_commit": "2026-05-08 19:04:24 -0600",
+      "git_log_subjects": [
+        "737fff1 feat(content): properties, landings, FAQs + lib/ + migrations"
+      ]
+    },
+    {
+      "number": 6,
+      "filename": "0006_linktree_clicks.sql",
+      "topic": "linktree_clicks",
+      "size_bytes": 1137,
+      "sha1_12": "fe73a0fe66e4",
+      "git_first_commit": "2026-05-09 15:58:58 -0600",
+      "git_last_commit": "2026-05-09 15:58:58 -0600",
+      "git_log_subjects": [
+        "8c81460 feat(r): Sprint 1 \u2014 Linktree /r + /r/tk + /r/ig + tracking + admin"
+      ]
+    },
+    {
+      "number": 7,
+      "filename": "0007_sessions_updated_at.sql",
+      "topic": "sessions_updated_at",
+      "size_bytes": 566,
+      "sha1_12": "500dcec620a6",
+      "git_first_commit": "2026-05-09 17:06:48 -0600",
+      "git_last_commit": "2026-05-09 17:06:48 -0600",
+      "git_log_subjects": [
+        "b92eee4 fix(auth): add sessions.updated_at column + Drizzle field for Better Auth"
+      ]
+    },
+    {
+      "number": 8,
+      "filename": "0008_tour_views.sql",
+      "topic": "tour_views",
+      "size_bytes": 1144,
+      "sha1_12": "70e7161159e4",
+      "git_first_commit": "2026-05-10 11:55:55 -0600",
+      "git_last_commit": "2026-05-10 11:55:55 -0600",
+      "git_log_subjects": [
+        "489aee4 feat(tour-360): migrate Pannellum 360\u00b0 tour to /tour-virtual/{rdm,morenas}"
+      ]
+    },
+    {
+      "number": 9,
+      "filename": "0009_conversations.sql",
+      "topic": "conversations",
+      "size_bytes": 1267,
+      "sha1_12": "44c0e9dcd62c",
+      "git_first_commit": "2026-05-11 01:39:50 -0600",
+      "git_last_commit": "2026-05-11 01:39:50 -0600",
+      "git_log_subjects": [
+        "7bef680 feat(bot): Sprint 1 d\u00eda 3 \u2014 port intacto Greeter v5 + Booker hot-fix C"
+      ]
+    },
+    {
+      "number": 10,
+      "filename": "0010_handoff_data.sql",
+      "topic": "handoff_data",
+      "size_bytes": 854,
+      "sha1_12": "ba17b69b18b2",
+      "git_first_commit": "2026-05-11 12:13:35 -0600",
+      "git_last_commit": "2026-05-11 12:13:35 -0600",
+      "git_log_subjects": [
+        "3f4b698 fix(bot): handoff persistence bug + Sprint 1 d\u00eda 4 Beds24+MP wiring"
+      ]
+    },
+    {
+      "number": 11,
+      "filename": "0011_beds24_events.sql",
+      "topic": "beds24_events",
+      "size_bytes": 2694,
+      "sha1_12": "1e44ad2b7c7a",
+      "git_first_commit": "2026-05-12 10:27:07 -0600",
+      "git_last_commit": "2026-05-12 10:27:07 -0600",
+      "git_log_subjects": [
+        "aa23eaa feat(bot): Beds24 Booking Webhook handler V2 with personal data (Q15)"
+      ]
+    },
+    {
+      "number": 12,
+      "filename": "0012_reviews.sql",
+      "topic": "reviews",
+      "size_bytes": 2589,
+      "sha1_12": "3ede5b7c2bbd",
+      "git_first_commit": "2026-05-12 11:37:24 -0600",
+      "git_last_commit": "2026-05-12 11:37:24 -0600",
+      "git_log_subjects": [
+        "ac751c7 feat(bot): Phase 0 + Client Bot Phase A \u2014 reviews sync + polling + digest"
+      ]
+    },
+    {
+      "number": 13,
+      "filename": "0013_bot_messages_inbox.sql",
+      "topic": "bot_messages_inbox",
+      "size_bytes": 2902,
+      "sha1_12": "f555a6ee84c1",
+      "git_first_commit": "2026-05-12 11:37:24 -0600",
+      "git_last_commit": "2026-05-12 11:37:24 -0600",
+      "git_log_subjects": [
+        "ac751c7 feat(bot): Phase 0 + Client Bot Phase A \u2014 reviews sync + polling + digest"
+      ]
+    },
+    {
+      "number": 14,
+      "filename": "0014_guests_master.sql",
+      "topic": "guests_master",
+      "size_bytes": 6312,
+      "sha1_12": "393aa726d936",
+      "git_first_commit": "2026-05-13 10:41:38 -0600",
+      "git_last_commit": "2026-05-13 10:41:38 -0600",
+      "git_log_subjects": [
+        "627e677 feat(d1): Phase B.3a \u2014 5 migrations (0014-0018) + helpers + 58 tests"
+      ]
+    },
+    {
+      "number": 15,
+      "filename": "0015_leads.sql",
+      "topic": "leads",
+      "size_bytes": 7537,
+      "sha1_12": "4ee2a50839d4",
+      "git_first_commit": "2026-05-13 10:41:38 -0600",
+      "git_last_commit": "2026-05-13 10:53:38 -0600",
+      "git_log_subjects": [
+        "627e677 feat(d1): Phase B.3a \u2014 5 migrations (0014-0018) + helpers + 58 tests",
+        "6430512 fix(d1): rename Phase B bookings \u2192 beds24_bookings (collision con 0004)"
+      ]
+    },
+    {
+      "number": 16,
+      "filename": "0016_bookings.sql",
+      "topic": "bookings",
+      "size_bytes": 7367,
+      "sha1_12": "2fd9b1fbe7b9",
+      "git_first_commit": "2026-05-13 10:41:38 -0600",
+      "git_last_commit": "2026-05-13 10:53:38 -0600",
+      "git_log_subjects": [
+        "627e677 feat(d1): Phase B.3a \u2014 5 migrations (0014-0018) + helpers + 58 tests",
+        "6430512 fix(d1): rename Phase B bookings \u2192 beds24_bookings (collision con 0004)"
+      ]
+    },
+    {
+      "number": 17,
+      "filename": "0017_guest_events.sql",
+      "topic": "guest_events",
+      "size_bytes": 5552,
+      "sha1_12": "4c6c9a3be55a",
+      "git_first_commit": "2026-05-13 10:41:38 -0600",
+      "git_last_commit": "2026-05-13 10:53:38 -0600",
+      "git_log_subjects": [
+        "627e677 feat(d1): Phase B.3a \u2014 5 migrations (0014-0018) + helpers + 58 tests",
+        "6430512 fix(d1): rename Phase B bookings \u2192 beds24_bookings (collision con 0004)"
+      ]
+    },
+    {
+      "number": 18,
+      "filename": "0018_guests_fts.sql",
+      "topic": "guests_fts",
+      "size_bytes": 3337,
+      "sha1_12": "770da809e890",
+      "git_first_commit": "2026-05-13 10:41:38 -0600",
+      "git_last_commit": "2026-05-13 10:41:38 -0600",
+      "git_log_subjects": [
+        "627e677 feat(d1): Phase B.3a \u2014 5 migrations (0014-0018) + helpers + 58 tests"
+      ]
+    },
+    {
+      "number": 19,
+      "filename": "0019_pending_welcomes.sql",
+      "topic": "pending_welcomes",
+      "size_bytes": 4095,
+      "sha1_12": "27ad6d9ba50f",
+      "git_first_commit": "2026-05-13 21:46:11 -0600",
+      "git_last_commit": "2026-05-13 21:46:11 -0600",
+      "git_log_subjects": [
+        "40373ea feat(worker-bot): Phase B.1 welcome auto-send scaffold (#11)"
+      ]
+    },
+    {
+      "number": 20,
+      "filename": "0020_admin_import_logs.sql",
+      "topic": "admin_import_logs",
+      "size_bytes": 1589,
+      "sha1_12": "5e9986e76f86",
+      "git_first_commit": "2026-05-13 21:39:14 -0600",
+      "git_last_commit": "2026-05-13 21:39:14 -0600",
+      "git_log_subjects": [
+        "846d080 feat(content): WC seed import flow + schema expansion (12 fields) + Karina onboarding (#13)"
+      ]
+    },
+    {
+      "number": 21,
+      "filename": "0021_bot_link_clicks.sql",
+      "topic": "bot_link_clicks",
+      "size_bytes": 2866,
+      "sha1_12": "bf93a87b5cc7",
+      "git_first_commit": "2026-05-15 01:05:54 -0600",
+      "git_last_commit": "2026-05-15 01:05:54 -0600",
+      "git_log_subjects": [
+        "d0bbe9c feat(bot): click tracking endpoint /r/bot/[slug] + intent resolver (PR A2) (#29)"
+      ]
+    },
+    {
+      "number": 22,
+      "filename": "0022_human_handoff_log.sql",
+      "topic": "human_handoff_log",
+      "size_bytes": 2582,
+      "sha1_12": "48c6f6372410",
+      "git_first_commit": "2026-05-15 01:13:20 -0600",
+      "git_last_commit": "2026-05-15 01:13:20 -0600",
+      "git_log_subjects": [
+        "5c24be5 feat(bot): Telegram notify-human endpoint + reminders cron (PR A3) (#30)"
+      ]
+    },
+    {
+      "number": 23,
+      "filename": "0023_bot_config.sql",
+      "topic": "bot_config",
+      "size_bytes": 1145,
+      "sha1_12": "99feb0734641",
+      "git_first_commit": "2026-05-15 12:36:09 -0600",
+      "git_last_commit": "2026-05-15 12:36:09 -0600",
+      "git_log_subjects": [
+        "55a9eb8 feat(canary): Greeter v5 deterministic canary + admin endpoints (PR A7) (#40)"
+      ]
+    },
+    {
+      "number": 24,
+      "filename": "0024_data_v2_seed_marker.sql",
+      "topic": "data_v2_seed_marker",
+      "size_bytes": 1811,
+      "sha1_12": "bdfd830c87b2",
+      "git_first_commit": "2026-05-15 18:12:41 -0600",
+      "git_last_commit": "2026-05-15 18:12:41 -0600",
+      "git_log_subjects": [
+        "e525afa feat(data): Stage Deploy \u2014 D1 seed + R2 upload + Vectorize pipeline (#52)"
+      ]
+    },
+    {
+      "number": 25,
+      "filename": "0025_greeter_turns.sql",
+      "topic": "greeter_turns",
+      "size_bytes": 2466,
+      "sha1_12": "9bed7839f925",
+      "git_first_commit": "2026-05-15 19:27:10 -0600",
+      "git_last_commit": "2026-05-15 19:27:10 -0600",
+      "git_log_subjects": [
+        "177c533 feat(observability): PR A7.6.1 \u2014 greeter_turns table + dashboard sections (#54)"
+      ]
+    },
+    {
+      "number": 26,
+      "filename": "0026_airbnb_confirmation_code.sql",
+      "topic": "airbnb_confirmation_code",
+      "size_bytes": 932,
+      "sha1_12": "f77aa4206af4",
+      "git_first_commit": "2026-05-15 21:06:09 -0600",
+      "git_last_commit": "2026-05-15 21:06:09 -0600",
+      "git_log_subjects": [
+        "fdcf608 feat(alerts): PR A7.6.3 \u2014 Airbnb booking link en Telegram cuando channel='airbnb' (#56)"
+      ]
+    },
+    {
+      "number": 27,
+      "filename": "0027_greeter_turns_v6_columns.sql",
+      "topic": "greeter_turns_v6_columns",
+      "size_bytes": 1708,
+      "sha1_12": "252be56713b5",
+      "git_first_commit": "2026-05-16 16:45:36 -0600",
+      "git_last_commit": "2026-05-16 16:45:36 -0600",
+      "git_log_subjects": [
+        "dc39a35 feat(greeter): PR A6.1 \u2014 V6 prompt (v2-playbook patterns + WC vibe rules + pet fee fix) (#77)"
+      ]
+    },
+    {
+      "number": 28,
+      "filename": "0028_human_handoff_log_subscriber_name.sql",
+      "topic": "human_handoff_log_subscriber_name",
+      "size_bytes": 1152,
+      "sha1_12": "6b06f46dc826",
+      "git_first_commit": "2026-05-17 20:45:25 -0600",
+      "git_last_commit": "2026-05-17 20:45:25 -0600",
+      "git_log_subjects": [
+        "f94745b feat(admin/inbox): unified queue MVP + handoff subscriber_name fix (#85)"
+      ]
+    },
+    {
+      "number": 29,
+      "filename": "0029_conversations_resolved_at.sql",
+      "topic": "conversations_resolved_at",
+      "size_bytes": 1202,
+      "sha1_12": "449cb515563b",
+      "git_first_commit": "2026-05-17 20:45:25 -0600",
+      "git_last_commit": "2026-05-17 20:45:25 -0600",
+      "git_log_subjects": [
+        "f94745b feat(admin/inbox): unified queue MVP + handoff subscriber_name fix (#85)"
+      ]
+    },
+    {
+      "number": 30,
+      "filename": "0030_inquiries_closed.sql",
+      "topic": "inquiries_closed",
+      "size_bytes": 1593,
+      "sha1_12": "d65511fa4ade",
+      "git_first_commit": "2026-05-17 22:31:21 -0600",
+      "git_last_commit": "2026-05-17 22:31:21 -0600",
+      "git_log_subjects": [
+        "c31b964 feat(wave): small items bundle \u2014 F + C + A + B (4 of 6 parts from thread/107) (#87)"
+      ]
+    },
+    {
+      "number": 31,
+      "filename": "0031_conversations_closed_reason.sql",
+      "topic": "conversations_closed_reason",
+      "size_bytes": 993,
+      "sha1_12": "d034efbcec65",
+      "git_first_commit": "2026-05-17 22:31:21 -0600",
+      "git_last_commit": "2026-05-17 22:31:21 -0600",
+      "git_log_subjects": [
+        "c31b964 feat(wave): small items bundle \u2014 F + C + A + B (4 of 6 parts from thread/107) (#87)"
+      ]
+    },
+    {
+      "number": 32,
+      "filename": "0032_messenger_outbound.sql",
+      "topic": "messenger_outbound",
+      "size_bytes": 2205,
+      "sha1_12": "ca8789436df5",
+      "git_first_commit": "2026-05-18 01:24:18 -0600",
+      "git_last_commit": "2026-05-18 01:24:18 -0600",
+      "git_log_subjects": [
+        "ba7f4a9 feat(wave): C + E + D + P2 \u2014 messenger flag + extra-guests + cron threshold + P2 findings (#90)"
+      ]
+    },
+    {
+      "number": 33,
+      "filename": "0033_extra_guests_captures.sql",
+      "topic": "extra_guests_captures",
+      "size_bytes": 3203,
+      "sha1_12": "816b8571f630",
+      "git_first_commit": "2026-05-18 01:24:18 -0600",
+      "git_last_commit": "2026-05-18 01:24:18 -0600",
+      "git_log_subjects": [
+        "ba7f4a9 feat(wave): C + E + D + P2 \u2014 messenger flag + extra-guests + cron threshold + P2 findings (#90)"
+      ]
+    },
+    {
+      "number": 34,
+      "filename": "0034_guests_name_locked.sql",
+      "topic": "guests_name_locked",
+      "size_bytes": 1165,
+      "sha1_12": "6b9a53ebc851",
+      "git_first_commit": "2026-05-18 09:11:37 -0600",
+      "git_last_commit": "2026-05-18 09:11:37 -0600",
+      "git_log_subjects": [
+        "b125e49 feat(guests): name resync from Beds24 source of truth (thread/115) (#98)"
+      ]
+    },
+    {
+      "number": 35,
+      "filename": "0035_pre_stay_columns.sql",
+      "topic": "pre_stay_columns",
+      "size_bytes": 1547,
+      "sha1_12": "3b3ac5a0aff6",
+      "git_first_commit": "2026-05-18 09:51:40 -0600",
+      "git_last_commit": "2026-05-18 09:51:40 -0600",
+      "git_log_subjects": [
+        "7250357 feat(pre-stay): A1 \u2014 migration 0035 + 24 templates + skeleton + tests (#102)"
+      ]
+    },
+    {
+      "number": 36,
+      "filename": "0036_pre_arrival_t14_sent_at.sql",
+      "topic": "pre_arrival_t14_sent_at",
+      "size_bytes": 966,
+      "sha1_12": "e62369b8d755",
+      "git_first_commit": "2026-05-18 11:01:00 -0600",
+      "git_last_commit": "2026-05-18 11:01:00 -0600",
+      "git_log_subjects": [
+        "a6e60f5 feat(pre-stay): A1.5 \u2014 add T-14 touchpoint + warmer welcomes + chef phones (#103)"
+      ]
+    },
+    {
+      "number": 37,
+      "filename": "0037_guests_manychat_subscriber_id.sql",
+      "topic": "guests_manychat_subscriber_id",
+      "size_bytes": 1785,
+      "sha1_12": "db28fb8c7937",
+      "git_first_commit": "2026-05-18 13:16:01 -0600",
+      "git_last_commit": "2026-05-18 13:16:01 -0600",
+      "git_log_subjects": [
+        "47dee78 fix(messenger): manychat_subscriber_id routing + explicit route override (#109)"
+      ]
+    },
+    {
+      "number": 38,
+      "filename": "0038_in_stay_post_stay_columns.sql",
+      "topic": "in_stay_post_stay_columns",
+      "size_bytes": 1231,
+      "sha1_12": "a45dbbeb47b9",
+      "git_first_commit": "2026-05-18 15:03:04 -0600",
+      "git_last_commit": "2026-05-18 15:03:04 -0600",
+      "git_log_subjects": [
+        "494addc feat(pre-stay): in-stay (T+1) + post-stay (checkout-1 / checkout+1) touchpoints (#113)"
+      ]
+    },
+    {
+      "number": 39,
+      "filename": "0039_audit_log.sql",
+      "topic": "audit_log",
+      "size_bytes": 1351,
+      "sha1_12": "a4f494509573",
+      "git_first_commit": "2026-05-19 16:40:44 -0600",
+      "git_last_commit": "2026-05-19 16:40:44 -0600",
+      "git_log_subjects": [
+        "0ebde33 feat(worker-bot): Beds24 read-only proxy /calendar (thread/134) (#127)"
+      ]
+    },
+    {
+      "number": 40,
+      "filename": "0040_rules_link_clicks.sql",
+      "topic": "rules_link_clicks",
+      "size_bytes": 1458,
+      "sha1_12": "59fcaeb2d190",
+      "git_first_commit": "2026-05-19 15:51:43 -0600",
+      "git_last_commit": "2026-05-21 00:04:28 -0600",
+      "git_log_subjects": [
+        "dade0d3 chore(audit-wave-1): T2 renumber duplicate migration 0039_rules_link_clicks (#140)"
+      ]
+    },
+    {
+      "number": 41,
+      "filename": "0041_bot_short_links.sql",
+      "topic": "bot_short_links",
+      "size_bytes": 2660,
+      "sha1_12": "a3dd2a3be135",
+      "git_first_commit": "2026-05-21 02:49:51 -0600",
+      "git_last_commit": "2026-05-21 02:49:51 -0600",
+      "git_log_subjects": [
+        "c5d243e feat(admin/inbox): WhatsApp-style bubble history in reply drawer (#150)"
+      ]
+    },
+    {
+      "number": 42,
+      "filename": "0042_feedback_system.sql",
+      "topic": "feedback_system",
+      "size_bytes": 3379,
+      "sha1_12": "2031e3ea9533",
+      "git_first_commit": "2026-05-21 18:24:12 -0600",
+      "git_last_commit": "2026-05-21 18:24:12 -0600",
+      "git_log_subjects": [
+        "51338a9 feat(worker-feedback): /admin/issues GitHub Operations Cockpit backend (thread/161) (#155)"
+      ]
+    },
+    {
+      "number": 43,
+      "filename": "0043_booking_captures.sql",
+      "topic": "booking_captures",
+      "size_bytes": 3549,
+      "sha1_12": "3daa9bd1ad76",
+      "git_first_commit": "2026-05-21 20:33:28 -0600",
+      "git_last_commit": "2026-05-21 21:39:38 -0600",
+      "git_log_subjects": [
+        "4225a36 chore(migrations): claim 0043 stub \u2014 booking_captures",
+        "59759eb feat(booking-detail): quick & dirty 3-tab page + readiness + MP link + outreach (spec 2026-05-22) (#157)"
+      ]
+    },
+    {
+      "number": 44,
+      "filename": "0044_outreach_templates.sql",
+      "topic": "outreach_templates",
+      "size_bytes": 1988,
+      "sha1_12": "5c28ecd562dd",
+      "git_first_commit": "2026-05-21 20:33:28 -0600",
+      "git_last_commit": "2026-05-21 21:39:38 -0600",
+      "git_log_subjects": [
+        "4874048 chore(migrations): claim 0044 stub \u2014 outreach_templates",
+        "59759eb feat(booking-detail): quick & dirty 3-tab page + readiness + MP link + outreach (spec 2026-05-22) (#157)"
+      ]
+    },
+    {
+      "number": 45,
+      "filename": "0045_mp_payments.sql",
+      "topic": "mp_payments",
+      "size_bytes": 3412,
+      "sha1_12": "5eb3e2af4fa8",
+      "git_first_commit": "2026-05-22 04:31:54 -0600",
+      "git_last_commit": "2026-05-22 04:42:39 -0600",
+      "git_log_subjects": [
+        "6d7c503 chore(migrations): claim 0045 stub \u2014 mp_payments",
+        "8565afa feat(worker-pago): 0045_mp_payments table + Beds24 invoiceItem capture module"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5356 @@
+{
+  "generated_at": "2026-05-22",
+  "total": 209,
+  "earliest_first_commit": "2026-05-10 23:35:46 -0600",
+  "latest_last_commit": "2026-05-22 11:41:33 -0600",
+  "collisions_count": 22,
+  "collisions": {
+    "105": [
+      "105-wc-doit-admin-inbox-p3-plus-2bugs.md",
+      "105-wc-doit-admin-inbox-p3.md"
+    ],
+    "11": [
+      "11-cc-wc-thread10-implemented.md",
+      "11-wc-beds24-migration-task-for-cc.md"
+    ],
+    "145": [
+      "145-wc-cc-state-tweaks-and-promote-doit.md",
+      "145-wc-platform-foundations-spec-and-adr-002.md"
+    ],
+    "146": [
+      "146-cc-foundations-preflight.md",
+      "146-wc-cc-process-improvements-AMENDMENT.md",
+      "146-wc-cc-process-improvements-doit.md"
+    ],
+    "149": [
+      "149-followup-day-0-trigger.md",
+      "149-wc-impl-analytics-audit.md",
+      "149-wc-platform-audit-kickoff.md"
+    ],
+    "151": [
+      "151-wc-impl-karina-training-v2-spec.md",
+      "151-wc-platform-architectural-audit.md"
+    ],
+    "152": [
+      "152-followup-additional-findings.md",
+      "152-wc-impl-operational-audit.md"
+    ],
+    "153": [
+      "153-cc-bot-audit-2026-Q2-technical-findings.md",
+      "153-wc-cc-numbering-and-0039-doit.md"
+    ],
+    "157": [
+      "157-wc-impl-p0-welcome-autosend-broken.md",
+      "157-wc-platform-admin-audit-review.md"
+    ],
+    "158": [
+      "158-wc-cc-ir-shortlink-resolver-overhaul-doit.md",
+      "158-wc-cc-ir-system-overhaul-spec.md",
+      "158-wc-cc-tech-validation-trigger.md"
+    ],
+    "159": [
+      "159-cc-wave-1-complete.md",
+      "159-wc-impl-synthesis-bigbang-sealed.md"
+    ],
+    "160": [
+      "160-karina-ping-prompt-pre-wave-1.md",
+      "160-wc-cc-numbering-and-branch-protection-doit.md"
+    ],
+    "162": [
+      "162-cc-bot-admin-issues-cockpit-halt-preflight.md",
+      "162-wc-cc-state-repair-AMENDMENT-2.md",
+      "162-wc-cc-state-repair-AMENDMENT.md",
+      "162-wc-cc-state-repair-doit.md"
+    ],
+    "169": [
+      "169-cc-bot-telegram-pago-recibido-spec.md",
+      "169-wc-cc-harness-oss-survey.md"
+    ],
+    "170": [
+      "170-cc-bot-telegram-pago-notify-pr159.md",
+      "170-wc-bot-factuality-conceptual.md"
+    ],
+    "43": [
+      "43-cc-fase2-merge-guide.md",
+      "43-wc-alex-go-execute-batch-b.md"
+    ],
+    "44": [
+      "44-cc-pr12-final-state.md",
+      "44-wc-footer-policy-research-morenas-concern.md"
+    ],
+    "45": [
+      "45-cc-wc-seed-drafts-discovery.md",
+      "45-mvp-live-and-content-drafts-ready.md"
+    ],
+    "54": [
+      "54-cc-fase-1-progress.md",
+      "54-wc-data-mining-v2-strategy.md"
+    ],
+    "77": [
+      "77-cc-bot-prs-a761-a763-merged.md",
+      "77-cc-data-prod-deploy-95-pct-done-vectorize-handoff.md"
+    ],
+    "93": [
+      "93-cc-bot-status-bookings-build-complete-inbox-paused.md",
+      "93-wc-ack-cc-feedback-doit-template-v2.md"
+    ],
+    "98": [
+      "98-cc-bot-pr82-halted-typecheck-errors.md",
+      "98-wc-cc-autonomy-config-and-workspace.md"
+    ]
+  },
+  "by_author": {
+    "claude code (cli, lee filesystem local)": 1,
+    "alexander horn (transcrito por claude code)": 1,
+    "web claude (claude.ai con mcps)": 3,
+    "claude code (cli)": 17,
+    "web claude (claude.ai via make + github mcps)": 2,
+    "cc-bot (doit session, executing thread/99)": 1,
+    "wc": 25,
+    "cc-bot (doit session, executing thread/101)": 1,
+    "cc-bot (doit session, executing thread/103)": 1,
+    "cc-bot (doit session, executing thread/105 \u2014 all 3 parts)": 1,
+    "cc-bot (doit session, executing thread/107)": 1,
+    "web claude": 19,
+    "cc-bot (pre-execution check)": 1,
+    "cc-bot": 12,
+    "wc (brain deep)": 1,
+    "wc-karina": 2,
+    "wc-cc": 19,
+    "claude code (cli, sesi\u00f3n migraci\u00f3n beds24)": 1,
+    "wc-browserbase": 1,
+    "cc-wc": 6,
+    "claude code (cli, sesi\u00f3n sprint 1 + canary)": 1,
+    "wc-platform": 9,
+    "cc-foundations": 1,
+    "wc-impl": 7,
+    "alex-foundations": 1,
+    "followup-day": 1,
+    "followup-additional": 1,
+    "alex-audit": 1,
+    "cc-wave": 1,
+    "claude code (cli, sesi\u00f3n sprint 1+canary)": 4,
+    "karina-ping": 1,
+    "cc-bot (doit session 2026-05-22)": 2,
+    "cc-bot (ad-hoc session 2026-05-22, post-deploy smoke for pr #157)": 1,
+    "cc-bot (doit session 2026-05-22, follow-up to [thread/167](167-cc-bot-mp-webhook-beds24-capture-followup.md))": 1,
+    "cc-bot (doit session 2026-05-22, follow-up to [thread/169](169-cc-bot-telegram-pago-recibido-spec.md))": 1,
+    "web claude (wc) for alex": 1,
+    "web claude (wc)": 17,
+    "web claude (wc) capturing alex decisions": 2,
+    "cc": 3,
+    "web claude (wc) capturing alex go": 1,
+    "cc-import": 1,
+    "cc-merge": 1,
+    "cc-reglas": 1,
+    "unknown": 1,
+    "claude code (cc)": 1,
+    "claude code (cc) \u2014 aggressive mode": 1,
+    "claude code (cc-bot)": 10,
+    "claude code (cc-data \u2014 sesi\u00f3n paralela a cc-bot)": 1,
+    "claude code (cc-data session)": 3,
+    "claude code (cc-data)": 1,
+    "claude code (cc-data session, closing out)": 1,
+    "wc-claude": 1,
+    "claude code (cc-data, returning for final cleanup pass)": 1,
+    "wc (with alex live)": 1,
+    "wc (with alex)": 6,
+    "wc (implementation buddy session, alex-led)": 1,
+    "cc-bot (autonomous doit session, 2026-05-16/17)": 1,
+    "wc (implementation buddy session)": 1,
+    "cc-bot (fresh implementation session)": 1,
+    "cc-bot (doit session, executing thread/97)": 1
+  },
+  "by_status": {
+    "no-status": 202,
+    "open-for-cc-challenge": 1,
+    "open-for-challenge": 2,
+    "response": 1,
+    "open-for-alex-vote": 2,
+    "ready-for-cc-execution": 1
+  },
+  "by_mode": {
+    "no-mode": 202,
+    "brain deep": 1,
+    "brain (conceptual, no spec)": 1,
+    "brain ultra (conceptual, no spec)": 1,
+    "brain (challenge response)": 1,
+    "brain (default \u2014 an\u00e1lisis + tradeoffs, no spec, no c\u00f3digo)": 1,
+    "brain (synthesis)": 1,
+    "doit": 1
+  },
+  "malformed_count": 202,
+  "malformed": [
+    {
+      "filename": "00-claude-code-first-response.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "01-alexander-votes.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "02-web-claude-investigation.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "03-claude-code-second-response.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "04-web-claude-cc-response.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "05-claude-code-implementation-progress.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "06-checkpoint-monorepo-ready.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "07-wc-port-audit-bug-responses.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "08-cc-bug-fix-and-day4-done.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "09-cc-sprint1-day5-done.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "10-wc-code-review-3-decisions.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "100-cc-bot-pr82-merged.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "101-wc-doit-admin-bookings-feedback-fixes.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "102-cc-bot-admin-bookings-feedback-fixed.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "103-wc-doit-beds24-backfill-prewebhook.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "104-cc-bot-beds24-backfill-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "105-wc-doit-admin-inbox-p3-plus-2bugs.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "105-wc-doit-admin-inbox-p3.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "106-cc-bot-inbox-p3-bugs-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "107-wc-doit-small-items-wave-6-parts.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "108-cc-bot-small-items-wave-4-of-6-shipped.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "109-wc-doit-small-items-wave-2.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "11-cc-wc-thread10-implemented.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "11-wc-beds24-migration-task-for-cc.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "110-cc-bot-questions-c-e-d-p2-pre-execution.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "111-wc-ack-c-e-d-p2-defaults.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "112-cc-bot-c-e-d-p2-wave-shipped-canary-playbook.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "113-wc-hotfix-prox-reservas-guest-name-source.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "115-wc-doit-guests-resync-beds24.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "117-wc-handoff-doc-reconciliation.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "118-wc-pet-policy-correction-and-v5-cleanup.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "119-wc-pre-stay-mvp-spec-ready.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "12-cc-beds24-migration-stop.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "120-wc-a1-review-and-a2-design.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "121-wc-a2-a3-review-a4-amendment-a5-spec.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "122-cc-bot-canary-results-and-manychat-architecture.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "123-wc-canary-review-hsm-critical-defer-during-post.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "124-wc-karina-training-deploy-handoff.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "125-wc-karina-training-deploy-v2.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "126-wc-500-root-cause-and-fix.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "127-wc-cc-a5-execution-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "128-wc-cc-open-items-omnibus-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "129-cc-bot-omnibus-doit-report.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "13-cc-beds24-migration-done-handoff.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "130-cc-bot-a5-halt-chrome-mcp-not-attached.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "131-wc-cc-mobile-inbox-rescue-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "132-wc-browserbase-airbnb-kpi-backlog.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "133-cc-bot-mobile-inbox-rescue-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "134-wc-cc-beds24-proxy-readonly-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "135-cc-wc-beds24-proxy-readonly-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "136-cc-bot-a5-halt-stale-mcp-process.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "137-cc-bot-a5-halt-rincondelmar-session-missing.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "138-cc-bot-a5-completion-67-deployed-30-structural-skips.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "139-wc-cc-a6-reglas-adicionales-deploy.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "14-cc-beds24-current-state-investigation.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "140-cc-wc-a6-reglas-adicionales-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "141-wc-cc-house-rules-paper-trail-phase1.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "142-cc-wc-house-rules-paper-trail-phase1-done.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "144-cc-wc-state-system-and-audit-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "145-wc-cc-state-tweaks-and-promote-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "145-wc-platform-foundations-spec-and-adr-002.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "146-cc-foundations-preflight.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "146-wc-cc-process-improvements-AMENDMENT.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "146-wc-cc-process-improvements-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "147-wc-impl-foundations-review.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "148-alex-foundations-seal-decision.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "149-followup-day-0-trigger.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "149-wc-impl-analytics-audit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "149-wc-platform-audit-kickoff.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15-wc-cutover-analysis-proposal.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "151-wc-impl-karina-training-v2-spec.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "151-wc-platform-architectural-audit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "152-followup-additional-findings.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "152-wc-impl-operational-audit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "153-cc-bot-audit-2026-Q2-technical-findings.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "153-wc-cc-numbering-and-0039-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "154-wc-platform-audit-synthesis.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "155-alex-audit-decisions.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "156-wc-impl-admin-audit-kickoff.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "157-wc-impl-p0-welcome-autosend-broken.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "157-wc-platform-admin-audit-review.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "158-wc-cc-ir-shortlink-resolver-overhaul-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "158-wc-cc-ir-system-overhaul-spec.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "158-wc-cc-tech-validation-trigger.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "159-cc-wave-1-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "159-wc-impl-synthesis-bigbang-sealed.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15b-wc-decisions-update.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15c-wc-final-approved-plan.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15d-wc-additional-getlisting-task.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15e-cc-airbnb-listings-detailed-snapshot.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15f-wc-analysis-15e-and-final-adjustments.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15g-final-plan-post-getlistings.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15h-go-signal-for-cc.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15i-pricing-analysis-beds24-showdata.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15j-final-go-signal.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15k-cc-baseline-read-channels-settings.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "16-cc-cutover-execution-log.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "160-karina-ping-prompt-pre-wave-1.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "160-wc-cc-numbering-and-branch-protection-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "161-wc-cc-admin-issues-cockpit-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "162-cc-bot-admin-issues-cockpit-halt-preflight.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "162-wc-cc-state-repair-AMENDMENT-2.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "162-wc-cc-state-repair-AMENDMENT.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "162-wc-cc-state-repair-doit.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "163-cc-wc-state-repair-report.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "164-cc-bot-admin-issues-cockpit-backend-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "165-wc-platform-pr155-post-merge-triage.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "166-cc-bot-booking-detail-quick-dirty-pr157.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "167-cc-bot-mp-webhook-beds24-capture-followup.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "168-cc-bot-mp-webhook-beds24-capture-pr158.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "169-cc-bot-telegram-pago-recibido-spec.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "17-cc-calendar-pricing-query.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "170-cc-bot-telegram-pago-notify-pr159.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "176-wc-cc-doit-meta-archaeology-pipeline-audit.md",
+      "warnings": [
+        "yaml_error:while parsing a block collection\n  in \"<unicode string>\", line 18, column 3:\n   "
+      ]
+    },
+    {
+      "filename": "19-pricing-comparison-findings.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "20-cutover-completed-close-issues.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "21-greeter-v5-site-routing-bot-onsite.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "22-cc-greeter-v5-challenge.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "23-beds24-messages-reviews-api-unlocked.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "24-cc-beds24-messaging-discovery-validated.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "25-cc-q15-webhook-implemented-reviews-cap-confirmed.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "26-cc-phase0-closure-status.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "27-alex-decisions-cc-implementation-greenlight.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "28-cc-phase0-implementation-log.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "29-wc-review-cc-phase0-implementation.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "30-alex-approvals-cc-execution-plan.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "31-cc-track-b-deploy-log.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "32-cc-track-c-reviews-carousel.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "33-guest360-architecture-phase-b-plan.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "34-cc-review-guest360-phaseb.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "35-cc-templates-system-for-wc.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "36-wc-templates-content-architecture-analysis.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "37-cc-content-architecture-review.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "38-cc-airbnb-write-back-plan.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "39-wc-response-cc-thread37-38.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "40-wc-alex-answers-content-editor-proposal.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "41-wc-alex-final-answers.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "42-cc-review-thread40-content-editor.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "43-cc-fase2-merge-guide.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "43-wc-alex-go-execute-batch-b.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "44-cc-pr12-final-state.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "44-wc-footer-policy-research-morenas-concern.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "45-cc-wc-seed-drafts-discovery.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "45-mvp-live-and-content-drafts-ready.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "46-cc-import-complete-onboarding-ready.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "47-cc-merge-batch-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "48-cc-day1-final-stack-live.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "49-cc-reglas-adicionales-13th-field.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "49b-cc-bot-routing-proposal.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "50-wc-bot-routing-response.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "51-cc-blockers-resolved-greeter-v5-go.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "52-wc-anchors-spec-for-property-pages.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "53-wc-greeter-v5-fase-0-1-execute.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "54-cc-fase-1-progress.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "54-wc-data-mining-v2-strategy.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "55-wc-data-mining-v2-go-plan.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "56-wc-data-v2-prep-complete-and-critical-findings.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "57-wc-edge-case-audit-v2-plan.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "58-wc-ack-cc-overnight-and-pr-a15-spec.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "59-wc-pet-decision-resolved-cc-handoff.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "60-wc-bug-critico-images-broken-prod.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "61-cc-image-bug-resolved.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "62-cc-pr-a15-subcomponents-live.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "63-wc-ack-fase-1-closed-q-fase-2-timing.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "64-cc-alex-voted-option-a-handoff-spec-fase-2.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "65-wc-greeter-v5-fase-2-spec-published.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "66-cc-greeter-v5-fase-2-built.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "67-wc-q-66-1-pr-a75-go-autonomous.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "68-cc-pr-a75-ready-for-wc-review.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "69-wc-status-pr42-ok-q-cc-data-interface.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "70-cc-prs-41-42-merged-q691-A-12h-plan.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "71-cc-12h-autonomous-summary.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "72-cc-data-plan-and-day1-roadmap.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "73-cc-data-day1-stage0-and-stage-a-done.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "74-cc-data-day2-stage-b-and-e-done.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "76-cc-data-day4-deploy-pipeline-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "77-cc-bot-prs-a761-a763-merged.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "77-cc-data-prod-deploy-95-pct-done-vectorize-handoff.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "78-wc-claude-md-published-pull-and-read.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "79-cc-bot-chain-a-e-merged-vectorize-stuck.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "80-cc-bot-v5-real-data-analysis-pet-bug-pr66.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "81-cc-data-stage-c-v2-trim-audit-final.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "82-wc-v6-combined-spec-ready-for-cc.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "83-wc-faq-content-enrichment-extraction-task-cc-data.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "84-cc-data-faq-and-content-extraction-complete.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "84b-wc-admin-bookings-gantt-spec.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "85-wc-admin-inbox-unified-spec.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "86-wc-bookings-inbox-delta-list-view-kv-inquiries.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "87-wc-multi-inquiry-amendment.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "88-wc-ack-cc-data-faq-content-extraction-delivered.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "89-wc-platform-wishlist-and-tasks-module.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "91-wc-platform-vision-and-spirit-for-rdmbot-session.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "92-wc-cc-rename-and-platform-coexistence.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "93-cc-bot-status-bookings-build-complete-inbox-paused.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "93-wc-ack-cc-feedback-doit-template-v2.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "94-wc-ack-clone-paths-doit-template-v3.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "95-wc-briefing-new-cc-implementation-session.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "96-cc-bot-pre-flight-clean-ready-for-next-task.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "97-wc-doit-pr82-review-merge-deploy.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "98-cc-bot-pr82-halted-typecheck-errors.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "98-wc-cc-autonomy-config-and-workspace.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "99-wc-doit-fix-kv-binding-resume-pr82.md",
+      "warnings": [
+        "no_frontmatter"
+      ]
+    }
+  ],
+  "entries": [
+    {
+      "filename": "00-claude-code-first-response.md",
+      "number": 0,
+      "author_slug": "claude-code",
+      "topic_slug": "first-response",
+      "size_bytes": 22317,
+      "git_first_commit": "2026-05-10 23:35:46 -0600",
+      "git_last_commit": "2026-05-10 23:35:46 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI, lee filesystem local)",
+      "date": "2026-05-10",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "01-alexander-votes.md",
+      "number": 1,
+      "author_slug": "alexander",
+      "topic_slug": "votes",
+      "size_bytes": 7838,
+      "git_first_commit": "2026-05-10 23:49:01 -0600",
+      "git_last_commit": "2026-05-10 23:49:01 -0600",
+      "frontmatter_present": false,
+      "author": "Alexander Horn (transcrito por Claude Code)",
+      "date": "2026-05-10",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "02-web-claude-investigation.md",
+      "number": 2,
+      "author_slug": "web-claude",
+      "topic_slug": "investigation",
+      "size_bytes": 25838,
+      "git_first_commit": "2026-05-11 06:11:58 +0000",
+      "git_last_commit": "2026-05-11 06:29:50 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (claude.ai con MCPs)",
+      "date": "2026-05-11",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "03-claude-code-second-response.md",
+      "number": 3,
+      "author_slug": "claude-code",
+      "topic_slug": "second-response",
+      "size_bytes": 9839,
+      "git_first_commit": "2026-05-11 00:49:00 -0600",
+      "git_last_commit": "2026-05-11 00:49:00 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-11",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "04-web-claude-cc-response.md",
+      "number": 4,
+      "author_slug": "web-claude",
+      "topic_slug": "cc-response",
+      "size_bytes": 10394,
+      "git_first_commit": "2026-05-11 07:14:51 +0000",
+      "git_last_commit": "2026-05-11 07:14:51 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (claude.ai con MCPs)",
+      "date": "2026-05-11 07:15 UTC",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "05-claude-code-implementation-progress.md",
+      "number": 5,
+      "author_slug": "claude-code",
+      "topic_slug": "implementation-progress",
+      "size_bytes": 9397,
+      "git_first_commit": "2026-05-11 01:41:29 -0600",
+      "git_last_commit": "2026-05-11 01:41:29 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-11",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "06-checkpoint-monorepo-ready.md",
+      "number": 6,
+      "author_slug": "checkpoint-monorepo",
+      "topic_slug": "ready",
+      "size_bytes": 10468,
+      "git_first_commit": "2026-05-11 11:35:53 -0600",
+      "git_last_commit": "2026-05-11 11:35:53 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "07-wc-port-audit-bug-responses.md",
+      "number": 7,
+      "author_slug": "wc-port",
+      "topic_slug": "audit-bug-responses",
+      "size_bytes": 18588,
+      "git_first_commit": "2026-05-11 17:51:20 +0000",
+      "git_last_commit": "2026-05-11 17:51:20 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (claude.ai via Make + GitHub MCPs)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "08-cc-bug-fix-and-day4-done.md",
+      "number": 8,
+      "author_slug": "cc-bug",
+      "topic_slug": "fix-and-day4-done",
+      "size_bytes": 9754,
+      "git_first_commit": "2026-05-11 12:14:41 -0600",
+      "git_last_commit": "2026-05-11 12:14:41 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "09-cc-sprint1-day5-done.md",
+      "number": 9,
+      "author_slug": "cc",
+      "topic_slug": "sprint1-day5-done",
+      "size_bytes": 6828,
+      "git_first_commit": "2026-05-11 12:20:49 -0600",
+      "git_last_commit": "2026-05-11 12:20:49 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "10-wc-code-review-3-decisions.md",
+      "number": 10,
+      "author_slug": "wc-code",
+      "topic_slug": "review-3-decisions",
+      "size_bytes": 21371,
+      "git_first_commit": "2026-05-11 18:30:12 +0000",
+      "git_last_commit": "2026-05-11 18:30:12 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (claude.ai via Make + GitHub MCPs)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "100-cc-bot-pr82-merged.md",
+      "number": 100,
+      "author_slug": "cc-bot",
+      "topic_slug": "pr82-merged",
+      "size_bytes": 7138,
+      "git_first_commit": "2026-05-17 16:49:03 -0600",
+      "git_last_commit": "2026-05-17 16:49:03 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session, executing thread/99)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "101-wc-doit-admin-bookings-feedback-fixes.md",
+      "number": 101,
+      "author_slug": "wc-doit",
+      "topic_slug": "admin-bookings-feedback-fixes",
+      "size_bytes": 13667,
+      "git_first_commit": "2026-05-17 23:20:38 +0000",
+      "git_last_commit": "2026-05-17 23:20:38 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "102-cc-bot-admin-bookings-feedback-fixed.md",
+      "number": 102,
+      "author_slug": "cc-bot",
+      "topic_slug": "admin-bookings-feedback-fixed",
+      "size_bytes": 9791,
+      "git_first_commit": "2026-05-17 17:37:53 -0600",
+      "git_last_commit": "2026-05-17 17:37:53 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session, executing thread/101)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "103-wc-doit-beds24-backfill-prewebhook.md",
+      "number": 103,
+      "author_slug": "wc-doit",
+      "topic_slug": "beds24-backfill-prewebhook",
+      "size_bytes": 18767,
+      "git_first_commit": "2026-05-17 23:32:59 +0000",
+      "git_last_commit": "2026-05-17 23:32:59 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "104-cc-bot-beds24-backfill-complete.md",
+      "number": 104,
+      "author_slug": "cc-bot",
+      "topic_slug": "beds24-backfill-complete",
+      "size_bytes": 8677,
+      "git_first_commit": "2026-05-17 18:50:52 -0600",
+      "git_last_commit": "2026-05-17 18:50:52 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session, executing thread/103)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "105-wc-doit-admin-inbox-p3-plus-2bugs.md",
+      "number": 105,
+      "author_slug": "wc-doit",
+      "topic_slug": "admin-inbox-p3-plus-2bugs",
+      "size_bytes": 21479,
+      "git_first_commit": "2026-05-18 01:27:43 +0000",
+      "git_last_commit": "2026-05-18 01:27:43 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "105-wc-doit-admin-inbox-p3.md",
+      "number": 105,
+      "author_slug": "wc-doit",
+      "topic_slug": "admin-inbox-p3",
+      "size_bytes": 12562,
+      "git_first_commit": "2026-05-18 00:55:19 +0000",
+      "git_last_commit": "2026-05-18 00:55:19 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "106-cc-bot-inbox-p3-bugs-complete.md",
+      "number": 106,
+      "author_slug": "cc-bot",
+      "topic_slug": "inbox-p3-bugs-complete",
+      "size_bytes": 13745,
+      "git_first_commit": "2026-05-17 20:54:34 -0600",
+      "git_last_commit": "2026-05-17 20:54:34 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session, executing thread/105 \u2014 all 3 parts)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "107-wc-doit-small-items-wave-6-parts.md",
+      "number": 107,
+      "author_slug": "wc-doit",
+      "topic_slug": "small-items-wave-6-parts",
+      "size_bytes": 52080,
+      "git_first_commit": "2026-05-18 03:55:48 +0000",
+      "git_last_commit": "2026-05-18 03:55:48 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "108-cc-bot-small-items-wave-4-of-6-shipped.md",
+      "number": 108,
+      "author_slug": "cc-bot",
+      "topic_slug": "small-items-wave-4-of-6-shipped",
+      "size_bytes": 13780,
+      "git_first_commit": "2026-05-17 22:37:59 -0600",
+      "git_last_commit": "2026-05-17 22:37:59 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session, executing thread/107)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "109-wc-doit-small-items-wave-2.md",
+      "number": 109,
+      "author_slug": "wc-doit",
+      "topic_slug": "small-items-wave-2",
+      "size_bytes": 41108,
+      "git_first_commit": "2026-05-18 04:20:04 +0000",
+      "git_last_commit": "2026-05-18 04:20:04 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "11-cc-wc-thread10-implemented.md",
+      "number": 11,
+      "author_slug": "cc-wc",
+      "topic_slug": "thread10-implemented",
+      "size_bytes": 7977,
+      "git_first_commit": "2026-05-11 12:34:40 -0600",
+      "git_last_commit": "2026-05-11 12:34:40 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "11-wc-beds24-migration-task-for-cc.md",
+      "number": 11,
+      "author_slug": "wc",
+      "topic_slug": "beds24-migration-task-for-cc",
+      "size_bytes": 11129,
+      "git_first_commit": "2026-05-12 02:18:38 +0000",
+      "git_last_commit": "2026-05-12 02:18:38 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "110-cc-bot-questions-c-e-d-p2-pre-execution.md",
+      "number": 110,
+      "author_slug": "cc-bot",
+      "topic_slug": "questions-c-e-d-p2-pre-execution",
+      "size_bytes": 9892,
+      "git_first_commit": "2026-05-17 23:17:50 -0600",
+      "git_last_commit": "2026-05-17 23:17:50 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (pre-execution check)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "111-wc-ack-c-e-d-p2-defaults.md",
+      "number": 111,
+      "author_slug": "wc-ack",
+      "topic_slug": "c-e-d-p2-defaults",
+      "size_bytes": 2994,
+      "git_first_commit": "2026-05-18 05:20:47 +0000",
+      "git_last_commit": "2026-05-18 05:20:47 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "112-cc-bot-c-e-d-p2-wave-shipped-canary-playbook.md",
+      "number": 112,
+      "author_slug": "cc-bot",
+      "topic_slug": "c-e-d-p2-wave-shipped-canary-playbook",
+      "size_bytes": 13382,
+      "git_first_commit": "2026-05-18 07:49:03 -0600",
+      "git_last_commit": "2026-05-18 07:49:03 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot",
+      "date": "2026-05-18",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "113-wc-hotfix-prox-reservas-guest-name-source.md",
+      "number": 113,
+      "author_slug": "wc-hotfix",
+      "topic_slug": "prox-reservas-guest-name-source",
+      "size_bytes": 6144,
+      "git_first_commit": "2026-05-18 05:34:32 +0000",
+      "git_last_commit": "2026-05-18 05:34:32 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "115-wc-doit-guests-resync-beds24.md",
+      "number": 115,
+      "author_slug": "wc-doit",
+      "topic_slug": "guests-resync-beds24",
+      "size_bytes": 20103,
+      "git_first_commit": "2026-05-18 06:01:35 +0000",
+      "git_last_commit": "2026-05-18 06:01:35 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "117-wc-handoff-doc-reconciliation.md",
+      "number": 117,
+      "author_slug": "wc-handoff",
+      "topic_slug": "doc-reconciliation",
+      "size_bytes": 6358,
+      "git_first_commit": "2026-05-18 13:15:20 +0000",
+      "git_last_commit": "2026-05-18 13:15:20 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-18",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "118-wc-pet-policy-correction-and-v5-cleanup.md",
+      "number": 118,
+      "author_slug": "wc-pet",
+      "topic_slug": "policy-correction-and-v5-cleanup",
+      "size_bytes": 7112,
+      "git_first_commit": "2026-05-18 13:25:37 +0000",
+      "git_last_commit": "2026-05-18 13:25:37 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-18",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "119-wc-pre-stay-mvp-spec-ready.md",
+      "number": 119,
+      "author_slug": "wc-pre",
+      "topic_slug": "stay-mvp-spec-ready",
+      "size_bytes": 5710,
+      "git_first_commit": "2026-05-18 15:14:33 +0000",
+      "git_last_commit": "2026-05-18 15:14:33 +0000",
+      "frontmatter_present": false,
+      "author": "WC (brain deep)",
+      "date": "2026-05-18",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "12-cc-beds24-migration-stop.md",
+      "number": 12,
+      "author_slug": "cc",
+      "topic_slug": "beds24-migration-stop",
+      "size_bytes": 15507,
+      "git_first_commit": "2026-05-11 20:42:04 -0600",
+      "git_last_commit": "2026-05-11 20:42:04 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "120-wc-a1-review-and-a2-design.md",
+      "number": 120,
+      "author_slug": "wc",
+      "topic_slug": "a1-review-and-a2-design",
+      "size_bytes": 11777,
+      "git_first_commit": "2026-05-18 17:20:56 +0000",
+      "git_last_commit": "2026-05-18 17:20:56 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-18 night",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "121-wc-a2-a3-review-a4-amendment-a5-spec.md",
+      "number": 121,
+      "author_slug": "wc",
+      "topic_slug": "a2-a3-review-a4-amendment-a5-spec",
+      "size_bytes": 12297,
+      "git_first_commit": "2026-05-18 17:58:45 +0000",
+      "git_last_commit": "2026-05-18 17:58:45 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-18 night",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "122-cc-bot-canary-results-and-manychat-architecture.md",
+      "number": 122,
+      "author_slug": "cc-bot",
+      "topic_slug": "canary-results-and-manychat-architecture",
+      "size_bytes": 8953,
+      "git_first_commit": "2026-05-18 14:05:41 -0600",
+      "git_last_commit": "2026-05-18 14:05:41 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot",
+      "date": "2026-05-18 night",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "123-wc-canary-review-hsm-critical-defer-during-post.md",
+      "number": 123,
+      "author_slug": "wc-canary",
+      "topic_slug": "review-hsm-critical-defer-during-post",
+      "size_bytes": 16773,
+      "git_first_commit": "2026-05-18 20:11:06 +0000",
+      "git_last_commit": "2026-05-18 20:11:06 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-18 night",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "124-wc-karina-training-deploy-handoff.md",
+      "number": 124,
+      "author_slug": "wc-karina",
+      "topic_slug": "training-deploy-handoff",
+      "size_bytes": 4477,
+      "git_first_commit": "2026-05-18 22:16:41 +0000",
+      "git_last_commit": "2026-05-18 22:16:41 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "125-wc-karina-training-deploy-v2.md",
+      "number": 125,
+      "author_slug": "wc-karina",
+      "topic_slug": "training-deploy-v2",
+      "size_bytes": 4803,
+      "git_first_commit": "2026-05-18 22:41:07 +0000",
+      "git_last_commit": "2026-05-18 22:41:07 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "126-wc-500-root-cause-and-fix.md",
+      "number": 126,
+      "author_slug": "wc",
+      "topic_slug": "500-root-cause-and-fix",
+      "size_bytes": 8363,
+      "git_first_commit": "2026-05-19 01:57:44 +0000",
+      "git_last_commit": "2026-05-19 01:57:44 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "127-wc-cc-a5-execution-doit.md",
+      "number": 127,
+      "author_slug": "wc-cc",
+      "topic_slug": "a5-execution-doit",
+      "size_bytes": 10141,
+      "git_first_commit": "2026-05-19 02:06:20 +0000",
+      "git_last_commit": "2026-05-19 02:13:21 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "128-wc-cc-open-items-omnibus-doit.md",
+      "number": 128,
+      "author_slug": "wc-cc",
+      "topic_slug": "open-items-omnibus-doit",
+      "size_bytes": 14892,
+      "git_first_commit": "2026-05-19 02:13:21 +0000",
+      "git_last_commit": "2026-05-19 02:13:21 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "129-cc-bot-omnibus-doit-report.md",
+      "number": 129,
+      "author_slug": "cc-bot",
+      "topic_slug": "omnibus-doit-report",
+      "size_bytes": 9779,
+      "git_first_commit": "2026-05-19 08:33:59 -0600",
+      "git_last_commit": "2026-05-19 08:33:59 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "13-cc-beds24-migration-done-handoff.md",
+      "number": 13,
+      "author_slug": "cc",
+      "topic_slug": "beds24-migration-done-handoff",
+      "size_bytes": 10736,
+      "git_first_commit": "2026-05-11 22:07:48 -0600",
+      "git_last_commit": "2026-05-11 22:07:48 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI, sesi\u00f3n migraci\u00f3n Beds24)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "130-cc-bot-a5-halt-chrome-mcp-not-attached.md",
+      "number": 130,
+      "author_slug": "cc-bot",
+      "topic_slug": "a5-halt-chrome-mcp-not-attached",
+      "size_bytes": 7520,
+      "git_first_commit": null,
+      "git_last_commit": null,
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "131-wc-cc-mobile-inbox-rescue-doit.md",
+      "number": 131,
+      "author_slug": "wc-cc",
+      "topic_slug": "mobile-inbox-rescue-doit",
+      "size_bytes": 30425,
+      "git_first_commit": "2026-05-19 14:28:31 +0000",
+      "git_last_commit": "2026-05-19 14:28:31 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "132-wc-browserbase-airbnb-kpi-backlog.md",
+      "number": 132,
+      "author_slug": "wc-browserbase",
+      "topic_slug": "airbnb-kpi-backlog",
+      "size_bytes": 11299,
+      "git_first_commit": "2026-05-19 14:44:58 +0000",
+      "git_last_commit": "2026-05-19 14:44:58 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "133-cc-bot-mobile-inbox-rescue-complete.md",
+      "number": 133,
+      "author_slug": "cc-bot",
+      "topic_slug": "mobile-inbox-rescue-complete",
+      "size_bytes": 9478,
+      "git_first_commit": "2026-05-19 09:10:48 -0600",
+      "git_last_commit": "2026-05-19 09:10:48 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "134-wc-cc-beds24-proxy-readonly-doit.md",
+      "number": 134,
+      "author_slug": "wc-cc",
+      "topic_slug": "beds24-proxy-readonly-doit",
+      "size_bytes": 29140,
+      "git_first_commit": "2026-05-19 15:13:35 +0000",
+      "git_last_commit": "2026-05-19 15:13:35 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "135-cc-wc-beds24-proxy-readonly-complete.md",
+      "number": 135,
+      "author_slug": "cc-wc",
+      "topic_slug": "beds24-proxy-readonly-complete",
+      "size_bytes": 16798,
+      "git_first_commit": "2026-05-19 09:52:16 -0600",
+      "git_last_commit": "2026-05-19 16:47:19 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "136-cc-bot-a5-halt-stale-mcp-process.md",
+      "number": 136,
+      "author_slug": "cc-bot",
+      "topic_slug": "a5-halt-stale-mcp-process",
+      "size_bytes": 8842,
+      "git_first_commit": null,
+      "git_last_commit": null,
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "137-cc-bot-a5-halt-rincondelmar-session-missing.md",
+      "number": 137,
+      "author_slug": "cc-bot",
+      "topic_slug": "a5-halt-rincondelmar-session-missing",
+      "size_bytes": 13527,
+      "git_first_commit": null,
+      "git_last_commit": null,
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "138-cc-bot-a5-completion-67-deployed-30-structural-skips.md",
+      "number": 138,
+      "author_slug": "cc-bot",
+      "topic_slug": "a5-completion-67-deployed-30-structural-skips",
+      "size_bytes": 18071,
+      "git_first_commit": null,
+      "git_last_commit": null,
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "139-wc-cc-a6-reglas-adicionales-deploy.md",
+      "number": 139,
+      "author_slug": "wc-cc",
+      "topic_slug": "a6-reglas-adicionales-deploy",
+      "size_bytes": 58321,
+      "git_first_commit": "2026-05-19 19:36:24 +0000",
+      "git_last_commit": "2026-05-19 19:36:24 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "14-cc-beds24-current-state-investigation.md",
+      "number": 14,
+      "author_slug": "cc",
+      "topic_slug": "beds24-current-state-investigation",
+      "size_bytes": 15645,
+      "git_first_commit": "2026-05-12 00:09:02 -0600",
+      "git_last_commit": "2026-05-12 00:09:02 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI, sesi\u00f3n Sprint 1 + canary)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "140-cc-wc-a6-reglas-adicionales-complete.md",
+      "number": 140,
+      "author_slug": "cc-wc",
+      "topic_slug": "a6-reglas-adicionales-complete",
+      "size_bytes": 49569,
+      "git_first_commit": "2026-05-19 15:58:56 -0600",
+      "git_last_commit": "2026-05-19 15:58:56 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "141-wc-cc-house-rules-paper-trail-phase1.md",
+      "number": 141,
+      "author_slug": "wc-cc",
+      "topic_slug": "house-rules-paper-trail-phase1",
+      "size_bytes": 18835,
+      "git_first_commit": "2026-05-19 19:53:25 +0000",
+      "git_last_commit": "2026-05-19 19:53:25 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "142-cc-wc-house-rules-paper-trail-phase1-done.md",
+      "number": 142,
+      "author_slug": "cc-wc",
+      "topic_slug": "house-rules-paper-trail-phase1-done",
+      "size_bytes": 15247,
+      "git_first_commit": "2026-05-19 15:07:45 -0600",
+      "git_last_commit": "2026-05-19 15:07:45 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "144-cc-wc-state-system-and-audit-complete.md",
+      "number": 144,
+      "author_slug": "cc-wc",
+      "topic_slug": "state-system-and-audit-complete",
+      "size_bytes": 5701,
+      "git_first_commit": "2026-05-19 16:56:29 -0600",
+      "git_last_commit": "2026-05-19 16:56:29 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "145-wc-cc-state-tweaks-and-promote-doit.md",
+      "number": 145,
+      "author_slug": "wc-cc",
+      "topic_slug": "state-tweaks-and-promote-doit",
+      "size_bytes": 6741,
+      "git_first_commit": "2026-05-20 21:56:02 -0600",
+      "git_last_commit": "2026-05-20 21:56:02 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "145-wc-platform-foundations-spec-and-adr-002.md",
+      "number": 145,
+      "author_slug": "wc-platform",
+      "topic_slug": "foundations-spec-and-adr-002",
+      "size_bytes": 9155,
+      "git_first_commit": "2026-05-19 18:28:26 -0600",
+      "git_last_commit": "2026-05-19 18:28:26 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "146-cc-foundations-preflight.md",
+      "number": 146,
+      "author_slug": "cc-foundations",
+      "topic_slug": "preflight",
+      "size_bytes": 33430,
+      "git_first_commit": "2026-05-20 04:34:30 +0000",
+      "git_last_commit": "2026-05-20 23:50:17 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-20",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "146-wc-cc-process-improvements-AMENDMENT.md",
+      "number": 146,
+      "author_slug": "wc-cc",
+      "topic_slug": "process-improvements-AMENDMENT",
+      "size_bytes": 6086,
+      "git_first_commit": "2026-05-20 23:09:24 -0600",
+      "git_last_commit": "2026-05-20 23:09:24 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "146-wc-cc-process-improvements-doit.md",
+      "number": 146,
+      "author_slug": "wc-cc",
+      "topic_slug": "process-improvements-doit",
+      "size_bytes": 8515,
+      "git_first_commit": "2026-05-20 21:56:49 -0600",
+      "git_last_commit": "2026-05-20 21:56:49 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "147-wc-impl-foundations-review.md",
+      "number": 147,
+      "author_slug": "wc-impl",
+      "topic_slug": "foundations-review",
+      "size_bytes": 18373,
+      "git_first_commit": "2026-05-19 21:57:15 -0600",
+      "git_last_commit": "2026-05-19 21:57:15 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "148-alex-foundations-seal-decision.md",
+      "number": 148,
+      "author_slug": "alex-foundations",
+      "topic_slug": "seal-decision",
+      "size_bytes": 11193,
+      "git_first_commit": "2026-05-19 23:31:55 -0600",
+      "git_last_commit": "2026-05-19 23:31:55 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-20",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "149-followup-day-0-trigger.md",
+      "number": 149,
+      "author_slug": "followup-day",
+      "topic_slug": "0-trigger",
+      "size_bytes": 8250,
+      "git_first_commit": "2026-05-20 20:50:15 -0600",
+      "git_last_commit": "2026-05-20 23:50:17 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "149-wc-impl-analytics-audit.md",
+      "number": 149,
+      "author_slug": "wc-impl",
+      "topic_slug": "analytics-audit",
+      "size_bytes": 9787,
+      "git_first_commit": "2026-05-19 22:44:59 -0600",
+      "git_last_commit": "2026-05-19 22:44:59 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-19 (late evening)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "149-wc-platform-audit-kickoff.md",
+      "number": 149,
+      "author_slug": "wc-platform",
+      "topic_slug": "audit-kickoff",
+      "size_bytes": 9566,
+      "git_first_commit": "2026-05-20 20:29:40 -0600",
+      "git_last_commit": "2026-05-20 20:29:40 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-20",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15-wc-cutover-analysis-proposal.md",
+      "number": 15,
+      "author_slug": "wc-cutover",
+      "topic_slug": "analysis-proposal",
+      "size_bytes": 15719,
+      "git_first_commit": "2026-05-12 06:23:55 +0000",
+      "git_last_commit": "2026-05-12 06:23:55 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (claude.ai con MCPs)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "151-wc-impl-karina-training-v2-spec.md",
+      "number": 151,
+      "author_slug": "wc-impl",
+      "topic_slug": "karina-training-v2-spec",
+      "size_bytes": 8104,
+      "git_first_commit": "2026-05-20 01:48:18 -0600",
+      "git_last_commit": "2026-05-20 01:48:18 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-20",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "151-wc-platform-architectural-audit.md",
+      "number": 151,
+      "author_slug": "wc-platform",
+      "topic_slug": "architectural-audit",
+      "size_bytes": 6235,
+      "git_first_commit": "2026-05-20 22:02:01 -0600",
+      "git_last_commit": "2026-05-20 22:02:01 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21 (Day 0 complete)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "152-followup-additional-findings.md",
+      "number": 152,
+      "author_slug": "followup-additional",
+      "topic_slug": "findings",
+      "size_bytes": 12701,
+      "git_first_commit": "2026-05-20 22:17:57 -0600",
+      "git_last_commit": "2026-05-20 22:17:57 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "152-wc-impl-operational-audit.md",
+      "number": 152,
+      "author_slug": "wc-impl",
+      "topic_slug": "operational-audit",
+      "size_bytes": 5508,
+      "git_first_commit": "2026-05-20 22:01:12 -0600",
+      "git_last_commit": "2026-05-20 22:01:12 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21 ~04:30 MX",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "153-cc-bot-audit-2026-Q2-technical-findings.md",
+      "number": 153,
+      "author_slug": "cc-bot",
+      "topic_slug": "audit-2026-Q2-technical-findings",
+      "size_bytes": 6569,
+      "git_first_commit": "2026-05-20 22:10:25 -0600",
+      "git_last_commit": "2026-05-20 22:10:25 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21 (rewrite of 2026-05-20 initial draft)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "153-wc-cc-numbering-and-0039-doit.md",
+      "number": 153,
+      "author_slug": "wc-cc",
+      "topic_slug": "numbering-and-0039-doit",
+      "size_bytes": 7808,
+      "git_first_commit": "2026-05-20 23:33:34 -0600",
+      "git_last_commit": "2026-05-20 23:33:34 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "154-wc-platform-audit-synthesis.md",
+      "number": 154,
+      "author_slug": "wc-platform",
+      "topic_slug": "audit-synthesis",
+      "size_bytes": 7788,
+      "git_first_commit": "2026-05-20 22:33:16 -0600",
+      "git_last_commit": "2026-05-20 22:33:16 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21 ~04:45 MX (Day 2 of 5-day audit cycle)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "155-alex-audit-decisions.md",
+      "number": 155,
+      "author_slug": "alex-audit",
+      "topic_slug": "decisions",
+      "size_bytes": 5931,
+      "git_first_commit": "2026-05-20 23:27:56 -0600",
+      "git_last_commit": "2026-05-20 23:27:56 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "156-wc-impl-admin-audit-kickoff.md",
+      "number": 156,
+      "author_slug": "wc-impl",
+      "topic_slug": "admin-audit-kickoff",
+      "size_bytes": 9810,
+      "git_first_commit": "2026-05-20 23:09:53 -0600",
+      "git_last_commit": "2026-05-20 23:09:53 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21 ~05:10 MX",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "157-wc-impl-p0-welcome-autosend-broken.md",
+      "number": 157,
+      "author_slug": "wc-impl",
+      "topic_slug": "p0-welcome-autosend-broken",
+      "size_bytes": 6583,
+      "git_first_commit": "2026-05-20 23:42:28 -0600",
+      "git_last_commit": "2026-05-20 23:42:28 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21 ~05:45 UTC",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "157-wc-platform-admin-audit-review.md",
+      "number": 157,
+      "author_slug": "wc-platform",
+      "topic_slug": "admin-audit-review",
+      "size_bytes": 2724,
+      "git_first_commit": "2026-05-20 23:34:39 -0600",
+      "git_last_commit": "2026-05-20 23:34:39 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-22",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "158-wc-cc-ir-shortlink-resolver-overhaul-doit.md",
+      "number": 158,
+      "author_slug": "wc-cc",
+      "topic_slug": "ir-shortlink-resolver-overhaul-doit",
+      "size_bytes": 33650,
+      "git_first_commit": "2026-05-21 01:29:41 -0600",
+      "git_last_commit": "2026-05-21 01:29:41 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "158-wc-cc-ir-system-overhaul-spec.md",
+      "number": 158,
+      "author_slug": "wc-cc",
+      "topic_slug": "ir-system-overhaul-spec",
+      "size_bytes": 23589,
+      "git_first_commit": "2026-05-21 01:24:29 -0600",
+      "git_last_commit": "2026-05-21 01:24:29 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "158-wc-cc-tech-validation-trigger.md",
+      "number": 158,
+      "author_slug": "wc-cc",
+      "topic_slug": "tech-validation-trigger",
+      "size_bytes": 4777,
+      "git_first_commit": "2026-05-21 01:44:27 -0600",
+      "git_last_commit": "2026-05-21 01:44:27 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-22",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "159-cc-wave-1-complete.md",
+      "number": 159,
+      "author_slug": "cc-wave",
+      "topic_slug": "1-complete",
+      "size_bytes": 11118,
+      "git_first_commit": "2026-05-21 01:08:43 -0600",
+      "git_last_commit": "2026-05-21 01:08:43 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "159-wc-impl-synthesis-bigbang-sealed.md",
+      "number": 159,
+      "author_slug": "wc-impl",
+      "topic_slug": "synthesis-bigbang-sealed",
+      "size_bytes": 7217,
+      "git_first_commit": "2026-05-21 01:42:15 -0600",
+      "git_last_commit": "2026-05-21 01:42:15 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21 ~07:45 UTC",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15b-wc-decisions-update.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15b-wc-decisions-update",
+      "size_bytes": 4226,
+      "git_first_commit": "2026-05-12 06:29:18 +0000",
+      "git_last_commit": "2026-05-12 06:29:18 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15c-wc-final-approved-plan.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15c-wc-final-approved-plan",
+      "size_bytes": 12759,
+      "git_first_commit": "2026-05-12 06:52:27 +0000",
+      "git_last_commit": "2026-05-12 06:52:27 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15d-wc-additional-getlisting-task.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15d-wc-additional-getlisting-task",
+      "size_bytes": 9131,
+      "git_first_commit": "2026-05-12 06:56:25 +0000",
+      "git_last_commit": "2026-05-12 06:56:25 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15e-cc-airbnb-listings-detailed-snapshot.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15e-cc-airbnb-listings-detailed-snapshot",
+      "size_bytes": 18552,
+      "git_first_commit": "2026-05-12 01:05:16 -0600",
+      "git_last_commit": "2026-05-12 01:05:16 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI, sesi\u00f3n Sprint 1+canary)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15f-wc-analysis-15e-and-final-adjustments.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15f-wc-analysis-15e-and-final-adjustments",
+      "size_bytes": 17730,
+      "git_first_commit": "2026-05-12 07:12:01 +0000",
+      "git_last_commit": "2026-05-12 07:12:01 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15g-final-plan-post-getlistings.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15g-final-plan-post-getlistings",
+      "size_bytes": 13709,
+      "git_first_commit": "2026-05-12 07:32:41 +0000",
+      "git_last_commit": "2026-05-12 07:32:41 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15h-go-signal-for-cc.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15h-go-signal-for-cc",
+      "size_bytes": 4321,
+      "git_first_commit": "2026-05-12 07:36:52 +0000",
+      "git_last_commit": "2026-05-12 07:36:52 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15i-pricing-analysis-beds24-showdata.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15i-pricing-analysis-beds24-showdata",
+      "size_bytes": 12448,
+      "git_first_commit": "2026-05-12 07:46:29 +0000",
+      "git_last_commit": "2026-05-12 07:46:29 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15j-final-go-signal.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15j-final-go-signal",
+      "size_bytes": 4496,
+      "git_first_commit": "2026-05-12 07:50:35 +0000",
+      "git_last_commit": "2026-05-12 07:50:35 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "15k-cc-baseline-read-channels-settings.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "15k-cc-baseline-read-channels-settings",
+      "size_bytes": 6206,
+      "git_first_commit": "2026-05-12 08:04:07 +0000",
+      "git_last_commit": "2026-05-12 08:04:07 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "16-cc-cutover-execution-log.md",
+      "number": 16,
+      "author_slug": "cc-cutover",
+      "topic_slug": "execution-log",
+      "size_bytes": 23679,
+      "git_first_commit": "2026-05-12 01:52:09 -0600",
+      "git_last_commit": "2026-05-12 02:10:14 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI, sesi\u00f3n Sprint 1+canary)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "160-karina-ping-prompt-pre-wave-1.md",
+      "number": 160,
+      "author_slug": "karina-ping",
+      "topic_slug": "prompt-pre-wave-1",
+      "size_bytes": 6681,
+      "git_first_commit": "2026-05-21 02:02:25 -0600",
+      "git_last_commit": "2026-05-21 02:02:25 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "160-wc-cc-numbering-and-branch-protection-doit.md",
+      "number": 160,
+      "author_slug": "wc-cc",
+      "topic_slug": "numbering-and-branch-protection-doit",
+      "size_bytes": 7881,
+      "git_first_commit": "2026-05-21 01:18:27 -0600",
+      "git_last_commit": "2026-05-21 01:18:27 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "161-wc-cc-admin-issues-cockpit-doit.md",
+      "number": 161,
+      "author_slug": "wc-cc",
+      "topic_slug": "admin-issues-cockpit-doit",
+      "size_bytes": 7516,
+      "git_first_commit": "2026-05-21 10:49:02 -0600",
+      "git_last_commit": "2026-05-21 10:49:02 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-21",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "162-cc-bot-admin-issues-cockpit-halt-preflight.md",
+      "number": 162,
+      "author_slug": "cc-bot",
+      "topic_slug": "admin-issues-cockpit-halt-preflight",
+      "size_bytes": 5482,
+      "git_first_commit": "2026-05-21 11:08:01 -0600",
+      "git_last_commit": "2026-05-21 11:08:01 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "162-wc-cc-state-repair-AMENDMENT-2.md",
+      "number": 162,
+      "author_slug": "wc-cc",
+      "topic_slug": "state-repair-AMENDMENT-2",
+      "size_bytes": 4772,
+      "git_first_commit": "2026-05-21 20:17:51 -0600",
+      "git_last_commit": "2026-05-21 20:17:51 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "162-wc-cc-state-repair-AMENDMENT.md",
+      "number": 162,
+      "author_slug": "wc-cc",
+      "topic_slug": "state-repair-AMENDMENT",
+      "size_bytes": 5485,
+      "git_first_commit": "2026-05-21 20:07:45 -0600",
+      "git_last_commit": "2026-05-21 20:07:45 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "162-wc-cc-state-repair-doit.md",
+      "number": 162,
+      "author_slug": "wc-cc",
+      "topic_slug": "state-repair-doit",
+      "size_bytes": 7877,
+      "git_first_commit": "2026-05-21 20:04:59 -0600",
+      "git_last_commit": "2026-05-21 20:04:59 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "163-cc-wc-state-repair-report.md",
+      "number": 163,
+      "author_slug": "cc-wc",
+      "topic_slug": "state-repair-report",
+      "size_bytes": 8651,
+      "git_first_commit": "2026-05-21 20:14:32 -0600",
+      "git_last_commit": "2026-05-21 20:14:32 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "164-cc-bot-admin-issues-cockpit-backend-complete.md",
+      "number": 164,
+      "author_slug": "cc-bot",
+      "topic_slug": "admin-issues-cockpit-backend-complete",
+      "size_bytes": 13366,
+      "git_first_commit": "2026-05-21 17:50:20 -0600",
+      "git_last_commit": "2026-05-21 17:50:20 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "165-wc-platform-pr155-post-merge-triage.md",
+      "number": 165,
+      "author_slug": "wc-platform",
+      "topic_slug": "pr155-post-merge-triage",
+      "size_bytes": 7064,
+      "git_first_commit": "2026-05-21 20:27:34 -0600",
+      "git_last_commit": "2026-05-21 20:27:34 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": "2026-05-22",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "166-cc-bot-booking-detail-quick-dirty-pr157.md",
+      "number": 166,
+      "author_slug": "cc-bot",
+      "topic_slug": "booking-detail-quick-dirty-pr157",
+      "size_bytes": 7678,
+      "git_first_commit": "2026-05-21 21:06:09 -0600",
+      "git_last_commit": "2026-05-21 21:06:09 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session 2026-05-22)",
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "167-cc-bot-mp-webhook-beds24-capture-followup.md",
+      "number": 167,
+      "author_slug": "cc-bot",
+      "topic_slug": "mp-webhook-beds24-capture-followup",
+      "size_bytes": 9858,
+      "git_first_commit": "2026-05-22 03:25:24 -0600",
+      "git_last_commit": "2026-05-22 03:25:24 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (ad-hoc session 2026-05-22, post-deploy smoke for PR #157)",
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "168-cc-bot-mp-webhook-beds24-capture-pr158.md",
+      "number": 168,
+      "author_slug": "cc-bot",
+      "topic_slug": "mp-webhook-beds24-capture-pr158",
+      "size_bytes": 4957,
+      "git_first_commit": "2026-05-22 04:47:28 -0600",
+      "git_last_commit": "2026-05-22 04:47:28 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session 2026-05-22, follow-up to [thread/167](167-cc-bot-mp-webhook-beds24-capture-followup.md))",
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "169-cc-bot-telegram-pago-recibido-spec.md",
+      "number": 169,
+      "author_slug": "cc-bot",
+      "topic_slug": "telegram-pago-recibido-spec",
+      "size_bytes": 6775,
+      "git_first_commit": "2026-05-22 10:27:33 -0600",
+      "git_last_commit": "2026-05-22 10:27:33 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session 2026-05-22)",
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "169-wc-cc-harness-oss-survey.md",
+      "number": 169,
+      "author_slug": "wc-cc",
+      "topic_slug": "harness-oss-survey",
+      "size_bytes": 16278,
+      "git_first_commit": "2026-05-22 08:25:10 -0600",
+      "git_last_commit": "2026-05-22 08:25:10 -0600",
+      "frontmatter_present": true,
+      "author": "WC",
+      "date": "2026-05-22",
+      "topic": "cc-harness-oss-survey",
+      "mode": "brain deep",
+      "status": "open-for-cc-challenge",
+      "related_count": 3,
+      "warnings": []
+    },
+    {
+      "filename": "17-cc-calendar-pricing-query.md",
+      "number": 17,
+      "author_slug": "cc-calendar",
+      "topic_slug": "pricing-query",
+      "size_bytes": 5015,
+      "git_first_commit": "2026-05-12 08:17:43 +0000",
+      "git_last_commit": "2026-05-12 08:17:43 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "170-cc-bot-telegram-pago-notify-pr159.md",
+      "number": 170,
+      "author_slug": "cc-bot",
+      "topic_slug": "telegram-pago-notify-pr159",
+      "size_bytes": 3936,
+      "git_first_commit": "2026-05-22 10:34:18 -0600",
+      "git_last_commit": "2026-05-22 10:34:18 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session 2026-05-22, follow-up to [thread/169](169-cc-bot-telegram-pago-recibido-spec.md))",
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "170-wc-bot-factuality-conceptual.md",
+      "number": 170,
+      "author_slug": "wc-bot",
+      "topic_slug": "factuality-conceptual",
+      "size_bytes": 15355,
+      "git_first_commit": "2026-05-22 09:27:58 -0600",
+      "git_last_commit": "2026-05-22 09:27:58 -0600",
+      "frontmatter_present": true,
+      "author": "WC",
+      "date": "2026-05-22",
+      "topic": "bot-factuality-prompt-engineering-conceptual",
+      "mode": "brain (conceptual, NO spec)",
+      "status": "open-for-challenge",
+      "related_count": 3,
+      "warnings": []
+    },
+    {
+      "filename": "171-wc-multi-wc-multi-cc-setup-brain-ultra.md",
+      "number": 171,
+      "author_slug": "wc-multi",
+      "topic_slug": "wc-multi-cc-setup-brain-ultra",
+      "size_bytes": 16165,
+      "git_first_commit": "2026-05-22 10:34:11 -0600",
+      "git_last_commit": "2026-05-22 10:34:11 -0600",
+      "frontmatter_present": true,
+      "author": "WC",
+      "date": "2026-05-22",
+      "topic": "multi-wc-multi-cc-setup-brain-ultra",
+      "mode": "brain ultra (conceptual, NO spec)",
+      "status": "open-for-challenge",
+      "related_count": 5,
+      "warnings": []
+    },
+    {
+      "filename": "172-cc-bot-challenge-thread-171-from-bot-technical-reality.md",
+      "number": 172,
+      "author_slug": "cc-bot",
+      "topic_slug": "challenge-thread-171-from-bot-technical-reality",
+      "size_bytes": 21223,
+      "git_first_commit": "2026-05-22 10:47:18 -0600",
+      "git_last_commit": "2026-05-22 10:47:18 -0600",
+      "frontmatter_present": true,
+      "author": "CC-Bot",
+      "date": "2026-05-22",
+      "topic": "challenge-thread-171-from-bot-technical-reality",
+      "mode": "brain (challenge response)",
+      "status": "response",
+      "related_count": 7,
+      "warnings": []
+    },
+    {
+      "filename": "173-wc-platform-challenge-to-thread-171.md",
+      "number": 173,
+      "author_slug": "wc-platform",
+      "topic_slug": "challenge-to-thread-171",
+      "size_bytes": 12591,
+      "git_first_commit": "2026-05-22 10:58:53 -0600",
+      "git_last_commit": "2026-05-22 10:58:53 -0600",
+      "frontmatter_present": true,
+      "author": "WC-Platform",
+      "date": "2026-05-22",
+      "topic": "challenge a thread/171 multi-WC/multi-CC setup",
+      "mode": "brain (default \u2014 an\u00e1lisis + tradeoffs, NO spec, NO c\u00f3digo)",
+      "status": "open-for-alex-vote",
+      "related_count": 8,
+      "warnings": []
+    },
+    {
+      "filename": "174-wc-synthesis-of-cc-and-platform-challenges.md",
+      "number": 174,
+      "author_slug": "wc-synthesis",
+      "topic_slug": "of-cc-and-platform-challenges",
+      "size_bytes": 14605,
+      "git_first_commit": "2026-05-22 11:07:17 -0600",
+      "git_last_commit": "2026-05-22 11:07:17 -0600",
+      "frontmatter_present": true,
+      "author": "WC",
+      "date": "2026-05-22",
+      "topic": "synthesis-of-cc-and-platform-challenges-position-adjusted",
+      "mode": "brain (synthesis)",
+      "status": "open-for-alex-vote",
+      "related_count": 0,
+      "warnings": []
+    },
+    {
+      "filename": "175-wc-cc-doit-p1-p2-quickwins-strategic.md",
+      "number": 175,
+      "author_slug": "wc-cc",
+      "topic_slug": "doit-p1-p2-quickwins-strategic",
+      "size_bytes": 19797,
+      "git_first_commit": "2026-05-22 11:38:49 -0600",
+      "git_last_commit": "2026-05-22 11:38:49 -0600",
+      "frontmatter_present": true,
+      "author": "WC",
+      "date": "2026-05-22",
+      "topic": "cc-doit-p1-p2-quickwins-strategic-execution",
+      "mode": "DoIt",
+      "status": "ready-for-cc-execution",
+      "related_count": 0,
+      "warnings": []
+    },
+    {
+      "filename": "176-wc-cc-doit-meta-archaeology-pipeline-audit.md",
+      "number": 176,
+      "author_slug": "wc-cc",
+      "topic_slug": "doit-meta-archaeology-pipeline-audit",
+      "size_bytes": 22351,
+      "git_first_commit": "2026-05-22 11:41:33 -0600",
+      "git_last_commit": "2026-05-22 11:41:33 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "yaml_error:while parsing a block collection\n  in \"<unicode string>\", line 18, column 3:\n   "
+      ]
+    },
+    {
+      "filename": "19-pricing-comparison-findings.md",
+      "number": 19,
+      "author_slug": "pricing-comparison",
+      "topic_slug": "findings",
+      "size_bytes": 7970,
+      "git_first_commit": "2026-05-12 08:22:49 +0000",
+      "git_last_commit": "2026-05-12 08:22:49 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "20-cutover-completed-close-issues.md",
+      "number": 20,
+      "author_slug": "cutover-completed",
+      "topic_slug": "close-issues",
+      "size_bytes": 6575,
+      "git_first_commit": "2026-05-12 15:10:04 +0000",
+      "git_last_commit": "2026-05-12 15:10:04 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "21-greeter-v5-site-routing-bot-onsite.md",
+      "number": 21,
+      "author_slug": "greeter",
+      "topic_slug": "v5-site-routing-bot-onsite",
+      "size_bytes": 23213,
+      "git_first_commit": "2026-05-12 15:32:55 +0000",
+      "git_last_commit": "2026-05-12 15:32:55 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "22-cc-greeter-v5-challenge.md",
+      "number": 22,
+      "author_slug": "cc-greeter",
+      "topic_slug": "v5-challenge",
+      "size_bytes": 34753,
+      "git_first_commit": "2026-05-12 10:03:36 -0600",
+      "git_last_commit": "2026-05-12 10:03:36 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI, sesi\u00f3n Sprint 1+canary)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "23-beds24-messages-reviews-api-unlocked.md",
+      "number": 23,
+      "author_slug": "beds24",
+      "topic_slug": "messages-reviews-api-unlocked",
+      "size_bytes": 15168,
+      "git_first_commit": "2026-05-12 15:47:27 +0000",
+      "git_last_commit": "2026-05-12 15:47:27 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "24-cc-beds24-messaging-discovery-validated.md",
+      "number": 24,
+      "author_slug": "cc",
+      "topic_slug": "beds24-messaging-discovery-validated",
+      "size_bytes": 14060,
+      "git_first_commit": "2026-05-12 09:53:31 -0600",
+      "git_last_commit": "2026-05-12 10:03:36 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI, sesi\u00f3n Sprint 1+canary)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "25-cc-q15-webhook-implemented-reviews-cap-confirmed.md",
+      "number": 25,
+      "author_slug": "cc",
+      "topic_slug": "q15-webhook-implemented-reviews-cap-confirmed",
+      "size_bytes": 8920,
+      "git_first_commit": "2026-05-12 10:30:00 -0600",
+      "git_last_commit": "2026-05-12 10:30:00 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "26-cc-phase0-closure-status.md",
+      "number": 26,
+      "author_slug": "cc",
+      "topic_slug": "phase0-closure-status",
+      "size_bytes": 13007,
+      "git_first_commit": "2026-05-12 11:19:03 -0600",
+      "git_last_commit": "2026-05-12 11:19:03 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "27-alex-decisions-cc-implementation-greenlight.md",
+      "number": 27,
+      "author_slug": "alex-decisions",
+      "topic_slug": "cc-implementation-greenlight",
+      "size_bytes": 16428,
+      "git_first_commit": "2026-05-12 17:28:45 +0000",
+      "git_last_commit": "2026-05-12 17:28:45 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "28-cc-phase0-implementation-log.md",
+      "number": 28,
+      "author_slug": "cc",
+      "topic_slug": "phase0-implementation-log",
+      "size_bytes": 12309,
+      "git_first_commit": "2026-05-12 11:38:45 -0600",
+      "git_last_commit": "2026-05-12 11:38:45 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "29-wc-review-cc-phase0-implementation.md",
+      "number": 29,
+      "author_slug": "wc-review",
+      "topic_slug": "cc-phase0-implementation",
+      "size_bytes": 18290,
+      "git_first_commit": "2026-05-12 18:09:25 +0000",
+      "git_last_commit": "2026-05-12 18:09:25 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "30-alex-approvals-cc-execution-plan.md",
+      "number": 30,
+      "author_slug": "alex-approvals",
+      "topic_slug": "cc-execution-plan",
+      "size_bytes": 13455,
+      "git_first_commit": "2026-05-12 18:18:39 +0000",
+      "git_last_commit": "2026-05-12 18:18:39 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "31-cc-track-b-deploy-log.md",
+      "number": 31,
+      "author_slug": "cc-track",
+      "topic_slug": "b-deploy-log",
+      "size_bytes": 9980,
+      "git_first_commit": "2026-05-12 17:23:40 -0600",
+      "git_last_commit": "2026-05-12 17:23:40 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "32-cc-track-c-reviews-carousel.md",
+      "number": 32,
+      "author_slug": "cc-track",
+      "topic_slug": "c-reviews-carousel",
+      "size_bytes": 10065,
+      "git_first_commit": "2026-05-12 17:45:10 -0600",
+      "git_last_commit": "2026-05-12 17:45:10 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "33-guest360-architecture-phase-b-plan.md",
+      "number": 33,
+      "author_slug": "guest360",
+      "topic_slug": "architecture-phase-b-plan",
+      "size_bytes": 27819,
+      "git_first_commit": "2026-05-13 13:55:44 +0000",
+      "git_last_commit": "2026-05-13 13:55:44 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude",
+      "date": "2026-05-12",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "34-cc-review-guest360-phaseb.md",
+      "number": 34,
+      "author_slug": "cc-review",
+      "topic_slug": "guest360-phaseb",
+      "size_bytes": 46446,
+      "git_first_commit": "2026-05-13 09:05:39 -0600",
+      "git_last_commit": "2026-05-13 09:05:39 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "35-cc-templates-system-for-wc.md",
+      "number": 35,
+      "author_slug": "cc-templates",
+      "topic_slug": "system-for-wc",
+      "size_bytes": 15492,
+      "git_first_commit": "2026-05-13 12:47:02 -0600",
+      "git_last_commit": "2026-05-13 12:47:02 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "36-wc-templates-content-architecture-analysis.md",
+      "number": 36,
+      "author_slug": "wc-templates",
+      "topic_slug": "content-architecture-analysis",
+      "size_bytes": 28547,
+      "git_first_commit": "2026-05-13 13:41:47 -0600",
+      "git_last_commit": "2026-05-13 13:41:47 -0600",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC) for Alex",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "37-cc-content-architecture-review.md",
+      "number": 37,
+      "author_slug": "cc-content",
+      "topic_slug": "architecture-review",
+      "size_bytes": 36294,
+      "git_first_commit": "2026-05-13 13:51:20 -0600",
+      "git_last_commit": "2026-05-13 14:17:34 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "38-cc-airbnb-write-back-plan.md",
+      "number": 38,
+      "author_slug": "cc-airbnb",
+      "topic_slug": "write-back-plan",
+      "size_bytes": 10865,
+      "git_first_commit": "2026-05-13 14:29:08 -0600",
+      "git_last_commit": "2026-05-13 14:29:08 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "39-wc-response-cc-thread37-38.md",
+      "number": 39,
+      "author_slug": "wc-response",
+      "topic_slug": "cc-thread37-38",
+      "size_bytes": 23317,
+      "git_first_commit": "2026-05-13 21:16:43 +0000",
+      "git_last_commit": "2026-05-13 21:16:43 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "40-wc-alex-answers-content-editor-proposal.md",
+      "number": 40,
+      "author_slug": "wc-alex",
+      "topic_slug": "answers-content-editor-proposal",
+      "size_bytes": 17081,
+      "git_first_commit": "2026-05-14 00:09:27 +0000",
+      "git_last_commit": "2026-05-14 00:09:27 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC) capturing Alex decisions",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "41-wc-alex-final-answers.md",
+      "number": 41,
+      "author_slug": "wc-alex",
+      "topic_slug": "final-answers",
+      "size_bytes": 8593,
+      "git_first_commit": "2026-05-14 00:14:26 +0000",
+      "git_last_commit": "2026-05-14 00:14:26 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC) capturing Alex decisions",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "42-cc-review-thread40-content-editor.md",
+      "number": 42,
+      "author_slug": "cc-review",
+      "topic_slug": "thread40-content-editor",
+      "size_bytes": 28113,
+      "git_first_commit": "2026-05-13 18:22:07 -0600",
+      "git_last_commit": "2026-05-13 18:29:33 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CLI)",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "43-cc-fase2-merge-guide.md",
+      "number": 43,
+      "author_slug": "cc",
+      "topic_slug": "fase2-merge-guide",
+      "size_bytes": 7740,
+      "git_first_commit": "2026-05-13 20:22:31 -0600",
+      "git_last_commit": "2026-05-13 20:22:31 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "43-wc-alex-go-execute-batch-b.md",
+      "number": 43,
+      "author_slug": "wc-alex",
+      "topic_slug": "go-execute-batch-b",
+      "size_bytes": 9501,
+      "git_first_commit": "2026-05-14 00:30:55 +0000",
+      "git_last_commit": "2026-05-14 00:31:54 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC) capturing Alex GO",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "44-cc-pr12-final-state.md",
+      "number": 44,
+      "author_slug": "cc",
+      "topic_slug": "pr12-final-state",
+      "size_bytes": 6300,
+      "git_first_commit": "2026-05-13 20:51:09 -0600",
+      "git_last_commit": "2026-05-13 20:51:09 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "44-wc-footer-policy-research-morenas-concern.md",
+      "number": 44,
+      "author_slug": "wc-footer",
+      "topic_slug": "policy-research-morenas-concern",
+      "size_bytes": 8936,
+      "git_first_commit": "2026-05-14 00:43:42 +0000",
+      "git_last_commit": "2026-05-14 00:43:42 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-13",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "45-cc-wc-seed-drafts-discovery.md",
+      "number": 45,
+      "author_slug": "cc-wc",
+      "topic_slug": "seed-drafts-discovery",
+      "size_bytes": 5210,
+      "git_first_commit": "2026-05-13 20:53:39 -0600",
+      "git_last_commit": "2026-05-13 20:53:39 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "45-mvp-live-and-content-drafts-ready.md",
+      "number": 45,
+      "author_slug": "mvp-live",
+      "topic_slug": "and-content-drafts-ready",
+      "size_bytes": 7438,
+      "git_first_commit": "2026-05-14 03:00:45 +0000",
+      "git_last_commit": "2026-05-14 03:00:45 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-14",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "46-cc-import-complete-onboarding-ready.md",
+      "number": 46,
+      "author_slug": "cc-import",
+      "topic_slug": "complete-onboarding-ready",
+      "size_bytes": 10494,
+      "git_first_commit": "2026-05-13 21:26:13 -0600",
+      "git_last_commit": "2026-05-13 21:26:13 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "47-cc-merge-batch-complete.md",
+      "number": 47,
+      "author_slug": "cc-merge",
+      "topic_slug": "batch-complete",
+      "size_bytes": 6012,
+      "git_first_commit": "2026-05-13 21:51:23 -0600",
+      "git_last_commit": "2026-05-13 21:51:23 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "48-cc-day1-final-stack-live.md",
+      "number": 48,
+      "author_slug": "cc",
+      "topic_slug": "day1-final-stack-live",
+      "size_bytes": 6510,
+      "git_first_commit": "2026-05-13 23:27:01 -0600",
+      "git_last_commit": "2026-05-13 23:27:01 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "49-cc-reglas-adicionales-13th-field.md",
+      "number": 49,
+      "author_slug": "cc-reglas",
+      "topic_slug": "adicionales-13th-field",
+      "size_bytes": 9562,
+      "git_first_commit": "2026-05-14 13:58:17 -0600",
+      "git_last_commit": "2026-05-14 13:58:17 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "49b-cc-bot-routing-proposal.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "49b-cc-bot-routing-proposal",
+      "size_bytes": 21739,
+      "git_first_commit": "2026-05-15 01:32:24 -0600",
+      "git_last_commit": "2026-05-15 01:32:24 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "50-wc-bot-routing-response.md",
+      "number": 50,
+      "author_slug": "wc-bot",
+      "topic_slug": "routing-response",
+      "size_bytes": 25827,
+      "git_first_commit": "2026-05-15 03:34:06 +0000",
+      "git_last_commit": "2026-05-15 05:53:02 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-14",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "51-cc-blockers-resolved-greeter-v5-go.md",
+      "number": 51,
+      "author_slug": "cc-blockers",
+      "topic_slug": "resolved-greeter-v5-go",
+      "size_bytes": 7542,
+      "git_first_commit": "2026-05-14 23:42:05 -0600",
+      "git_last_commit": "2026-05-14 23:42:05 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "52-wc-anchors-spec-for-property-pages.md",
+      "number": 52,
+      "author_slug": "wc-anchors",
+      "topic_slug": "spec-for-property-pages",
+      "size_bytes": 19594,
+      "git_first_commit": "2026-05-15 05:53:02 +0000",
+      "git_last_commit": "2026-05-15 05:53:02 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "53-wc-greeter-v5-fase-0-1-execute.md",
+      "number": 53,
+      "author_slug": "wc-greeter",
+      "topic_slug": "v5-fase-0-1-execute",
+      "size_bytes": 17519,
+      "git_first_commit": "2026-05-15 06:05:58 +0000",
+      "git_last_commit": "2026-05-15 06:21:38 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "54-cc-fase-1-progress.md",
+      "number": 54,
+      "author_slug": "cc-fase",
+      "topic_slug": "1-progress",
+      "size_bytes": 10076,
+      "git_first_commit": "2026-05-15 01:32:24 -0600",
+      "git_last_commit": "2026-05-15 01:32:24 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC) \u2014 Aggressive Mode",
+      "date": "2026-05-15 (sesi\u00f3n nocturna aut\u00f3noma post-Alex GO)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "54-wc-data-mining-v2-strategy.md",
+      "number": 54,
+      "author_slug": "wc-data",
+      "topic_slug": "mining-v2-strategy",
+      "size_bytes": 24955,
+      "git_first_commit": "2026-05-15 06:54:09 +0000",
+      "git_last_commit": "2026-05-15 06:54:09 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "55-wc-data-mining-v2-go-plan.md",
+      "number": 55,
+      "author_slug": "wc-data",
+      "topic_slug": "mining-v2-go-plan",
+      "size_bytes": 19043,
+      "git_first_commit": "2026-05-15 07:01:08 +0000",
+      "git_last_commit": "2026-05-15 07:01:08 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "56-wc-data-v2-prep-complete-and-critical-findings.md",
+      "number": 56,
+      "author_slug": "wc-data",
+      "topic_slug": "v2-prep-complete-and-critical-findings",
+      "size_bytes": 7607,
+      "git_first_commit": "2026-05-15 07:29:07 +0000",
+      "git_last_commit": "2026-05-15 07:29:07 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 (overnight WC autonomous work)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "57-wc-edge-case-audit-v2-plan.md",
+      "number": 57,
+      "author_slug": "wc-edge",
+      "topic_slug": "case-audit-v2-plan",
+      "size_bytes": 18887,
+      "git_first_commit": "2026-05-15 07:31:37 +0000",
+      "git_last_commit": "2026-05-15 07:31:37 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 (overnight WC autonomous work)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "58-wc-ack-cc-overnight-and-pr-a15-spec.md",
+      "number": 58,
+      "author_slug": "wc-ack",
+      "topic_slug": "cc-overnight-and-pr-a15-spec",
+      "size_bytes": 7799,
+      "git_first_commit": "2026-05-15 07:34:49 +0000",
+      "git_last_commit": "2026-05-15 07:34:49 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 (overnight WC continuing)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "59-wc-pet-decision-resolved-cc-handoff.md",
+      "number": 59,
+      "author_slug": "wc-pet",
+      "topic_slug": "decision-resolved-cc-handoff",
+      "size_bytes": 9139,
+      "git_first_commit": "2026-05-15 14:48:37 +0000",
+      "git_last_commit": "2026-05-15 14:48:37 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 (morning, Alex woke up)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "60-wc-bug-critico-images-broken-prod.md",
+      "number": 60,
+      "author_slug": "wc-bug",
+      "topic_slug": "critico-images-broken-prod",
+      "size_bytes": 6870,
+      "git_first_commit": "2026-05-15 15:48:35 +0000",
+      "git_last_commit": "2026-05-15 15:48:35 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 (morning, post-CC overnight deploy)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "61-cc-image-bug-resolved.md",
+      "number": 61,
+      "author_slug": "cc-image",
+      "topic_slug": "bug-resolved",
+      "size_bytes": 4194,
+      "git_first_commit": "2026-05-15 10:31:56 -0600",
+      "git_last_commit": "2026-05-15 10:31:56 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-15 morning",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "62-cc-pr-a15-subcomponents-live.md",
+      "number": 62,
+      "author_slug": "cc-pr",
+      "topic_slug": "a15-subcomponents-live",
+      "size_bytes": 5407,
+      "git_first_commit": "2026-05-15 10:56:03 -0600",
+      "git_last_commit": "2026-05-15 10:56:03 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-15 morning",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "63-wc-ack-fase-1-closed-q-fase-2-timing.md",
+      "number": 63,
+      "author_slug": "wc-ack",
+      "topic_slug": "fase-1-closed-q-fase-2-timing",
+      "size_bytes": 7285,
+      "git_first_commit": "2026-05-15 17:17:26 +0000",
+      "git_last_commit": "2026-05-15 17:17:26 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 morning",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "64-cc-alex-voted-option-a-handoff-spec-fase-2.md",
+      "number": 64,
+      "author_slug": "cc-alex",
+      "topic_slug": "voted-option-a-handoff-spec-fase-2",
+      "size_bytes": 4852,
+      "git_first_commit": "2026-05-15 11:52:01 -0600",
+      "git_last_commit": "2026-05-15 11:52:01 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-15 morning",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "65-wc-greeter-v5-fase-2-spec-published.md",
+      "number": 65,
+      "author_slug": "wc-greeter",
+      "topic_slug": "v5-fase-2-spec-published",
+      "size_bytes": 9060,
+      "git_first_commit": "2026-05-15 18:04:30 +0000",
+      "git_last_commit": "2026-05-15 18:04:30 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 (WC autonomous mode hour 1)",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "66-cc-greeter-v5-fase-2-built.md",
+      "number": 66,
+      "author_slug": "cc-greeter",
+      "topic_slug": "v5-fase-2-built",
+      "size_bytes": 7438,
+      "git_first_commit": "2026-05-15 12:42:39 -0600",
+      "git_last_commit": "2026-05-15 12:42:39 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-15 morning",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "67-wc-q-66-1-pr-a75-go-autonomous.md",
+      "number": 67,
+      "author_slug": "wc-q",
+      "topic_slug": "66-1-pr-a75-go-autonomous",
+      "size_bytes": 10677,
+      "git_first_commit": "2026-05-15 21:20:29 +0000",
+      "git_last_commit": "2026-05-15 21:20:29 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 ~hora 2 modo aut\u00f3nomo",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "68-cc-pr-a75-ready-for-wc-review.md",
+      "number": 68,
+      "author_slug": "cc-pr",
+      "topic_slug": "a75-ready-for-wc-review",
+      "size_bytes": 8201,
+      "git_first_commit": "2026-05-15 15:52:31 -0600",
+      "git_last_commit": "2026-05-15 15:52:31 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-15 ~hora 3 modo aut\u00f3nomo",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "69-wc-status-pr42-ok-q-cc-data-interface.md",
+      "number": 69,
+      "author_slug": "wc-status",
+      "topic_slug": "pr42-ok-q-cc-data-interface",
+      "size_bytes": 9663,
+      "git_first_commit": "2026-05-15 22:04:23 +0000",
+      "git_last_commit": "2026-05-15 22:04:23 +0000",
+      "frontmatter_present": false,
+      "author": "Web Claude (WC)",
+      "date": "2026-05-15 ~hora 2.5 modo aut\u00f3nomo",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "70-cc-prs-41-42-merged-q691-A-12h-plan.md",
+      "number": 70,
+      "author_slug": "cc-prs",
+      "topic_slug": "41-42-merged-q691-A-12h-plan",
+      "size_bytes": 6505,
+      "git_first_commit": "2026-05-15 16:23:55 -0600",
+      "git_last_commit": "2026-05-15 16:23:55 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-15 ~hora 3 modo aut\u00f3nomo",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "71-cc-12h-autonomous-summary.md",
+      "number": 71,
+      "author_slug": "cc",
+      "topic_slug": "12h-autonomous-summary",
+      "size_bytes": 7825,
+      "git_first_commit": "2026-05-15 16:49:19 -0600",
+      "git_last_commit": "2026-05-15 16:49:19 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-15 ~hora 6 modo aut\u00f3nomo",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "72-cc-data-plan-and-day1-roadmap.md",
+      "number": 72,
+      "author_slug": "cc-data",
+      "topic_slug": "plan-and-day1-roadmap",
+      "size_bytes": 18610,
+      "git_first_commit": "2026-05-15 17:32:57 -0600",
+      "git_last_commit": "2026-05-15 17:32:57 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Data \u2014 sesi\u00f3n paralela a CC-Bot)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "73-cc-data-day1-stage0-and-stage-a-done.md",
+      "number": 73,
+      "author_slug": "cc-data",
+      "topic_slug": "day1-stage0-and-stage-a-done",
+      "size_bytes": 7752,
+      "git_first_commit": "2026-05-15 17:52:32 -0600",
+      "git_last_commit": "2026-05-15 17:52:32 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Data session)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "74-cc-data-day2-stage-b-and-e-done.md",
+      "number": 74,
+      "author_slug": "cc-data",
+      "topic_slug": "day2-stage-b-and-e-done",
+      "size_bytes": 6998,
+      "git_first_commit": "2026-05-15 18:01:25 -0600",
+      "git_last_commit": "2026-05-15 18:01:25 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Data)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "76-cc-data-day4-deploy-pipeline-complete.md",
+      "number": 76,
+      "author_slug": "cc-data",
+      "topic_slug": "day4-deploy-pipeline-complete",
+      "size_bytes": 11915,
+      "git_first_commit": "2026-05-15 18:14:19 -0600",
+      "git_last_commit": "2026-05-15 18:14:19 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Data session)",
+      "date": "2026-05-15",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "77-cc-bot-prs-a761-a763-merged.md",
+      "number": 77,
+      "author_slug": "cc-bot",
+      "topic_slug": "prs-a761-a763-merged",
+      "size_bytes": 7015,
+      "git_first_commit": "2026-05-15 21:07:29 -0600",
+      "git_last_commit": "2026-05-15 21:07:29 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-16 ~03:10 UTC",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "77-cc-data-prod-deploy-95-pct-done-vectorize-handoff.md",
+      "number": 77,
+      "author_slug": "cc-data",
+      "topic_slug": "prod-deploy-95-pct-done-vectorize-handoff",
+      "size_bytes": 7779,
+      "git_first_commit": "2026-05-15 22:30:58 -0600",
+      "git_last_commit": "2026-05-15 22:30:58 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Data session, closing out)",
+      "date": "2026-05-16 ~00:30",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "78-wc-claude-md-published-pull-and-read.md",
+      "number": 78,
+      "author_slug": "wc-claude",
+      "topic_slug": "md-published-pull-and-read",
+      "size_bytes": 1291,
+      "git_first_commit": "2026-05-16 05:26:16 -0600",
+      "git_last_commit": "2026-05-16 05:26:16 -0600",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "79-cc-bot-chain-a-e-merged-vectorize-stuck.md",
+      "number": 79,
+      "author_slug": "cc-bot",
+      "topic_slug": "chain-a-e-merged-vectorize-stuck",
+      "size_bytes": 7177,
+      "git_first_commit": "2026-05-16 08:08:33 -0600",
+      "git_last_commit": "2026-05-16 08:08:33 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-16 ~14:10 UTC",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "80-cc-bot-v5-real-data-analysis-pet-bug-pr66.md",
+      "number": 80,
+      "author_slug": "cc-bot",
+      "topic_slug": "v5-real-data-analysis-pet-bug-pr66",
+      "size_bytes": 5426,
+      "git_first_commit": "2026-05-16 10:24:38 -0600",
+      "git_last_commit": "2026-05-16 10:24:38 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Bot)",
+      "date": "2026-05-16 ~16:30 UTC",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "81-cc-data-stage-c-v2-trim-audit-final.md",
+      "number": 81,
+      "author_slug": "cc-data",
+      "topic_slug": "stage-c-v2-trim-audit-final",
+      "size_bytes": 8545,
+      "git_first_commit": "2026-05-16 13:28:23 -0600",
+      "git_last_commit": "2026-05-16 13:28:23 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Data, returning for final cleanup pass)",
+      "date": "2026-05-16 ~19:35 UTC",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "82-wc-v6-combined-spec-ready-for-cc.md",
+      "number": 82,
+      "author_slug": "wc",
+      "topic_slug": "v6-combined-spec-ready-for-cc",
+      "size_bytes": 4124,
+      "git_first_commit": "2026-05-16 20:01:15 +0000",
+      "git_last_commit": "2026-05-16 20:01:44 +0000",
+      "frontmatter_present": false,
+      "author": "WC (with Alex live)",
+      "date": "2026-05-16",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "83-wc-faq-content-enrichment-extraction-task-cc-data.md",
+      "number": 83,
+      "author_slug": "wc-faq",
+      "topic_slug": "content-enrichment-extraction-task-cc-data",
+      "size_bytes": 2925,
+      "git_first_commit": "2026-05-16 23:01:37 +0000",
+      "git_last_commit": "2026-05-16 23:01:37 +0000",
+      "frontmatter_present": false,
+      "author": "WC (with Alex)",
+      "date": "2026-05-16",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "84-cc-data-faq-and-content-extraction-complete.md",
+      "number": 84,
+      "author_slug": "cc-data",
+      "topic_slug": "faq-and-content-extraction-complete",
+      "size_bytes": 11543,
+      "git_first_commit": "2026-05-16 19:16:04 -0600",
+      "git_last_commit": "2026-05-16 19:16:04 -0600",
+      "frontmatter_present": false,
+      "author": "Claude Code (CC-Data session)",
+      "date": "2026-05-17 ~01:15 UTC",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "84b-wc-admin-bookings-gantt-spec.md",
+      "number": null,
+      "author_slug": "",
+      "topic_slug": "84b-wc-admin-bookings-gantt-spec",
+      "size_bytes": 1941,
+      "git_first_commit": "2026-05-16 23:16:22 +0000",
+      "git_last_commit": "2026-05-17 03:19:37 +0000",
+      "frontmatter_present": false,
+      "author": "WC (with Alex)",
+      "date": "2026-05-16",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "85-wc-admin-inbox-unified-spec.md",
+      "number": 85,
+      "author_slug": "wc-admin",
+      "topic_slug": "inbox-unified-spec",
+      "size_bytes": 2484,
+      "git_first_commit": "2026-05-16 23:26:59 +0000",
+      "git_last_commit": "2026-05-16 23:26:59 +0000",
+      "frontmatter_present": false,
+      "author": "WC (with Alex)",
+      "date": "2026-05-16",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "86-wc-bookings-inbox-delta-list-view-kv-inquiries.md",
+      "number": 86,
+      "author_slug": "wc-bookings",
+      "topic_slug": "inbox-delta-list-view-kv-inquiries",
+      "size_bytes": 3076,
+      "git_first_commit": "2026-05-16 23:33:08 +0000",
+      "git_last_commit": "2026-05-16 23:33:08 +0000",
+      "frontmatter_present": false,
+      "author": "WC (with Alex)",
+      "date": "2026-05-16",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "87-wc-multi-inquiry-amendment.md",
+      "number": 87,
+      "author_slug": "wc-multi",
+      "topic_slug": "inquiry-amendment",
+      "size_bytes": 2463,
+      "git_first_commit": "2026-05-16 23:57:18 +0000",
+      "git_last_commit": "2026-05-16 23:57:18 +0000",
+      "frontmatter_present": false,
+      "author": "WC (with Alex)",
+      "date": "2026-05-16",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "88-wc-ack-cc-data-faq-content-extraction-delivered.md",
+      "number": 88,
+      "author_slug": "wc-ack",
+      "topic_slug": "cc-data-faq-content-extraction-delivered",
+      "size_bytes": 5521,
+      "git_first_commit": "2026-05-17 03:19:37 +0000",
+      "git_last_commit": "2026-05-17 03:19:37 +0000",
+      "frontmatter_present": false,
+      "author": "WC (with Alex)",
+      "date": "2026-05-16",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "89-wc-platform-wishlist-and-tasks-module.md",
+      "number": 89,
+      "author_slug": "wc-platform",
+      "topic_slug": "wishlist-and-tasks-module",
+      "size_bytes": 29798,
+      "git_first_commit": "2026-05-17 05:56:49 +0000",
+      "git_last_commit": "2026-05-17 05:56:49 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "91-wc-platform-vision-and-spirit-for-rdmbot-session.md",
+      "number": 91,
+      "author_slug": "wc-platform",
+      "topic_slug": "vision-and-spirit-for-rdmbot-session",
+      "size_bytes": 18461,
+      "git_first_commit": "2026-05-17 13:25:22 +0000",
+      "git_last_commit": "2026-05-17 13:25:22 +0000",
+      "frontmatter_present": false,
+      "author": null,
+      "date": null,
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "92-wc-cc-rename-and-platform-coexistence.md",
+      "number": 92,
+      "author_slug": "wc-cc",
+      "topic_slug": "rename-and-platform-coexistence",
+      "size_bytes": 6907,
+      "git_first_commit": "2026-05-17 21:01:40 +0000",
+      "git_last_commit": "2026-05-17 21:01:40 +0000",
+      "frontmatter_present": false,
+      "author": "WC (Implementation buddy session, Alex-led)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "93-cc-bot-status-bookings-build-complete-inbox-paused.md",
+      "number": 93,
+      "author_slug": "cc-bot",
+      "topic_slug": "status-bookings-build-complete-inbox-paused",
+      "size_bytes": 10160,
+      "git_first_commit": "2026-05-17 15:12:59 -0600",
+      "git_last_commit": "2026-05-17 15:12:59 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (autonomous DoIt session, 2026-05-16/17)",
+      "date": "2026-05-17",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "93-wc-ack-cc-feedback-doit-template-v2.md",
+      "number": 93,
+      "author_slug": "wc-ack",
+      "topic_slug": "cc-feedback-doit-template-v2",
+      "size_bytes": 8133,
+      "git_first_commit": "2026-05-17 21:14:17 +0000",
+      "git_last_commit": "2026-05-17 21:14:17 +0000",
+      "frontmatter_present": false,
+      "author": "WC (Implementation buddy session)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "94-wc-ack-clone-paths-doit-template-v3.md",
+      "number": 94,
+      "author_slug": "wc-ack",
+      "topic_slug": "clone-paths-doit-template-v3",
+      "size_bytes": 7800,
+      "git_first_commit": "2026-05-17 21:40:43 +0000",
+      "git_last_commit": "2026-05-17 21:40:43 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "95-wc-briefing-new-cc-implementation-session.md",
+      "number": 95,
+      "author_slug": "wc-briefing",
+      "topic_slug": "new-cc-implementation-session",
+      "size_bytes": 9978,
+      "git_first_commit": "2026-05-17 21:46:56 +0000",
+      "git_last_commit": "2026-05-17 21:46:56 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "96-cc-bot-pre-flight-clean-ready-for-next-task.md",
+      "number": 96,
+      "author_slug": "cc-bot",
+      "topic_slug": "pre-flight-clean-ready-for-next-task",
+      "size_bytes": 4769,
+      "git_first_commit": "2026-05-17 16:16:45 -0600",
+      "git_last_commit": "2026-05-17 16:16:45 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (fresh implementation session)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "97-wc-doit-pr82-review-merge-deploy.md",
+      "number": 97,
+      "author_slug": "wc-doit",
+      "topic_slug": "pr82-review-merge-deploy",
+      "size_bytes": 8816,
+      "git_first_commit": "2026-05-17 22:23:48 +0000",
+      "git_last_commit": "2026-05-17 22:23:48 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "98-cc-bot-pr82-halted-typecheck-errors.md",
+      "number": 98,
+      "author_slug": "cc-bot",
+      "topic_slug": "pr82-halted-typecheck-errors",
+      "size_bytes": 9588,
+      "git_first_commit": "2026-05-17 16:34:49 -0600",
+      "git_last_commit": "2026-05-17 16:34:49 -0600",
+      "frontmatter_present": false,
+      "author": "CC-Bot (DoIt session, executing thread/97)",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "98-wc-cc-autonomy-config-and-workspace.md",
+      "number": 98,
+      "author_slug": "wc-cc",
+      "topic_slug": "autonomy-config-and-workspace",
+      "size_bytes": 8291,
+      "git_first_commit": "2026-05-17 22:33:37 +0000",
+      "git_last_commit": "2026-05-17 22:33:37 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    },
+    {
+      "filename": "99-wc-doit-fix-kv-binding-resume-pr82.md",
+      "number": 99,
+      "author_slug": "wc-doit",
+      "topic_slug": "fix-kv-binding-resume-pr82",
+      "size_bytes": 10807,
+      "git_first_commit": "2026-05-17 22:38:11 +0000",
+      "git_last_commit": "2026-05-17 22:38:11 +0000",
+      "frontmatter_present": false,
+      "author": "WC",
+      "date": "2026-05-19",
+      "topic": null,
+      "mode": null,
+      "status": null,
+      "related_count": 0,
+      "warnings": [
+        "no_frontmatter"
+      ]
+    }
+  ]
+}

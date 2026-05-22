@@ -1,0 +1,546 @@
+{
+  "generated_at": "2026-05-22",
+  "scope": [
+    "rdm-bot",
+    "rdm-discussion",
+    "rdm-platform"
+  ],
+  "docs_inventory": {
+    "rdm-bot": [
+      {
+        "path": "CLAUDE.md",
+        "purpose": "CC-Bot operating manual"
+      },
+      {
+        "path": "STATE.md",
+        "purpose": "Current stack snapshot",
+        "last_updated": "2026-05-20"
+      },
+      {
+        "path": "OPEN_QUESTIONS.md",
+        "purpose": "Historical conservative decisions PR1/PR2/PR3"
+      },
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "PROPUESTA-CLAUDE-CODE.md"
+      },
+      {
+        "path": "PROPUESTA-TOUR-360.md"
+      },
+      {
+        "path": ".claude/settings.json"
+      },
+      {
+        "path": ".mcp.json"
+      },
+      {
+        "path": "docs/secrets-inventory.md",
+        "purpose": "Canonical secrets catalog"
+      },
+      {
+        "path": "docs/beds24-api-v2.yaml"
+      },
+      {
+        "path": "docs/DEPLOY_RUNBOOK.md"
+      },
+      {
+        "path": "docs/karina-onboarding.md"
+      }
+    ],
+    "rdm-discussion": [
+      {
+        "path": "CLAUDE.md",
+        "lines": 63
+      },
+      {
+        "path": "CONTEXT.md",
+        "lines": 222,
+        "verified": "2026-05-11"
+      },
+      {
+        "path": "STATE.md",
+        "lines": 86,
+        "last_updated": "2026-05-20"
+      },
+      {
+        "path": "VISION.md",
+        "lines": 226,
+        "last_updated": "2026-05-11"
+      },
+      {
+        "path": "ROADMAP.md",
+        "lines": 205,
+        "last_updated": "2026-05-10"
+      },
+      {
+        "path": "BACKLOG.md",
+        "lines": 467,
+        "last_updated": "2026-05-18"
+      },
+      {
+        "path": "QUESTIONS.md",
+        "lines": 179,
+        "note": "early-2026-05 era, mostly unupdated"
+      },
+      {
+        "path": "airbnb-cutover-handoff-cc.md",
+        "lines": 486
+      },
+      {
+        "path": "README.md",
+        "lines": 94
+      },
+      {
+        "path": "decisions/",
+        "count": 9,
+        "labels": "ADR-01..09 operational"
+      },
+      {
+        "path": "cc-instructions/",
+        "count": 7
+      },
+      {
+        "path": "cc-instructions-bot/",
+        "count": 10
+      },
+      {
+        "path": "cc-instructions-data/",
+        "count": 3
+      },
+      {
+        "path": "wc-instructions/",
+        "count": 2
+      },
+      {
+        "path": "templates/",
+        "count": 1
+      },
+      {
+        "path": "threads/",
+        "count": 209
+      },
+      {
+        "path": "reports/",
+        "count": 3,
+        "note": "+10 added by this audit"
+      }
+    ],
+    "rdm-platform": [
+      {
+        "path": "README.md"
+      },
+      {
+        "path": "STATE.md",
+        "last_updated": "2026-05-21"
+      },
+      {
+        "path": "decisions/ADR-001-platform-shift.md",
+        "status": "Accepted 2026-05-17"
+      },
+      {
+        "path": "decisions/ADR-002-foundations-seal.md",
+        "status": "Accepted 2026-05-20"
+      },
+      {
+        "path": "decisions/ADR-003-cron-strategy-plan-stance.md"
+      },
+      {
+        "path": "decisions/README.md"
+      },
+      {
+        "path": "foundations/00-platform-constraints.md"
+      },
+      {
+        "path": "foundations/F1-events-bus.md",
+        "implementation_status": "not implemented"
+      },
+      {
+        "path": "foundations/F2-observability.md",
+        "implementation_status": "not implemented"
+      },
+      {
+        "path": "foundations/F3-staff-pwa.md",
+        "implementation_status": "not implemented"
+      },
+      {
+        "path": "foundations/README.md"
+      },
+      {
+        "path": "vision/01-philosophy.md"
+      },
+      {
+        "path": "vision/02-wishlist.md"
+      },
+      {
+        "path": "modules/",
+        "count": 9,
+        "note": "all placeholders"
+      },
+      {
+        "path": "coordination/",
+        "files": [
+          "README.md",
+          "doit-template.md",
+          "roles-and-permissions.md"
+        ]
+      },
+      {
+        "path": "ideas/README.md"
+      },
+      {
+        "path": "work/wave-1-audit-fixes.md"
+      },
+      {
+        "path": "reports/",
+        "count": "platform audits"
+      }
+    ]
+  },
+  "contradictions": [
+    {
+      "id": "C1",
+      "topic": "STATE.md apps/ list vs filesystem",
+      "doc_a": "rdm-bot/STATE.md \u00a7A: 4 apps",
+      "doc_b": "filesystem: 5 apps (adds worker-feedback)",
+      "reconciliation": "update STATE.md \u00a7A + CLAUDE.md stack snapshot",
+      "severity": "low"
+    },
+    {
+      "id": "C2",
+      "topic": "Migration 0039 collision",
+      "doc_a": "rdm-bot/STATE.md \u00a7D/\u00a7G: claims 0039_audit_log + 0039_rules_link_clicks both pending and colliding",
+      "doc_b": "filesystem: 0039_audit_log + 0040_rules_link_clicks distinct; PR #140 renamed 2026-05-21",
+      "reconciliation": "remove \u00a7D collision row and \u00a7G outstanding decision",
+      "severity": "medium"
+    },
+    {
+      "id": "C3",
+      "topic": "VISION.md target apps vs current",
+      "doc_a": "VISION.md: 9 apps (site, bot, admin, api, pricing, webhooks, tours, disponibilidad, worker-pago)",
+      "doc_b": "filesystem: 5 apps (web, worker-bot, worker-feedback, worker-pago, worker-tours)",
+      "reconciliation": "VISION explicitly labels some Sprint 2-3-4; but `worker-feedback` not in VISION; rewrite VISION to reflect delivered shape or add 'as of 2026-05-22' note",
+      "severity": "medium"
+    },
+    {
+      "id": "C4",
+      "topic": "apps/admin PWA claimed by 5+ docs, never built",
+      "doc_a": "VISION.md, decisions/04, decisions/07, OPEN_QUESTIONS.md PR3 \u00a724",
+      "doc_b": "no apps/admin, admin pages under apps/web/src/pages/admin/, no manifest.json",
+      "reconciliation": "decide: rewrite docs or commit to building apps/admin",
+      "severity": "high"
+    },
+    {
+      "id": "C5",
+      "topic": "Two parallel decisions stores",
+      "doc_a": "rdm-discussion/decisions/01-09 operational",
+      "doc_b": "rdm-platform/decisions/ADR-001/002/003 architectural",
+      "reconciliation": "add doc explaining the split, or consolidate",
+      "severity": "medium"
+    },
+    {
+      "id": "C6",
+      "topic": "rdm-platform CC=RO boundary",
+      "doc_a": "rdm-platform/STATE.md \u00a7B: CC RO + feedback/ only",
+      "doc_b": "no feedback/ folder yet; bot/CLAUDE.md does not mention this boundary",
+      "reconciliation": "propagate to bot/CLAUDE.md or create platform/feedback/",
+      "severity": "medium"
+    },
+    {
+      "id": "C7",
+      "topic": "WC does not implement code",
+      "doc_a": "rdm-bot/STATE.md \u00a7E: WC NO implementa c\u00f3digo",
+      "doc_b": "rdm-bot/CLAUDE.md: not mentioned",
+      "reconciliation": "add to CLAUDE.md anti-patterns block",
+      "severity": "medium"
+    },
+    {
+      "id": "C8",
+      "topic": "STATE.md last deploys stale",
+      "doc_a": "rdm-bot/STATE.md \u00a7A: worker-pago last deploy 2026-05-12",
+      "doc_b": "PR #159 merged 2026-05-22 (thread/170 Telegram pago-notify)",
+      "reconciliation": "auto-update last-deploys via workflow or post-merge hook",
+      "severity": "low"
+    }
+  ],
+  "ficciones": [
+    {
+      "item": "scripts/new-thread.sh",
+      "referenced_in": [
+        "rdm-bot/CLAUDE.md L65,70,119,127",
+        "rdm-bot/.claude/settings.json L77"
+      ],
+      "actual_status": "does not exist",
+      "impact": "high",
+      "consequence": "22 thread number collisions"
+    },
+    {
+      "item": "scripts/next-thread-number.sh",
+      "referenced_in": [
+        "rdm-bot/.claude/settings.json L80"
+      ],
+      "actual_status": "does not exist",
+      "impact": "high"
+    },
+    {
+      "item": "apps/admin PWA",
+      "referenced_in": [
+        "VISION.md",
+        "decisions/04",
+        "decisions/07",
+        "OPEN_QUESTIONS.md PR3 \u00a724"
+      ],
+      "actual_status": "does not exist; admin pages are inside apps/web",
+      "impact": "medium"
+    },
+    {
+      "item": "migrations/0042_cron_heartbeats.sql",
+      "referenced_in": [
+        "rdm-platform/foundations/F2-observability.md \u00a73.3"
+      ],
+      "actual_status": "0042 in workspace is feedback_system (thread/161); cron_heartbeats not created",
+      "impact": "medium",
+      "consequence": "F2 spec needs migration number remap before ship"
+    },
+    {
+      "item": "packages/shared/src/metrics.ts",
+      "referenced_in": [
+        "F2 \u00a73.2 spec block"
+      ],
+      "actual_status": "does not exist",
+      "impact": "medium",
+      "note": "F2 not implemented; spec is the deliverable"
+    },
+    {
+      "item": "packages/shared/src/alerts.ts",
+      "referenced_in": [
+        "F2 \u00a73.5"
+      ],
+      "actual_status": "does not exist",
+      "impact": "medium"
+    },
+    {
+      "item": "packages/shared/src/cron-heartbeat.ts",
+      "referenced_in": [
+        "F2 \u00a73.3"
+      ],
+      "actual_status": "does not exist",
+      "impact": "medium"
+    },
+    {
+      "item": "cron_heartbeats D1 table",
+      "referenced_in": [
+        "F2 \u00a73.3"
+      ],
+      "actual_status": "does not exist in any migration",
+      "impact": "medium"
+    },
+    {
+      "item": "WAE binding METRICS in workers",
+      "referenced_in": [
+        "F2 \u00a73.2"
+      ],
+      "actual_status": "not in apps/worker-*/wrangler.toml",
+      "impact": "medium"
+    },
+    {
+      "item": "F1 events bus implementation",
+      "referenced_in": [
+        "rdm-platform/foundations/F1-events-bus.md"
+      ],
+      "actual_status": "not implemented",
+      "impact": "expected",
+      "note": "pre-ship spec"
+    },
+    {
+      "item": "F3 staff PWA shell",
+      "referenced_in": [
+        "rdm-platform/foundations/F3-staff-pwa.md"
+      ],
+      "actual_status": "not implemented",
+      "impact": "expected"
+    },
+    {
+      "item": "rdm-platform/foundations/00-charter.md",
+      "referenced_in": [
+        "rdm-platform/STATE.md \u00a7A"
+      ],
+      "actual_status": "does not exist (tracked as pending)",
+      "impact": "low"
+    },
+    {
+      "item": "apps/pricing, apps/api, apps/webhooks, apps/disponibilidad",
+      "referenced_in": [
+        "VISION.md \u00a7Apps"
+      ],
+      "actual_status": "do not exist",
+      "impact": "low",
+      "note": "VISION labels them Sprint 2-3-4"
+    },
+    {
+      "item": "packages/beds24, packages/pricing-agent, packages/ui",
+      "referenced_in": [
+        "VISION.md packages diagram"
+      ],
+      "actual_status": "do not exist as separate packages",
+      "impact": "low"
+    },
+    {
+      "item": "apps/web/public/manifest.json",
+      "referenced_in": [
+        "OPEN_QUESTIONS.md PR3 \u00a724 (claimed shipped)"
+      ],
+      "actual_status": "does not exist",
+      "impact": "low",
+      "note": "sw.js does exist"
+    }
+  ],
+  "decisions_not_propagated": [
+    "ADR-001 platform shift -> partial; rdm-discussion/STATE.md \u00a7C cites, does not summarize",
+    "ADR-002 foundations seal -> partial; rdm-bot/STATE.md \u00a7G refs threads but not ADR-002 number",
+    "ADR-003 cron strategy -> not mentioned in either STATE.md",
+    "F2 ships first (ADR-002 \u00a72) -> not in rdm-bot/STATE.md as sealed",
+    "WAE primary metric sink decision (F2 \u00a73.2) -> not in CLAUDE.md anti-patterns",
+    "WC does not implement code (2026-05-19 Alex) -> rdm-bot/CLAUDE.md missing",
+    "CC=RO in rdm-platform -> partial; rdm-bot/CLAUDE.md does not say so explicitly",
+    "Q3 voto Casa Cham\u00e1n -> aligned but not formalized in STATE",
+    "Q4 ranking (operativo->foundations->M1-M5) -> not in any STATE.md or ADR"
+  ],
+  "vision_reality_drift": [
+    {
+      "component": "apps/site rename",
+      "vision": "rename apps/web -> apps/site",
+      "reality": "still apps/web",
+      "gap": "cosmetic only"
+    },
+    {
+      "component": "apps/admin PWA",
+      "vision": "Sprint 2 separate Worker",
+      "reality": "pages inside apps/web",
+      "gap": "fundamental drift, never closed"
+    },
+    {
+      "component": "Stage 2 WA Cloud API",
+      "vision": "Fase 3 mes 3-4",
+      "reality": "ManyChat BSP only",
+      "gap": "on roadmap"
+    },
+    {
+      "component": "apps/pricing Worker cron",
+      "vision": "Sprint 3",
+      "reality": "not implemented",
+      "gap": "on roadmap"
+    },
+    {
+      "component": "apps/webhooks centralized",
+      "vision": "Sprint 3",
+      "reality": "logic split across worker-pago + worker-bot",
+      "gap": "drift, not done"
+    },
+    {
+      "component": "Better Auth",
+      "vision": "extend",
+      "reality": "LIVE",
+      "gap": "aligned"
+    },
+    {
+      "component": "PriceLabs $100/mes",
+      "vision": "decisions/03 buy",
+      "reality": "custom agent kept",
+      "gap": "revised, decision ADR not updated"
+    },
+    {
+      "component": "Monorepo Turborepo+pnpm",
+      "vision": "decisions/01",
+      "reality": "LIVE",
+      "gap": "aligned"
+    },
+    {
+      "component": "F1 events bus",
+      "vision": "spec only",
+      "reality": "matches",
+      "gap": "aligned (negative)"
+    },
+    {
+      "component": "F2 observability",
+      "vision": "ADR-002 Accepted, CC will ship",
+      "reality": "not started",
+      "gap": "ADR acceptance != implementation"
+    },
+    {
+      "component": "F3 staff PWA",
+      "vision": "spec only",
+      "reality": "matches",
+      "gap": "aligned (negative)"
+    },
+    {
+      "component": "Stage 1 ManyChat BSP",
+      "vision": "yes",
+      "reality": "yes",
+      "gap": "aligned"
+    },
+    {
+      "component": "5 propiedades + Casa Cham\u00e1n Q3 2026",
+      "vision": "yes",
+      "reality": "yes",
+      "gap": "aligned"
+    },
+    {
+      "component": "5 cron triggers (worker-pago)",
+      "vision": "acknowledged",
+      "reality": "yes (CF Free 5-cron cap reached)",
+      "gap": "aligned"
+    },
+    {
+      "component": "Telegram alerts",
+      "vision": "informal",
+      "reality": "LIVE via worker-pago notifications (PR #159)",
+      "gap": "shipped, not in VISION"
+    },
+    {
+      "component": "audit_log table",
+      "vision": "n/a",
+      "reality": "LIVE (migration 0039)",
+      "gap": "not in VISION, semantic boundary clarified by F2 spec"
+    }
+  ],
+  "decisions_status_check_rdm_discussion": [
+    {
+      "adr": "01-monorepo-structure",
+      "status": "LIVE / Accepted-de-facto"
+    },
+    {
+      "adr": "02-channel-strategy",
+      "status": "LIVE Stage 1; Stage 2 not started"
+    },
+    {
+      "adr": "03-pricing-agent",
+      "status": "REVISED / Rejected \u2014 PriceLabs not bought, custom kept; ADR not updated"
+    },
+    {
+      "adr": "04-admin-board",
+      "status": "PARTIAL / drift \u2014 admin in apps/web, no apps/admin"
+    },
+    {
+      "adr": "05-auth-magic-link",
+      "status": "LIVE \u2014 Better Auth in prod"
+    },
+    {
+      "adr": "06-future-modules",
+      "status": "superseded by rdm-platform vision/02-wishlist.md + modules/"
+    },
+    {
+      "adr": "07-pwa-mobile",
+      "status": "PARTIAL \u2014 sw.js but no manifest, no install prompt"
+    },
+    {
+      "adr": "08-orchestration",
+      "status": "PARTIAL \u2014 Make sunset in progress, no Workflows in wrangler.toml"
+    },
+    {
+      "adr": "09-bots-llm-architecture",
+      "status": "LIVE \u2014 Greeter/Booker shipped"
+    }
+  ]
+}
