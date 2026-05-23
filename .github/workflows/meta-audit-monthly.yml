@@ -1,0 +1,57 @@
+name: META audit monthly
+
+on:
+  schedule:
+    # First Sunday of every month at 06:00 UTC
+    - cron: '0 6 1-7 * 0'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run — generate report but do not commit'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  meta-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout rdm-discussion
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Clone rdm-bot (shallow)
+        run: |
+          git clone --depth=1 https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/alexanderhorn6720/rdm-bot.git /tmp/rdm-bot
+
+      - name: Run META audit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RDMBOT_DIR: /tmp/rdm-bot
+          REPORT_DIR: reports
+        run: |
+          chmod +x scripts/meta-audit.sh
+          bash scripts/meta-audit.sh
+
+      - name: Upload report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: meta-audit-report-${{ github.run_id }}
+          path: reports/*-META-monthly.md
+          retention-days: 90
+
+      - name: Commit report to main
+        if: ${{ inputs.dry_run != true }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/*-META-monthly.md
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "chore(reports): META audit monthly $(date +%Y-%m-%d) [skip ci]"
+          git push origin main
