@@ -39,6 +39,8 @@ Thread/146 §F1.Q1 + §F (Convergence table) corrected the premise by reading `a
 
 WC-Impl: when revising your operational picture going forward, please verify wrangler.toml state via MCP rather than assuming. Same lesson I'm learning when WC-Platform invented gaps that didn't exist (per the spec-rewrite earlier in this conversation).
 
+**Update 2026-05-24**: Alex upgraded the WHOLE account to Workers Paid plan ($5/mo) during F2 pre-flight execution (see §H below). Worker-bot can now use native crons too, eliminating the GH Actions workaround mentioned above. F1 dispatcher can definitively use native cron on worker-pago.
+
 ---
 
 ## §C · What happens next
@@ -203,3 +205,46 @@ CC: begin F2 Day 1 when (a) WC-Platform spec revisions land in rdm-platform main
 **Signed**: Alex, 2026-05-20
 
 via WC-Platform on behalf, with explicit Alex approval on all 12 items per session 2026-05-20.
+
+---
+
+## §H · Pre-flight F2 COMPLETE (2026-05-24, via WC-web)
+
+Alex executed pre-flight checklist in real-time session with WC-web. Result: all 6 steps satisfied, with deviations from original spec noted below. Audit trail in `thread/190` (WC MCP audit) + `thread/194` (CC wrangler CLI supplement) + this section.
+
+### Step-by-step result
+
+| # | Spec Step | Status | Actual outcome |
+|---|---|---|---|
+| 1 | Create R2 bucket `rdm-logs` | ✅ DONE (pre-existing 2026-05-21) | Bucket already existed from earlier work. **Deviation**: Logpush wizard created additional `cloudflare-managed-90a63a4b` bucket via one-click setup (Mar 2025 feature). F2 spec §3.1 path reference needs update to point to the auto-managed bucket. |
+| 2 | R2 lifecycle 90d | ✅ DONE 2026-05-24 | Applied `delete-logs-after-90d` rule on `cloudflare-managed-90a63a4b` bucket (the active Logpush destination). Note: `rdm-logs` bucket from original spec is now unused, free for other purposes. |
+| 3 | Logpush job 4 workers → R2 | ✅ DONE 2026-05-24 | Created via Logpush wizard one-click setup. Dataset: Workers Trace Events. Destination: R2 `cloudflare-managed-90a63a4b`. Folder organization: daily subfolders (e.g. `20260524/`). Logs flowing within minutes of creation. |
+| 4 | TG channels critical + warning | ✅ DECIDED Opción 1 | Alex chose to **reuse 1 existing Telegram channel** with severity prefix emoji (🚨 for critical, ⚠️ for warning) instead of splitting into 2 channels. Mitigation: F2.1 micro-spec can split later if warning volume becomes noise (~30 min CC work). F2 spec §3.5 `notifyOps()` helper requires minor update to use single `TG_BOT_TOKEN` + `TG_CHAT_ID_ALERTS`. |
+| 5 | TG bot tokens as secrets | ✅ REUSE existing | `TG_BOT_TOKEN` already provisioned on worker-bot AND worker-pago (per thread/194 §A.3 CC audit). No new secrets needed. With single-channel decision from Step 4, `TG_CHAT_ID_ALERTS` is the only secret needed if not already present (CC verifies during F2 Day 1). |
+| 6 | CF_API_TOKEN scope Analytics:Read | ✅ DONE 2026-05-24 | Created custom API token `rdm-analytics-read` with single permission `Account → Account Analytics → Read`. TTL: forever. Provisioned via `wrangler pages secret put CF_API_TOKEN --project-name rincondelmar-bot`. Confirmed in `wrangler pages secret list` output. |
+| 7 | Verify R2 receiving 24h post-deploy | ⏳ PENDING | Standard post-deploy eyeball check. Not blocking F2 Day 1. |
+
+### Additional pre-flight outcomes (not in original checklist)
+
+| Item | Status | Notes |
+|---|---|---|
+| **Workers Paid plan upgrade** | ✅ DONE 2026-05-24 | Alex upgraded account from Workers Free to Workers Paid ($5/month) to enable Logpush. **Side benefits**: unlimited cron triggers (vs 5 cap), Service Bindings now available (F1 §3.4 unblocked), 50ms CPU per request (vs 10ms). This eliminates the GH Actions workaround referenced in §B for worker-bot crons — F1 dispatcher can use native cron on worker-pago. |
+| **Yolo B Liberal settings.json** | ✅ DONE 2026-05-24 | Applied across rdm-bot, rdm-discussion, rdm-platform repos. Active for next CC sessions. Deny list preserved for destructive operations (rm -rf, force-push, wrangler delete, DROP/TRUNCATE/DELETE FROM, .env/.ssh files). |
+| **PR #18 (F1 spec) merged** | ✅ 2026-05-24 | Alex vote applied: NNNN placeholder + dual-path soak + cron count verification. WC-Platform follow-up: §6 patch to canonical F1 spec in rdm-platform. |
+| **PR #19 (F3 spec) merged** | ✅ 2026-05-24 | Alex vote applied: separate user_roles table + VAPID rotation + `/yo/instalar` page + Alex coordinates Karina re-login in person (NOT 24h pre-deploy comms). WC-Platform follow-up: §7 patch to canonical F3 spec in rdm-platform. |
+
+### Open spec amendments for WC-Platform to apply post-pre-flight
+
+1. **F2 §3.1**: Update Logpush destination from `rdm-logs` → `cloudflare-managed-90a63a4b` (or note "destination bucket auto-managed by CF Logpush wizard, name varies"). 
+2. **F2 §3.5 + §6.4/5**: Update Telegram routing to use single `TG_BOT_TOKEN` + `TG_CHAT_ID_ALERTS` with severity prefix emoji, per Alex Opción 1 decision. Drop `TG_BOT_TOKEN_CRITICAL/WARNING` + 2-channel split. F2.1 micro-spec can split later if needed.
+3. **F1 §3.1**: Per Workers Paid upgrade, dispatcher can use native cron on worker-pago without GH Actions workaround. Spec already targets worker-pago — confirm and remove any "if Workers Free" conditionals.
+
+These amendments are non-blocking for F2 Day 1. CC works against amended spec; WC-Platform applies in parallel or post-merge.
+
+### Trigger CC
+
+✅ **All blockers cleared. CC: begin F2 Day 1 when next session opens.** Yolo B Liberal active in next `claude` launch — CC executes autonomous without per-bash prompts.
+
+Per §G #c "PR queue cleared (WC-Impl signals)": PR #114 needs migration fix (~10 min CC) before merge, but does NOT block F2 ship (separate territories). PR #130 + #159 cleared via Run 184 reviews (threads 192, 193 GREEN). Recommendation: CC F2 Day 1 starts immediately; PR #114 fix can run in parallel worktree.
+
+**Signed**: Alex, 2026-05-24 (executed live with WC-web in interactive session)
