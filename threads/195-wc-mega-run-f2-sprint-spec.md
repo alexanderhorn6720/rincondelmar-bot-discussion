@@ -4,17 +4,45 @@ author: WC (web)
 date: 2026-05-24
 topic: mega-run-F2-sprint-spec
 mode: brain-deep
-status: live-spec-open-for-execution
+status: SUPERSEDED
+superseded_by: 209
+superseded_on: 2026-05-24
+superseded_reason: thread/197 declared F2 postponed +1 semana post-inbox-ship + 8 GAPs técnicos materiales identified
 related:
-  - thread/148 §H (pre-flight F2 complete trigger)
-  - thread/184 (Run 184 spec — pattern source)
-  - thread/189 (Run 184 retrospective)
-  - thread/190 (WC MCP audit)
-  - thread/194 (CC wrangler CLI supplement)
-  - rdm-platform/foundations/F1-events-bus.md
-  - rdm-platform/foundations/F2-observability.md
-  - rdm-platform/foundations/F3-staff-pwa.md
-tags: [mega-run, F2, autonomous, multi-cc, yolo, foundations-sprint]
+  - thread/148 §H (pre-flight F2 complete trigger — work NOT lost)
+  - thread/197 (F2 postpone declaration)
+  - thread/204 (parallel WC brain ultra del inbox)
+  - thread/209 (audit + handoff doc explaining supersede)
+tags: [mega-run, F2, autonomous, multi-cc, yolo, foundations-sprint, SUPERSEDED]
+---
+
+# ⚠️ THIS SPEC IS SUPERSEDED — DO NOT EXECUTE
+
+> **Status**: `SUPERSEDED` por thread/209 el 2026-05-24.
+>
+> **NO PEGAR los 4 prompts copy-paste** que aparecían en respuesta WC misma sesión.
+> Si los necesitas, requieren amendments (ver thread/209 §3 — 8 GAPs técnicos identified).
+>
+> **Por qué SUPERSEDED**:
+> 1. **thread/197** (creado mismo día 2026-05-24 por otro WC paralelo) postpuso F2 +1 semana
+> 2. **Inbox redesign shipped** (PR #167+#168+#169) consume prioridad operativa hoy
+> 3. **8 GAPs técnicos materiales**: spec asume estado del repo distinto a realidad
+>    (migration 0042 ya consumida, /admin/health ya tiene 5+ panels, heartbeat ya implementado via bot_config per ADR-003 §2.4, bucket Logpush distinto, TG single channel, Workers Paid plan activo, etc)
+>
+> **Lee thread/209** para handoff completo con audit + estado real del sistema.
+>
+> **Pre-flight F2 work NO se pierde** — Workers Paid + Logpush + CF_API_TOKEN están provisioned y funcionando (thread/148 §H). Sólo se postpone ejecución del worker-side ship.
+>
+> **Para retomar F2 cuando ventana se abra** (~+1 semana post inbox stabilization):
+> - Aplicar amendments al spec F2 §3.1 + §3.5 per thread/148 §H §H.3 (bucket name + single TG channel)
+> - Aplicar amendments al spec F2 §3.3 per ADR-003 §2.4 (heartbeat reuse `bot_config`, NOT new migration)
+> - Update ADR-003 §2.3 stance (Workers Paid now active)
+> - Regenerar PROMPT A (Worktree A) reflejando que /admin/health EXTEND no greenfield
+
+---
+
+> El contenido original del spec se preserva debajo de la línea como audit trail histórico, NO como instrucción ejecutable.
+
 ---
 
 # Mega-run 195 — F2 Foundations Sprint + parallel work
@@ -329,3 +357,7 @@ Cuando los 3-4 worktrees reporten done:
 ---
 
 **Signed**: WC (web), 2026-05-24 — autorización Alex para arrancar mega-run pendiente.
+
+---
+
+> **⚠️ REMINDER: ESTE SPEC ES SUPERSEDED por thread/209 (2026-05-24). NO EJECUTAR. Lee thread/209 para handoff completo.**
