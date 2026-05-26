@@ -83,7 +83,6 @@ Flujo típico: `brain → spec → DoIt → verify`.
 - ❌ Auto-merge PRs a main sin Y/N
 - ❌ Force-push, delete branches, drop databases (DENIED en autonomy config)
 - ❌ Promote a producción sin smoke test
-- ❌ Casa Chamán visible en Greeter prompt antes de Q3 renovation
 
 ---
 

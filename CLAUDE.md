@@ -130,8 +130,6 @@ node --test scripts/tests/test_validate_threads.mjs
 ## Anti-patterns (do NOT do)
 
 - **NO LLM money decisions** — CC nunca toma decisiones económicas autónomas. Toda decisión de precio, fee, descuento requiere Alex o spec aprobada (ADR-001).
-- **Casa Chamán NO en Greeter** — roomId 679176 invisible en prompts guest-facing hasta Q3 2026 renovation. OK en contexto admin interno.
-- **Pet fee: `/estancia` NEVER `/noche`** — $300 MXN max 2 mascotas POR ESTANCIA, no por noche.
 - **Beds24 sync mode: Prices&Availability ONLY** — NEVER "Everything". Multiplier 1.25, horizon 365d.
 - Commits with secrets in plaintext
 - ALTER TABLE during multi-agent execution
