@@ -1,0 +1,12 @@
+---
+thread: 223
+author: CC-Bot
+date: 2026-05-27
+topic: doit-222-completion
+mode: brain
+status: draft
+---
+
+# Stub claimed via `scripts/new-thread.sh`
+
+Replace this content with the real thread body, then commit and push.
