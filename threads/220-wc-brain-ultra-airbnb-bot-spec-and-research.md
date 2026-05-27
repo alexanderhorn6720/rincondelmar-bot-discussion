@@ -2,11 +2,11 @@
 id: 220
 author: wc
 topic: airbnb-inquiry-bot-spec-and-customer-management-brain-ultra
-status: draft
+status: ready-for-doit
 mode: brain-ultra
 created_at: 2026-05-27
 updated_at: 2026-05-27
-revision: 2
+revision: 3
 references:
   - threads/33-guest360-architecture-phase-b-plan.md
   - threads/35-cc-templates-system-for-wc.md
@@ -25,75 +25,66 @@ estimated_effort: 24-32h CC + 4-6h Alex/Karina (templates) + canary 2-3 semanas
 
 # thread/220 — Brain ultra: Airbnb Inquiry Bot + Customer Management
 
-> **Status:** Draft autónomo escrito mientras Alex duerme. Producto de ~6h de discovery + 2h de research + 1h de spec writing.
+> **Status:** REV 3 — Ready for DoIt CC. Arquitectura cerrada post-feedback Alex.
 >
-> **REV 2 (post-feedback Alex):** corrección importante sobre `payload.booking.price`. Ver §0.1 abajo.
->
-> **Lectura sugerida desayuno:** §0 TL;DR (5 min) → §0.1 Corrección precio (2 min) → §1 Hallazgo principal (5 min) → §3 Spec PR1-PR3 (15 min) → §5 Decisión bot único vs separado (10 min) → §7 Creatividad (10 min). Total ~45 min lectura mobile.
+> **Changelog:** REV 1 = brain ultra inicial. REV 2 = corrección precio. **REV 3 = arquitectura webhook+debounce+pause cerrada.**
 
 ---
 
 ## §0 · TL;DR ejecutivo
 
-**El estado actual:** Beds24 recibe inquiries Airbnb perfectamente (90 en últimas semanas, última hace 3h). El sistema D1 las almacena en `beds24_events` con `status='inquiry', action_taken='skipped_inquiry'`. **El bot las ve y NO hace nada** — el guest queda esperando respuesta de Alex/Karina manual.
+**El estado actual:** Beds24 recibe inquiries Airbnb perfectamente (90 en últimas semanas). El sistema D1 las almacena en `beds24_events`. **El bot las ve y NO hace nada** — guest queda esperando respuesta de Alex/Karina manual.
 
-**Lo que sorprendió en discovery:** 70% de la infraestructura ya existe.
+**70% de la infraestructura ya existe.** El gap real son ~12-16h CC para el orchestrator.
 
-| Componente | Status |
-|---|---|
-| Beds24 webhook inquiries | ✅ LIVE |
-| `beds24_events` table con `status='inquiry'` | ✅ LIVE, 90 rows |
-| `bot_messages_inbox` con mensaje del guest | ✅ LIVE, 216 guest msgs |
-| Template placeholders system + R2 storage | ✅ LIVE (Phase B.0.5) |
-| `airbnb_inquiry_unconfirmed` lifecycle stage | ✅ LIVE en `/admin/inbox` |
-| Karina sees inquiries en su tab | ✅ LIVE |
-| Suggest-reply prompt para Karina | ✅ LIVE |
-| `messenger_outbound` audit + feature flag global | ✅ LIVE (OFF) |
-| Pre-stay scan + welcome touchpoints | ✅ LIVE (OFF) |
-| Phase B.2 inquiry response template **handler** | 🔴 **NO EXISTE** ← el gap real |
-| `MESSENGER_OUTBOUND_ENABLED='true'` en prod | 🔴 **OFF** (kill switch) |
+**Arquitectura cerrada (REV 3):**
 
-**El gap real es pequeño:** falta el handler que dispare cuando `beds24_events.status='inquiry'` aterriza, lea KB + template R2, genere respuesta híbrida (template fijo + pregunta dinámica), envíe vía `sendMessageRouted`. ~12-16h CC.
+1. **Bot único** con context switch por canal
+2. **Webhook push + 5min debounce window** (reset on update si guest manda más msgs)
+3. **Cron `*/5min` existente reutilizado** (NO agregar 5to cron)
+4. **Human pause time-based 1h:** si Karina/Alex respondió, bot pausa. Si no hay más mensajes humanos en 1h, bot retoma
+5. **PR1 → PR2 → PR3** en 4-6 semanas, canary scaling
 
-**Lo segundo (lifecycle bot post-booking):** ya está construido pero **dormido**. Activar `MESSENGER_OUTBOUND_ENABLED='true'` con canary tight es el verdadero deploy. ~2h CC + 2-3 semanas canary.
-
-**Recomendación voto WC preliminar:**
-1. **Bot único** con context switch por canal (Airbnb / WhatsApp / direct), NO bots separados
-2. **PR1 inmediato:** infra inquiry-response (approval mode + audit + canary 0%)
-3. **PR2 +1 semana:** templates Phase B.2 enriched + canary 10% → 100%
-4. **PR3 +2 semanas:** activar lifecycle post-booking (welcome → pre-stay → post-stay)
-
-**Costo estimado:** 24-32h CC, $5-15 USD Anthropic API canary, riesgo bajo (approval mode + canary scaling).
+**Costo:** 24-32h CC, <$5/mes Anthropic, riesgo bajo.
 
 ---
 
 ## §0.1 · 🔴 CORRECCIÓN REV 2 — `payload.booking.price` NO es lo que ve el guest
 
-**Alex flagged correctamente** (mensaje 2026-05-27, post-thread/220 push): el `price` en payload Beds24 es **meta revenue NET** (lo que cobra Alex después de commission Airbnb + taxes que el guest paga). **NO** es el "Total" que ve el guest en el botón de Airbnb.
+El `price` en payload Beds24 es **meta revenue NET** (lo que cobra Alex después de commission Airbnb + taxes guest paga). **NO** es el "Total" del botón Airbnb.
 
-**Verificado con D1 query:**
+**Verificado con D1:**
 
 | Tipo evento | `price` | `commission` | Interpretación |
 |---|---|---|---|
-| Inquiry Ana Karen | $28,789.02 | 0 (no detail) | NET (sin desglose en inquiry) |
-| Booking confirmado | $6,117.84 | $948.27 | NET + commission por separado |
-| Lo que ve el guest | **NO viene** en payload | — | Airbnb suma commission + service fee + taxes locales encima |
+| Inquiry Ana Karen | $28,789.02 | 0 | NET sin desglose |
+| Booking confirmado | $6,117.84 | $948.27 | NET + commission separado |
+| Lo que ve el guest | **NO viene** | — | Service fee + taxes locales NO en payload |
 
-**Implicación crítica para el spec:**
+**Implicación:** bot NUNCA muestra número MXN. Lenguaje canónico: "la tarifa que ya viste en Airbnb...".
 
-1. **NO podemos mostrar un número** en el mensaje del bot porque no tenemos el "total guest" — lo único que tenemos es nuestro net.
-2. **NO recalculamos tampoco** — fórmula commission/service fee/tax varía por país, modo de reserva, fechas.
-3. **Lenguaje correcto en template:** "la tarifa que ya viste en Airbnb..." (sugerencia textual de Alex).
+---
 
-**Cambios en spec (aplicados en REV 2):**
+## §0.2 · 🟢 ARQUITECTURA CERRADA REV 3 — webhook + debounce + 1h pause
 
-- §2 ajustada: la tabla "Lo que detecta el sistema" ahora dice "NO tenemos el total que ve el guest, solo nuestro net" en lugar de declarar `price` como "número EXACTO que ve el guest".
-- §3.2 template RdM ES: removido `{airbnbPriceMxn}` placeholder con número. Reemplazado por frase "la tarifa que ya viste en Airbnb (ya incluye comisiones y taxes)".
-- §3.2 decisiones cerradas: agregada "**NO mostrar números de precio en mensajes**".
-- §3.2 eval iq008 (precio explícito): expectation ajustada — bot NO menciona número, dice "la tarifa que ya viste en Airbnb cubre la villa completa".
-- §11 risks: agregado risk "Bot muestra precio incorrecto" con mitigation "nunca mostrar número, solo referencia al que ya vio".
+**Decisiones de Alex (2026-05-27):**
 
-**Por qué importa:** si bot dice "$28,789" y guest ve "$35,000" en Airbnb (porque incluye commission + taxes), guest piensa que bot está mal informado o engaña. Reputation hit.
+| # | Decisión | Valor | Razón |
+|---|---|---|---|
+| 1 | Trigger | **Webhook push + 5min debounce** | Industry standard (Hostaway, Hospitable, Uplisting). Captura 70% bursts (data D1) |
+| 2 | Skip si host respondió | **Sí + audit** | Industry standard, evita doble respuesta |
+| 3 | Human pause logic | **Time-based 1h** | "Si Karina/Alex respondió, bot pausa 1h. Si no hay más mensajes humanos en 1h, bot retoma normal." Pragmatic, simple, sin LLM extra call |
+| 4 | Cron strategy | **Reutilizar `*/5min` existente** | NO agregar 5to cron. Unified worker pattern |
+| 5 | Backup sweep | **Cada 3ra ejecución (`*/15min`)** | Defense in depth si webhook se pierde |
+
+**Reasoning H2 1h pause vs H3 LLM re-eval:**
+- Alex constraint: "Realmente no quiero que Kari y yo intervengan, serían excepciones por mensajes críticos"
+- Por lo tanto: cuando hay intervención humana, es rara y específica
+- H2 1h: simple, predecible, sin LLM extra call
+- Si guest sigue conversación 1h+ después → bot retoma (asume host no estaba siguiendo)
+- Si guest sigue conversación en <1h → respeta intervención activa de Karina
+
+**Industry validation:** Uplisting docs textuales: "Some members prefer to delay up to 60 minutes to allow them to respond manually." Hospitable: "If you have a delay on your message, and you manually replied before the scheduled send time, we will not send it."
 
 ---
 
@@ -101,169 +92,272 @@ estimated_effort: 24-32h CC + 4-6h Alex/Karina (templates) + canary 2-3 semanas
 
 ### Plan original B.2 (thread/33, mayo 12) → estado actual
 
-El thread/33 detalló Phase B.2 con 16h CC estimadas para inquiry auto-respond + follow-ups. Lo que se construyó vs lo que falta:
+El thread/33 detalló Phase B.2 con 16h CC estimadas. Lo que se construyó vs lo que falta:
 
 | Sub-task del plan B.2 | Status |
 |---|---|
 | Migrations 0014-0017 (guests + leads + bookings + guest_events) | ✅ aplicadas |
-| Lead ingestion handler (classify + match phone/email) | ⚠️ parcial — `bot_messages_inbox` recibe pero no crea leads automáticos |
+| Lead ingestion handler | ⚠️ parcial — `bot_messages_inbox` recibe pero no crea leads automáticos |
 | Auto-respond inquiry handler | 🔴 NO existe |
-| Template R2 `inquiry-welcome-<roomId>.md` | 🔴 NO existe en R2 (estructura sí, contenido no) |
-| AI question detection (top FAQs) | ⚠️ existe `admin-suggest-reply.ts` (manual) |
+| Template R2 `inquiry-welcome-<roomId>.md` | 🔴 NO existe en R2 |
+| AI question detection | ⚠️ existe `admin-suggest-reply.ts` (manual) |
 | Auto follow-ups cron (T+3, T+7, T+14) | 🔴 NO existe |
 | Pre-approval detection | 🔴 NO existe |
 
-**Diagnóstico:** B.2 quedó "pausado a 70% completion" — la infra del lado D1 y stages está lista, falta solo el orchestrator.
-
-### Por qué nunca se completó
-
-Memoria de proyecto sugiere 3 razones:
-1. **Mayo 13-14**: focus pivotó a templates editor (B.0.5) que tomó 3 PRs
-2. **Mayo 16-20**: focus pivotó a thread/107 (inquiries auto-close) y thread/89 (event bus)
-3. **Mayo 21-26**: focus en thread/196 (inbox redesign) y thread/217 (Greeter v7.1)
-
-Es scope creep clásico. Cada pivote justificable individualmente; el resultado es que B.2 nunca llegó a producción.
-
-### Por qué AHORA es el momento
-
-- Tenés data real: 90 inquiries reales, 25 conversiones, tasa ~28% (industry baseline)
-- KB enriched está listo (thread/217 lo dejó al 98.5% eval)
-- Sitio nuevo `/comparar-casas` + `/disponibilidad` da donde mandar a leads
-- `MESSENGER_OUTBOUND_ENABLED` es kill switch existente — se puede deploy seguro
-- El template current de Alex (template "1" del JSON) ya es buena base — solo necesita enrichment
+**Diagnóstico:** B.2 quedó "pausado a 70% completion". Falta solo el orchestrator.
 
 ---
 
 ## §2 · Discovery summary — la inquiry de Ana Karen como caso real
 
-Anchor del análisis: la inquiry recibida hace 3h. Sirve como caso de prueba para validar diseño.
+Booking ID 87381196, RoomId 78695 (RdM), 16 adultos, arrival 2026-08-21. Guest: "Ana Karen". `lang: 'en'` pero escribió ES.
 
-### Lo que llegó
+**Precio:** `price: 28789.02` (net Alex). Total que ve el guest NO viene.
 
-Booking ID 87381196, RoomId 78695 (Rincón del Mar), inquiry status, 16 adultos, arrival 2026-08-21, departure 2026-08-23. Guest: "Ana Karen". Lang declared: `en` pero escribió en ES.
+Mensaje guest: "Hola Alexander, estoy interesada en la renta de este lugar vi que ofrecen servicio de chef ¿el costo total incluye los víveres para la comida?"
 
-**🔴 Precio (corrección REV 2):** Payload trae `price: 28789.02` que es **el net revenue de Alex** (después de commission Airbnb + taxes guest). **NO es el total que ve el guest** en el botón Airbnb — eso suma service fee Airbnb + taxes locales encima, y NO viene en el payload Beds24.
-
-En inquiry NO hay desglose adicional. En booking confirmado sí aparece `commission` (ej: $948.27 separado de $6,117.84 price).
-
-Mensaje del guest: "Hola Alexander, estoy interesada en la renta de este lugar vi que ofrecen servicio de chef ¿el costo total incluye los víveres para la comida?"
-
-### Lo que respondió Alex 2h después
-
-Template "1 - RdM completa - hasta 16" del JSON canonical, ~1688 chars. Sustituyó manualmente "Nombre del viajero" → "Ana Karen". El template **NO responde a su pregunta específica** sobre víveres — Alex respondió eso al final, pegado al template.
-
-Tiempo total: 2h 8min. Para Airbnb response rate metric, está bajo el threshold de 24h pero arriba del "golden hour" (<1h) que correlaciona con +25% conversión.
+**Alex respondió 2h después.** Industry data: <1h response = +25% conversion. Target post-PR2: <5 min.
 
 ### Lo que detecta el sistema actual
 
 | Campo | Sistema sabe | Comentario |
 |---|---|---|
-| Es inquiry, no booking | ✅ | `status='inquiry'`, action `skipped_inquiry` |
-| Villa específica | ✅ | `roomId=78695` → Rincón del Mar |
-| Tamaño grupo (16) | ✅ | Trigger automático `extra-guests` capture (≥16 RdM/Morenas/Combinada) |
-| Pregunta concreta del huésped | ⚠️ texto presente | NO parseado para topic extraction |
-| Idioma real del huésped | ❌ | `lang='en'` mintió, Ana escribió en ES |
-| **Precio que ve el guest en Airbnb** | ❌ | **NO viene en payload.** Lo único disponible es `price` = net revenue Alex. **El "total guest" (con service fee + taxes) NO se recibe.** |
-
-### Lo que falta para responder bien
-
-Tres capacidades faltantes:
-1. **Trigger:** handler que escuche `beds24_events.status='inquiry'` con idempotencia
-2. **Composer:** template fijo + Haiku parseando pregunta del guest + respuesta híbrida
-3. **Sender:** `sendMessageRouted` con channel='airbnb' + `apiReference` para conversation threading
-
-Todas son fáciles individualmente. Lo difícil es el **diseño del composer** — qué partes son fijas, qué son dinámicas, cuándo escalar a humano. Eso es §3.
+| Es inquiry, no booking | ✅ | `status='inquiry'` |
+| Villa específica | ✅ | `roomId=78695` → RdM |
+| Tamaño grupo (16) | ✅ | Trigger `extra-guests` capture |
+| Pregunta concreta del huésped | ⚠️ texto presente | NO parseado |
+| Idioma real del huésped | ❌ | `lang='en'` mintió |
+| **Precio que ve el guest** | ❌ | **NO viene en payload** |
 
 ---
 
-## §3 · Spec del bot — PR1, PR2, PR3
+## §3 · Spec del bot — PR1, PR2, PR3 (REV 3)
 
-### §3.1 · PR1 — Infraestructura inquiry-response (approval mode)
+### §3.1 · PR1 — Infraestructura inquiry-response (REV 3 — arquitectura webhook + debounce + pause)
 
 **Branch:** `feat/inquiry-bot-infra`
-**Effort:** 8-12h CC
-**Risk:** muy bajo (no sale a producción real, todo a `pending_replies`)
+**Effort:** 10-14h CC (REV 3 +2h por debounce/pause logic)
+**Risk:** muy bajo
 
 #### Archivos a crear
 
 ```
 apps/worker-bot/src/inquiry-response.ts            // Handler principal
+apps/worker-bot/src/inquiry-enqueue.ts             // NEW REV 3 — webhook → PIR enqueue
 apps/worker-bot/src/inquiry-templates.ts           // Template loader + composer
 apps/worker-bot/src/inquiry-parser.ts              // Haiku question extraction
+apps/worker-bot/src/inquiry-pause-check.ts         // NEW REV 3 — 1h pause logic
 packages/agents/src/prompts/inquiry-question-parser.ts
 migrations/0051_pending_inquiry_replies.sql
 apps/web/src/pages/admin/inquiry-replies.astro     // Approval UI
 apps/web/src/pages/api/admin/inquiry-replies/[id].ts
 apps/worker-bot/tests/inquiry-response.test.ts
 apps/worker-bot/tests/inquiry-parser.test.ts
+apps/worker-bot/tests/inquiry-pause.test.ts        // NEW REV 3
 ```
 
-#### Migration 0051
+#### Migration 0051 (REV 3 — schema actualizado)
 
-Crear tabla `pending_inquiry_replies` con:
-- `id` ULID, `beds24_event_id` UNIQUE, `room_id`, `channel`
-- Guest snapshot: name, message_text, lang_detected, arrival/departure/nights/adults
-- ~~`airbnb_price_mxn`~~ **REMOVIDO REV 2** — no mostraremos número en mensaje. Sí guardamos `meta_revenue_net_mxn` (= payload.booking.price) solo para reporting interno.
-- Question extraction: detected boolean, topic enum, extracted text, confidence
-- Composition: template_r2_key, snapshot, message_1_text, message_2_text (nullable)
-- LLM cost tracking
-- Status enum: approval_pending | approved | sent | rejected | expired | auto_send_eligible
-- Reviewed_by, reviewed_at, rejection_reason
-- Sending result: sent_at, send_attempts, external_message_ids
-- Indexes en status, room, unsent
+```sql
+CREATE TABLE pending_inquiry_replies (
+  id TEXT PRIMARY KEY,                              -- ULID
+  beds24_event_id INTEGER NOT NULL UNIQUE,          -- idempotency key
+  beds24_booking_id INTEGER NOT NULL,
+  room_id INTEGER NOT NULL,
+  channel TEXT NOT NULL DEFAULT 'airbnb',
 
-**Decisión cerrada:** un PIR row por inquiry. Si el guest manda 3 mensajes consecutivos, sigue siendo 1 PIR (no multiplica).
+  -- Guest snapshot
+  guest_first_name TEXT,
+  guest_message_text TEXT NOT NULL,
+  guest_message_lang_detected TEXT,
+  arrival TEXT,
+  departure TEXT,
+  num_nights INTEGER,
+  num_adults INTEGER,
+  meta_revenue_net_mxn REAL,                        -- payload.booking.price (INTERNAL ONLY, never shown to guest)
 
-#### Handler `runInquiryAutoRespond` — flujo
+  -- Question extraction (Haiku)
+  question_detected INTEGER NOT NULL DEFAULT 0,
+  question_topic TEXT,
+  question_topics_list TEXT,                        -- JSON array si multiple
+  question_extracted TEXT,
+  question_confidence REAL,
+  question_tone TEXT,
+  red_flag TEXT,
 
-1. SELECT new inquiry events sin PIR row, últimos 24h, referer LIKE 'Airbnb', LIMIT 20
-2. Filter eventos sin guest message (Airbnb a veces genera inquiry from "Save")
-3. Parse guest message via Haiku (lang, topic, question, tone, red_flag)
-4. Load template R2 per villa+lang
-5. Compose 2 messages: direct answer + enriched proposal
-6. INSERT PIR row status=approval_pending
-7. markEventActionTaken
-8. Si high-stake (evento, complaint) → Telegram alert Karina
+  -- Composition
+  template_r2_key TEXT,
+  template_content_snapshot TEXT,
+  message_1_text TEXT,
+  message_2_text TEXT,
+
+  -- LLM cost
+  llm_model TEXT,
+  llm_tokens_in INTEGER,
+  llm_tokens_out INTEGER,
+  llm_cache_hit INTEGER DEFAULT 0,
+  llm_cost_usd REAL,
+
+  -- REV 3: Debounce + pause architecture
+  process_at INTEGER NOT NULL,                      -- unix timestamp when ready to process (NOW + 5min on insert)
+  last_inbound_msg_at INTEGER NOT NULL,             -- last guest msg time, resets process_at +5min on each new guest msg
+  bot_pause_until INTEGER,                          -- nullable. If set, bot will not send until this timestamp
+  pause_reason TEXT,                                -- 'host_intervened' | 'manual_pause' | 'red_flag'
+
+  -- Status lifecycle (REV 3 enum extended)
+  status TEXT NOT NULL DEFAULT 'awaiting_processing' CHECK (status IN (
+    'awaiting_processing',    -- webhook recibió, esperando debounce window
+    'approval_pending',       -- Haiku ya procesó, esperando review humano (PR1) o canary auto-send (PR2)
+    'approved',               -- approved for send, held in queue
+    'sent',                   -- delivered
+    'rejected',               -- explicit human rejection
+    'expired',                -- 48h sin acción
+    'auto_send_eligible',     -- canary % hit, will send sin approval
+    'superseded_by_human',    -- host respondió primero, audit only
+    'paused'                  -- waiting for bot_pause_until
+  )),
+  reviewed_by TEXT,
+  reviewed_at INTEGER,
+  rejection_reason TEXT,
+
+  -- Send result
+  sent_at INTEGER,
+  send_attempts INTEGER NOT NULL DEFAULT 0,
+  send_error_last TEXT,
+  external_message_id_1 TEXT,
+  external_message_id_2 TEXT,
+
+  created_at INTEGER NOT NULL,
+  updated_at INTEGER NOT NULL
+);
+
+CREATE INDEX idx_pir_status ON pending_inquiry_replies(status, process_at);
+CREATE INDEX idx_pir_room ON pending_inquiry_replies(room_id, status);
+CREATE INDEX idx_pir_ready ON pending_inquiry_replies(process_at)
+  WHERE status IN ('awaiting_processing', 'paused');
+CREATE INDEX idx_pir_booking ON pending_inquiry_replies(beds24_booking_id, created_at);
+```
+
+#### Handler architecture (REV 3 — split en 3 funciones)
+
+**Función 1: `enqueueInquiryReply(env, beds24Event)`** — llamada por webhook handler
+
+```
+1. Parse payload, extract booking + messages
+2. Filter: only inquiry status + Airbnb referer + NOT Casa Chamán (679176)
+3. Check if PIR exists for beds24_event_id:
+   - NO existe → INSERT new PIR (process_at = NOW + 5min, status='awaiting_processing')
+   - SÍ existe → UPDATE process_at = NOW + 5min, last_inbound_msg_at = NOW
+                 (debounce reset: si guest manda otro msg, timer reinicia)
+4. NO procesar acá. Solo enqueue.
+```
+
+**Función 2: `processReadyInquiries(env)`** — llamada por cron `*/5min` existente
+
+```
+1. SELECT PIR rows WHERE status='awaiting_processing' AND process_at <= NOW LIMIT 20
+2. For each row:
+   a. Check pause logic (función 3)
+      - Si bot_pause_until > NOW → status='paused', skip
+      - Si bot_pause_until <= NOW pero existe host msg en último 1h → status='paused', extend bot_pause_until
+      - Si no hay host msg en último 1h → continuar processing
+   b. Check if host respondió DESPUÉS del last_inbound_msg_at:
+      - SÍ host_msg_time > last_inbound_msg_at → status='superseded_by_human', audit, skip send
+      - NO → continuar
+   c. Parse via Haiku
+   d. Load template R2
+   e. Compose 2 messages
+   f. status='approval_pending' (PR1) o aplicar canary % (PR2)
+   g. UPDATE PIR row con composition + LLM cost
+3. Backup sweep cada 3ra ejecución (cron tick mod 3 == 0):
+   - SELECT beds24_events WHERE status='inquiry' AND id NOT IN (SELECT beds24_event_id FROM pending_inquiry_replies)
+   - For each missing → call enqueueInquiryReply
+```
+
+**Función 3: `checkHumanPause(env, pir)`** — lógica 1h pause time-based
+
+```
+1. SELECT bot_messages_inbox 
+   WHERE booking_id = pir.beds24_booking_id 
+     AND source = 'host' 
+     AND message_time > pir.last_inbound_msg_at - 3600  -- ventana de búsqueda extendida
+   ORDER BY message_time DESC LIMIT 1
+   
+2. Si NO existe host msg → no pause, retorna {paused: false}
+
+3. Si existe host msg:
+   - last_host_msg_at = found.message_time
+   - elapsed_since_host = NOW - last_host_msg_at
+   - Si elapsed_since_host < 3600 (1h) → 
+       {paused: true, pause_until: last_host_msg_at + 3600, reason: 'host_intervened'}
+   - Si elapsed_since_host >= 3600 (1h sin host activity) → 
+       {paused: false, audit: 'human_intervention_expired'}
+```
+
+**Webhook integration point:**
+
+El handler de Beds24 webhook (ya existente en código actual) debe llamar `enqueueInquiryReply` al recibir status='inquiry' events. Punto de integración: donde actualmente hace `action_taken='skipped_inquiry'`, ahora hace ese log + llama enqueue.
+
+#### Cron schedule (REV 3 — sin agregar cron nuevo)
+
+| Cron actual | Frecuencia | Handler nuevo dentro |
+|---|---|---|
+| `0 10 * * *` (daily) | 1×/día | (no cambio) |
+| `*/5 * * * *` (polling) | Cada 5 min | **+ `processReadyInquiries()` cada tick** |
+| `*/30 * * * *` (pre-stay scan) | Cada 30 min | (no cambio) |
+
+**Backup sweep dentro de `*/5min`:** cada 3er tick (mod 3 == 0), también escanea `beds24_events` sin PIR row asociado. Worst case: 15 min hasta detectar webhook lost.
 
 #### Inquiry question parser prompt (Haiku 4.5)
 
-Output JSON con `lang` (es|en|other), `lang_confidence`, `topic` (chef|veveres|precio|mascotas|amenidades|ubicacion|capacidad|evento|fechas|transporte|actividades|ninguna|multiple), `topics_list`, `question_extracted`, `question_confidence`, `tone` (casual|formal|urgent|vip), `red_flag` (null|off_platform_attempt|negotiation_aggressive|complaint).
+Output JSON: `lang` (es|en|other), `lang_confidence`, `topic` (chef|veveres|precio|mascotas|amenidades|ubicacion|capacidad|evento|fechas|transporte|actividades|ninguna|multiple), `topics_list`, `question_extracted`, `question_confidence`, `tone` (casual|formal|urgent|vip), `red_flag` (null|off_platform_attempt|negotiation_aggressive|complaint).
 
-#### Decisiones cerradas PR1
+#### Decisiones cerradas PR1 (REV 3 actualizado)
 
 | Decisión | Valor | Razón |
 |---|---|---|
 | Idempotencia | Por `beds24_event_id` UNIQUE | Beds24 webhook puede llegar 2x |
+| **Trigger architecture** | **Webhook push + 5min debounce + cron processor** | Industry standard, captura 70% bursts |
+| **Debounce reset** | **Cada nuevo guest msg resetea `process_at = NOW + 5min`** | Agrupa serie de mensajes |
+| **Cron** | **Reutilizar `*/5min` existente** | NO agregar 5to cron |
+| **Backup sweep** | **Cada 3er tick (`*/15min` efectivo)** | Defense in depth |
+| **Human pause** | **Time-based 1h después de host msg** | Pragmatic, sin LLM extra |
+| **Bot retoma** | **Si 1h sin host msg adicional → unpause** | Asume host no estaba siguiendo |
 | Window de procesamiento | últimos 24h | Inquiries más viejas pierden valor |
-| Estado inicial | `approval_pending` siempre | PR1 NUNCA auto-envía |
-| Approval UI | `/admin/inquiry-replies` (nueva) | Separate de `/admin/inbox` |
+| Estado inicial PR1 | `awaiting_processing` → `approval_pending` | Nunca auto-envía en PR1 |
+| Approval UI | `/admin/inquiry-replies` | Separate de `/admin/inbox` |
 | Editor en UI | Sí, editan msg1 + msg2 antes de approve | Polish manual |
-| Approval timeout | 48h → `expired` | No quedan pending forever |
-| 2 mensajes siempre | No — si no hay pregunta clara, solo 1 (template completo) | Evita spam |
+| Approval timeout | 48h → `expired` | No pending forever |
 | Idioma respuesta | El del mensaje guest, NO `payload.lang` | Airbnb mistraduce |
-| Multi-mensaje threading | 2-3s delay entre msg 1 y msg 2 | Beds24 wiki recomienda |
-| Casa Chamán | Filtrar — no responder | Memoria #6, no bookable |
-| **Precio en mensaje** (REV 2) | **NUNCA mostrar número** | `payload.price` = net Alex, NO total guest |
+| Multi-mensaje threading | 2-3s delay entre msg 1 y msg 2 | Beds24 wiki |
+| Casa Chamán | Filtrar — no responder | Memoria #6 |
+| Precio en mensaje | NUNCA mostrar número | `payload.price` = net Alex |
 
-#### Tests PR1
+#### Tests PR1 (REV 3 ampliado)
 
 - drafts response for new inquiry with question
-- skips inquiry without guest message
+- skips inquiry without guest message  
 - detects language correctly when payload.lang != actual
 - extracts topics correctly
-- does NOT skip high-stakes alert
 - respects 24h window
-- idempotente
+- idempotente (mismo beds24_event_id → solo 1 PIR)
 - handles malformed payload gracefully
 - skips Casa Chamán
-- **NEW REV 2:** template renders NEVER contains explicit MXN number
+- template renders NEVER contains explicit MXN number
+- **NEW REV 3:** burst de 3 msgs guest en 90 seg → solo 1 PIR row, process_at se resetea cada UPDATE
+- **NEW REV 3:** host respondió 30 min antes de cron tick → PIR status='paused', bot_pause_until = host_msg_at + 1h
+- **NEW REV 3:** host respondió hace 2h sin más actividad humana → bot retoma, status='approval_pending'
+- **NEW REV 3:** host respondió, después guest msg nuevo dentro de 1h → bot keep paused, bot_pause_until extends
+- **NEW REV 3:** backup sweep detecta beds24_event sin PIR → enqueues correctly
 
-#### DoD PR1
+#### DoD PR1 (REV 3)
 
 - Migration 0051 applied remote D1
-- Handler deployed, NOT cron-scheduled yet
+- Webhook handler integrado con `enqueueInquiryReply`
+- Cron `*/5min` integrado con `processReadyInquiries` + backup sweep cada 3er tick
 - `/admin/inquiry-replies` UI live con edit + approve + reject
-- Smoke test: simular inquiry payload → PIR row created
+- Smoke test: simular inquiry payload → PIR row created status='awaiting_processing' → tras 5min → status='approval_pending'
+- Smoke test pause: simular host msg → PIR status='paused' → simular 1h sin host activity → cron unpause
 - Tests ≥85% coverage
 - Zero auto-sends (canary 0%)
 - Documentation en code
@@ -279,13 +373,11 @@ Output JSON con `lang` (es|en|other), `lang_confidence`, `topic` (chef|veveres|p
 
 #### Templates en R2 — 8 totales (4 villas × ES+EN)
 
-`inquiry-rincon-del-mar-es.md`, `inquiry-rincon-del-mar-en.md`, `inquiry-las-morenas-es.md` (chef OPCIONAL clarificado), `inquiry-las-morenas-en.md`, `inquiry-combinada-es.md` (58-60 pax), `inquiry-combinada-en.md`, `inquiry-huerta-cocotera-es.md` (sin chef default), `inquiry-huerta-cocotera-en.md`.
+`inquiry-rincon-del-mar-es.md`, `inquiry-rincon-del-mar-en.md`, `inquiry-las-morenas-es.md` (chef OPCIONAL), `inquiry-las-morenas-en.md`, `inquiry-combinada-es.md` (58-60 pax), `inquiry-combinada-en.md`, `inquiry-huerta-cocotera-es.md` (sin chef default), `inquiry-huerta-cocotera-en.md`.
 
-#### Template Rincón del Mar ES — propuesta enriched (REV 2)
+#### Template Rincón del Mar ES — propuesta enriched (REV 2 manteniendo, REV 3 sin cambios)
 
-2 mensajes separados por marcador `{{MSG_2_BREAK}}`. Placeholders: `{guestFirstName}`, `{numAdults}`, `{nightsCount}`, `{questionAnswer}`.
-
-🔴 **REV 2: `{airbnbPriceMxn}` REMOVIDO.** Reemplazado por frase descriptiva.
+2 mensajes separados por `{{MSG_2_BREAK}}`. Placeholders: `{guestFirstName}`, `{numAdults}`, `{nightsCount}`, `{questionAnswer}`.
 
 **Mensaje 1 (corto, <500 chars):**
 
@@ -333,21 +425,7 @@ Confirmás {numAdults} huéspedes o vienen más? Cualquier duda más, escribíme
 — Alexander 🏖
 ```
 
-**Notas críticas del template (REV 2):**
-
-1. `{questionAnswer}` es dinámico — Haiku rellena con respuesta a pregunta detectada. Sin pregunta: saludo genérico.
-2. **🔴 NO `{airbnbPriceMxn}`** — el payload `price` es net Alex, NO total guest. Lenguaje: "la tarifa que ya viste en Airbnb cubre la villa completa..." (sugerencia textual de Alex).
-3. **Emojis usados** (todos confirmados safe per blocklist 2026-05-14): 👋 🌊 🏖 ✅ 📍 💰 🛎 ⭐ 👉
-4. **NO usar:** 🌅 📶 🔒 🚨 (Airbnb bloquea o sospechoso)
-5. **NO incluir** footer cryptic `--> rincondelasmorenas / --> rincondelmar`
-6. **NO usar** "inseguridad de Acapulco" — reemplazar por "lejos del bullicio"
-7. Chef Celene **nombrada** — confianza > anonimato
-8. "Servicio chef incluido" claro — solo para RdM. Morenas será opcional $1,000/$1,500
-9. **$300 personas extras + $250-280/persona víveres + $1,400 paquete eventos**: estos sí son números nuestros, no de Airbnb. OK mostrarlos.
-
-#### Composer `{questionAnswer}` — determinista (REV 2)
-
-Switch/case sobre topic detectado. Anti-hallucination: NO LLM-generated, hardcoded responses por topic.
+#### Composer `{questionAnswer}` — determinista (REV 2 maintaining)
 
 ```
 chef     → "El servicio de chef SÍ está incluido en la tarifa que ya viste en Airbnb (Chef Celene + cocinera + mozo)."
@@ -357,10 +435,6 @@ mascotas → "Aceptamos hasta 2 mascotas por reservación, con un cargo único d
 evento   → "¡Felicidades por el evento! Para bodas/XV años manejamos paquete de $1,400/persona, mínimo 40 invitados."
 default  → "Muchas gracias por tu pregunta. Te respondo a detalle en el siguiente mensaje."
 ```
-
-**Patrón anti-confusion REV 2:** cuando hablamos de la tarifa Airbnb, **siempre** decimos "la tarifa que ya viste en Airbnb" — referenciamos lo que el guest ya conoce, sin inventar número.
-
-**Voto WC preliminar:** composer determinista para PR2. Anti-hallucination es prioridad. Stage 2 (futuro) podría usar LLM con KB injection para casos novedosos.
 
 #### Canary scaling plan
 
@@ -373,48 +447,33 @@ default  → "Muchas gracias por tu pregunta. Te respondo a detalle en el siguie
 | 50% | mitad auto-send | 14 días | Sustained <5% issues |
 | 100% | todas auto-send | indefinido | — |
 
-**Override siempre activo:** Karina/Alex marcan booking `bot_paused=1` y el bot respeta.
-
 **Telegram alert flow:**
 - High-stake (evento, complaint, off-platform) → siempre approval_pending + alert Karina
 - Canary % NO aplica a high-stake
 - Haiku confidence <0.5 → siempre approval_pending
 
-#### Decisiones cerradas PR2
+#### Eval cases PR2 (REV 3 — agregados iq011, iq012)
 
-| Decisión | Valor | Razón |
-|---|---|---|
-| Templates per-language ES/EN | Sí, 8 totales | EN no traducidos suenan robóticos |
-| Templates per-villa | Sí, 4 × 2 = 8 | Diferencias críticas (chef RdM vs Morenas) |
-| Casa Chamán | EXCLUIR | Memoria #6 |
-| Mensaje 1 charlimit | <500 chars | Mobile-first |
-| Mensaje 2 charlimit | <2000 chars | Cover Combinada (2 villas) |
-| 2-3s delay msg1→msg2 | Sí | Beds24 wiki |
-| Auto-translate | NO — usar ES/EN | Pierde matiz |
-| `{questionAnswer}` | Composer determinista | Anti-hallucination |
-| Footer signature | "— Alexander 🏖" | Reemplaza cryptic |
-| **Precio Airbnb en texto** (REV 2) | **"la tarifa que ya viste en Airbnb..."** | `price` payload = net Alex, no total guest |
-
-#### Eval cases PR2 (10 scenarios, REV 2 ajustado)
-
-- iq001: Ana Karen real (chef + víveres) — **REV 2:** msg2 NO contiene número MXN del payload
+- iq001: Ana Karen real (chef + víveres) — msg2 NO contiene número MXN
 - iq002: EN guest mascotas Las Morenas
 - iq003: Inquiry sin pregunta concreta
 - iq004: Wedding inquiry high-stake
 - iq005: Off-platform attempt
 - iq006: Complaint pre-booking
 - iq007: Multiple topics
-- iq008: **REV 2** Precio explícito — bot dice "tarifa que ya viste en Airbnb cubre la villa completa", NO inventa número
+- iq008: Precio explícito — bot dice "tarifa que ya viste en Airbnb", NO inventa número
 - iq009: Negotiation agresivo
 - iq010: Idioma payload incorrecto (FR pero payload dice ES)
+- **iq011 (NEW REV 3):** Host respondió 30min antes → PIR status='paused', bot NO envía, audit log claro
+- **iq012 (NEW REV 3):** Host respondió hace 2h sin más actividad humana → cron retoma normal, bot procesa Haiku + composer + send
 
 #### DoD PR2
 
 - 8 templates pegados en R2 vía `/admin/templates`
-- 10 eval cases ≥90% pass
+- 12 eval cases ≥90% pass (iq001-iq012)
 - Canary scaling logic implementada
 - Smoke test 1 inquiry real respondida
-- `/admin/inquiry-replies` muestra canary status
+- `/admin/inquiry-replies` muestra canary status + pause status
 - Telegram alert high-stake LIVE
 - Worker deploy (manual `wrangler deploy`)
 
@@ -423,7 +482,7 @@ default  → "Muchas gracias por tu pregunta. Te respondo a detalle en el siguie
 ### §3.3 · PR3 — Lifecycle post-booking activation
 
 **Branch:** `feat/lifecycle-activation`
-**Effort:** 6-10h CC (mayoría operacional)
+**Effort:** 6-10h CC
 **Risk:** medio-alto (touches 25 active bookings)
 **Dependency:** PR2 canary 100% sustained 14 días
 
@@ -438,16 +497,12 @@ default  → "Muchas gracias por tu pregunta. Te respondo a detalle en el siguie
 | `checked_out` → `review_pending` | `runPostStay` | Review request |
 
 Todos existen. Falta:
-1. Pegar templates Phase B.1 en R2 (32 templates × 4 villas × 2 lifecycle moments mínimo)
+1. Pegar templates Phase B.1 en R2 (32 templates)
 2. Activar `MESSENGER_OUTBOUND_ENABLED='true'`
 3. Canary scaling análogo PR2
+4. **REV 3:** Aplicar misma pause logic 1h a lifecycle bot
 
-#### Templates Phase B.1 mínimos a pegar
-
-Reusar templates `PROG:*` del JSON. Solo necesitan:
-- Polish con placeholders canónicos
-- Split en archivos R2 separados
-- Remover footer cryptic
+#### Templates Phase B.1 mínimos
 
 Para PR3 minimum viable:
 - `welcome-<slug>-<lang>.md` × 8
@@ -467,12 +522,7 @@ Total: 32 templates. ~4-6h Alex/Karina polish.
 | Karina notification | Daily digest 09:00 Acapulco |
 | Pause flag | Respeta `bookings.pre_stay_skip=1` |
 | Quiet hours | NO send 22:00-08:00 Acapulco |
-
-#### Followups (no en PR3)
-
-- T+3/T+7/T+14 follow-up de leads abandonados → thread/221
-- Pre-approval auto-send → defer
-- VIP/repeat detection → Phase B.8 defer
+| **(REV 3) Human pause 1h** | **Aplica a todos los touchpoints lifecycle** | Misma lógica que inquiry bot |
 
 ---
 
@@ -485,121 +535,46 @@ Total: 32 templates. ~4-6h Alex/Karina polish.
 | **Airbnb** | JPG, GIF, PNG **únicamente** | 2 MB |
 | **Vrbo** | PDF, JPG, GIF, PNG | 2 MB |
 | **Booking.com** | Email-based | 2 MB |
-| **WhatsApp BSP** (ManyChat) | JPG, PNG, PDF, MP4, audio | 16 MB |
+| **WhatsApp BSP** | JPG, PNG, PDF, MP4, audio | 16 MB |
 
-### Implicación crítica: NO PDFs en Airbnb
+**NO PDFs en Airbnb.** Para cotización detallada: texto largo o link a página.
 
-Approach común "mandamos PDF de propuesta" NO funciona en Airbnb. Alternativas:
-- Mandar imagen (max 2MB)
-- Link a URL pública con propuesta
-- Texto largo en mensaje (hasta 5000 chars)
-
-### Casos de uso interesantes
-
-| Caso | Channel | Implementación |
-|---|---|---|
-| Foto exterior villa específica | Airbnb JPG | R2 already has photos. Pre-procesar a <2MB |
-| Foto de Chef Celene cocinando | Airbnb JPG | Trust signal humano |
-| Mapa de ubicación | Airbnb JPG | Screenshot Google Maps |
-| Cotización detallada PDF | Vrbo / WhatsApp | NO Airbnb |
-| Video walkthrough villa | WhatsApp solamente | MP4 <16MB |
-| Diferencias entre villas | Airbnb link a `/comparar-casas` | Live page > JPG |
-
-### Lo que NO recomiendo automatizar
-
-- Attachments PDF/video en respuesta a inquiry → riesgo alto, formato no estándar, parece spam
-- Foto Alex personal → privacy
-- Screenshots con datos del huésped → leak data
-
-### Lo que SÍ vale la pena (post-PR3)
-
-**Voto WC preliminar:** un solo attachment por inquiry, **foto de la villa específica** desde R2, **solo si Haiku detecta interés alto** (signals: pregunta específica + tono entusiasta).
+**Voto WC post-PR3:** foto de villa específica desde R2 si Haiku detecta interés alto. Defer.
 
 ---
 
 ## §5 · Arquitectura: bot único vs separado
 
-### Opciones consideradas
-
-- **A — Bot único:** Un Worker, un agente Haiku, KB único, switch por canal
-- **B — Bots separados:** Worker dedicado per canal
-- **C — Híbrido:** Worker compartido, prompts diferenciados
-
-### Análisis dimensional
-
-**Dimension 1 — KB diferencial.** WhatsApp permite "apapacha" costeño, Karina cell directo, emojis libres. Airbnb tiene blocklist emoji + off-platform rules + traducción auto. Pero **KBs son ~85% iguales** (info de villas, precios, políticas). El 15% diferencial son metadata de canal.
-
-**Dimension 2 — Code reuse.** Hoy `sendMessageRouted` ya abstrae channel. Toda la abstracción está ahí. Separar = duplicación pesada (KB management, prompts, evals, deploys, secrets, observability).
-
-**Dimension 3 — Tone.** ¿Bot suena igual en ambos canales? **Voto WC: tono unificado con micro-adjustments.** El bot escribe como "Alex genuino": cálido, técnico cuando hace falta, costeño cuando es genuino. En Airbnb, menos emojis decorativos. En WA, más.
-
-**Dimension 4 — Failure modes.** Aislamiento de Bots separados es real pero **cost de duplication > benefit de isolation** dado que ambos canales hablan a mismos clientes.
-
-### Recomendación final voto WC preliminar
-
-**Opción A — Bot único con context switch por canal.**
+**Voto WC final: Bot único con context switch por canal.**
 
 ```
 worker-bot (Hono, deployed)
-├── Greeter (WhatsApp pre-booking, LIVE thread/217, 98.5% eval)
+├── Greeter (WhatsApp pre-booking, LIVE thread/217)
 ├── Inquiry Responder (Airbnb pre-booking, NEW PR1-PR2)
-├── Lifecycle Bot (post-booking, construido PR3 activa)
+├── Lifecycle Bot (post-booking, PR3 activa)
 └── Karina Suggest (admin assist, ya LIVE)
 ```
 
-**Lo común:** KB en KV, `sendMessageRouted`, `messenger_outbound`, kill switch, eval framework.
+**Lo común:** KB en KV, `sendMessageRouted`, `messenger_outbound`, kill switch, eval framework, **REV 3:** pause logic 1h.
 
-**Lo diferenciado:** Prompt per use-case, templates per channel, channel-specific rules en cada prompt.
-
-### Lo que NO recomiendo
-
-- ❌ Bot separado para Airbnb. Cost > benefit.
-- ❌ KB separada per canal. Stale risk explota.
-- ❌ Tono dramáticamente diferente. Inconsistente.
-- ❌ Llamarlo "Karina bot" o "Alex bot" en mensajes. Expectativas humanas.
+**Lo diferenciado:** Prompt per use-case, templates per channel, channel-specific rules.
 
 ---
 
-## §6 · Best practices research — competidores
+## §6 · Best practices research — industry validation (REV 3 ampliado)
 
-### Hospitable (el más relevante — su AI se llama "Alex")
+### Patrón canónico cross-industry (confirmado en research)
 
-**Patrón principal:**
-- 3 niveles control: **Suggest** → **Approve** → **Auto Reply**
-- AI detecta intent en **20+ topics** (WiFi, mascotas, descuentos, etc.)
-- **Knowledge Hub** per-property
-- **Escalation policy fija** (AI NO override)
-- **Office Hours** configurables
-- **Multilingual auto-match**
-- **Question Rules vs Event Rules vs Scheduled Rules**
-- Pricing: $25/property/month base
+| Plataforma | Trigger | Delay | Human handoff |
+|---|---|---|---|
+| **Uplisting** | Webhook | **0-60 min configurable** | "If you respond manually, the auto-responder will not trigger" |
+| **Hospitable** | Webhook | **0-60 min configurable** | "If you manually replied before scheduled time, we will not send it" |
+| **Guesty** | Webhook | **Delay answer field per-rule** | Manual pause per conversation |
+| **Hostaway** | Webhook | **Configurable** | "Delayed messages cancelled if new guest msg, AI reprocesses" |
+| **OpenClaw (OSS)** | Webhook | Configurable | Time-based resume threshold |
+| **RDM (este spec)** | **Webhook + 5min debounce** | **5min default** | **1h time-based unpause** |
 
-**Lo que copiamos en spec:**
-- ✅ 3 niveles control (= canary scaling)
-- ✅ Topic detection (~12 nuestros, 20+ ellos)
-- ✅ Escalation predefined high-stake
-- ✅ Multilingual auto-match
-
-**Lo que NO copiamos:**
-- ❌ Question Rules complejas (overkill 4 villas)
-- ❌ Knowledge Hub UI separada (ya tenemos `/admin/airbnb-content`)
-
-### Hostaway (enterprise, no relevante para 4 villas)
-### iGMS (mid-size, templates per-property + tag system)
-### Enso Connect (AI upsells post-booking, Phase B.6+)
-### OwnerRez (compliance, no relevante)
-### Lodgify / Uplisting / Tokeet / Smoobu / HostBuddy (mid-size variants, no learning único)
-
-### Conclusión research
-
-Patrón industry-standard:
-1. Saved templates per-event
-2. Question rule detection con AI (20+ topics)
-3. Multi-tier control (suggest/approve/auto)
-4. Multilingual matching
-5. Knowledge Hub per-property
-
-**Nuestro spec tiene 4 de los 5.** Quinto = ya cubierto por `/admin/airbnb-content`.
+**Conclusión:** RDM spec **alineado con industry standard**. 1h pause es middle ground entre Hospitable (sin auto-resume) y OpenClaw (configurable).
 
 ### Métricas industry
 
@@ -608,180 +583,39 @@ Patrón industry-standard:
 - Quick Responder badge (Airbnb)
 - Superhost requires ≥90% response rate
 
-**Nuestro target:** <5 min auto-send. Vs 2h actual (Ana Karen) = **mejora 24x**.
+**Target RDM:** <10 min auto-send (5min debounce + 5min cron worst case). Vs 2h actual = **mejora 12x**.
 
 ---
 
-## §7 · Creatividad — propuestas adicionales
+## §7 · Creatividad — propuestas adicionales (sin cambios REV 3)
 
-Ideas extras, no parte del PR1-PR3 spec. Brain ultra implica explorar más allá del checklist.
+15 ideas, mayoría defer post-PR3. Top 3 ya validadas:
+- §7.1 Upsells dinámicos post-confirmation
+- §7.2 VIP/repeat guest detection
+- §7.5 Quote attachment con imagen
 
-### §7.1 · Upsells dinámicos post-confirmation
-
-| Trigger | Upsell | Revenue potencial |
-|---|---|---|
-| Booking Morenas + group >10 | Chef service $1000-1500/noche | $5K-15K/booking |
-| Booking RdM + arrival distance (>14d) | Compras víveres margen 5%/$450 min | $500-2K/booking |
-| Booking + special date (XV, anniversary) | Paquete eventos $1,400/pax | $50K-100K/evento |
-| Booking + 1-2 personas adicionales | Extras $300/noche pre-paid | $600-1.8K/booking |
-| Booking + arrival night | Masajes Michel | $0 directo |
-| Group >20 | AcaScuba yates/snorkel | $0 directo, $1K commission posible |
-
-**Risk:** muy spammy si mal calibrado. Defer post-PR3 con quiet hours.
-
-### §7.2 · VIP / Repeat guest detection
-
-Hoy 25 bookings 2026 + 20 mensajes históricos. Algunos son **mismas personas que regresan**.
-
-Match phone/email/name → flag VIP, response personalizada:
-> "Hola {guestFirstName}! Qué gusto verte otra vez — recuerdo tu visita en {previousArrival}. Para esta vez te preparo..."
-
-**Risk:** false positives. Mitigation: phone exact match only.
-
-### §7.3 · Recurring discount automático super-VIPs
-
-Guests con 3+ visitas → 5% off automático sin que pidan. Como gesture de fidelidad.
-
-**Risk:** crea expectativa que NO podemos cumplir todos los casos. Defer.
-
-### §7.4 · Off-platform conversion legal
-
-Airbnb estricto pre-booking. Pero **post-stay** es permitido compartir contacto directo.
-
-Lifecycle bot Phase B.7 (post-stay review) puede incluir:
-> "Si quieren regresar, encantado de coordinarte directamente — WhatsApp +52 744 144 1575. Mismo trato, sin comisiones de Airbnb."
-
-**Revenue:** Airbnb cobra ~15% commission. Direct = +15% net.
-
-**Risk:** Airbnb ToS. Defer hasta investigar legalidad.
-
-### §7.5 · Quote attachment con imagen
-
-Para inquiries grandes (>20 pax o evento), bot genera **imagen** dinámica de cotización (HTML → JPG via Cloudflare Browser Rendering → R2 → attached <2MB).
-
-**Benefits:** look profesional, branded, scannable mobile.
-
-**Defer:** post-PR3.
-
-### §7.6 · Karina-Alex separación clara
-
-Memoria #3: "Alex en design mode, no atiende escalations — solo Karina".
-
-Bot puede:
-- Detectar si Alex en design mode (flag global)
-- Routear high-stake a Karina (+52 744 144 1575)
-- NOT mention Alex personally salvo signature
-- Alex recibe daily digest weekly
-
-**Implementation:** simple feature flag.
-
-### §7.7 · Top 20 FAQs como guidance
-
-Del thread/33 nunca extraído. Hoy 216 guest messages + 20 históricos. Probable top FAQs:
-1. ¿Víveres incluidos? (Ana Karen case)
-2. ¿Hay chef? 
-3. ¿Cuánto cuesta extra una persona? ($300/noche)
-4. ¿Aceptan mascotas? ($300/estancia, máx 2)
-5. ¿Cómo llegar?
-6. ¿WiFi en habitaciones?
-7. ¿Alberca climatizada?
-8. ¿Cancelación?
-9. ¿Eventos/bodas? ($1,400/pax)
-10. ¿Tour virtual?
-
-**Action:** brain quick futuro para validar.
-
-### §7.8 · Anti-pattern: "no cumplir lo prometido"
-
-Bot dice "Chef Celene atiende personalmente" pero Celene enferma → guest engañado.
-
-**Mitigation:** templates evitan promesas que dependan de availability humana. "Nuestro equipo de chef" en vez de "Chef Celene" salvo 100% seguro.
-
-### §7.9 · Detecting "ya tienen otra opción"
-
-Pattern: guest pregunta múltiples veces sobre diferencias entre villas sin commit → probablemente comparando con otra propiedad.
-
-Strategy: emphasize differentiators únicos (Chef Celene specific human, Pacífico vs bahía, 168 reseñas 4.84, 50+ bodas exitosas).
-
-### §7.10 · Conversational state machine
-
-Inquiry response = turn 1. Guest puede generar turn 2, 3, ...
-
-Bot debe saber si ya respondió, modificar templates en subsequent turns, escalar a humano si 3+ turns sin commit.
-
-**Defer:** scope creep. Phase B.2.1 futuro. Por ahora bot responde turn 1, Karina maneja turn 2+.
-
-### §7.11 · Multi-property steering
-
-Guest pregunta por RdM pero requirements (50 personas) sugiere Combinada → bot menciona:
-> "Para 50 personas, te recomiendo la Combinada (RdM + Morenas juntas, hasta 58 personas)."
-
-**Action:** incluir en PR2 si templates lo soportan.
-
-### §7.12 · Casa Chamán teaser pre-launch
-
-Q3 2026 launch. Bot puede mencionar **discreto** SOLO si guest pregunta por future capacity. NO actively promote.
-
-### §7.13 · Wedding package — link al detalle
-
-Templates current mencionan "$1,400 paquete bodas". Doc detallado tiene 35+ servicios opcionales. Bot puede mencionar package en inquiry + link a `/eventos` page (TBD crear).
-
-### §7.14 · Capacity feedback loop
-
-Cuando guest reserva con `numAdult` cerca del máximo:
-> "Vimos que reservaste para 28 personas en RdM. Si llega alguno más, el costo de persona adicional es $300/noche pagado al llegar — no necesitas modificar la reserva en Airbnb."
-
-Reduce friction. Captura revenue.
-
-### §7.15 · Sentiment tracker
-
-Track sentiment per turn. Trending negative → escalate Karina aunque no haya keyword "alarm". Haiku score 0-100, threshold <40 = escalate. Defer.
-
-### §7.16 (NEW REV 2) · Reporting interno con `meta_revenue_net_mxn`
-
-`payload.booking.price` SÍ vale guardar — es la **proyección de revenue NET** que Alex va a cobrar. Útil para:
-- Dashboard interno "expected revenue this month"
-- Comparativa lead → booking (cuántos $ se convierten)
-- Estadística por villa/temporada
-
-Solo guardarlo en D1 (`pending_inquiry_replies.meta_revenue_net_mxn`), NUNCA mostrarlo al guest.
+Ver thread/220 REV 2 §7 para lista completa.
 
 ---
 
-## §8 · Inconsistencias cross-channel que el bot va a destapar
+## §8 · Inconsistencias cross-channel (REV 3 sin cambios)
 
-### §8.1 · Servicio Las Morenas (chef incluido vs opcional)
-Templates JSON 3, 3a, 3b dicen incluido. Listing fields actual dice OPCIONAL $1000/$1500. **Verdad: OPCIONAL.** Fix en templates B.2.
-
-### §8.2 · Reseñas count
-Airbnb listing actual: 168/128/180+. Templates JSON: stale 150-300. apps/web collection: 167/129/89/17 (Combinada off). Fix templates B.2 con números actuales.
-
-### §8.3 · Combinada capacity
-Spec dice 58-60. Listing actual: 58 personas (40 invitados). **Action Karina:** confirmar.
-
-### §8.4 · WiFi password Las Morenas
-`rincondelmar` (todas) vs `Rincondelmar1` (Las Morenas only). **Hidden bug:** guests en Combinada (Morenas side) reciben wrong password. Fix: documentar 2 networks en Combinada Manual.
-
-### §8.5 · Clave caja universal "6720"
-4 villas misma clave. **Security risk** si una comprometida. Defer rotación.
-
-### §8.6 · Paquete bodas precio
-Templates JSON dicen $1000. Kit WhatsApp + Directions + Doc dice $1400. **Fix:** templates B.2 alinear $1400. Create `/eventos` page.
-
-### §8.7 · Cancelación asimétrica
-RdM/Combinada: Superestricta 30d. Morenas: Estricta. Huerta: Firme. **Decisión de negocio.** Bot debe mencionar policy.
-
-### §8.8 · Páginas missing en sitio
-`/guia-llegada` 404 (templates linkean). `/eventos` 404. **Fix:** crear pages.
-
-### §8.9 (NEW REV 2) · "Total Airbnb" no se puede mostrar
-`payload.booking.price` ≠ total que ve el guest. Diferencia = commission Airbnb + service fee + taxes locales (NO viene en payload). **Implicación:** bot NUNCA muestra número de precio. Solo dice "la tarifa que ya viste en Airbnb".
+9 inconsistencias detectadas. Ver REV 2 §8 para detalle. Resumen:
+1. Servicio Las Morenas chef incluido vs opcional
+2. Reseñas count stale
+3. Combinada capacity 58 vs 60
+4. WiFi Morenas password diferente
+5. Clave caja "6720" universal
+6. Paquete bodas $1000 vs $1400
+7. Cancelación asimétrica
+8. Páginas missing /guia-llegada + /eventos
+9. (REV 2) "Total Airbnb" no se puede mostrar
 
 ---
 
 ## §9 · Cost analysis
 
-### Anthropic API budget
+### Anthropic API budget (REV 3)
 
 | Phase | Volume | Cost per request | Monthly |
 |---|---|---|---|
@@ -791,225 +625,177 @@ RdM/Combinada: Superestricta 30d. Morenas: Estricta. Huerta: Firme. **Decisión 
 | PR3 lifecycle 100% | 25 bookings × 5 touchpoints | $0.002 | ~$0.25/mes |
 | **Total expected** | ~150 calls/mo | — | **~$2-3 USD/mes** |
 
-**Cache hit savings:** ~50% on system prompts = $0.0035 effective per inquiry.
+**REV 3 nota:** debounce window NO agrega LLM cost (procesa 1 vez después del debounce, no múltiples). Pause logic NO usa LLM (time-based puro).
 
-### Total infrastructure cost increase
-
-- Anthropic: ~$2-3 USD/mes
-- D1/R2/KV: no incremento meaningful
-- CF Pages: no incremento
-
-**Total:** <$5 USD/mes for full automation. ~$60 USD/year.
+**Total infrastructure:** <$5 USD/mes. ~$60/año.
 
 ---
 
 ## §10 · Definition of done global
 
-### PR1
-- Migration 0051 applied remote D1
-- Handler deployed
+### PR1 (REV 3)
+- Migration 0051 applied remote D1 (con columnas process_at, last_inbound_msg_at, bot_pause_until)
+- Webhook handler integrado con `enqueueInquiryReply`
+- Cron `*/5min` integrado con `processReadyInquiries` + backup sweep
 - Approval UI live
-- Smoke test 1 inquiry payload
+- Smoke test debounce: 3 msgs guest en 90 seg → 1 PIR, process_at se resetea
+- Smoke test pause: host msg → PIR paused 1h → 1h sin host → unpause
 - Tests ≥85% coverage
 - Zero auto-sends
-- Documentation in code
 
 ### PR2
 - 8 templates in R2
-- 10 eval cases ≥90% pass
+- 12 eval cases ≥90% pass (incluye iq011 + iq012 pause logic)
 - Canary 10% smoke test successful
 - Telegram alert high-stake LIVE
-- Worker version bumped + deployed
-- Karina training sesión (15 min)
-- **REV 2:** templates NO contienen `{airbnbPriceMxn}` placeholder
+- Worker deploy
+- Karina training (15 min)
 
 ### PR3
 - 32 lifecycle templates in R2
 - `MESSENGER_OUTBOUND_ENABLED='true'` deployed
 - Canary 0%→10% smoke test
 - Pre-stay + post-stay scans verified
-- Quiet hours respected (22:00-08:00)
+- Quiet hours respected
 - Karina daily digest LIVE
+- Pause logic 1h aplicada a lifecycle
 
 ### Global success metrics
-- Inquiry response time: <5 min average (vs 2h current)
-- Inquiry response rate: 100% (vs ~85% current)
+- Inquiry response time: <10 min average (vs 2h current)
+- Inquiry response rate: 100%
 - Lead conversion rate: maintain or improve (>28% baseline)
 - False positive rate: <5%
 - Cost: <$10 USD/mes Anthropic
 
 ---
 
-## §11 · Risks + mitigations
+## §11 · Risks + mitigations (REV 3 ampliado)
 
 | Risk | Severity | Mitigation |
 |---|---|---|
-| Bot manda info incorrecta | Alta | Composer determinista PR2 + approval mode PR1 + canary |
-| Bot promete chef/cocinera no disponible | Alta | Template usa "nuestro equipo de chef" genérico |
-| Off-platform attempt → Airbnb baneo | Alta | Red flag detection + escalate to Karina |
+| Bot manda info incorrecta | Alta | Composer determinista + approval mode PR1 + canary |
+| Bot promete chef no disponible | Alta | Template "nuestro equipo de chef" genérico |
+| Off-platform attempt | Alta | Red flag detection + escalate Karina |
 | KB stale | Media | R2→KV pipeline refresh 2h |
-| Idioma mistakes (payload.lang miente) | Media | Detectar via Haiku, NO confiar payload |
+| Idioma mistakes payload.lang | Media | Detectar via Haiku |
 | Wedding inquiry mal manejada | Alta | High-stake siempre approval_pending |
-| Anthropic API outage | Baja | Fallback: template raw sin LLM polish |
+| Anthropic API outage | Baja | Fallback: template raw |
 | Beds24 API rate limit | Baja | 20 per cron run, retry exponential |
 | Karina overwhelmed por approvals | Media | Canary scaling auto-reduces load |
 | Casa Chamán mencionada por error | Alta | Filter roomId in handler |
 | Greeter v7.1 break | Alta | Separate eval framework |
-| **(NEW REV 2)** Bot muestra precio incorrecto al guest | **Alta** | **NUNCA mostrar número MXN. Solo "tarifa que ya viste en Airbnb"** |
+| Bot muestra precio incorrecto | Alta | NUNCA mostrar número, "tarifa que ya viste" |
+| **(NEW REV 3)** Bot retoma justo cuando Karina sigue gestionando | Media | **1h window es conservador. Si Karina necesita más, puede mark `bot_pause_until` manual via /admin** |
+| **(NEW REV 3)** Webhook lost → inquiry sin PIR row | Media | **Backup sweep cada 3er tick `*/5min` = max 15min detection** |
+| **(NEW REV 3)** Debounce reset infinito (guest spam) | Baja | **Cap: process_at no se puede resetear más de 5 veces. Después de 5 → procesa forzado** |
 
 ---
 
-## §12 · Recomendación final (voto WC preliminar)
+## §12 · Recomendación final (REV 3 — arquitectura cerrada)
 
-### Camino propuesto
+### Camino propuesto (sin cambios)
 
-1. **PR1 — Esta semana** (Alex polish templates en paralelo)
-   - 8-12h CC autonomous
-   - Output: infra inquiry-response + approval UI + 0% canary
-   - Risk: muy bajo
-
-2. **PR2 — Próxima semana**
-   - 8-10h CC + 4-6h Alex/Karina templates
-   - Output: 8 templates enriched + canary 10%
-   - Risk: medio
-
-3. **PR3 — 2-3 semanas después**
-   - 6-10h CC + 4-6h Alex/Karina templates lifecycle
-   - Output: lifecycle post-booking activado
-   - Risk: medio-alto
-
-### Por qué este orden
-
-- **PR1 sin riesgo:** approval mode testea infra sin consecuencias
-- **PR2 valida quality:** canary 10% revela issues
-- **PR3 builds confidence:** 2 semanas PR2 estable = trust para lifecycle
-- **Total timeline:** 4-6 semanas a 100% automation
-- **Total CC effort:** 24-32h (~3-4 days)
-- **Total Alex effort:** 8-12h (templates, validation, decisiones)
-
-### Alternativas
-
-**Más agresiva (NOT recomendada):** PR1+PR2 juntos, skip canary 10/25, directo a 50%. Reduce timeline 2 sem. Pero bug en composer → reputation hit.
-
-**Más conservadora:** Approval mode forever, NO auto-send. Reduce Karina carga 80%. Pero pierde valor de <5min response time (+25% conversion industry).
+1. **PR1 — Esta semana** (8-12h CC + Alex polish templates en paralelo)
+2. **PR2 — Próxima semana** (8-10h CC + 4-6h Alex/Karina templates)
+3. **PR3 — 2-3 semanas después** (6-10h CC + 4-6h Alex/Karina templates lifecycle)
 
 ### Lo que necesito de Alex para arrancar
 
-Cuando despiertes:
-1. ¿OK con plan PR1 → PR2 → PR3 en 4-6 semanas?
-2. ¿OK con tono mix costeño + neutral, 2 mensajes, emojis funcionales?
-3. ¿Karina disponible para 4-6h templates polish próxima semana?
-4. ¿OK que CC arranque PR1 cuando confirmes, autónomo?
-5. ¿Hidden constraint que no consideré? (legal, business, family)
+**Status REV 3: Todas las preguntas cerradas. Listo para DoIt task.**
+
+Preguntas históricas (ya respondidas):
+1. ✅ Plan PR1 → PR2 → PR3 en 4-6 semanas
+2. ✅ Tono mix costeño + neutral, 2 mensajes, emojis funcionales
+3. ⏳ Karina templates polish próxima semana (TBC con Karina)
+4. ✅ CC arranca PR1 autónomo
+5. ✅ Precio "tarifa que ya viste en Airbnb"
+6. ✅ Trigger: webhook + 5min debounce + reset
+7. ✅ Skip + audit si host respondió
+8. ✅ Human pause 1h time-based unpause
 
 ---
 
-## §13 · Appendix — research raw
+## §13 · Appendix — research raw (REV 3)
 
-### Beds24 attachment limits
+### Industry quotes (textuales)
 
-- Hard limit 2MB per message
-- Airbnb: JPG, GIF, PNG only
-- Vrbo: PDF, JPG, PNG, GIF
-- Booking.com: depends on channel
+**Uplisting:** "Uplisting can respond almost instantly if you like (0-minute time delay), however, some members prefer to delay up to 60 minutes to allow them to respond manually. If you respond manually, the auto-responder will not trigger."
 
-### Beds24 payload — qué viene y qué NO (REV 2)
+**Hospitable:** "If you have a delay on your message, and you manually replied to the guest before the scheduled send time of the message, then we will not send it. This is to avoid repetition."
+
+**Hostaway:** "Delayed Auto-Reply messages are cancelled (will not be sent) if a new guest message is received during the delay period. Because the new guest message potentially brings new context, AI will take the new guest message into account and reprocess the whole conversation to regenerate a fresh message."
+
+**OpenClaw (OSS):** "When a fromMe message is detected in a DM thread where auto-reply is active, the AI pauses auto-reply for that specific thread. Auto-reply resumes either after [time-based threshold] or [manual resume command]."
+
+### Beds24 payload detalle (REV 2 maintaining)
 
 **En `event_type='booking_created' status='inquiry'`:**
 - `price`: ✅ presente (= net Alex)
-- `commission`: 0 (no aparece detail en inquiry)
-- `deposit`: 0
-- `tax`: 0
-- `priceDetails`: null
-- `invoice`: null
-- `invoiceItems`: null
+- Resto: 0/null
 
 **En `event_type='booking_created' status='confirmed'`:**
 - `price`: ✅ presente (= net Alex)
-- `commission`: ✅ presente (lo que cobra Airbnb)
-- Resto: typically still null
+- `commission`: ✅ presente
+- Resto: typically null
 
-**Lo que NUNCA viene en payload Beds24:**
-- Total que el guest ve en Airbnb (price + commission + service fee + taxes locales)
-- Service fee del guest (cobra Airbnb directo al guest)
-- Taxes locales (varían por país/región)
+**NUNCA viene:** Total guest, service fee, taxes locales.
 
-### Hospitable AI features observed
-
-- 3 control modes (Suggest / Approve / Auto)
-- 20+ topic detection
-- Knowledge Hub
-- Question Rules / Event Rules / Scheduled Rules
-- Office Hours
-- Escalation policy with predefined messages
-- Multilingual matching
-
-### Airbnb response time metrics
-
-- <1h → +25% conversion (Intellihost 5000 properties)
-- 89%→100% response rate → +116% instant bookings
-- Quick Responder badge for sustained fast replies
-- Superhost requires ≥90% response rate
-
-### Templates JSON canonical (28 total)
-
-Source-of-truth del tono Alex. Decisión: usar como **training reference** para parser + composer, NO copiar literalmente (tienen anti-patterns: villas no specific to airbnb_listing_id, footers cryptic, info stale).
-
-### Emoji blocklist Airbnb
+### Emoji blocklist Airbnb (sin cambios)
 
 **BLOCKED confirmed:** 🌅 📶
-
 **Suspected BLOCKED:** 🔒 🚨 🍳 🚿
-
 **SAFE confirmed:** 🛏 ✅ 👨‍🍳 🏊 🏖 🧹 🎵 🛻 🛥 🛎 🛒 🍹 🔥 🥥 💆 🐴 🚣 🤿 🎉 🏅 💬 ☀ ⛱ 1️⃣-6️⃣
 
-### D1 schema relevant
+### D1 schema (REV 3)
 
 ```
 beds24_events            -- inquiries land here
 bot_messages_inbox       -- guest + host messages threaded
-beds24_bookings          -- normalized bookings, full lifecycle status
+beds24_bookings          -- normalized bookings, lifecycle status
 booking_captures         -- pets/menu/chef capture
 inquiries_closed         -- audit trail auto-closed inquiries
 messenger_outbound       -- audit trail outbound, gated by flag
 pending_welcomes         -- legacy, deprecated
-pending_inquiry_replies  -- NEW PR1
+pending_inquiry_replies  -- NEW PR1 (REV 3 schema con process_at, bot_pause_until)
 ```
 
-### Cron schedule
+### Cron schedule (REV 3 — sin agregar nuevos)
 
-- `0 10 * * *` — daily cron
-- `*/5 * * * *` — bot polling
-- `*/30 * * * *` — pre-stay welcome scan
-
-PR1 adds:
-- `*/10 * * * *` — inquiry-response scan
+- `0 10 * * *` — daily cron (sin cambio)
+- `*/5 * * * *` — bot polling (+ processReadyInquiries + backup sweep cada 3er tick)
+- `*/30 * * * *` — pre-stay welcome scan (sin cambio)
 
 ---
 
 ## §14 · Status
 
-**Documento status:** Draft REV 2. WC pre-deliverable autónomo overnight session + correctivo precio.
+**Documento status:** REV 3 — Ready for DoIt CC.
 
-**Cambios REV 2 (2026-05-27 mañana):**
-- Corrección crítica `payload.booking.price` = net Alex (no total guest)
-- Verificado con D1 query directo
-- Template RdM ES: `{airbnbPriceMxn}` REMOVIDO, reemplazado por "tarifa que ya viste en Airbnb"
-- Composer determinista: lenguaje sin números MXN del payload
-- Eval iq001 + iq008 ajustados
-- §8.9 nueva: inconsistencia "Total Airbnb" no se puede mostrar
-- §7.16 nueva: `meta_revenue_net_mxn` reporting interno (solo D1, nunca guest)
-- §11 risks: agregado risk "precio incorrecto" + mitigation
+**Cambios REV 3 (2026-05-27, post-feedback Alex):**
+- Arquitectura webhook + 5min debounce + reset on update CERRADA
+- Skip auto-send si host respondió CERRADO
+- Human pause time-based 1h CERRADO
+- Cron `*/5min` reutilizado, NO agrega 5to cron
+- Backup sweep cada 3er tick
+- Schema migration 0051 actualizado con process_at, last_inbound_msg_at, bot_pause_until, pause_reason
+- Status enum extendido: awaiting_processing, paused, superseded_by_human
+- Handler split en 3 funciones: enqueueInquiryReply, processReadyInquiries, checkHumanPause
+- Tests PR1 ampliados con 5 escenarios nuevos (burst, pause, unpause, backup sweep)
+- Eval cases PR2 ampliados con iq011 + iq012
+- §6 ampliado con industry validation textual
+- §11 risks: agregados 3 risks REV 3 + mitigations
+- §13 industry quotes textuales agregadas
 
 **Próximas acciones:**
-- Alex confirma 5 preguntas §12
-- Decide arrancar PR1 (CC autonomous), o pivota
-- Si arranca: CC ejecuta + WC review pre-merge
+- Alex aprueba DoIt task para CC
+- CC ejecuta PR1 autónomo con spec REV 3
+- WC review pre-merge
+- Alex deploy + smoke test
 
-**Sesión WC:** cerrada hasta próxima invocación.
+**Sesión WC:** Spec cerrado. Listo para handoff a CC.
 
 ---
 
-*FIN thread/220 REV 2. Brain ultra + correctivo precio.*
+*FIN thread/220 REV 3. Arquitectura cerrada, ready for DoIt.*
 
 — Web Claude, 2026-05-27
