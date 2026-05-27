@@ -5,13 +5,37 @@ topic: morning-brief-thread-220-summary
 status: brief
 mode: mobile-read
 created_at: 2026-05-27
+updated_at: 2026-05-27
+revision: 2
 references:
   - threads/220-wc-brain-ultra-airbnb-bot-spec-and-research.md
 ---
 
 # thread/221 — Morning brief: qué hizo WC overnight
 
+> **REV 2 (post-feedback Alex):** corrección sobre `payload.booking.price`. Ver bloque ⚠️ abajo.
+>
 > **Lee primero esto (5 min).** Después si te interesa el detalle, abre thread/220 completo (~45 min lectura).
+
+## ⚠️ Corrección REV 2 — el precio en payload no es lo que ve el guest
+
+Anoche escribí en el spec que `payload.booking.price` era "el número EXACTO que ve el guest en Airbnb". **MAL.** Es tu **revenue NET** (después de commission Airbnb + taxes guest paga). El guest ve un total mayor (price + commission Airbnb + service fee + taxes locales) y ese número **NO viene en el payload**.
+
+**Verificado con D1 query:**
+- Inquiry Ana Karen: `price: 28789.02` (net Alex), commission/tax/details = 0/null
+- Booking confirmado sample: `price: 6117.84`, `commission: 948.27` (separado)
+
+**Fix aplicado en thread/220 REV 2:**
+- Template REMUEVE `{airbnbPriceMxn}` placeholder
+- Lenguaje: "la tarifa que ya viste en Airbnb cubre la villa completa..." (sugerencia textual tuya)
+- Composer determinista actualizado para nunca inventar número
+- Eval iq001 + iq008 ajustados
+- D1 field renombrado a `meta_revenue_net_mxn` (solo reporting interno, nunca al guest)
+- Risk #12 nuevo: "Bot muestra precio incorrecto al guest"
+
+**Por qué importa:** si bot dice "$28,789" y guest ve "$35,000" en Airbnb (con service fee + taxes), guest piensa que estamos mal informados o engañando. Reputation hit.
+
+---
 
 ## Lo que pediste anoche
 
@@ -24,7 +48,7 @@ Tarea autónoma 8h:
 
 ## Output
 
-**thread/220** pusheado a rdm-discussion como draft. ~7,500 palabras.
+**thread/220** pusheado a rdm-discussion como draft. ~7,500 palabras. REV 2 con corrección de precio.
 
 [github.com/alexanderhorn6720/rdm-discussion/blob/main/threads/220-wc-brain-ultra-airbnb-bot-spec-and-research.md](https://github.com/alexanderhorn6720/rdm-discussion/blob/main/threads/220-wc-brain-ultra-airbnb-bot-spec-and-research.md)
 
@@ -73,7 +97,7 @@ Airbnb solo JPG/GIF/PNG. PDFs solo Vrbo/WhatsApp. Limit 2MB Beds24. Implicación
 - ✅ Mix costeño + neutral
 - ✅ Emojis funcionales (safe blocklist verificado)
 - ✅ Rating ⭐ 4.84 / 168 exacto (KB ground truth)
-- ✅ Tarifa Airbnb del payload directo (memoria tuya de anoche)
+- ✅ **REV 2:** Tarifa Airbnb → "la tarifa que ya viste en Airbnb", NUNCA número del payload
 - ✅ Composer determinista (anti-hallucination)
 - ✅ Casa Chamán EXCLUIDA del bot
 - ✅ Idioma respuesta = idioma del mensaje (NO payload.lang miente)
@@ -100,6 +124,7 @@ El bot va a hablar con clientes con info inconsistente. Hallazgos del audit:
 6. **Paquete bodas** templates dicen $1000, actual es $1400.
 7. **Cancelación asimétrica** RdM/Combinada Superestricta vs Morenas Estricta vs Huerta Firme — bot debe mencionar.
 8. **Páginas missing** `/guia-llegada` y `/eventos` dan 404, templates linkean ahí.
+9. **(NEW REV 2)** "Total Airbnb" no se puede mostrar — payload.price = net Alex, no total guest. Bot nunca muestra número.
 
 Ninguno bloquea PR1. Algunos se fixean en PR2 templates polish. Otros requieren acción separada (e.g., crear `/eventos` page).
 
@@ -125,4 +150,4 @@ Te dejo todo listo. Cuando estés despierto y leído, las preguntas 1-5 son lo �
 
 Buenos días. ☀️
 
-— WC, 2026-05-27 overnight autonomous
+— WC, 2026-05-27 overnight autonomous + REV 2 post-feedback
